@@ -18,3 +18,4 @@ TRIANGLE_VERSION   = triangle
 ZLIB_VERSION       = zlib
 NUMEXPR_VERSION    = numexpr
 MATPLOTLIB_VERSION = matplotlib
+STWAVE_VERSION	   = stwave/work

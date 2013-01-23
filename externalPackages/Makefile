@@ -45,7 +45,7 @@ install_core_modules: install_numpy install_nose install_numexpr install_cython 
 
 install_extensions_libraries:
 
-install_extensions_modules: install_setuptools install_matplotlib install_python
+install_extensions_modules: install_setuptools install_matplotlib install_python install_stwave
 
 #distclean
 distclean_core_python: distclean_python
@@ -56,7 +56,7 @@ distclean_core_modules: distclean_numpy distclean_nose distclean_pytables distcl
 
 distclean_extensions_libraries: 
 
-distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib
+distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave
 
 #newConfig
 newConfig_core_python: newConfig_python
@@ -65,9 +65,9 @@ newConfig_core_libraries: newConfig_petsc newConfig_daetk newConfig_zlib newConf
 
 newConfig_core_modules: newConfig_numpy newConfig_nose newConfig_pytables newConfig_cython newConfig_mpi4py newConfig_petsc4py
 
-newConfig_extensions_libraries:
+newConfig_extensions_libraries: 
 
-newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib
+newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave
 
 #editConfig
 editConfig_core_python: editConfig_python
@@ -77,7 +77,7 @@ editConfig_core_modules: editConfig_numpy editConfig_nose editConfig_pytables ed
 
 editConfig_extensions_libraries:
 
-editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib
+editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave
 
 #core
 #core python
@@ -537,6 +537,34 @@ distclean_matplotlib:
 	touch install_matplotlib
 	mv -f install_matplotlib install_matplotlib_last
 	cd ${MATPLOTLIB_VERSION} && make -k clean && rm -rf build
+
+#stwave
+newConfig_stwave:
+	cd stwaveConfig && cp Makefile.${PROTEUS_ARCH_OLD} Makefile.${PROTEUS_ARCH}
+	cd stwaveConfig && cp cmplrflags.${PROTEUS_ARCH_OLD}.mk cmplrflags.${PROTEUS.ARCH}.mk 
+
+editConfig_stwave:
+	cd stwaveConfig && ${EDITOR} Makefile.${PROTEUS_ARCH} && ${EDITOR} cmplrflags.${PROTEUS_ARCH}.mk
+
+config_stwave:
+	cp stwaveConfig/Makefile.${PROTEUS_ARCH} ${STWAVE_VERSION}/Makefile
+	cp stwaveConfig/cmplrflags.${PROTEUS_ARCH}.mk ${STWAVE_VERSION}/cmplrflags.mk
+	cp stwaveConfig/config.guess ${STWAVE_VERSION}/config.guess
+	@echo "Makfile and cmplrflags.mk configured ... OK"  > config_stwave_progress 2>&1
+
+build_stwave:
+	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave compiler=clang stwave > ../build_stwave_progress 2>&1
+	@echo "Build of STWAVE ... OK" 
+
+install_stwave:
+	make config_stwave build_stwave
+	@echo "STWAVE installed (sort of) ... OK" > install_stwave_progress 2>&1
+	cat config_stwave_progress build_stwave_progress install_stwave_progress > install_stwave
+
+distclean_stwave:
+	touch install_stwave
+	mv -f install_stwave install_stwave_last
+	cd ${STWAVE_VERSION} && make -k clean && rm -f Makefile cmplrflags.mk 
 
 #sip
 newConfig_sip:
