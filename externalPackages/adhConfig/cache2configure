@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+import os
+import optparse
+
+usage = "usage: %prog [options] existing_cmake_cache.txt new_configure_script"
+parser = optparse.OptionParser(usage=usage)
+(opts,args) =parser.parse_args()
+if len(args) != 2:
+   raise RuntimeError("Must specify input cache and output script name")
+
+prefix = os.getenv('PROTEUS_PREFIX')
+proteus = os.getenv('PROTEUS')
+with open(args[0],'r') as cmakeCache, open(args[1],'w') as configure:
+   configure.write("/usr/bin/cmake ")
+   lines = (line.rstrip() for line in cmakeCache)
+   for line in lines:
+      if line and not (line.startswith("#") or line.startswith("//") or 'NOTFOUND' in line or 'INTERNAL' in line or '()' in line) and line[line.find("=")+1:]:
+         newline = line.replace(prefix,"${PROTEUS_PREFIX}")
+         newline = line.replace(proteus,"${PROTEUS}")
+         (lvalue,rvalue) = newline.split("=")
+         (var_name,var_type) = lvalue.split(":")
+         print var_name,var_type, var_type == " STRING"
+         if "STRING" in var_type:
+            configure.write("-D"+lvalue+"='"+rvalue+"' ")
+         else:
+            configure.write("-D"+lvalue+"="+rvalue+" ")            
+   configure.write(" ../adh")

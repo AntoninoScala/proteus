@@ -636,3 +636,27 @@ distclean_ipython:
 	mv -f install_ipython install_ipython_last
 	cd ${IPYTHON_VERSION} && make -k clean
 
+#adh
+newConfig_adh:
+	echo "no adh customization implemented"
+
+editConfig_adh:
+	echo "no adh customization implemented"
+
+config_adh:
+	mkdir adh-bin
+	adhConfig/configureCache adhConfig/CMakeCache.txt.${PROTEUS_ARCH} adh-bin/CMakeCache.txt
+	cd adh-bin && ${CMAKE} ../adh > ../config_adh_progress 2>&1
+
+build_adh:
+	cd adh-bin && make > ../build_adh_progress 2>&1
+
+install_adh:
+	make config_adh build_adh
+	cd adh-bin && echo "no adh install target" > ../install_adh_progress 2>&1
+	cat config_adh_progress build_adh_progress install_adh_progress > install_adh
+
+distclean_adh:
+	mv -f install_adh install_adh_last
+	rm -rf adh-bin
+
