@@ -549,11 +549,15 @@ editConfig_stwave:
 config_stwave:
 	cp stwaveConfig/Makefile.${PROTEUS_ARCH} ${STWAVE_VERSION}/Makefile
 	cp stwaveConfig/cmplrflags.${PROTEUS_ARCH}.mk ${STWAVE_VERSION}/cmplrflags.mk
-	cp stwaveConfig/config.guess ${STWAVE_VERSION}/config.guess
 	@echo "Makfile and cmplrflags.mk configured ... OK"  > config_stwave_progress 2>&1
 
 build_stwave:
-	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave compiler=clang stwave > ../build_stwave_progress 2>&1
+	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave stwave > ../../build_stwave_progress_serial 2>&1
+	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave_ep stwave_ep > ../../build_stwave_ep_progress 2>&1	
+	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave_p stwave_p > ../../build_stwave_p_progress 2>&1
+	cd ${STWAVE_VERSION} && make BUILDTYPE=libstw.a libstw.a > ../../build_libstw.a_progress 2>&1
+	cat build_stwave_serial_progress build_stwave_ep_progress build_stwave_p_progress build_libstw.a_progress > build_stwave_progress
+	rm -f build_stwave_serial_progress build_stwave_ep_progress build_stwave_p_progress build_libstw.a_progress
 	@echo "Build of STWAVE ... OK" 
 
 install_stwave:
@@ -561,10 +565,18 @@ install_stwave:
 	@echo "STWAVE installed (sort of) ... OK" > install_stwave_progress 2>&1
 	cat config_stwave_progress build_stwave_progress install_stwave_progress > install_stwave
 
+test_stwave:
+	cd stwaveConfig/test/test_idd && ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave test_idd.sim 
+	@echo "STWAVE serial TEST ... OK"
+	cd stwaveConfig/test/test_idd && ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave_ep test_idd.sim 
+	@echo "STWAVE embar-parallel TEST ... OK"
+	cd stwaveConfig/test/test_idd && mpiexec -np 2 ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave_p test_idd.sim 
+	@echo "STWAVE full parallel  TEST ... OK"
+
 distclean_stwave:
 	touch install_stwave
 	mv -f install_stwave install_stwave_last
-	cd ${STWAVE_VERSION} && make -k clean && rm -f Makefile cmplrflags.mk 
+	cd ${STWAVE_VERSION} && make -k clean && rm -f Makefile cmplrflags.mk stwave stwave_ep stwave_p libstw.a
 
 #sip
 newConfig_sip:

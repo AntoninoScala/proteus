@@ -47,13 +47,18 @@ endif
 #
 # ADDED BY:  	  Matt Malej
 #
-# Last Updated:  January 11,2013
+# Last Updated:  January 23, 2013
 #
-# PREVIOUSLY STATED WITH: ifeq ($(MACHINE)-$(OS),i386-darwin12.2.1)
 
 ifeq ($(PROTEUS_ARCH),darwinclang)
+
+  # Default compiler if none provided in command line                                  
+  ifeq ($(compiler),)
+    compiler    := clang
+  endif
+
   # Needed object directory (bug in Makefile - not being read in)
-  O_DIR 	:= odir/
+  #O_DIR 	:= odir/
   # if building more than 'stwave' serial need to fix this !!!
 
   IMODS       := -I

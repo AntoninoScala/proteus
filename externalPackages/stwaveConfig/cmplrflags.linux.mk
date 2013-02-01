@@ -45,10 +45,6 @@ endif
 #
 ifeq ($(PROTEUS_ARCH),linux-suse)
 
-  # Needed object directory (bug in Makefile - not being read in)
-  O_DIR		:= odir/
-  # if building more than 'stwave' serial need to fix this!!!
-
   # Default compiler if none provided in command line
   ifeq ($(compiler),)
     compiler 	:= gcc
