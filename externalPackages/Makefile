@@ -566,12 +566,12 @@ install_stwave:
 	cat config_stwave_progress build_stwave_progress install_stwave_progress > install_stwave
 
 test_stwave:
-	cd stwaveConfig/test/test_idd && ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave test_idd.sim 
-	@echo "STWAVE serial TEST ... OK"
-	cd stwaveConfig/test/test_idd && ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave_ep test_idd.sim 
+#	cd stwaveConfig/test/test_idd && ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave test_idd.sim 
+#	@echo "STWAVE serial TEST ... OK"
+	cd stwaveConfig/test/test_idd && mpirun -np 2 ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave_ep test_idd_parallel.sim 
 	@echo "STWAVE embar-parallel TEST ... OK"
-	cd stwaveConfig/test/test_idd && mpiexec -np 2 ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave_p test_idd.sim 
-	@echo "STWAVE full parallel  TEST ... OK"
+#	cd stwaveConfig/test/test_idd && mpiexec -np 2 ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave_p test_idd_parallel.sim 
+#	@echo "STWAVE full parallel  TEST ... OK"
 
 distclean_stwave:
 	touch install_stwave
