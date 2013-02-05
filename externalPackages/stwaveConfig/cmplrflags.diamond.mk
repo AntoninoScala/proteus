@@ -59,7 +59,7 @@ ifeq ($(PROTEUS_ARCH),diamond)
 
   ifeq ($(compiler),intel)
     FC          :=  ifort
-    PFC         :=  ifort
+    PFC         :=  mpif90
     CC          :=  icc
     OPTLVL     := -O2 -axT -Winline -finline-limit=1000
     ifeq ($(TARG_METHOD),dbg)

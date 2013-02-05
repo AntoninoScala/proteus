@@ -555,7 +555,7 @@ build_stwave:
 	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave stwave > ../../build_stwave_progress_serial 2>&1
 	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave_ep stwave_ep > ../../build_stwave_ep_progress 2>&1	
 	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave_p stwave_p > ../../build_stwave_p_progress 2>&1
-	cd ${STWAVE_VERSION} && make BUILDTYPE=libstw.a libstw.a > ../../build_libstw.a_progress 2>&1
+# 	cd ${STWAVE_VERSION} && make BUILDTYPE=libstw.a libstw.a > ../../build_libstw.a_progress 2>&1
 	cat build_stwave_serial_progress build_stwave_ep_progress build_stwave_p_progress build_libstw.a_progress > build_stwave_progress
 	rm -f build_stwave_serial_progress build_stwave_ep_progress build_stwave_p_progress build_libstw.a_progress
 	@echo "Build of STWAVE ... OK" 
@@ -566,10 +566,10 @@ install_stwave:
 	cat config_stwave_progress build_stwave_progress install_stwave_progress > install_stwave
 
 test_stwave:
-#	cd stwaveConfig/test/test_idd && ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave test_idd.sim 
-#	@echo "STWAVE serial TEST ... OK"
-	cd stwaveConfig/test/test_idd && mpirun -np 2 ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave_ep test_idd_parallel.sim 
-	@echo "STWAVE embar-parallel TEST ... OK"
+	cd stwaveConfig/test/test_idd && ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave test_idd.sim 
+	@echo "STWAVE serial TEST ... OK"
+#	cd stwaveConfig/test/test_idd && mpirun -np 2 ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave_ep test_idd_parallel.sim 
+#	@echo "STWAVE embar-parallel TEST ... OK"
 #	cd stwaveConfig/test/test_idd && mpiexec -np 2 ${PROTEUS}/externalPackages/${STWAVE_VERSION}/stwave_p test_idd_parallel.sim 
 #	@echo "STWAVE full parallel  TEST ... OK"
 
