@@ -552,7 +552,7 @@ config_stwave:
 	@echo "Makfile and cmplrflags.mk configured ... OK"  > config_stwave_progress 2>&1
 
 build_stwave:
-	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave stwave > ../../build_stwave_progress_serial 2>&1
+	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave stwave > ../../build_stwave_serial_progress 2>&1
 	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave_ep stwave_ep > ../../build_stwave_ep_progress 2>&1	
 	cd ${STWAVE_VERSION} && make BUILDTYPE=stwave_p stwave_p > ../../build_stwave_p_progress 2>&1
 	cd ${STWAVE_VERSION} && make BUILDTYPE=libstw.a libstw.a > ../../build_libstw.a_progress 2>&1
