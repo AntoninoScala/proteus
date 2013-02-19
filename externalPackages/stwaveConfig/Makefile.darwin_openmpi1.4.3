@@ -5,17 +5,9 @@ SHELL:=/bin/bash
 #  (1) stwave     (single-cpu stwave)
 #  (2) stwave_ep  (embarassingly-parallel stwave)
 #  (3) stwave_p   (parallel stwave)
-#  vjp 2009/10/10
-
-########################################################################
-#  Get Canonical Machine NAME from config.guess
-#
-NAME     := $(shell ./config.guess)
-LIST     := $(subst -, ,$(NAME))
-MACHINE  := $(word 1, $(LIST))
-VENDOR   := $(word 2, $(LIST))
-OS       := $(subst  $(MACHINE)-$(VENDOR)-,,$(strip $(NAME)))
-VDATE    := $(shell date +'%F %H:%M')
+#  (4) libstw.a   (parallel library build of stwave)
+#  
+# Last Updated:  Matt Malej Jan 31, 2013
 
 include cmplrflags.mk
 
@@ -42,20 +34,22 @@ SRC        :=  hp_wave.F friction.F nest_interp.F rf.F rotate.F stdflx.F stdprp.
 STWAVE     := stwave
 STWAVE_P   := stwave_p
 STWAVE_EP  := stwave_ep
+LIBSTW     := libstw.a
 
 ######################## Target Specific Rules ###################################
 
 ifneq ($(TARG),)
-  override TARG := $(TARG)/
-  override TARG := $(subst //,/,$(TARG))
-  STWAVE        := $(TARG)stwave
-  STWAVE_P      := $(TARG)stwave_p
-  STWAVE_EP     := $(TARG)stwave_ep
+  override TARG		:= $(TARG)/
+  override TARG    	:= $(subst //,/,$(TARG))
+  override STWAVE    	:= $(TARG)stwave
+  override STWAVE_P     := $(TARG)stwave_p
+  override STWAVE_EP    := $(TARG)stwave_ep
+  override LIBSTW	:= $(TARG)libstw.a
 endif
 
-EXEC    := $(STWAVE) $(STWAVE_P) $(STWAVE_EP) 
+EXEC    := $(STWAVE) $(STWAVE_P) $(STWAVE_EP) $(LIBSTW)
 
-#                                      stwave
+# stwave
 ifeq ($(BUILDTYPE),$(STWAVE))
   override FC := $(FC)
   override O_DIR := odir/
@@ -63,7 +57,7 @@ ifeq ($(BUILDTYPE),$(STWAVE))
   VPATH :=  ../src/hp:../src/fp:../src
 endif
 
-#                                      stwave_p
+# stwave_p
 ifeq ($(BUILDTYPE),$(STWAVE_P))
   override FC := $(PFC)
   override O_DIR := odirp/
@@ -71,7 +65,7 @@ ifeq ($(BUILDTYPE),$(STWAVE_P))
   VPATH :=  ../src/hp:../src/fp:../src
 endif
 
-#                                      stwave_ep
+# stwave_ep
 ifeq ($(BUILDTYPE),$(STWAVE_EP))
   override FC := $(PFC)
   override O_DIR := odirep/
@@ -79,21 +73,22 @@ ifeq ($(BUILDTYPE),$(STWAVE_EP))
   VPATH :=  ../src/hp:../src/fp:../src
 endif
 
-#                                      libstw.a
+# libstw.a
 ifeq ($(BUILDTYPE),$(LIBSTW))
   override FC := $(PFC)
+  override O_DIR := odirp/
   FFLAGS = $(FFLAGS2) $(IMODS) $(O_DIR) 
   VPATH :=  ../src/hp:../src/fp:../src
 endif
 
-ifneq ($(MAKELEVEL),0)
-  ifneq ($(TARG),)
-    override O_DIR := $(O_DIR)$(TARG)
-  endif
 
-  $(O_DIR) $(TARG):
-	mkdir -p $@
+ifneq ($(TARG),)
+      override O_DIR := $(O_DIR)$(TARG)
 endif
+
+$(O_DIR) $(TARG):
+	mkdir -p $@
+
 
 ######################## compilation rules ###############################
 
@@ -145,15 +140,12 @@ echo:
 	@echo O_DIR: $(O_DIR)
 	@echo exec: $(EXEC)	
 	@echo compiler: $(compiler)	
-
-	# Removed MAKELEVL==0 if-statement -- Matt M.
-	$(MAKE) BUILDTYPE=$(STWAVE)   $@
-
-	ifneq ($(TARG),)
-  		stwave:    $(STWAVE)
-  		stwave_p:  $(STWAVE_P)
-  		stwave_ep: $(STWAVE_EP)
-	endif
+#	ifneq ($(TARG),)
+#  		stwave:		$(STWAVE)
+#  		stwave_p:	$(STWAVE_P)
+#  		stwave_ep:	$(STWAVE_EP)
+#		stwave_lib:	$(LIBSTW)
+#	endif
 
 
 tags:
@@ -170,21 +162,6 @@ $(O_DIR)build.o $(O_DIR)build.mod: $(O_DIR)build.F
 	$(COMPILE.F) -o $(O_DIR)$(*F).o  $<
 	@if [ "`echo *.mod`" != '*.mod' ]; then mv *.mod $(O_DIR); fi
 
-# Removed MAKELEVEL==0 if-statement -- Matt M.
-#if $(MAKELEVEL,0)
-#$(STWAVE):
-#	$(MAKE) BUILDTYPE=$(STWAVE)  delete_build_files $@
-#
-#$(STWAVE_P):
-#	$(MAKE) BUILDTYPE=$(STWAVE_P) delete_build_files $@
-#
-#$(STWAVE_EP):
-#	$(MAKE) BUILDTYPE=$(STWAVE_EP) delete_build_files $@
-#
-#$(LIBSTW):
-#	@echo $(MAKE) LIBSTW=$@ BUILDTYPE=$(LIBSTW) delete_build_files $@
-#	$(MAKE) LIBSTW=$@ BUILDTYPE=$(LIBSTW) delete_build_files $@
-#else
 $(STWAVE): $(O_DIR) $(TARG) $(O_DIR)build.o $(COM_OBJ) $(OBJ) $(DRIVER_OBJ)
 
 	$(LINK.F) -o $@  $(O_DIR)build.o $(COM_OBJ) $(OBJ) $(DRIVER_OBJ) $(PERFLIBS)
@@ -205,7 +182,7 @@ $(LIBSTW): $(O_DIR)  $(TARG) $(O_DIR)build.o $(COM_OBJ) $(OBJ)
 	ar $(ARFLAGS) $@ $(O_DIR)build.o $(COM_OBJ) $(OBJ) 
 	ar -ts $@
 	$(RM) $(O_DIR)build.o  $(O_DIR)build.F  $(O_DIR)build.mod
-#endif
+
 
 ########################## Misc Commands ####################################
 
@@ -219,21 +196,22 @@ help:
 	@echo "make stwave	- makes the single-cpu executable"
 	@echo "make stwave_ep   - makes the embarrasingly-parallel executable"
 	@echo "make stwave_p    - makes the parallel executable"
+	@echo "make libstw.a	- makes the parallel library"
 
 svntag:
 ifneq ($(TAG),)
-	echo "! -*- f90 -*-"                                             >  ../src/stwave_version.F; \
-	echo "module stwave_version"                                            >> ../src/stwave_version.F; \
-	echo '   character(80), parameter :: STW_VERSION = "'$(TAG)'"'   >> ../src/stwave_version.F; \
-	echo '   character(80), parameter :: STW_DATE    = "'$(VDATE)'"' >> ../src/stwave_version.F; \
-	echo 'end module stwave_version'                                 >> ../src/stwave_version.F; \
-        SVN_ROOT=`svn info | grep "Repository Root" | sed -e 's/Repository Root: //'`;        \
-        SVN=`svn info | grep "URL: " | sed -e 's/URL: //' | sed -e 's|/work||'`;              \
-	svn ci -m'moving to TAG_VERSION $(TAG)' ../src/stwave_version.F;                             \
-	svn cp -m'moving to TAG_VERSION $(TAG)' $$SVN $$SVN_ROOT/tags/$(TAG)
-        else
-	  @echo "To svn tag do: make svntag TAG=?"
-        endif
+	      echo "! -*- f90 -*-"                                             >  ../src/stwave_version.F; \
+	      echo "module stwave_version"                                            >> ../src/stwave_version.F; \
+	      echo '   character(80), parameter :: STW_VERSION = "'$(TAG)'"'   >> ../src/stwave_version.F; \
+	      echo '   character(80), parameter :: STW_DATE    = "'$(VDATE)'"' >> ../src/stwave_version.F; \
+	      echo 'end module stwave_version'                                 >> ../src/stwave_version.F; \
+              SVN_ROOT=`svn info | grep "Repository Root" | sed -e 's/Repository Root: //'`;        \
+              SVN=`svn info | grep "URL: " | sed -e 's/URL: //' | sed -e 's|/work||'`;              \
+	      svn ci -m'moving to TAG_VERSION $(TAG)' ../src/stwave_version.F;                             \
+	      svn cp -m'moving to TAG_VERSION $(TAG)' $$SVN $$SVN_ROOT/tags/$(TAG)
+              else
+		@echo "To svn tag do: make svntag TAG=?"
+              endif
 
 
 ########################## Defining the DAG  ####################################

@@ -76,6 +76,7 @@ endif
 # libstw.a
 ifeq ($(BUILDTYPE),$(LIBSTW))
   override FC := $(PFC)
+  override O_DIR := odirp/
   FFLAGS = $(FFLAGS2) $(IMODS) $(O_DIR) 
   VPATH :=  ../src/hp:../src/fp:../src
 endif
@@ -139,16 +140,12 @@ echo:
 	@echo O_DIR: $(O_DIR)
 	@echo exec: $(EXEC)	
 	@echo compiler: $(compiler)	
-
-	# Removed MAKELEVL==0 if-statement -- Matt M.
-	$(MAKE) BUILDTYPE=$(STWAVE)   $@
-
-	ifneq ($(TARG),)
-  		stwave:		$(STWAVE)
-  		stwave_p:	$(STWAVE_P)
-  		stwave_ep:	$(STWAVE_EP)
-		stwave_lib:	$(LIBSTW)
-	endif
+#	ifneq ($(TARG),)
+#  		stwave:		$(STWAVE)
+#  		stwave_p:	$(STWAVE_P)
+#  		stwave_ep:	$(STWAVE_EP)
+#		stwave_lib:	$(LIBSTW)
+#	endif
 
 
 tags:

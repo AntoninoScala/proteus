@@ -76,6 +76,7 @@ endif
 # libstw.a
 ifeq ($(BUILDTYPE),$(LIBSTW))
   override FC := $(PFC)
+  override O_DIR := odirp/
   FFLAGS = $(FFLAGS2) $(IMODS) $(O_DIR) 
   VPATH :=  ../src/hp:../src/fp:../src
 endif

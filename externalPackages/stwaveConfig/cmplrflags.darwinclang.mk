@@ -57,10 +57,6 @@ ifeq ($(PROTEUS_ARCH),darwinclang)
     compiler    := clang
   endif
 
-  # Needed object directory (bug in Makefile - not being read in)
-  #O_DIR 	:= odir/
-  # if building more than 'stwave' serial need to fix this !!!
-
   IMODS       := -I
   OPTLVL      := -O2
   ifeq ($(TARG_METHOD),dbg)
