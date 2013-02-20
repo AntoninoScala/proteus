@@ -81,7 +81,7 @@ ifeq ($(PROTEUS_ARCH),linux-suse)
 
     IMODS       := -I
     COMMON_FLGS := -g $(PRECISION) -ffree-form
-    FFLAGS1     := $(COMMON_FLGS)
+    FFLAGS1     := $(COMMON_FLGS) 
     FFLAGS2	:= $(COMMON_FLGS) -DMPI -DPARALLEL
     FFLAGS3     := $(FFLAGS1) -DMPI
   endif	
