@@ -45,7 +45,7 @@ install_core_modules: install_numpy install_nose install_numexpr install_cython 
 
 install_extensions_libraries:
 
-install_extensions_modules: install_setuptools install_matplotlib install_python install_stwave
+install_extensions_modules: install_setuptools install_matplotlib install_python install_stwave install_adcirc
 
 #distclean
 distclean_core_python: distclean_python
@@ -56,7 +56,7 @@ distclean_core_modules: distclean_numpy distclean_nose distclean_pytables distcl
 
 distclean_extensions_libraries: 
 
-distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave
+distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave distclean_adcirc
 
 #newConfig
 newConfig_core_python: newConfig_python
@@ -67,7 +67,7 @@ newConfig_core_modules: newConfig_numpy newConfig_nose newConfig_pytables newCon
 
 newConfig_extensions_libraries: 
 
-newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave
+newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave newConfig_adcirc
 
 #editConfig
 editConfig_core_python: editConfig_python
@@ -77,7 +77,7 @@ editConfig_core_modules: editConfig_numpy editConfig_nose editConfig_pytables ed
 
 editConfig_extensions_libraries:
 
-editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave
+editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave editConfig_adcirc
 
 #core
 #core python
@@ -672,3 +672,33 @@ distclean_adh:
 	mv -f install_adh install_adh_last
 	rm -rf adh-bin
 
+#adcirc
+newConfig_adcirc:
+	cd adcircConfig && cp Makefile.${PROTEUS_ARCH_OLD} Makefile.${PROTEUS_ARCH}
+	cd adcircConfig && cp cmplrflags.${PROTEUS_ARCH_OLD}.mk cmplrflags.${PROTEUS.ARCH}.mk
+
+editConfig_adcirc:
+	cd adcircConfig && ${EDITOR} Makefile.${PROTEUS_ARCH} && ${EDITOR} cmplrflags.${PROTEUS_ARCH}.mk
+
+config_adcirc:
+	cp adcircConfig/Makefile.${PROTEUS_ARCH} ${ADCIRC_VERSION}/makefile
+	cp adcircConfig/cmplrflags.${PROTEUS_ARCH}.mk ${ADCIRC_VERSION}/cmplrflags.mk
+	@echo "Makefile and cmplrflags.mk configured ... OK" > config_adcirc_progress 2>&1
+
+build_adcirc:
+	cd ${ADCIRC_VERSION} && make BUILDTYPE=adcprep adcprep > ../../build_adcprep_progress 2>&1
+	cd ${ADCIRC_VERSION} && make BUILDTYPE=adcirc adcirc > ../../build_adcirc_serial_progress 2>&1
+	cd ${ADCIRC_VERSION} && make BUILDTYPE=padcirc padcirc > ../../build_padcirc_progress 2>&1
+	cat build_adcprep_progress build_adcirc_serial_progress build_padcirc_progress > build_adcirc_progress
+	rm -f build_adcprep_progress build_adcirc_serial_progress build_padcirc_progress
+	@echo "Build of ADCIRC ... OK"
+
+install_adcirc:
+	make config_adcirc build_adcirc
+	@echo "Adcirc installed (sort of) ... OK" > install_adcirc_progress 2>&1
+	cat config_adcirc_progress build_adcirc_progress install_adcirc_progress > install_adcirc
+
+distclean_adcirc:
+	touch install_adcirc
+	mv -f install_adcirc install_adcirc_last
+	cd ${ADCIRC_VERSION} && make -k clean && rm -f makefile cmplrflags.mk adcprep adcirc padcirc
