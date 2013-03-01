@@ -686,11 +686,12 @@ config_adcirc:
 	@echo "Makefile and cmplrflags.mk configured ... OK" > config_adcirc_progress 2>&1
 
 build_adcirc:
+	cd $(ADCIRC_VERSION) && make metis > ../../build_adcirc_metis_progress 2>&1
 	cd ${ADCIRC_VERSION} && make BUILDTYPE=adcprep adcprep > ../../build_adcprep_progress 2>&1
 	cd ${ADCIRC_VERSION} && make BUILDTYPE=adcirc adcirc > ../../build_adcirc_serial_progress 2>&1
 	cd ${ADCIRC_VERSION} && make BUILDTYPE=padcirc padcirc > ../../build_padcirc_progress 2>&1
-	cat build_adcprep_progress build_adcirc_serial_progress build_padcirc_progress > build_adcirc_progress
-	rm -f build_adcprep_progress build_adcirc_serial_progress build_padcirc_progress
+	cat build_adcirc_metis_progress build_adcprep_progress build_adcirc_serial_progress build_padcirc_progress > build_adcirc_progress
+	rm -f build_adcirc_metis_progress build_adcprep_progress build_adcirc_serial_progress build_padcirc_progress
 	@echo "Build of ADCIRC ... OK"
 
 install_adcirc:

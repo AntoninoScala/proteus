@@ -1,98 +1,92 @@
-# $Id: cmplrflags.mk 943 2010-01-29 15:32:02Z vparr $
-########################################################################
-#Convert LOCAL_LIBRARY to EXPANDED_LOCAL_LIB
-########################################################################
-
-EXPANDED_LOCAL_LIB := $(subst :, ,   $(LOCAL_LIBRARY))
-EXPANDED_LOCAL_LIB := $(strip        $(EXPANDED_LOCAL_LIB))
-EXPANDED_LOCAL_LIB := $(foreach dir, $(EXPANDED_LOCAL_LIB), -L$(dir))
-EXPANDED_LOCAL_LIB := $(subst //,/,  $(EXPANDED_LOCAL_LIB))
+# SRCDIR is set in makefile or on the compile line
+INCDIRS := -I . -I $(SRCDIR)/prep
 
 ########################################################################
-#Convert LOCAL_INCLUDE to EXPANDED_LOCAL_INC
-########################################################################
-
-EXPANDED_LOCAL_INC := $(subst :, ,      $(LOCAL_INCLUDE))
-EXPANDED_LOCAL_INC := $(strip           $(EXPANDED_LOCAL_INC))
-EXPANDED_LOCAL_INC := $(foreach dir,    $(EXPANDED_LOCAL_INC), -I$(dir))
-EXPANDED_LOCAL_INC := $(subst //,/,     $(EXPANDED_LOCAL_INC))
-
-PRECISION = -DUSE_DOUBLE
-DEBUG     = -DDEBUG_PRINTING
-
-ifneq ($(TARG_COMPILER),)
-  compiler := $(TARG_COMPILER)
-endif
-
-ifeq ($(TARG_METHOD),)
-  TARG_METHOD := $(METHOD)
-  ifeq ($(TARG_METHOD),)
-    TARG_METHOD := opt
-  endif
-endif
-
-OPTNAME := $(TARG_METHOD)
-ifneq (,$(TARGET))
-  OPTNAME := $(TARGET)
-endif
-
-
-ifneq (,$(findstring SEPARATE_SWEEPS,$(TARGET)))
-  EXTRA_FLAGS := -DSEPARATE_SWEEPS
-endif
-
-
-########################################################################
-# Compiler Flags for Mac OSX - Darwin 10.8 Mountain Lion  
+# Darwin i386-apple-darwin using intel --- Mountain Lion 
 #
-# ADDED BY:  	  Matt Malej
-#
-# Last Updated:  January 23, 2013
-#
-
+# ... changed by Matt M. 2/26/2013
 ifeq ($(PROTEUS_ARCH),darwinclang)
 
-  # Default compiler if none provided in command line                                  
-  ifeq ($(compiler),)
-    compiler    := clang
-  endif
+# NOTE:  User must select between various setups by commenting/
+#        uncommenting the approprite compiler
+#compiler=clang
+compiler=gnu
+#compiler=intel ... to be implemented
 
-  IMODS       := -I
-  OPTLVL      := -O2
-  ifeq ($(TARG_METHOD),dbg)
-    OPTLVL    := -g  -DSTW_DEBUG
-  endif
-  ifeq ($(TARG_METHOD),mdbg)
-    OPTLVL    := -g  -DSTW_DEBUG
-  endif
-
-  COMMON_FLGS := $(OPTLVL) $(PRECISION) -ffree-form  $(EXTRA_FLAGS)
-  FFLAGS1     := $(COMMON_FLGS) $(PRECISION)
-  FFLAGS2     := $(COMMON_FLGS) -DMPI -DPARALLEL $(PRECISION)
-  FFLAGS3     := $(FFLAGS1) -DMPI
-  EXTRA_OBJS  := $(O_DIR)degree.o $(O_DIR)rindex.o
-
-  ifeq ($(compiler),gcc)
-    FC          := gfortran
-    PFC		:= $(PROTEUS_PREFIX)/bin/mpif90
-    CC          := gcc
-    CXX		:= g++
-    IMODS       := -I
-    COMMON_FLGS := -g $(PRECISION) -ffree-form
-    FFLAGS1     := $(COMMON_FLGS)
-    FFLAGS2     := $(COMMON_FLGS) -DMPI -DPARALLEL
-    FFLAGS3     := $(FFLAGS1) -DMPI
-  endif
-
-  ifeq ($(compiler),clang)
-    FC          := gfortran
-    PFC		:= $(PROTEUS_PREFIX)/bin/mpif90
-    CC          := clang
-    CXX         := clang++
-    IMODS       := -I
-    COMMON_FLGS := -g $(PRECISION) -ffree-form
-    FFLAGS1     := $(COMMON_FLGS)
-    FFLAGS2     := $(COMMON_FLGS) -DMPI -DPARALLEL
-    FFLAGS3     := $(FFLAGS1) -DMPI
+ifeq ($(compiler),clang)
+  PPFC          := gfortran
+  FC            := gfortran
+  PFC           := mpif77
+  FFLAGS1       :=  $(INCDIRS) -O3 -ffixed-line-length-132 -DLINUX -DNETCDF_DEBUG
+  FFLAGS2       :=  $(INCDIRS) -O3 -ffixed-line-length-132
+  FFLAGS3       :=  $(INCDIRS) -O3 -ffixed-line-length-132
+  DA            :=  -DREAL8 -DCSCA -DLINUX
+  DP            :=  -DREAL8 -DCSCA -DLINUX -DCMPI -DNETCDF_DEBUG
+  DPRE          :=  -DREAL8 -DLINUX
+  IMODS         :=  -I
+  CC            :=  clang
+  CCBE          :=  $(CC)
+  CFLAGS        :=  $(INCDIRS) -O3 -DLINUX
+  LDFLAGS       :=
+  FLIBS         :=
+  MSGLIBS       :=
+  $(warning (INFO) Corresponding architecture found in cmplrflags.mk. ==> $(PROTEUS_ARCH))
+  ifneq ($(FOUND),TRUE)
+     FOUND := TRUE
+  else
+     MULTIPLE := TRUE
   endif
 endif
+
+
+ifeq ($(compiler),gnu)
+  PPFC	        := gfortran
+  FC	        := gfortran
+  PFC	        := mpif77
+  FFLAGS1       :=  $(INCDIRS) -O3 -ffixed-line-length-132 -DLINUX -DNETCDF_DEBUG
+  FFLAGS2	:=  $(INCDIRS) -O3 -ffixed-line-length-132
+  FFLAGS3	:=  $(INCDIRS) -O3 -ffixed-line-length-132 
+  DA  	   	:=  -DREAL8 -DCSCA -DLINUX
+  DP  	   	:=  -DREAL8 -DCSCA -DLINUX -DCMPI -DNETCDF_DEBUG
+  DPRE	   	:=  -DREAL8 -DLINUX
+  IMODS  	:=  -I
+  CC            :=  gcc
+  CCBE          :=  $(CC)
+  CFLAGS        :=  $(INCDIRS) -O3 -DLINUX
+  LDFLAGS	:=
+  FLIBS	        :=
+  MSGLIBS	:=
+  $(warning (INFO) Corresponding architecture found in cmplrflags.mk. ==> $(PROTEUS_ARCH))
+  ifneq ($(FOUND),TRUE)
+     FOUND := TRUE
+  else
+     MULTIPLE := TRUE
+  endif
+endif
+
+endif
+
+########################################################################
+ifneq ($(FOUND), TRUE)
+     $(warning (WARNING) None of the archtectures found in cmplrflags.mk match your platform. As a result, the specific compilers and flags that are appropriate for you could not be specified. Please edit the cmplrflags.$(PROTEUS_ARCH).mk file to include your machine and operating system. Continuing with generic selections for compilers.)
+  PPFC	        := $(FC)
+  FC	        := $(FC)
+  PFC	        := mpif90
+  FFLAGS1	:=  $(INCDIRS)
+  FFLAGS2	:=  $(FFLAGS1)
+  FFLAGS3	:=  $(FFLAGS1)
+  DA  	   	:=  -DREAL8 -DCSCA -DLINUX
+  DP  	   	:=  -DREAL8 -DCSCA -DLINUX -DCMPI
+  DPRE	   	:=  -DREAL8 -DLINUX
+  IMODS  	:=  -I
+  CC            :=  cc
+  CCBE          :=  $(CC)
+  CFLAGS        :=  $(INCDIRS) -DLINUX
+  LDFLAGS	:=
+  FLIBS	        :=
+  MSGLIBS	:=
+endif
+ifeq ($(MULTIPLE),TRUE)
+     $(warning (WARNING) More than one match in cmplrflags.mk. This may result in the wrong compilers being selected. Please check the cmplrflags.mk file to ensure that only one set of compiler flags is specified for your platform.)
+endif
+

@@ -1,297 +1,704 @@
-# $Id: Makefile 946 2010-01-29 17:17:41Z vparr $
-SHELL:=/bin/bash
+SHELL:=/bin/sh
+SRCDIR?=..
 #
-#  Makefile to Build three targets:
-#  (1) stwave     (single-cpu stwave)
-#  (2) stwave_ep  (embarassingly-parallel stwave)
-#  (3) stwave_p   (parallel stwave)
-#  (4) libstw.a   (parallel library build of stwave)
-#  
-# Last Updated:  Matt Malej Jan 31, 2013
+#  Makefile to Build PADCIRC and its pre-processor 
+#  University of Texas's parallel version of the Hydrodynamics
+#  Modeling program ADCIRC by J.J. Westerink and R.A. Luettich
+#  vjp 3/29/2001
+#  updated JJW 3/17/2003
+#  updated for 3D JGF spring 2003
+#  meb 4/20/2004
+#  vjp 9/18/2006  made mods for Robert McLay's globalio module
+#  vjp 9/19/2006  made mods for Shintaro's winds and waves
+#  tcm 03/30/2011 added owi_ice module v49.64.01
 
+########################################################################
+#  Get Canonical Machine NAME from config.guess
+#
+$(warning (INFO) Guessing the type of platform ADCIRC will run on...)
+
+NAME     := $(shell ./config.guess)
+LIST     := $(subst -, ,$(NAME))
+MACHINE  := $(word 1, $(LIST))
+VENDOR   := $(word 2, $(LIST))
+OS       := $(subst  $(MACHINE)-$(VENDOR)-,,$(strip $(NAME)))
+
+VTAG     := $(shell echo $(TAG) | sed -e 's/_/./g' -e 's/V//')
+
+PARALLEL_ADCIRC   := padcirc
+$(warning (INFO) Name is $(NAME), Machine is $(MACHINE), Vendor is $(VENDOR), and OS is $(OS).)
 include cmplrflags.mk
+#Casey 090302: Include variables/flags from SWAN.
+include ../swan/macros.inc
 
-############################# Source & Object Files ######################
-EXTRA_SRC  :=  degree.F rindex.F getunit.F
-C_SRC      :=  findaddr.c timer.c
-
-DRIVER_SRC :=  driver.F 
-
-COMMON_SRC :=  os.F stw_global.F stwave_version.F here.F openfile.F finish.F fnames.F       \
-               stw_parallel.F stw_globalio.F wkfnc.F splint.F Spline.F                      \
-	       logfile.F rstress.F incdate.F
-
-SRC        :=  hp_wave.F friction.F nest_interp.F rf.F rotate.F stdflx.F stdprp.F sxycalc.F \
-               wkcgen.F hp_allocate.F store_Tp.F store_wave2.F store_wave3.F hp_init.F      \
-               hp_next_input.F hp_step.F hp_write_output.F hp_update3d.F  halfplane.F       \
-               fp_wave.F compute_bdys.F specparams.F celerity.F cospwr.F cossprd.F          \
-               depgrad.F depth.F etma.F fp_friction.F gen.F one_d_prop.F                    \
-               phifun.F prop.F qsimp.F specgen.F sweeps.F                                   \
-               fp_sxycalc.F trapzd.F break.F fp_nest_interp.F  fp_rotate.F                  \
-               fp_allocate.F fp_init.F fp_next_input.F fp_step.F fp_write_output.F          \
-               check_norm.F debug.F fullplane.F stwave.F        
-
-STWAVE     := stwave
-STWAVE_P   := stwave_p
-STWAVE_EP  := stwave_ep
-LIBSTW     := libstw.a
-
-######################## Target Specific Rules ###################################
-
-ifneq ($(TARG),)
-  override TARG		:= $(TARG)/
-  override TARG    	:= $(subst //,/,$(TARG))
-  override STWAVE    	:= $(TARG)stwave
-  override STWAVE_P     := $(TARG)stwave_p
-  override STWAVE_EP    := $(TARG)stwave_ep
-  override LIBSTW	:= $(TARG)libstw.a
+ifneq ($(compiler),)
+$(warning (INFO) The compiler variable in cmplrflags.mk is set to $(compiler).)
 endif
+$(warning (INFO) The following compilers have been selected...)
+$(warning (INFO) The Fortran compiler for adcprep is set to $(PPFC).)
+$(warning (INFO) The serial Fortran compiler is set to $(FC).)
+$(warning (INFO) The parallel Fortran compiler is set to $(PFC).)
+$(warning (INFO) The C compiler is set to $(CC).)
 
-EXEC    := $(STWAVE) $(STWAVE_P) $(STWAVE_EP) $(LIBSTW)
-
-# stwave
-ifeq ($(BUILDTYPE),$(STWAVE))
-  override FC := $(FC)
-  override O_DIR := odir/
-  FFLAGS = $(FFLAGS1) $(IMODS) $(O_DIR)
-  VPATH :=  ../src/hp:../src/fp:../src
+# Specify NETCDF=enable to gmake on the command line to activate netcdf i/o
+ifeq ($(NETCDF),enable)
+# jgf49.61: Don't add the -DADCNETCDF for the IBM compilers (see cmplrflags.mk)
+ifeq ($(IBM),)
+     PPFC    := $(PPFC) -DADCNETCDF -I$(NETCDFHOME)/include 
+     PFC     := $(PFC) -DADCNETCDF -I$(NETCDFHOME)/include 
+     FFLAGS1 := $(FFLAGS1) -DADCNETCDF -I$(NETCDFHOME)/include 
+     FFLAGS2 := $(FFLAGS2) -DADCNETCDF -I$(NETCDFHOME)/include 
+     FFLAGS3 := $(FFLAGS3) -DADCNETCDF -I$(NETCDFHOME)/include 
+     FFLAGS4 := $(FFLAGS4) -DADCNETCDF -I$(NETCDFHOME)/include 
 endif
-
-# stwave_p
-ifeq ($(BUILDTYPE),$(STWAVE_P))
-  override FC := $(PFC)
-  override O_DIR := odirp/
-  FFLAGS = $(FFLAGS2) $(IMODS) $(O_DIR) $(MSGLIBS)
-  VPATH :=  ../src/hp:../src/fp:../src
 endif
-
-# stwave_ep
-ifeq ($(BUILDTYPE),$(STWAVE_EP))
-  override FC := $(PFC)
-  override O_DIR := odirep/
-  FFLAGS = $(FFLAGS3) $(IMODS) $(O_DIR)  $(MSGLIBS)
-  VPATH :=  ../src/hp:../src/fp:../src
+ifeq ($(NETCDF4),enable)
+     PPFC    := $(PPFC) -DHAVE_NETCDF4 
+     PFC     := $(PFC) -DHAVE_NETCDF4 
+     FFLAGS1 := $(FFLAGS1) -DHAVE_NETCDF4 
+     FFLAGS2 := $(FFLAGS2) -DHAVE_NETCDF4 
+     FFLAGS3 := $(FFLAGS3) -DHAVE_NETCDF4 
+     FFLAGS4 := $(FFLAGS4) -DHAVE_NETCDF4 
 endif
-
-# libstw.a
-ifeq ($(BUILDTYPE),$(LIBSTW))
-  override FC := $(PFC)
-  FFLAGS = $(FFLAGS2) $(IMODS) $(O_DIR) 
-  VPATH :=  ../src/hp:../src/fp:../src
+ifeq ($(NETCDF4_COMPRESSION),enable)
+     PPFC    := $(PPFC) -DNETCDF_CAN_DEFLATE 
+     PFC     := $(PFC) -DNETCDF_CAN_DEFLATE 
+     FFLAGS1 := $(FFLAGS1) -DNETCDF_CAN_DEFLATE 
+     FFLAGS2 := $(FFLAGS2) -DNETCDF_CAN_DEFLATE 
+     FFLAGS3 := $(FFLAGS3) -DNETCDF_CAN_DEFLATE 
+     FFLAGS4 := $(FFLAGS4) -DNETCDF_CAN_DEFLATE 
 endif
+####################### Target Specific Rules ###################################
 
-
-ifneq ($(TARG),)
-      override O_DIR := $(O_DIR)$(TARG)
+#                                      adcprep   
+ifeq ($(BUILDTYPE),adcprep)
+  CF:= $(PPFC)
+  O_DIR:=odir1/
+  FFLAGS:= $(FFLAGS1) $(DPRE) $(IMODS) $(O_DIR) 
+  VPATH :=  $(SRCDIR)/prep:$(SRCDIR)/KDTREE2:$(SRCDIR):$(SRCDIR)/src:$(SRCDIR)/wind 
+  ifeq ($(NETCDF),enable)
+    LIBS  := -Lodir_metis -lmetis -L$(NETCDFHOME)/lib -lnetcdf $(FLIBS)
+  else
+    LIBS  := -Lodir_metis -lmetis $(FLIBS)
+  endif
+  PMSG_OBJ:=
 endif
-
-$(O_DIR) $(TARG):
+#                                      adcprep_be
+ifeq ($(BUILDTYPE),adcprep_be)
+  CF:= $(FC)
+  O_DIR:=odir2/
+  FFLAGS:= $(FFLAGS1) $(DPRE) $(IMODS) $(O_DIR) 
+  VPATH :=  $(SRCDIR)/prep:$(SRCDIR)/KDTREE2:$(SRCDIR)/src:$(SRCDIR):$(SRCDIR)/wind 
+  ifeq ($(NETCDF),enable)
+    LIBS  := -Lodir_metis -lmetis -L$(NETCDFHOME)/lib -lnetcdf $(FLIBS) 
+  else
+    LIBS  := -Lodir_metis_be -lmetis_be $(FLIBS)
+  endif
+  PMSG_OBJ:=
+endif
+#                                      adcirc   
+ifeq ($(BUILDTYPE),adcirc)
+  CF:= $(FC)
+  O_DIR:=odir3/
+  FFLAGS:= $(FFLAGS2) $(DA) $(IMODS) $(O_DIR)
+  VPATH:=  $(SRCDIR)/src:$(SRCDIR)/KDTREE2:$(SRCDIR)/wind:$(SRCDIR):$(SRCDIR)/prep
+  ifeq ($(NETCDF),enable)
+    LIBS  := -L$(NETCDFHOME)/lib -lnetcdf $(FLIBS)
+  endif
+  MSG_MOBJ:= $(O_DIR)globalio.o
+endif
+#Casey 090302: Add rules for the serial SWAN+ADCIRC.
+#                                      adcswan
+ifeq ($(BUILDTYPE),adcswan)
+  CF:= $(FC)
+  O_DIR:=odir33/
+  FFLAGS:= $(FFLAGS2) -DCSWAN $(DA) $(IMODS) $(O_DIR)
+  VPATH:=  $(SRCDIR)/src:$(SRCDIR)/KDTREE2:$(SRCDIR)/wind:$(SRCDIR):$(SRCDIR)/prep:$(SRCDIR)/swan
+  ifeq ($(NETCDF),enable)
+    LIBS  := -L$(NETCDFHOME)/lib -lnetcdf $(FLIBS)
+  endif
+  MSG_MOBJ:= $(O_DIR)globalio.o
+endif
+#                                      $(PARALLEL_ADCIRC)   
+ifeq ($(BUILDTYPE),$(PARALLEL_ADCIRC))
+  CF:= $(PFC)
+  O_DIR:=odir4/
+  FFLAGS:= $(FFLAGS3) $(DP) $(IMODS) $(O_DIR)
+  VPATH :=  $(SRCDIR)/src:$(SRCDIR)/KDTREE2:$(SRCDIR)/wind:$(SRCDIR):$(SRCDIR)/prep 
+  ifeq ($(NETCDF),enable)
+    LIBS  := -L$(NETCDFHOME)/lib -lnetcdf $(FLIBS)
+  endif
+  MSG_MOBJ:= $(O_DIR)messenger.o $(O_DIR)writer.o
+endif
+#Casey 090302: Add rules for the parallel SWAN+ADCIRC.
+#                                      padcswan
+ifeq ($(BUILDTYPE),padcswan)
+  CF:= $(PFC)
+  O_DIR:=odir44/
+  FFLAGS:= $(FFLAGS3) -DCSWAN $(DP) $(IMODS) $(O_DIR)
+  VPATH :=  $(SRCDIR)/src:$(SRCDIR)/KDTREE2:$(SRCDIR)/wind:$(SRCDIR):$(SRCDIR)/prep:$(SRCDIR)/swan
+  ifeq ($(NETCDF),enable)
+    LIBS  := -L$(NETCDFHOME)/lib -lnetcdf $(FLIBS)
+  endif
+  MSG_MOBJ:= $(O_DIR)messenger.o $(O_DIR)writer.o
+endif
+#                                    libadc.a
+ifeq ($(BUILDTYPE),$(LIBADC)) 
+  CF:= $(PFC)
+  FFLAGS:= $(FFLAGS3) $(DP) $(IMODS) $(O_DIR)
+  VPATH := $(SRCDIR):$(SRCDIR)/src:$(SRCDIR)/KDTREE2:$(SRCDIR)/wind:$(SRCDIR):$(SRCDIR)/prep 
+  ifeq ($(NETCDF),enable)
+    LIBS  := -L$(NETCDFHOME)/lib -lnetcdf $(FLIBS)
+  endif
+  MSG_MOBJ:= $(O_DIR)messenger.o $(O_DIR)writer.o
+endif
+#                                      p15
+ifeq ($(BUILDTYPE),p15)
+  CF:= $(PPFC)
+  O_DIR:=odir5/
+  FFLAGS:= $(FFLAGS2) $(IMODS) $(O_DIR)
+  VPATH :=  $(SRCDIR)/wind
+  MSG_MOBJ:=
+endif
+#                                      owi22
+ifeq ($(BUILDTYPE),owi22)
+  CF:= $(PPFC)
+  O_DIR:=odir6/
+  FFLAGS:= $(FFLAGS2) $(IMODS) $(O_DIR)
+  VPATH :=  $(SRCDIR)/wind
+  MSG_MOBJ:=
+endif
+#                                      build13
+ifeq ($(BUILDTYPE),build13)
+  CF:= $(PPFC)
+  O_DIR:=odir7/
+   FFLAGS:= $(FFLAGS2) $(IMODS) $(O_DIR)
+  VPATH :=  $(SRCDIR)/util
+  MSG_MOBJ:=
+endif
+#                                      build12
+ifeq ($(BUILDTYPE),build12)
+  CF:= $(PPFC)
+  O_DIR:=odir8/
+  FFLAGS:= $(FFLAGS2) $(IMODS) $(O_DIR)
+  VPATH :=  $(SRCDIR)/util
+  MSG_MOBJ:=
+endif
+#
+ifeq ($(BUILDTYPE),buildstwave23)
+  CF:= $(PPFC)
+  O_DIR:=odir9/
+  FFLAGS:= $(FFLAGS2) $(IMODS) $(O_DIR)
+  VPATH :=  $(SRCDIR)/util
+  MSG_MOBJ:=
+endif
+#                                      hot2asc      
+ifeq ($(BUILDTYPE),hot2asc)
+  CF:= $(PPFC)
+  O_DIR:=odir10/
+  FFLAGS:= $(FFLAGS2) $(IMODS) $(O_DIR) $(LIBS)
+  VPATH :=  $(SRCDIR)/util
+  MSG_MOBJ:=
+endif
+#                                      inflate
+ifeq ($(BUILDTYPE),inflate)
+  CF:= $(PPFC)
+  O_DIR:=odir11/
+  FFLAGS:= $(FFLAGS2) $(IMODS) $(O_DIR) $(LIBS)
+  VPATH :=  $(SRCDIR)/util
+  MSG_MOBJ:=
+endif
+#                                      hstime
+ifeq ($(BUILDTYPE),hstime)
+  CF:= $(PPFC)
+  O_DIR:=odir12/
+  FFLAGS:= $(FFLAGS2) $(IMODS) $(O_DIR) $(DA)
+  ifeq ($(NETCDF),enable)
+    LIBS  := -L$(NETCDFHOME)/lib -lnetcdf $(FLIBS)
+  endif
+  VPATH :=  $(SRCDIR)/util
+  MSG_MOBJ:=
+endif
+#                                      adcpost (for 3D and harmonic)
+ifeq ($(BUILDTYPE),adcpost)
+  CF:= $(PPFC)
+  O_DIR:=odir13/
+  FFLAGS:= $(FFLAGS1) $(DPRE) $(IMODS) $(O_DIR) 
+  VPATH :=  $(SRCDIR)/prep 
+endif
+#                                      aswip
+ifeq ($(BUILDTYPE),aswip)
+  CF:= $(PPFC)
+  O_DIR:=odir3/
+  FFLAGS:= $(FFLAGS2) $(IMODS) $(O_DIR) $(DA)
+  VPATH :=  $(SRCDIR)/wind
+  MSG_MOBJ:=
+endif
+#                                      adccmp
+ifeq ($(BUILDTYPE),adccmp)
+  CF:= $(PPFC)
+  O_DIR:=odir17/
+  FFLAGS:= $(FFLAGS2) $(IMODS) $(O_DIR) $(DA)
+  VPATH :=  $(SRCDIR)/util
+  MSG_MOBJ:=
+endif
+#
+$(O_DIR):
 	mkdir -p $@
 
+################# Module Source, Object, & Mod Files ######################
+
+PREP_MSRC  =  presizes.F 
+PGLO_MSRC  =  pre_global.F
+ADC_MSRC   =  version.F sizes.F global.F global_3dvs.F 
+POST_MSRC  =  post_global.F
+HARM_MSRC  =  harm.F  
+VORT_MSRC  =  vortex.F
+WIND_MSRC  =  wind.F owiwind.F rs2.F owi_ice.F
+SOLV_MSRC  =  itpackv.F
+NA_MSRC    =  nodalattr.F
+NC_MSRC    =  netcdfio.F
+GIO_MSRC   =  globalio.F
+#Casey 090302: Add file for coupling to unstructured SWAN.
+COUP_MSRC  =  couple2swan.F
+#tcm v49.48.01 Adding File for kdtree2 fast search algorithm
+KDTREE_MSRC = kdtree2.F
+
+PREP_MOBJ:= $(patsubst %.F, $(O_DIR)%.o, $(PREP_MSRC) )
+POST_MOBJ:= $(patsubst %.F, $(O_DIR)%.o, $(POST_MSRC) )
+PGLO_MOBJ:= $(patsubst %.F, $(O_DIR)%.o, $(PGLO_MSRC) )
+SOLV_MOBJ:= $(patsubst %.F, $(O_DIR)%.o, $(SOLV_MSRC) )
+ADC_MOBJ := $(patsubst %.F, $(O_DIR)%.o, $(ADC_MSRC)  )
+HARM_MOBJ := $(patsubst %.F, $(O_DIR)%.o, $(HARM_MSRC)  )
+VORT_MOBJ := $(patsubst %.F, $(O_DIR)%.o, $(VORT_MSRC)  )
+WIND_MOBJ := $(patsubst %.F, $(O_DIR)%.o, $(WIND_MSRC)  )
+NA_MOBJ  := $(patsubst %.F, $(O_DIR)%.o, $(NA_MSRC)  )
+NC_MOBJ  := $(patsubst %.F, $(O_DIR)%.o, $(NC_MSRC)  )
+GIO_MOBJ  := $(patsubst %.F, $(O_DIR)%.o, $(GIO_MSRC)  ) 
+#Casey 090302: Add rules for coupling to unstructured SWAN.
+COUP_MOBJ  := $(patsubst %.F, $(O_DIR)%.o, $(COUP_MSRC)  )
+# tcm v49.48.01 Adding rule for kdtree2 fast search algorithm
+KDTREE_MOBJ :=  $(patsubst %.F, $(O_DIR)%.o, $(KDTREE_MSRC) )
+
+############################# Source & Object Files ######################
+#meb 04/20/2004 - added machdep.F onto POST_SRC
+
+METIS_SRC  =  metis.F
+PREP_SRC   =  adcprep.F decomp.F read_global.F prep.F interp.F machdep.F
+ADC_SRC    =  adcirc.F read_input.F cstart.F hstart.F timestep.F vsmy.F transport.F write_output.F 
+POST_SRC   =  adcpost.F post.F compare.F diffmerge.F machdep.F
+P15_SRC    =  p15.F
+OWI_SRC    =  owi22.F
+B13_SRC    =  build13.F
+B12_SRC    =  build12.F
+B23_SRC    =  buildstwave23.F
+H2A_SRC    =  hot2asc.F
+INF_SRC    =  inflate.F
+HST_SRC    =  hstime.F
+ASW_SRC    =  aswip_1.0.3.F
+CMP_SRC    =  adccmp.F
+
+METIS_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(METIS_SRC) )
+PREP_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(PREP_SRC) ) $(O_DIR)mkdir.o
+POST_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(POST_SRC) ) 
+ADC_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(ADC_SRC) ) $(O_DIR)mkdir.o
+P15_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(P15_SRC) )
+OWI_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(OWI_SRC) )
+B13_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(B13_SRC) )
+B12_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(B12_SRC) )
+B23_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(B23_SRC) )
+H2A_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(H2A_SRC) )
+INF_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(INF_SRC) )
+HST_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(HST_SRC) )
+ASW_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(ASW_SRC) )
+CMP_OBJ:= $(patsubst %.F, $(O_DIR)%.o, $(CMP_SRC) )
+
+#################### SWAN Source & Object Files #########################
+# Casey 090302: Added this section for coupling to unstructured SWAN.
+
+SWAN_MSRC  = swmod1.f swmod2.f m_constants.f90 m_fileio.f90 \
+serv_xnl4v5.f90 mod_xnl4v5.f90 \
+SwanGriddata.f90 SwanGridobjects.f90 SwanCompdata.f90 \
+couple2adcirc.f90
+
+SWAN_MOBJ := $(patsubst %.f,   $(O_DIR)%.o, $(SWAN_MSRC)  )
+SWAN_MOBJ := $(patsubst %.f90, $(O_DIR)%.o, $(SWAN_MOBJ)  )
+
+SWAN_SRC   = swanmain.f swanpre1.f swanpre2.f swancom1.f swancom2.f swancom3.f swancom4.f \
+swancom5.f swanout1.f swanout2.f swanser.f swanparll.f SwanReadGrid.f90 \
+SwanReadADCGrid.f90 SwanReadTriangleGrid.f90 SwanReadEasymeshGrid.f90 \
+SwanInitCompGrid.f90 SwanCheckGrid.f90 SwanCreateEdges.f90 SwanGridTopology.f90 SwanGridVert.f90 \
+SwanGridCell.f90 SwanGridFace.f90 SwanPrintGridInfo.f90 SwanFindPoint.f90 \
+SwanPointinMesh.f90 SwanBpntlist.f90 SwanPrepComp.f90 SwanVertlist.f90 SwanCompUnstruc.f90 \
+SwanDispParm.f90 SwanPropvelX.f90 SwanSweepSel.f90 SwanPropvelS.f90 \
+SwanTranspAc.f90 SwanTranspX.f90 SwanDiffPar.f90 SwanGSECorr.f90 SwanInterpolatePoint.f90 \
+SwanInterpolateAc.f90 SwanInterpolateOutput.f90 SwanConvAccur.f90 SwanConvStopc.f90 \
+SwanFindObstacles.f90 SwanCrossObstacle.f90 \
+SwanComputeForce.f90 SwanIntgratSpc.f90 SwanBndStruc.f90 SwanReadfort18.f90 \
+SwanPunCollect.f90 \
+SwanSumOverNodes.f90 SwanMinOverNodes.f90 SwanMaxOverNodes.f90 \
+ocpids.f ocpcre.f ocpmix.f
+
+SWAN_OBJ:= $(patsubst %.f,   $(O_DIR)%.o, $(SWAN_SRC) )
+SWAN_OBJ:= $(patsubst %.f90, $(O_DIR)%.o, $(SWAN_OBJ) )
 
 ######################## compilation rules ###############################
 
-$(O_DIR)%.o $(O_DIR)%.mod : %.F
-	$(COMPILE.F) -o $(O_DIR)$(*F).o  $<
-	@if [ "`echo *.mod`" != '*.mod' ]; then mv *.mod $(O_DIR); fi
+$(O_DIR)%.o  : %.c
+	$(COMPILE.c) $< -o $@
+$(O_DIR)%.o  : %.F
+	$(CF) -c $(FFLAGS) -o $@  $<
+	if [ "`echo *.mod`" != '*.mod' ]; then mv *.mod $(O_DIR); fi
 
-$(O_DIR)%.o : %.F
-	$(COMPILE.F) -o $(O_DIR)$(*F).o  $<
-	@if [ "`echo *.mod`" != '*.mod' ]; then mv *.mod $(O_DIR); fi
-
-$(O_DIR)%.o : %.c
-	$(COMPILE.c) -o $(O_DIR)$(*F).o $<
-
-########################## Executable Targets ############################
-EXTRA_OBJS := $(patsubst %.F, $(O_DIR)%.o, $(EXTRA_SRC) )
-
-
-DRIVER_OBJ  := $(patsubst %.F, $(O_DIR)%.o, $(DRIVER_SRC) )
-
-COM_OBJ :=  \
-            $(patsubst %.F, $(O_DIR)%.o, $(COMMON_SRC) ) \
-            $(patsubst %.c, $(O_DIR)%.o, $(C_SRC) ) \
-            $(EXTRA_OBJS)
-
-OBJ := $(patsubst %.F, $(O_DIR)%.o, $(SRC) )
-
-# TAGLIST changed by Matt M.
-TAGLIST := $(C_SRC) $(COMMON_SRC) $(STWAVE_VERSION)/Makefile \
-	   $(STWAVE_VERSOIN)/cmplrflags.mk \
-	   $(foreach f, $(SRC) driver.F, driver_svc.F, hp/$(f) fp/$(f))        
-
+# Casey 080106: Added the following rules for the unstructured SWAN.
+$(O_DIR)%.o  : %.f
+	$(CF) -c $(FLAGS_OPT) $(FLAGS_MSC) $(FLAGS_SER) $(IMODS) $(O_DIR) -o $@  $<
+	if [ "`echo *.mod`" != '*.mod' ]; then mv *.mod $(O_DIR); fi
+$(O_DIR)%.o  : %.f90
+	$(CF) -c $(FLAGS_OPT) $(FLAGS_MSC) $(FLAGS_SER) $(IMODS) $(O_DIR) -o $@  $<
+	if [ "`echo *.mod`" != '*.mod' ]; then mv *.mod $(O_DIR); fi
 
 ########################## Executable Targets ############################
 
-.PHONY: all tags $(EXEC)
+.PHONY: all metis metis_be adcprep adcprep_be adcpost adcirc $(PARALLEL_ADCIRC)  p15 owi22 build13 build12 buildstwave23 hot2asc inflate hstime aswip adccmp
 
+all :  metis adcprep $(BACKEND_EXEC) adcpost adcirc $(PARALLEL_ADCIRC)
 
+   odir_metis:
+	mkdir $@
+   odir_metis_be:
+	mkdir $@
+   metis: odir_metis
+	$(MAKE) -C $(SRCDIR)/metis/Lib/ CC="$(CC)" CFLAGS="$(CFLAGS)" O_DIR="$(CURDIR)/odir_metis/" LIBMETIS="$(CURDIR)/odir_metis/libmetis.a" ARFLAGS="$(ARFLAGS)"
+   metis_be: odir_metis_be
+	$(MAKE) -C $(SRCDIR)/metis/Lib/ CC="$(CCBE)" CFLAGS="$(CFLAGS)" O_DIR="$(CURDIR)/odir_metis_be/" LIBMETIS="$(CURDIR)/odir_metis_be/libmetis_be.a" ARFLAGS="$(ARFLAGS)"
+ifeq ($(MAKELEVEL),0)
+   adcprep: metis
+	$(MAKE) BUILDTYPE=adcprep  $@            
+   adcprep_be: metis_be
+	$(MAKE) BUILDTYPE=adcprep_be CC="$(CCBE)" CFLAGS="$(CFLAGS)" $@ 
+   adcpost: 
+	$(MAKE) BUILDTYPE=adcpost $@
+   adcirc:
+	$(MAKE) BUILDTYPE=adcirc CC="$(CCBE)" CFLAGS="$(CFLAGS)" $@
+   $(PARALLEL_ADCIRC):
+	$(MAKE) BUILDTYPE=$(PARALLEL_ADCIRC) CC="$(CCBE)" CFLAGS="$(CFLAGS)" $@ 
+#Casey 090302: Added the following lines for coupling to unstructured SWAN.
+   adcswan:
+	@perl ../swan/switch.pl -unix -f95 -adcirc ../swan/*.ftn ../swan/*.ftn90
+	$(MAKE) BUILDTYPE=adcswan CC="$(CCBE)" CFLAGS="$(CFLAGS)" $@
+   padcswan:
+	@perl ../swan/switch.pl -unix -f95 -pun -adcirc ../swan/*.ftn ../swan/*.ftn90
+	$(MAKE) BUILDTYPE=padcswan CC="$(CCBE)" CFLAGS="$(CFLAGS)" $@
+   $(LIBADC): 
+	@echo $(MAKE) LIBADC=$@ BUILDTYPE=$(LIBADC) $@
+	$(MAKE) LIBADC=$@ BUILDTYPE=$(LIBADC) $@
+   p15:
+	$(MAKE) BUILDTYPE=p15 $@ 
+   owi22:
+	$(MAKE) BUILDTYPE=owi22 $@ 
+   build13:
+	$(MAKE) BUILDTYPE=build13 $@ 
+   build12:
+	$(MAKE) BUILDTYPE=build12 $@ 
+   buildstwave23:
+	$(MAKE) BUILDTYPE=buildstwave23 $@ 
+   hot2asc:
+	$(MAKE) BUILDTYPE=hot2asc $@ 
+   inflate:
+	$(MAKE) BUILDTYPE=inflate $@ 
+   hstime:
+	$(MAKE) BUILDTYPE=hstime $@
+   aswip:
+	$(MAKE) BUILDTYPE=aswip $@
+   adccmp:
+	$(MAKE) BUILDTYPE=adccmp $@
+else
+   adcprep::  $(O_DIR)
+   adcprep_be::  $(O_DIR)
+   adcirc::   $(O_DIR)
+   adcpost::  $(O_DIR)
+   $(PARALLEL_ADCIRC)::  $(O_DIR)
+   $(LIBADC)::  $(O_DIR)
+   p15::      $(O_DIR)
+   owi22::    $(O_DIR)
+   build13::  $(O_DIR)
+   build12::  $(O_DIR)
+   buildstwave23:: $(O_DIR)
+   hot2asc:: $(O_DIR)
+   inflate:: $(O_DIR)
+   hstime::   $(O_DIR)
+   aswip::  $(O_DIR)
+   adccmp:  $(O_DIR)
 
-all:  $(EXEC)
+ifeq ($(NETCDF),enable)
+   adcprep ::  $(NC_MOBJ) $(METIS_OBJ) $(KDTREE_MOBJ) $(WIND_MOBJ) $(PREP_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(LDFLAGS)
+else
+   adcprep ::  $(METIS_OBJ) $(KDTREE_MOBJ) $(WIND_MOBJ) $(PREP_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(LDFLAGS)
+endif
+ifeq ($(NETCDF),enable)
+   adcprep_be :: $(NC_MOBJ) $(METIS_OBJ) $(KDTREE_MOBJ) $(PREP_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(LDFLAGS)
+else
+   adcprep_be ::  $(METIS_OBJ) $(KDTREE_MOBJ) $(PREP_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(LDFLAGS)
+endif
+   adcpost ::  $(POST_OBJ)
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(LDFLAGS)
 
-delete_build_files:
-	$(RM) $(O_DIR)build.F $(O_DIR)build.o $(O_DIR)build.mod
+ifeq ($(NETCDF),enable)
+   adcirc ::  $(NC_MOBJ) $(KDTREE_MOBJ) $(ADC_OBJ) $(O_DIR)driver.o
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(LDFLAGS)
+else
+   adcirc ::  $(KDTREE_MOBJ) $(ADC_OBJ) $(O_DIR)driver.o
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(LDFLAGS)
+endif
+   $(PARALLEL_ADCIRC) ::  $(NA_MOBJ) $(MSG_MOBJ) $(KDTREE_MOBJ) $(ADC_OBJ) $(O_DIR)driver.o
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(MSGLIBS)
 
-
-echo:
-	@echo TARG: $(TARG)
-	@echo stwave: $(STWAVE)
-	@echo O_DIR: $(O_DIR)
-	@echo exec: $(EXEC)	
-	@echo compiler: $(compiler)	
-
-	# Removed MAKELEVL==0 if-statement -- Matt M.
-	$(MAKE) BUILDTYPE=$(STWAVE)   $@
-
-	ifneq ($(TARG),)
-  		stwave:		$(STWAVE)
-  		stwave_p:	$(STWAVE_P)
-  		stwave_ep:	$(STWAVE_EP)
-		stwave_lib:	$(LIBSTW)
-	endif
-
-
-tags:
-	cd src; etags $(TAGLIST)
-
-$(O_DIR)build.F:
-	@echo "! -*- f90 -*-"                                              >  $@; \
-        echo "module build"                                                >> $@; \
-        echo '   character(80), parameter :: OPT_LEVEL   = "'$(OPTNAME)'"' >> $@; \
-        echo '   character(80), parameter :: BUILD_DATE  = "'$(VDATE)'"'   >> $@; \
-        echo 'end module build'                                            >> $@;
-
-$(O_DIR)build.o $(O_DIR)build.mod: $(O_DIR)build.F
-	$(COMPILE.F) -o $(O_DIR)$(*F).o  $<
-	@if [ "`echo *.mod`" != '*.mod' ]; then mv *.mod $(O_DIR); fi
-
-$(STWAVE): $(O_DIR) $(TARG) $(O_DIR)build.o $(COM_OBJ) $(OBJ) $(DRIVER_OBJ)
-
-	$(LINK.F) -o $@  $(O_DIR)build.o $(COM_OBJ) $(OBJ) $(DRIVER_OBJ) $(PERFLIBS)
-	$(RM) $(O_DIR)build.o $(O_DIR)build.F  $(O_DIR)build.mod
-
-$(STWAVE_P): $(O_DIR) $(TARG) $(O_DIR)build.o $(COM_OBJ) $(OBJ) $(DRIVER_OBJ)
-
-	$(LINK.F) -o $@ $(O_DIR)build.o $(COM_OBJ) $(OBJ) $(DRIVER_OBJ) $(PERFLIBS)
-	$(RM) $(O_DIR)build.o  $(O_DIR)build.F  $(O_DIR)build.mod
-
-$(STWAVE_EP): $(O_DIR) $(TARG)  $(O_DIR)build.o $(COM_OBJ) $(OBJ) $(DRIVER_OBJ)
-
-	$(LINK.F) -o $@ $(O_DIR)build.o $(COM_OBJ) $(OBJ) $(DRIVER_OBJ) $(PERFLIBS)
-	$(RM) $(O_DIR)build.o  $(O_DIR)build.F  $(O_DIR)build.mod
-
-$(LIBSTW): $(O_DIR)  $(TARG) $(O_DIR)build.o $(COM_OBJ) $(OBJ) 
-
-	ar $(ARFLAGS) $@ $(O_DIR)build.o $(COM_OBJ) $(OBJ) 
+   $(LIBADC) :: $(O_DIR) $(ADC_MOBJ) $(MSG_MOBJ) $(NA_MOBJ) $(GIO_MOBJ) $(AGIO_MOBJ) $(KDTREE_MOBJ) $(ADC_OBJ) 
+	ar $(ARFLAGS) $@  $(ADC_MOBJ) $(MSG_MOBJ) $(NA_MOBJ) $(GIO_MOBJ) $(AGIO_MOBJ) $(KDTREE_MOBJ) $(ADC_OBJ)
 	ar -ts $@
-	$(RM) $(O_DIR)build.o  $(O_DIR)build.F  $(O_DIR)build.mod
 
+#Casey 080106: Added the following lines.
+   adcswan :: $(O_DIR)
+ifeq ($(NETCDF),enable)
+   adcswan ::  $(NC_MOBJ) $(SWAN_MOBJ) $(KDTREE_MOBJ) $(ADC_OBJ) $(SWAN_OBJ) $(O_DIR)driver.o
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(LDFLAGS)
+	if [ "`echo *.mod`" != '*.mod' ]; then mv *.mod $(O_DIR); fi
+else
+   adcswan :: $(SWAN_MOBJ)  $(KDTREE_MOBJ) $(ADC_OBJ) $(SWAN_OBJ) $(O_DIR)driver.o
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(LDFLAGS)
+	if [ "`echo *.mod`" != '*.mod' ]; then mv *.mod $(O_DIR); fi
+endif
+   padcswan :: $(O_DIR)
+   padcswan ::  $(NA_MOBJ) $(MSG_MOBJ) $(SWAN_MOBJ) $(KDTREE_MOBJ) $(ADC_OBJ) $(SWAN_OBJ) $(O_DIR)driver.o
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(MSGLIBS) 
+
+   p15     ::  $(P15_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o)
+
+   owi22   ::  $(OWI_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o)
+
+   build13 ::  $(B13_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o)
+
+   build12 ::  $(B12_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o)
+
+   buildstwave23 ::  $(B23_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o)
+
+   hot2asc ::  $(H2A_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o)
+
+   inflate ::  $(INF_OBJ) 
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o)
+
+   hstime ::  $(HST_OBJ)
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o) $(LIBS) $(LDFLAGS)
+
+   aswip ::  $(ASW_OBJ)
+	$(CF) $(FFLAGS) -o $@ $(ADC_MOBJ) $(WIND_MOBJ) $(PREC_MOBJ) $(CONS_MOBJ) $(VORT_MOBJ) $(LSQ_MOBJ) $(FITP_MOBJ) $(ASW_OBJ) $(KDTREE_MOBJ)
+
+   adccmp :  $(O_DIR) $(CMP_OBJ)
+	$(CF) $(FFLAGS) -o $@ $(wildcard $(O_DIR)*.o)
+
+
+endif
 
 ########################## Misc Commands ####################################
 
 clean:
-	$(RM) -rf *.o *.mod odir odir* build.F $(TARG)
-clobber: clean
-	$(RM)  $(EXEC)
+	rm -f odir*/*.o  odir*/*.mod sizes.o
+clobber:
+	rm -r -f odir* 
+	rm -f adcprep adcprep_be adcirc $(PARALLEL_ADCIRC) adcswan padcswan p15 owi22 build13 aswip \
+           build12 buildstwave23 hot2asc inflate hstime sizes.o adcpost adccmp
 help:
 	@echo "This makefile supports the following:"
-	@echo "make all      	- makes all targets"
-	@echo "make stwave	- makes the single-cpu executable"
-	@echo "make stwave_ep   - makes the embarrasingly-parallel executable"
-	@echo "make stwave_p    - makes the parallel executable"
-	@echo "make libstw.a	- makes the parallel library"
-
-svntag:
-ifneq ($(TAG),)
-	      echo "! -*- f90 -*-"                                             >  ../src/stwave_version.F; \
-	      echo "module stwave_version"                                            >> ../src/stwave_version.F; \
-	      echo '   character(80), parameter :: STW_VERSION = "'$(TAG)'"'   >> ../src/stwave_version.F; \
-	      echo '   character(80), parameter :: STW_DATE    = "'$(VDATE)'"' >> ../src/stwave_version.F; \
-	      echo 'end module stwave_version'                                 >> ../src/stwave_version.F; \
-              SVN_ROOT=`svn info | grep "Repository Root" | sed -e 's/Repository Root: //'`;        \
-              SVN=`svn info | grep "URL: " | sed -e 's/URL: //' | sed -e 's|/work||'`;              \
-	      svn ci -m'moving to TAG_VERSION $(TAG)' ../src/stwave_version.F;                             \
-	      svn cp -m'moving to TAG_VERSION $(TAG)' $$SVN $$SVN_ROOT/tags/$(TAG)
-              else
-		@echo "To svn tag do: make svntag TAG=?"
-              endif
+	@echo "make all        - makes all seven targets"
+	@echo "make adcprep    - makes the adcprep  front-end executable"
+	@echo "make adcprep_be - makes the adcprep  back-end executable"
+	@echo "make adcpost  - makes the adcpost  executable"
+	@echo "make adcirc     - makes the serial adcirc executable"
+	@echo "make $(PARALLEL_ADCIRC)  - makes the parallel adcirc executable"
+	@echo "make p15        - makes the wind file generator for PBL"
+	@echo "make owi22      - makes the wind file generator for OWI"
+	@echo "make build13    - makes the fort.13 file generator"
+	@echo "make build12    - makes the fort.12 file generator"
+	@echo "make buildstwave23 - makes the fort.23 file generator"
+	@echo "make hot2asc       - makes the hotstart debug program"
+	@echo "make inflate       - makes the output file inflation program"
+	@echo "make hstime   - makes the hot start time examiner"
+	@echo "make adccmp     - makes the output file comparison program"
+#Casey 091013: Add text for the SWAN+ADCIRC targets.
+	@echo "make adcswan     - makes the serial SWAN+ADCIRC executable"
+	@echo "make padcswan     - makes the parallel SWAN+ADCIRC executable"
 
 
-########################## Defining the DAG  ####################################
+echo:
+	@echo VTAG: $(VTAG)
 
-# files in src
-$(O_DIR)os.o $(O_DIR)os.mod: os.F
-$(O_DIR)stw_global.o $(O_DIR)stw_global.mod: stw_global.F
-$(O_DIR)stwave_version.o $(O_DIR)stwave_version.mod: stwave_version.F
-$(O_DIR)here.o: $(O_DIR)stw_global.mod here.F
-$(O_DIR)finish.o $(O_DIR)finish.mod: $(O_DIR)stw_global.mod finish.F
-$(O_DIR)fnames.o $(O_DIR)fnames.mod: $(O_DIR)finish.mod $(O_DIR)stw_global.mod $(O_DIR)os.mod fnames.F
-$(O_DIR)openfile.o $(O_DIR)openfile.mod: $(O_DIR)stw_global.mod openfile.F
-$(O_DIR)stw_parallel.o $(O_DIR)stw_parallel.mod: $(O_DIR)stw_global.mod stw_parallel.F
-$(O_DIR)stw_globalio.o $(O_DIR)stw_globalio.mod: $(O_DIR)finish.mod $(O_DIR)stw_parallel.mod $(O_DIR)stw_global.mod stw_globalio.F
-$(O_DIR)wkfnc.o: $(O_DIR)stw_global.mod wkfnc.F
-$(O_DIR)splint.o: $(O_DIR)finish.mod $(O_DIR)stw_global.mod splint.F
-$(O_DIR)Spline.o: $(O_DIR)stw_global.mod Spline.F
-$(O_DIR)logfile.o: $(O_DIR)build.mod $(O_DIR)stwave_version.mod $(O_DIR)stw_global.mod logfile.F
-$(O_DIR)rstress.o: $(O_DIR)stw_parallel.mod $(O_DIR)stw_global.mod rstress.F
-$(O_DIR)incdate.o: incdate.F
-$(O_DIR)degree.o: degree.F
-$(O_DIR)rindex.o: rindex.F
-$(O_DIR)findaddr.o: findaddr.c
-$(O_DIR)timer.o: timer.c
-$(O_DIR)stwave.o:   $(O_DIR)stw_global.mod $(O_DIR)stw_parallel.mod $(O_DIR)finish.mod $(O_DIR)hp_wave.mod $(O_DIR)fp_wave.mod $(O_DIR)fnames.mod $(O_DIR)halfplane.mod $(O_DIR)fullplane.mod stwave.F
-$(O_DIR)driver.o :  $(O_DIR)stwave.mod $(O_DIR)stwave.o driver.F
-$(O_DIR)driver_svc.o :  $(O_DIR)stwave.mod $(O_DIR)stwave.o driver_svc.F
+cvstag:
+	ifneq ($(TAG),)
+	  echo "      module version"                                        >  ../version.F; \
+	  echo '      character(80), parameter :: ADC_VERSION = "'$(VTAG)'"' >> ../version.F; \
+	  echo '      end module'                                            >> ../version.F; \
+	  cd ..;                                                                              \
+	  cvs ci -m'moving to TAG_VERSION $(VTAG)' version.F;                                 \
+	  cvs tag $(TAG_FLAGS) $(TAG)
+	else
+	  @echo "To cvs tag do: make cvstag TAG=V?_?"
+	endif
 
-# files in src/hp
-$(O_DIR)hp_wave.o $(O_DIR)hp_wave.mod: $(O_DIR)stw_global.mod hp_wave.F
-$(O_DIR)friction.o: $(O_DIR)hp_wave.mod friction.F
-$(O_DIR)nest_interp.o: $(O_DIR)stw_global.mod $(O_DIR)hp_wave.mod $(O_DIR)stw_parallel.mod nest_interp.F
-$(O_DIR)rf.o: $(O_DIR)finish.mod $(O_DIR)hp_wave.mod rf.F
-$(O_DIR)rotate.o: $(O_DIR)stw_global.mod rotate.F
-$(O_DIR)stdflx.o: $(O_DIR)stw_parallel.mod $(O_DIR)hp_wave.mod stdflx.F
-$(O_DIR)stdprp.o: $(O_DIR)stw_parallel.mod $(O_DIR)hp_wave.mod stdprp.F
-$(O_DIR)sxycalc.o: $(O_DIR)hp_wave.mod sxycalc.F
-$(O_DIR)wkcgen.o: $(O_DIR)stw_global.mod wkcgen.F
-$(O_DIR)hp_allocate.o: $(O_DIR)finish.mod $(O_DIR)hp_wave.mod $(O_DIR)stw_global.mod hp_allocate.F
-$(O_DIR)store_Tp.o: $(O_DIR)hp_wave.mod $(O_DIR)stw_globalio.mod store_Tp.F
-$(O_DIR)store_wave2.o: $(O_DIR)hp_wave.mod $(O_DIR)stw_globalio.mod store_wave2.F
-$(O_DIR)store_wave3.o: $(O_DIR)hp_wave.mod $(O_DIR)stw_globalio.mod store_wave3.F
-$(O_DIR)hp_init.o: $(O_DIR)stw_parallel.mod $(O_DIR)finish.mod $(O_DIR)fnames.mod $(O_DIR)openfile.mod $(O_DIR)hp_wave.mod hp_init.F
-$(O_DIR)hp_next_input.o: $(O_DIR)stw_parallel.mod $(O_DIR)hp_wave.mod hp_next_input.F
-$(O_DIR)hp_step.o: $(O_DIR)stw_parallel.mod $(O_DIR)openfile.mod $(O_DIR)hp_wave.mod hp_step.F
-$(O_DIR)hp_write_output.o: $(O_DIR)finish.mod $(O_DIR)stw_parallel.mod $(O_DIR)hp_wave.mod $(O_DIR)stw_globalio.mod $(O_DIR)stw_global.mod hp_write_output.F
-$(O_DIR)hp_update3d.o: $(O_DIR)stw_parallel.mod $(O_DIR)hp_wave.mod hp_update3d.F
-$(O_DIR)halfplane.o: $(O_DIR)stw_global.mod $(O_DIR)finish.mod $(O_DIR)fnames.mod $(O_DIR)stw_parallel.mod $(O_DIR)hp_wave.mod halfplane.F
 
-# files in src/fp
-$(O_DIR)fp_wave.o $(O_DIR)fp_wave.mod: $(O_DIR)finish.mod $(O_DIR)stw_global.mod fp_wave.F
-$(O_DIR)compute_bdys.o $(O_DIR)compute_bdys.mod: $(O_DIR)stw_parallel.mod $(O_DIR)fp_wave.mod compute_bdys.F fp_top.hf
-$(O_DIR)specparams.o $(O_DIR)specparams.mod: $(O_DIR)stw_global.mod specparams.F
-$(O_DIR)celerity.o: $(O_DIR)fp_wave.mod celerity.F
-$(O_DIR)cospwr.o: $(O_DIR)stw_global.mod cospwr.F
-$(O_DIR)cossprd.o: $(O_DIR)specparams.mod cossprd.F
-$(O_DIR)depgrad.o: $(O_DIR)fp_wave.mod depgrad.F
-$(O_DIR)depth.o: $(O_DIR)stw_global.mod depth.F
-$(O_DIR)etma.o: $(O_DIR)specparams.mod etma.F
-$(O_DIR)fp_friction.o: $(O_DIR)fp_wave.mod fp_friction.F fp_top.hf
-$(O_DIR)gen.o: $(O_DIR)fp_wave.mod gen.F fp_top.hf
-$(O_DIR)one_d_prop.o: $(O_DIR)fp_wave.mod one_d_prop.F fp_top.hf
-$(O_DIR)phifun.o: $(O_DIR)specparams.mod phifun.F
-$(O_DIR)prop.o: $(O_DIR)fp_wave.mod prop.F fp_top.hf
-$(O_DIR)qsimp.o: $(O_DIR)finish.mod $(O_DIR)stw_global.mod qsimp.F
-$(O_DIR)specgen.o: $(O_DIR)finish.mod $(O_DIR)specparams.mod specgen.F
-$(O_DIR)sweeps.o: $(O_DIR)stw_global.mod $(O_DIR)finish.mod sweeps.F
-$(O_DIR)fp_sxycalc.o: $(O_DIR)fp_wave.mod fp_sxycalc.F
-$(O_DIR)trapzd.o: $(O_DIR)stw_global.mod trapzd.F
-$(O_DIR)break.o: $(O_DIR)fp_wave.mod break.F fp_top.hf
-$(O_DIR)fp_nest_interp.o: $(O_DIR)stw_global.mod $(O_DIR)finish.mod $(O_DIR)fp_wave.mod fp_nest_interp.F fp_top.hf
-$(O_DIR)fp_rotate.o: $(O_DIR)stw_global.mod fp_rotate.F
-$(O_DIR)fp_allocate.o: $(O_DIR)fp_wave.mod $(O_DIR)finish.mod fp_allocate.F fp_top.hf
-$(O_DIR)fp_init.o: $(O_DIR)stw_parallel.mod $(O_DIR)openfile.mod $(O_DIR)finish.mod $(O_DIR)fnames.mod $(O_DIR)fp_wave.mod fp_init.F fp_top.hf
-$(O_DIR)fp_next_input.o: $(O_DIR)fp_wave.mod $(O_DIR)stw_parallel.mod fp_next_input.F fp_top.hf
-$(O_DIR)fp_step.o: $(O_DIR)compute_bdys.mod $(O_DIR)stw_parallel.mod $(O_DIR)openfile.mod $(O_DIR)finish.mod $(O_DIR)fp_wave.mod fp_step.F fp_top.hf
-$(O_DIR)fp_write_output.o: $(O_DIR)stw_parallel.mod $(O_DIR)stw_globalio.mod $(O_DIR)fp_wave.mod fp_write_output.F fp_top.hf
-$(O_DIR)check_norm.o: $(O_DIR)fp_wave.mod check_norm.F fp_top.hf
-$(O_DIR)debug.o: $(O_DIR)stw_globalio.mod $(O_DIR)finish.mod $(O_DIR)stw_parallel.mod $(O_DIR)fp_wave.mod debug.F
-$(O_DIR)fullplane.o: $(O_DIR)stw_global.mod $(O_DIR)finish.mod $(O_DIR)fnames.mod $(O_DIR)stw_parallel.mod $(O_DIR)fp_wave.mod fullplane.F
+
+########################## Defining the DAG  #################################
+
+#  adcprep modules
+
+$(O_DIR)version.o     :  version.F
+$(O_DIR)presizes.o     :  presizes.F $(ADC_MOBJ) $(WIND_MOBJ)
+$(O_DIR)kdtree2.o     :  kdtree2.F $(O_DIR)sizes.o
+$(O_DIR)pre_global.o  :  pre_global.F  $(KDTREE_MOBJ) $(PREP_MOBJ) $(O_DIR)version.o
+#  adcprep
+
+$(O_DIR)adcprep.o     :  adcprep.F  $(PGLO_MOBJ) $(PMSG_OBJ) $(ADC_MOBJ)
+$(O_DIR)decomp.o      :  decomp.F   $(PGLO_MOBJ)
+$(O_DIR)read_global.o :  read_global.F  $(PGLO_MOBJ) $(KDTREE_MOBJ) $(ADC_MOBJ) $(NA_MOBJ) $(HARM_MOBJ) $(WIND_MOBJ)
+ifeq ($(NETCDF),enable)
+$(O_DIR)prep.o        :  prep.F   $(PGLO_MOBJ) $(NC_MOBJ) $(HARM_MOBJ)
+else
+$(O_DIR)prep.o        :  prep.F   $(PGLO_MOBJ) $(ADC_MOBJ) $(NA_MOBJ) $(HARM_MOBJ) $(WIND_MOBJ)
+endif
+$(O_DIR)interp.o      :  interp.F  
+$(O_DIR)machdep.o     :  machdep.F
+$(O_DIR)metis.o       :  metis.F $(PGLO_MOBJ)
+$(O_DIR)mkdir.o       :  mkdir.c cfi.h
+
+#  adcpost modules
+
+$(O_DIR)post_global.o :  post_global.F $(POST_MOBJ)
+
+#  adcpost
+
+$(O_DIR)adcpost.o     :  adcpost.F $(POST_MOBJ)
+$(O_DIR)post.o        :  post.F  $(POST_MOBJ)
+$(O_DIR)compare.o     :  compare.F
+$(O_DIR)diffmerge.o   :  diffmerge.F
+
+#  asymmetric hurricane wind model
+
+$(O_DIR)vortex.o      :  vortex.F 
+$(O_DIR)aswip.o      :  aswip_1.0.3.F $(VORT_MOBJ) 
+
+#  adcirc & $(PARALLEL_ADCIRC) modules
+
+$(O_DIR)version.o     :  version.F
+$(O_DIR)sizes.o       :  sizes.F
+$(O_DIR)global.o      :  global.F  $(O_DIR)sizes.o $(O_DIR)kdtree2.o
+$(O_DIR)nodalattr.o   :  nodalattr.F  $(ADC_MOBJ)
+$(O_DIR)messenger.o   :  messenger.F  $(ADC_MOBJ) 
+#!st3 100711: Added globalio.o to writer.F for HSWRITER MODULE
+ifeq ($(NETCDF),enable)
+$(O_DIR)writer.o      :  writer.F  $(O_DIR)netcdfio.o $(O_DIR)messenger.o $(O_DIR)globalio.o
+else
+$(O_DIR)writer.o      :  writer.F  $(O_DIR)messenger.o $(O_DIR)globalio.o
+endif
+$(O_DIR)globalio.o    :  globalio.F  $(ADC_MOBJ)
+$(O_DIR)harm.o        :  harm.F 
+$(O_DIR)wind.o        :  wind.F  $(VORT_MOBJ) 
+$(O_DIR)owiwind.o     :  owiwind.F  $(VORT_MOBJ) 
+$(O_DIR)owi_ice.o     :  owi_ice.F  $(VORT_MOBJ) 
+$(O_DIR)rs2.o         :  rs2.F  $(VORT_MOBJ) 
+$(O_DIR)itpackv.o     :  itpackv.F    $(ADC_MOBJ)
+$(O_DIR)netcdfio.o    :  netcdfio.F  $(ADC_MOBJ) $(NA_MOBJ) $(HARM_MOBJ) $(WIND_MOBJ)
+#Casey 090302: Added the next line.
+$(O_DIR)couple2swan.o :  couple2swan.F
+# tcm v49.48.01 added for fast search algorithm
+$(O_DIR)kdtree2.o : kdtree2.F
+
+#  adcirc & $(PARALLEL_ADCIRC)
+
+$(O_DIR)read_input.o  : read_input.F 
+$(O_DIR)transport.o   : transport.F  
+$(O_DIR)cstart.o      : cstart.F    
+$(O_DIR)hstart.o      : hstart.F  
+$(O_DIR)timestep.o    : timestep.F
+$(O_DIR)write_output.o: write_output.F  
+ifeq ($(NETCDF),enable)
+$(O_DIR)adcirc.o      : adcirc.F $(ADC_MOBJ) $(HARM_MOBJ) $(KDTREE_MOBJ) $(WIND_MOBJ) $(SOLV_MOBJ) $(NA_MOBJ) $(GIO_MOBJ) $(NC_MOBJ) $(COUP_MOBJ)
+else
+$(O_DIR)adcirc.o      : adcirc.F $(ADC_MOBJ) $(HARM_MOBJ) $(KDTREE_MOBJ) $(WIND_MOBJ) $(SOLV_MOBJ) $(NA_MOBJ) $(GIO_MOBJ) $(COUP_MOBJ)
+endif
+$(O_DIR)driver.o      : driver.F $(O_DIR)adcirc.o
+
+# wind file generation
+
+$(O_DIR)p15.o         : p15.F
+$(O_DIR)owi22.o       : owi22.F
+
+# fort.13 file generator
+
+$(O_DIR)build13.o     : build13.F
+
+# fort.12 file generator
+
+$(O_DIR)build12.o     : build12.F
+
+# fort.23 file generator
+
+$(O_DIR)buildstwave23.o     : buildstwave23.F
+
+# hotstart debug utility
+
+$(O_DIR)hot2asc.o     : hot2asc.F
+
+# converter from v46.32 output format to v47 format
+
+$(O_DIR)inflate.o     : inflate.F
+
+# hot start time examiner
+
+$(O_DIR)hstime.o     : hstime.F
+
+# output file comparison utility
+
+$(O_DIR)adccmp.o      : adccmp.F
+
+# Casey 090302: Added the following lines for SWAN.
+$(O_DIR)swmod1.o                : swmod1.f
+$(O_DIR)swmod2.o                : swmod2.f
+$(O_DIR)m_constants.o           : m_constants.f90
+$(O_DIR)m_fileio.o              : m_fileio.f90
+$(O_DIR)serv_xnl4v5.o           : serv_xnl4v5.f90
+$(O_DIR)mod_xnl4v5.0            : mod_xnl4v5.f90
+$(O_DIR)couple2adcirc.o         : couple2adcirc.f90
+$(O_DIR)SwanGriddata.o          : SwanGriddata.f90
+$(O_DIR)SwanGridobjects.o       : SwanGridobjects.f90
+$(O_DIR)SwanCompdata.o          : SwanCompdata.f90
+$(O_DIR)swanmain.o              : swanmain.f
+$(O_DIR)swanpre1.o              : swanpre1.f
+$(O_DIR)swanpre2.o              : swanpre2.f
+$(O_DIR)swancom1.o              : swancom1.f
+$(O_DIR)swancom2.o              : swancom2.f
+$(O_DIR)swancom3.o              : swancom3.f
+$(O_DIR)swancom4.o              : swancom4.f
+$(O_DIR)swancom5.o              : swancom5.f
+$(O_DIR)swanout1.o              : swanout1.f
+$(O_DIR)swanout2.o              : swanout2.f
+$(O_DIR)swanser.o               : swanser.f
+$(O_DIR)swanparll.o             : swanparll.f
+$(O_DIR)SwanReadGrid.o          : SwanReadGrid.f90
+$(O_DIR)SwanReadADCGrid.o       : SwanReadADCGrid.f90
+$(O_DIR)SwanReadTriangleGrid.o  : SwanReadTriangleGrid.f90
+$(O_DIR)SwanReadEasymeshGrid.o  : SwanReadEasymeshGrid.f90
+$(O_DIR)SwanInitCompGrid.o      : SwanInitCompGrid.f90
+$(O_DIR)SwanCheckGrid.o         : SwanCheckGrid.f90
+$(O_DIR)SwanCreateEdges.o       : SwanCreateEdges.f90
+$(O_DIR)SwanGridTopology.o      : SwanGridTopology.f90
+
