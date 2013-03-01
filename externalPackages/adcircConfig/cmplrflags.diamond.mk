@@ -15,7 +15,7 @@ compiler=intel
 ifeq ($(compiler),intel)
   PPFC          :=  ifort
   FC            :=  ifort
-  PFC           :=  ifort
+  PFC           :=  mpif90
   FFLAGS1       :=  $(INCDIRS) -O3 -xT -132
   ifeq ($(DEBUG),full)
      FFLAGS1	:=  $(INCDIRS) -g -O0 -debug -fpe0 -132 -traceback -check all -DALL_TRACE -DFLUSH_MESSAGES -DFULL_STACK
