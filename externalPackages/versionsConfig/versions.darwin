@@ -21,4 +21,5 @@ MATPLOTLIB_VERSION = matplotlib
 SIP_VERSION        = sip
 QT_VERSION         = pyqt
 IPYTHON_VERSION    = ipython
-STWAVE_VERSION	   = stwave/work
+STWAVE_VERSION     = stwave/work
+ADCIRC_VERSION	   = adcirc/work
