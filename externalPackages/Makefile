@@ -5,6 +5,7 @@
 #3. Set up the name of the package in versions.txt
 #
 include versionsConfig/versions.${PROTEUS_ARCH}
+
 REHASH=hash
 
 all: install pip pexpect
@@ -45,7 +46,7 @@ install_core_modules: install_numpy install_nose install_numexpr install_cython 
 
 install_extensions_libraries:
 
-install_extensions_modules: install_setuptools install_matplotlib install_python install_stwave install_adcirc
+install_extensions_modules: install_setuptools install_matplotlib install_python install_stwave install_adcirc install_jasper install_grib_api install_pyproj install_pygrib 
 
 #distclean
 distclean_core_python: distclean_python
@@ -56,7 +57,7 @@ distclean_core_modules: distclean_numpy distclean_nose distclean_pytables distcl
 
 distclean_extensions_libraries: 
 
-distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave distclean_adcirc
+distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave distclean_adcirc distclean_jasper distclean_grib_api distclean__pyproj distclean_pygrib
 
 #newConfig
 newConfig_core_python: newConfig_python
@@ -67,7 +68,7 @@ newConfig_core_modules: newConfig_numpy newConfig_nose newConfig_pytables newCon
 
 newConfig_extensions_libraries: 
 
-newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave newConfig_adcirc
+newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave newConfig_adcirc newConfig_jasper newConfig_grib_api newConfig_pyproj newConfig_pygrib
 
 #editConfig
 editConfig_core_python: editConfig_python
@@ -77,7 +78,7 @@ editConfig_core_modules: editConfig_numpy editConfig_nose editConfig_pytables ed
 
 editConfig_extensions_libraries:
 
-editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave editConfig_adcirc
+editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave editConfig_adcirc editConfig_jasper editConfig_grib_api editConfig_pyproj editConfig_pygrib
 
 #core
 #core python
@@ -703,3 +704,101 @@ distclean_adcirc:
 	touch install_adcirc
 	mv -f install_adcirc install_adcirc_last
 	cd ${ADCIRC_VERSION} && make -k clean && rm -f makefile cmplrflags.mk adcprep adcirc padcirc
+
+#jasper
+newConfig_jasper:
+	cd jasperConfig && cp configure.${PROTEUS_ARCH_OLD} configure.${PROTEUS_ARCH}
+
+editConfig_jasper:
+	cd jasperConfig && ${EDITOR} configure.${PROTEUS_ARCH}
+
+config_jasper:
+	cd ${JASPER_VERSION} && ../jasperConfig/configure.${PROTEUS_ARCH} > ../config_jasper_progress 2>&1
+
+build_jasper:
+	cd ${JASPER_VERSION} && make > ../build_jasper_progress 2>&1
+
+install_jasper:
+	make config_jasper build_jasper
+	cd ${JASPER_VERSION} && make install > ../install_jasper_progress 2>&1
+	cat config_jasper_progress build_jasper_progress install_jasper_progress > install_jasper
+
+distclean_jasper:
+	touch install_jasper
+	mv -f install_jasper install_jasper_last
+	cd ${JASPER_VERSION} && make distclean
+
+#grib_api                                                                                                                                                                    
+newConfig_grib_api:
+	cd grib_apiConfig && cp configure.${PROTEUS_ARCH_OLD} configure.${PROTEUS_ARCH}
+
+editConfig_grib_api:
+	cd grib_apiConfig && ${EDITOR} configure.${PROTEUS_ARCH}
+
+config_grib_api:
+	cd ${GRIB_API_VERSION} && ../grib_apiConfig/configure.${PROTEUS_ARCH} > ../config_grib_api_progress 2>&1
+
+build_grib_api:
+	cd ${GRIB_API_VERSION} && make > ../build_grib_api_progress 2>&1
+
+install_grib_api:
+	make config_grib_api build_grib_api
+	cd ${GRIB_API_VERSION} && make install > ../install_grib_api_progress 2>&1
+	cat config_grib_api_progress build_grib_api_progress install_grib_api_progress > install_grib_api
+
+distclean_grib_api:
+	touch install_grib_api
+	mv -f install_grib_api install_grib_api_last
+	cd ${GRIB_API_VERSION} && make distclean
+
+#pyproj                                                                                                                                                         
+newConfig_pyproj:
+	echo "no pyproj customization implemented"
+
+editConfig_pyproj:
+	echo "no pyproj customization implemented"
+
+config_pyproj:
+	echo "no pyproj customization implemented" > config_pyproj_progress 2>&1
+
+build_pyproj:
+	cd ${PYPROJ_VERSION} && ${PROTEUS_PYTHON} setup.py build > ../build_pyproj_progress 2>&1
+
+install_pyproj:
+	make config_pyproj build_pyproj
+	cd ${PYPROJ_VERSION} && ${PROTEUS_PYTHON} setup.py install > ../install_pyproj_progress 2>&1
+	cat config_pyproj_progress build_pyproj_progress install_pyproj_progress > install_pyproj
+
+distclean_pyproj:
+	touch install_pyproj
+	mv -f install_pyproj install_pyproj_last
+	cd ${PYPROJ_VERSION} && ${PROTEUS_PYTHON} setup.py clean
+
+
+#pygrib                                                                                                                                                                         
+newConfig_pygrib:
+	echo "no pygrib customization implemented"
+
+editConfig_pygrib:
+	echo "no pygrib customization implemented"
+
+config_pygrib:
+	echo "no pyproj customization implemented" > config_pygrib_progress 2>&1
+
+build_pygrib:
+	@echo ${GRIBAPI_DIR}
+	@echo ${JASPER_DIR}
+	cd ${PYGRIB_VERSION} && ${PROTEUS_PYTHON} setup.py build > ../build_pygrib_progress 2>&1
+
+install_pygrib:
+	make config_pygrib build_pygrib
+	cd ${PYGRIB_VERSION} && ${PROTEUS_PYTHON} setup.py install > ../install_pygrib_progress 2>&1
+	cat config_pygrib_progress build_pygrib_progress install_pygrib_progress > install_pygrib
+
+test_pygrib:
+	cd ${PYGRIB_VERSION} && ${PROTEUS_PYTHON} test.py 
+
+distclean_pygrib:
+	touch install_pygrib
+	mv -f install_pygrib install_pygrib_last
+	cd ${PYGRIB_VERSION} && ${PROTEUS_PYTHON} setup.py clean
