@@ -19,7 +19,7 @@ easy_install:
 pexpect:
 	${REHASH} && pip install pexpect
 
-install: install_core
+install: install_core install_extensions
 
 install_core: install_core_python install_core_libraries install_core_modules
 
@@ -46,7 +46,7 @@ install_core_modules: install_numpy install_nose install_numexpr install_cython 
 
 install_extensions_libraries:
 
-install_extensions_modules: install_setuptools install_matplotlib install_python install_stwave install_adcirc install_jasper install_grib_api install_pyproj install_pygrib 
+install_extensions_modules: install_setuptools install_matplotlib install_stwave install_adcirc install_jasper install_grib_api install_pyproj install_pygrib 
 
 #distclean
 distclean_core_python: distclean_python
@@ -786,8 +786,6 @@ config_pygrib:
 	echo "no pyproj customization implemented" > config_pygrib_progress 2>&1
 
 build_pygrib:
-	@echo ${GRIBAPI_DIR}
-	@echo ${JASPER_DIR}
 	cd ${PYGRIB_VERSION} && ${PROTEUS_PYTHON} setup.py build > ../build_pygrib_progress 2>&1
 
 install_pygrib:
