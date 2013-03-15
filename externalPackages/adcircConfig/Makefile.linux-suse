@@ -11,19 +11,29 @@ SRCDIR?=..
 #  vjp 9/18/2006  made mods for Robert McLay's globalio module
 #  vjp 9/19/2006  made mods for Shintaro's winds and waves
 #  tcm 03/30/2011 added owi_ice module v49.64.01
-#  tjh 02/25/2013 setup for Proteus 
+
 ########################################################################
+#  Get Canonical Machine NAME from config.guess
+#
+$(warning (INFO) Guessing the type of platform ADCIRC will run on...)
+
+NAME     := $(shell ./config.guess)
+LIST     := $(subst -, ,$(NAME))
+MACHINE  := $(word 1, $(LIST))
+VENDOR   := $(word 2, $(LIST))
+OS       := $(subst  $(MACHINE)-$(VENDOR)-,,$(strip $(NAME)))
+
 VTAG     := $(shell echo $(TAG) | sed -e 's/_/./g' -e 's/V//')
 
 PARALLEL_ADCIRC   := padcirc
-#$(warning (INFO) Name is $(NAME), Machine is $(MACHINE), Vendor is $(VENDOR), and OS is $(OS).)
+$(warning (INFO) Name is $(NAME), Machine is $(MACHINE), Vendor is $(VENDOR), and OS is $(OS).)
 include cmplrflags.mk
 #Casey 090302: Include variables/flags from SWAN.
 include ../swan/macros.inc
 
-#ifneq ($(compiler),)
-#	$(warning (INFO) The compiler variable in cmplrflags.mk is set to $(compiler).)
-#endif
+ifneq ($(compiler),)
+$(warning (INFO) The compiler variable in cmplrflags.mk is set to $(compiler).)
+endif
 $(warning (INFO) The following compilers have been selected...)
 $(warning (INFO) The Fortran compiler for adcprep is set to $(PPFC).)
 $(warning (INFO) The serial Fortran compiler is set to $(FC).)
@@ -34,32 +44,30 @@ $(warning (INFO) The C compiler is set to $(CC).)
 ifeq ($(NETCDF),enable)
 # jgf49.61: Don't add the -DADCNETCDF for the IBM compilers (see cmplrflags.mk)
 ifeq ($(IBM),)
-     PPFC    := $(PPFC) -DADCNETCDF -I$(NETCDFHOME)/include
-     PFC     := $(PFC) -DADCNETCDF -I$(NETCDFHOME)/include
-     FFLAGS1 := $(FFLAGS1) -DADCNETCDF -I$(NETCDFHOME)/include
-     FFLAGS2 := $(FFLAGS2) -DADCNETCDF -I$(NETCDFHOME)/include
-     FFLAGS3 := $(FFLAGS3) -DADCNETCDF -I$(NETCDFHOME)/include
-     FFLAGS4 := $(FFLAGS4) -DADCNETCDF -I$(NETCDFHOME)/include
+     PPFC    := $(PPFC) -DADCNETCDF -I$(NETCDFHOME)/include 
+     PFC     := $(PFC) -DADCNETCDF -I$(NETCDFHOME)/include 
+     FFLAGS1 := $(FFLAGS1) -DADCNETCDF -I$(NETCDFHOME)/include 
+     FFLAGS2 := $(FFLAGS2) -DADCNETCDF -I$(NETCDFHOME)/include 
+     FFLAGS3 := $(FFLAGS3) -DADCNETCDF -I$(NETCDFHOME)/include 
+     FFLAGS4 := $(FFLAGS4) -DADCNETCDF -I$(NETCDFHOME)/include 
 endif
 endif
 ifeq ($(NETCDF4),enable)
-     PPFC    := $(PPFC) -DHAVE_NETCDF4
-     PFC     := $(PFC) -DHAVE_NETCDF4
-     FFLAGS1 := $(FFLAGS1) -DHAVE_NETCDF4
-     FFLAGS2 := $(FFLAGS2) -DHAVE_NETCDF4
-     FFLAGS3 := $(FFLAGS3) -DHAVE_NETCDF4
-     FFLAGS4 := $(FFLAGS4) -DHAVE_NETCDF4
+     PPFC    := $(PPFC) -DHAVE_NETCDF4 
+     PFC     := $(PFC) -DHAVE_NETCDF4 
+     FFLAGS1 := $(FFLAGS1) -DHAVE_NETCDF4 
+     FFLAGS2 := $(FFLAGS2) -DHAVE_NETCDF4 
+     FFLAGS3 := $(FFLAGS3) -DHAVE_NETCDF4 
+     FFLAGS4 := $(FFLAGS4) -DHAVE_NETCDF4 
 endif
 ifeq ($(NETCDF4_COMPRESSION),enable)
-     PPFC    := $(PPFC) -DNETCDF_CAN_DEFLATE
-     PFC     := $(PFC) -DNETCDF_CAN_DEFLATE
-     FFLAGS1 := $(FFLAGS1) -DNETCDF_CAN_DEFLATE
-     FFLAGS2 := $(FFLAGS2) -DNETCDF_CAN_DEFLATE
-     FFLAGS3 := $(FFLAGS3) -DNETCDF_CAN_DEFLATE
-     FFLAGS4 := $(FFLAGS4) -DNETCDF_CAN_DEFLATE
+     PPFC    := $(PPFC) -DNETCDF_CAN_DEFLATE 
+     PFC     := $(PFC) -DNETCDF_CAN_DEFLATE 
+     FFLAGS1 := $(FFLAGS1) -DNETCDF_CAN_DEFLATE 
+     FFLAGS2 := $(FFLAGS2) -DNETCDF_CAN_DEFLATE 
+     FFLAGS3 := $(FFLAGS3) -DNETCDF_CAN_DEFLATE 
+     FFLAGS4 := $(FFLAGS4) -DNETCDF_CAN_DEFLATE 
 endif
-#
-
 ####################### Target Specific Rules ###################################
 
 #                                      adcprep   
@@ -356,7 +364,7 @@ $(O_DIR)%.o  : %.f90
 
 all :  metis adcprep $(BACKEND_EXEC) adcpost adcirc $(PARALLEL_ADCIRC)
 
-ifeq ($(MAKELEVEL),0)
+#ifeq ($(MAKELEVEL),0)
    odir_metis:
 	mkdir $@
    odir_metis_be:
@@ -365,6 +373,7 @@ ifeq ($(MAKELEVEL),0)
 	$(MAKE) -C $(SRCDIR)/metis/Lib/ CC="$(CC)" CFLAGS="$(CFLAGS)" O_DIR="$(CURDIR)/odir_metis/" LIBMETIS="$(CURDIR)/odir_metis/libmetis.a" ARFLAGS="$(ARFLAGS)"
    metis_be: odir_metis_be
 	$(MAKE) -C $(SRCDIR)/metis/Lib/ CC="$(CCBE)" CFLAGS="$(CFLAGS)" O_DIR="$(CURDIR)/odir_metis_be/" LIBMETIS="$(CURDIR)/odir_metis_be/libmetis_be.a" ARFLAGS="$(ARFLAGS)"
+ifeq ($(MAKELEVEL),0)
    adcprep: metis
 	$(MAKE) BUILDTYPE=adcprep  $@            
    adcprep_be: metis_be
