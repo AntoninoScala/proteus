@@ -46,7 +46,7 @@ install_core_modules: install_numpy install_nose install_numexpr install_cython 
 
 install_extensions_libraries:
 
-install_extensions_modules: install_setuptools install_matplotlib install_stwave install_adcirc install_jasper install_grib_api install_pyproj install_pygrib 
+install_extensions_modules: install_setuptools install_matplotlib install_stwave install_adcirc install_jasper install_grib_api install_pyproj install_pygrib install_netcdf 
 
 #distclean
 distclean_core_python: distclean_python
@@ -57,7 +57,7 @@ distclean_core_modules: distclean_numpy distclean_nose distclean_pytables distcl
 
 distclean_extensions_libraries: 
 
-distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave distclean_adcirc distclean_jasper distclean_grib_api distclean__pyproj distclean_pygrib
+distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave distclean_adcirc distclean_jasper distclean_grib_api distclean__pyproj distclean_pygrib distclean_netcdf
 
 #newConfig
 newConfig_core_python: newConfig_python
@@ -68,7 +68,7 @@ newConfig_core_modules: newConfig_numpy newConfig_nose newConfig_pytables newCon
 
 newConfig_extensions_libraries: 
 
-newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave newConfig_adcirc newConfig_jasper newConfig_grib_api newConfig_pyproj newConfig_pygrib
+newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave newConfig_adcirc newConfig_jasper newConfig_grib_api newConfig_pyproj newConfig_pygrib newConfig_netcdf
 
 #editConfig
 editConfig_core_python: editConfig_python
@@ -78,7 +78,7 @@ editConfig_core_modules: editConfig_numpy editConfig_nose editConfig_pytables ed
 
 editConfig_extensions_libraries:
 
-editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave editConfig_adcirc editConfig_jasper editConfig_grib_api editConfig_pyproj editConfig_pygrib
+editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave editConfig_adcirc editConfig_jasper editConfig_grib_api editConfig_pyproj editConfig_pygrib editConfig_netcdf
 
 #core
 #core python
@@ -800,3 +800,30 @@ distclean_pygrib:
 	touch install_pygrib
 	mv -f install_pygrib install_pygrib_last
 	cd ${PYGRIB_VERSION} && ${PROTEUS_PYTHON} setup.py clean
+
+
+#netCDF-4
+newConfig_netcdf:
+	cd netcdfConfig && cp configure.${PROTEUS_ARCH_OLD} configure.${PROTEUS_ARCH}
+
+editConfig_netcdf:
+	cd netcdfConfig && ${EDITOR} configure.${PROTEUS_ARCH}
+
+config_netcdf:
+	cd ${NETCDF_VERSION} && ../netcdfConfig/configure.${PROTEUS_ARCH} > ../config_netcdf_progress 2>&1
+
+build_netcdf:
+	cd ${NETCDF_VERSION} && make > ../build_netcdf_progress 2>&1
+
+check_netcdf:
+	cd ${NETCDF_VERSION} && make check > ../check_netcdf_progress 2>&1
+
+install_netcdf:
+	make config_netcdf build_netcdf
+	cd ${NETCDF_VERSION} && make install > ../install_netcdf_progress 2>&1
+	cat config_netcdf_progress build_netcdf_progress install_netcdf_progress > install_netcdf
+
+distclean_netcdf:
+	touch install_netcdf
+	mv -f install_netcdf install_netcdf_last
+	cd ${NETCDF_VERSION} && make distclean
