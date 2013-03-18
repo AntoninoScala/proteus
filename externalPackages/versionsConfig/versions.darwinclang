@@ -27,3 +27,4 @@ JASPER_VERSION	   = jasper
 GRIB_API_VERSION   = grib_api
 PYPROJ_VERSION	   = pyproj
 PYGRIB_VERSION	   = pygrib
+NETCDF_VERSION	   = netcdf
