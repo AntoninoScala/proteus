@@ -46,7 +46,7 @@ install_core_modules: install_numpy install_nose install_numexpr install_cython 
 
 install_extensions_libraries:
 
-install_extensions_modules: install_setuptools install_matplotlib install_stwave install_adcirc install_jasper install_grib_api install_pyproj install_pygrib install_netcdf 
+install_extensions_modules: install_setuptools install_matplotlib install_stwave install_adcirc install_jasper install_grib_api install_pyproj install_pygrib install_netcdf install_netcdf4-python
 
 #distclean
 distclean_core_python: distclean_python
@@ -57,7 +57,7 @@ distclean_core_modules: distclean_numpy distclean_nose distclean_pytables distcl
 
 distclean_extensions_libraries: 
 
-distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave distclean_adcirc distclean_jasper distclean_grib_api distclean__pyproj distclean_pygrib distclean_netcdf
+distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave distclean_adcirc distclean_jasper distclean_grib_api distclean__pyproj distclean_pygrib distclean_netcdf distclean_netcdf4-python
 
 #newConfig
 newConfig_core_python: newConfig_python
@@ -68,7 +68,7 @@ newConfig_core_modules: newConfig_numpy newConfig_nose newConfig_pytables newCon
 
 newConfig_extensions_libraries: 
 
-newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave newConfig_adcirc newConfig_jasper newConfig_grib_api newConfig_pyproj newConfig_pygrib newConfig_netcdf
+newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave newConfig_adcirc newConfig_jasper newConfig_grib_api newConfig_pyproj newConfig_pygrib newConfig_netcdf newConfig_netcdf4-python
 
 #editConfig
 editConfig_core_python: editConfig_python
@@ -78,7 +78,7 @@ editConfig_core_modules: editConfig_numpy editConfig_nose editConfig_pytables ed
 
 editConfig_extensions_libraries:
 
-editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave editConfig_adcirc editConfig_jasper editConfig_grib_api editConfig_pyproj editConfig_pygrib editConfig_netcdf
+editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave editConfig_adcirc editConfig_jasper editConfig_grib_api editConfig_pyproj editConfig_pygrib editConfig_netcdf editConfig_netcdf4-python
 
 #core
 #core python
@@ -775,7 +775,7 @@ distclean_pyproj:
 	cd ${PYPROJ_VERSION} && ${PROTEUS_PYTHON} setup.py clean
 
 
-#pygrib                                                                                                                                                                         
+#pygrib
 newConfig_pygrib:
 	echo "no pygrib customization implemented"
 
@@ -827,3 +827,30 @@ distclean_netcdf:
 	touch install_netcdf
 	mv -f install_netcdf install_netcdf_last
 	cd ${NETCDF_VERSION} && make distclean
+
+
+#pygrib                                                                                                                                                                     
+newConfig_netcdf4-python:
+	echo "no netcdf4-python customization implemented"
+
+editConfig_netcdf4-python:
+	echo "no netcdf4-python customization implemented"
+
+config_netcdf4-python:
+	echo "no netcdf4-python customization implemented" > config_netcdf4-python_progress 2>&1
+
+build_netcdf4-python:
+	cd ${NETCDF4-PYTHON_VERSION} && ${PROTEUS_PYTHON} setup.py build > ../build_netcdf4-python_progress 2>&1
+
+install_netcdf4-python:
+	make config_netcdf4-python build_netcdf4-python
+	cd ${NETCDF4-PYTHON_VERSION} && ${PROTEUS_PYTHON} setup.py install > ../install_netcdf4-python_progress 2>&1
+	cat config_netcdf4-python_progress build_netcdf4-python_progress install_netcdf4-python_progress > install_netcdf4-python
+
+test_netcdf4-python:
+	cd ${NETCDF4-PYTHON_VERSION}/test && ${PROTEUS_PYTHON} run_all.py 
+
+distclean_netcdf4-python:
+	touch install_netcdf4-python
+	mv -f install_netcdf4-python install_netcdf4-python_last
+	cd ${NETCDF4-PYTHON_VERSION} && ${PROTEUS_PYTHON} setup.py clean
