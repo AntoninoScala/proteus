@@ -728,7 +728,8 @@ distclean_jasper:
 	mv -f install_jasper install_jasper_last
 	cd ${JASPER_VERSION} && make distclean
 
-#grib_api                                                                                                                                                                    
+
+#grib_api                                                                                                                                 
 newConfig_grib_api:
 	cd grib_apiConfig && cp configure.${PROTEUS_ARCH_OLD} configure.${PROTEUS_ARCH}
 
@@ -751,7 +752,8 @@ distclean_grib_api:
 	mv -f install_grib_api install_grib_api_last
 	cd ${GRIB_API_VERSION} && make distclean
 
-#pyproj                                                                                                                                                         
+
+#pyproj                                                                                                                                     
 newConfig_pyproj:
 	echo "no pyproj customization implemented"
 
@@ -783,7 +785,8 @@ editConfig_pygrib:
 	echo "no pygrib customization implemented"
 
 config_pygrib:
-	echo "no pyproj customization implemented" > config_pygrib_progress 2>&1
+	cd ${PYGRIB_VERSION} && ${PROTEUS_PYTHON} generate_setup-cfg.py
+	echo "setup.cfg for pygrib created" > config_pygrib_progress 2>&1
 
 build_pygrib:
 	cd ${PYGRIB_VERSION} && ${PROTEUS_PYTHON} setup.py build > ../build_pygrib_progress 2>&1
@@ -829,7 +832,7 @@ distclean_netcdf:
 	cd ${NETCDF_VERSION} && make distclean
 
 
-#pygrib                                                                                                                                                                     
+#netCDF4-Python        
 newConfig_netcdf4-python:
 	echo "no netcdf4-python customization implemented"
 
@@ -837,7 +840,8 @@ editConfig_netcdf4-python:
 	echo "no netcdf4-python customization implemented"
 
 config_netcdf4-python:
-	echo "no netcdf4-python customization implemented" > config_netcdf4-python_progress 2>&1
+	cd ${NETCDF4-PYTHON_VERSION} && ${PROTEUS_PYTHON} generate_setup-cfg.py  
+	echo "setup.cfg for netcdf4-python created" > config_netcdf4-python_progress 2>&1
 
 build_netcdf4-python:
 	cd ${NETCDF4-PYTHON_VERSION} && ${PROTEUS_PYTHON} setup.py build > ../build_netcdf4-python_progress 2>&1
