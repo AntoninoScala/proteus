@@ -46,7 +46,7 @@ install_core_modules: install_numpy install_nose install_numexpr install_cython 
 
 install_extensions_libraries:
 
-install_extensions_modules: install_setuptools install_matplotlib install_stwave install_adcirc install_jasper install_grib_api install_pyproj install_pygrib install_netcdf install_netcdf4-python
+install_extensions_modules: install_setuptools install_matplotlib install_stwave install_adcirc install_adh install_jasper install_grib_api install_pyproj install_pygrib install_netcdf install_netcdf4-python
 
 #distclean
 distclean_core_python: distclean_python
@@ -57,7 +57,7 @@ distclean_core_modules: distclean_numpy distclean_nose distclean_pytables distcl
 
 distclean_extensions_libraries: 
 
-distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave distclean_adcirc distclean_jasper distclean_grib_api distclean__pyproj distclean_pygrib distclean_netcdf distclean_netcdf4-python
+distclean_extensions_modules: distclean_setuptools distclean_readline distclean_matplotlib distclean_stwave distclean_adh distclean_adcirc distclean_jasper distclean_grib_api distclean__pyproj distclean_pygrib distclean_netcdf distclean_netcdf4-python
 
 #newConfig
 newConfig_core_python: newConfig_python
@@ -68,7 +68,7 @@ newConfig_core_modules: newConfig_numpy newConfig_nose newConfig_pytables newCon
 
 newConfig_extensions_libraries: 
 
-newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave newConfig_adcirc newConfig_jasper newConfig_grib_api newConfig_pyproj newConfig_pygrib newConfig_netcdf newConfig_netcdf4-python
+newConfig_extensions_modules: newConfig_setuptools newConfig_readline newConfig_matplotlib newConfig_stwave newConfig_adcirc newConfig_adh newConfig_jasper newConfig_grib_api newConfig_pyproj newConfig_pygrib newConfig_netcdf newConfig_netcdf4-python
 
 #editConfig
 editConfig_core_python: editConfig_python
@@ -78,7 +78,7 @@ editConfig_core_modules: editConfig_numpy editConfig_nose editConfig_pytables ed
 
 editConfig_extensions_libraries:
 
-editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave editConfig_adcirc editConfig_jasper editConfig_grib_api editConfig_pyproj editConfig_pygrib editConfig_netcdf editConfig_netcdf4-python
+editConfig_extensions_modules: newConfig_setuptools newConfig_readline editConfig_matplotlib editConfig_stwave editConfig_stwave editConfig_adcirc editConfig_adh editConfig_jasper editConfig_grib_api editConfig_pyproj editConfig_pygrib editConfig_netcdf editConfig_netcdf4-python
 
 #core
 #core python
@@ -657,21 +657,20 @@ editConfig_adh:
 	echo "no adh customization implemented"
 
 config_adh:
-	mkdir adh-bin
-	adhConfig/configureCache adhConfig/CMakeCache.txt.${PROTEUS_ARCH} adh-bin/CMakeCache.txt
-	cd adh-bin && ${CMAKE} ../adh > ../config_adh_progress 2>&1
+	echo "NEED TO: export/setenv BOX = (mac_mpi, mac_icc, ubuntu, etc.)" > config_adh_progress 2>&1
 
 build_adh:
-	cd adh-bin && make > ../build_adh_progress 2>&1
+	cd ${ADH_VERSION} && make all  > ../build_adh_progress 2>&1
 
 install_adh:
 	make config_adh build_adh
-	cd adh-bin && echo "no adh install target" > ../install_adh_progress 2>&1
+	echo "no adh install target" > install_adh_progress 2>&1
 	cat config_adh_progress build_adh_progress install_adh_progress > install_adh
 
 distclean_adh:
+	touch install_adh
 	mv -f install_adh install_adh_last
-	rm -rf adh-bin
+	cd ${ADH_VERSION} && make clean
 
 #adcirc
 newConfig_adcirc:
