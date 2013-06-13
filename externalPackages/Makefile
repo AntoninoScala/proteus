@@ -431,9 +431,9 @@ build_setuptools:
 
 install_setuptools:
 	echo "mwf hack already installed"
-	#make config_setuptools build_setuptools
-	#cd ${SETUPTOOLS_VERSION} && ${PROTEUS_PYTHON} setup.py install > ../install_setuptools_progress 2>&1
-	#cat config_setuptools_progress build_setuptools_progress install_setuptools_progress > install_setuptools
+	make config_setuptools build_setuptools
+	cd ${SETUPTOOLS_VERSION} && ${PROTEUS_PYTHON} setup.py install > ../install_setuptools_progress 2>&1
+	cat config_setuptools_progress build_setuptools_progress install_setuptools_progress > install_setuptools
 
 distclean_setuptools:
 	touch install_setuptools
