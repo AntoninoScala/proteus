@@ -430,7 +430,6 @@ build_setuptools:
 	cd ${SETUPTOOLS_VERSION} && ${PROTEUS_PYTHON} setup.py build > ../build_setuptools_progress 2>&1
 
 install_setuptools:
-	echo "mwf hack already installed"
 	make config_setuptools build_setuptools
 	cd ${SETUPTOOLS_VERSION} && ${PROTEUS_PYTHON} setup.py install > ../install_setuptools_progress 2>&1
 	cat config_setuptools_progress build_setuptools_progress install_setuptools_progress > install_setuptools
@@ -657,10 +656,10 @@ newConfig_adh:
 editConfig_adh:
 	echo "no adh customization implemented"
 
-config_preadh:
+config_preadh: install_adh-externals
 	cd adhConfig && configure-${PROTEUS_ARCH}.py -V --pre-adh  > ../config_preadh_progress 2>&1
 
-config_adh: 
+config_adh: install_adh-externals
 	cd adhConfig && configure-${PROTEUS_ARCH}.py -V  > ../config_adh_progress 2>&1
 
 build_preadh:
