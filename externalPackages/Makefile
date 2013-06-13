@@ -430,9 +430,10 @@ build_setuptools:
 	cd ${SETUPTOOLS_VERSION} && ${PROTEUS_PYTHON} setup.py build > ../build_setuptools_progress 2>&1
 
 install_setuptools:
-	make config_setuptools build_setuptools
-	cd ${SETUPTOOLS_VERSION} && ${PROTEUS_PYTHON} setup.py install > ../install_setuptools_progress 2>&1
-	cat config_setuptools_progress build_setuptools_progress install_setuptools_progress > install_setuptools
+	echo "mwf hack already installed"
+	#make config_setuptools build_setuptools
+	#cd ${SETUPTOOLS_VERSION} && ${PROTEUS_PYTHON} setup.py install > ../install_setuptools_progress 2>&1
+	#cat config_setuptools_progress build_setuptools_progress install_setuptools_progress > install_setuptools
 
 distclean_setuptools:
 	touch install_setuptools
@@ -656,21 +657,52 @@ newConfig_adh:
 editConfig_adh:
 	echo "no adh customization implemented"
 
-config_adh:
-	echo "NEED TO: export/setenv BOX = (mac_mpi, mac_icc, ubuntu, etc.)" > config_adh_progress 2>&1
+config_preadh:
+	cd adhConfig && configure.py.${PROTEUS_ARCH} -V --pre-adh  > ../config_preadh_progress 2>&1
+
+config_adh: config_preadh
+	cd adhConfig && configure.py.${PROTEUS_ARCH} -V  &&  > ../config_adh_progress 2>&1
+
+build_preadh:
+	cd adh/build_preadh && make  > ../../build_preadh_progress 2>&1
 
 build_adh:
-	cd ${ADH_VERSION} && make all  > ../build_adh_progress 2>&1
+	cd adh/build && make  > ../../build_adh_progress 2>&1
 
 install_adh:
 	make config_adh build_adh
 	echo "no adh install target" > install_adh_progress 2>&1
-	cat config_adh_progress build_adh_progress install_adh_progress > install_adh
+	cat config_preadh_progress config_adh_progress  build_preadh_progress build_adh_progress install_adh_progress > install_adh
 
 distclean_adh:
 	touch install_adh
 	mv -f install_adh install_adh_last
-	cd ${ADH_VERSION} && make clean
+	cd adh && make clean
+
+#Parmetis-3.2 for adh
+newConfig_adh-ParMetis-3.2:
+	echo "no adh customization implemented"
+
+editConfig_adh-ParMetis-3.2.0:
+	echo "no adh customization implemented"
+
+config_adh-ParMetis-3.2.0:
+	cp adh-ParMetis-3.2.0Config/Makefile.in.${PROTEUS_ARCH} adh-ParMetis-3.2.0 > config_adh-ParMetis-3.2.0_progress  2>&1
+
+build_adh-ParMetis-3.2.0:
+	cd adh-ParMetis-3.2.0/METISLib && make > ../../build_adh-ParMetis-3.2.0_progress  2>&1 
+	cd adh-ParMetis-3.2.0/ParMETISLib && make  >> ../../build_adh-ParMetis-3.2.0_progress  2>&1
+
+install_adh-ParMetis-3.2.0:
+	make config_adh-ParMetis-3.2.0 build_adh-ParMetis-3.2.0
+	echo "no adh-ParMetis-3.2 install target" > install_adh-ParMetis-3.2.0_progress 2>&1
+	cat config_adh-ParMetis-3.2.0_progress  build_adh-ParMetis-3.2.0_progress install_adh-ParMetis-3.2.0_progress > install_adh-ParMetis-3.2
+
+distclean_adh-ParMetis-3.2.0:
+	touch install_adh-ParMetis-3.2.0
+	mv -f install_adh-ParMetis-3.2.0 install_adh-ParMetis-3.2.0_last
+	cd adh-ParMetis-3.2.0/METISLib && make clean
+	cd adh-ParMetis-3.2.0/ParMETISLib && make clean
 
 #adcirc
 newConfig_adcirc:
@@ -857,3 +889,4 @@ distclean_netcdf4-python:
 	touch install_netcdf4-python
 	mv -f install_netcdf4-python install_netcdf4-python_last
 	cd ${NETCDF4-PYTHON_VERSION} && ${PROTEUS_PYTHON} setup.py clean
+

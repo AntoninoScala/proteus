@@ -71,7 +71,7 @@ def configure_adh():
     return command
 
 if __name__ == '__main__':
-    import optparse
+    import optparse,sys
 
     usage = "usage: %prog [options]"
     parser = optparse.OptionParser(usage=usage)
@@ -112,3 +112,5 @@ if __name__ == '__main__':
 
     if echo:
         print "configure returned fail = {0} ".format(fail)
+
+    sys.exit(fail)
