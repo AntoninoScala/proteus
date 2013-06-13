@@ -1,0 +1,59 @@
+#! /usr/bin/env python
+import os
+
+prefix           = os.getenv('PROTEUS_PREFIX')
+proteus          = os.getenv('PROTEUS')
+proteus_arch     = os.getenv('PROTEUS_ARCH')
+externalPackages = os.path.join(proteus,'externalPackages')
+adh_dir          = os.path.join(externalPackages,'adh')
+
+CMAKE = os.path.join(proteus,proteus_arch,'bin','cmake')
+
+adh_config_variables = {'ADH_LIB_DIR':os.path.join(externalPackages,'adh','lib'),
+                        'BUILD_PRE_ADH':'ON',
+                        'CMAKE_BUILD_TYPE':'Debug',
+                        'CMAKE_OSX_ARCHITECTURES':'x86_64',
+                        'CMAKE_OSX_DEPLOYMENT_TARGET':'10.6',
+                        'DEBUG_LEVEL':'1',
+                        'OUTPUT_FILE_FORMAT':'XMS',
+                        'USE_PACKAGE_MPI':'OFF',
+                        'USE_PACKAGE_PARMETIS':'OFF',
+                        'USE_PACKAGE_UMFPACK':'OFF',
+                        '_ADH_SEDIMENT':'OFF'}
+
+def configure_preadh():
+
+    adh_config_variables['BUILD_PRE_ADH']       ='ON'
+    adh_config_variables['USE_PACKAGE_MPI']     ='OFF'
+    adh_config_variables['USE_PACKAGE_PARMETIS']='OFF'
+
+    from string import Template
+    temp = "{cmake} ".format(cmake=CMAKE)
+    for key,val in adh_config_variables.iteritems():
+        temp += " -D{name}=${name} ".format(name=key)
+    #
+    temp += " .."
+    command_temp = Template(temp)
+
+    command = command_temp.substitute(adh_config_variables)
+
+    return command
+
+if __name__ == '__main__':
+    import subprocess
+
+    echo = True
+    #first build pre_adh
+    command = configure_preadh()
+    build_dir = os.path.join(adh_dir,'build_preadh')
+    if echo:
+        print "Trying to configure pre_adh with {command} ".format(command=command)
+    if not os.path.exists(build_dir):
+        os.mkdir(build_dir)
+    os.chdir(build_dir)
+
+
+    fail = subprocess.call(command.split())
+
+    if echo:
+        print "pre_adh configure returned fail = {0} ".format(fail)
