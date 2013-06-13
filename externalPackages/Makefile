@@ -658,10 +658,10 @@ editConfig_adh:
 	echo "no adh customization implemented"
 
 config_preadh:
-	cd adhConfig && configure.py.${PROTEUS_ARCH} -V --pre-adh  > ../config_preadh_progress 2>&1
+	cd adhConfig && configure-${PROTEUS_ARCH}.py -V --pre-adh  > ../config_preadh_progress 2>&1
 
 config_adh: 
-	cd adhConfig && configure.py.${PROTEUS_ARCH} -V  > ../config_adh_progress 2>&1
+	cd adhConfig && configure-${PROTEUS_ARCH}.py -V  > ../config_adh_progress 2>&1
 
 build_preadh:
 	cd adh/build_preadh && make  > ../../build_preadh_progress 2>&1
@@ -669,7 +669,7 @@ build_preadh:
 build_adh: 
 	cd adh/build && make  > ../../build_adh_progress 2>&1
 
-install_adh: install_adh-ParMetis-3.2.0 install_adh-UMFPACK3.2
+install_adh: install_adh-externals
 	make config_preadh config_adh build_preadh build_adh
 	echo "no adh install target" > install_adh_progress 2>&1
 	cat config_preadh_progress config_adh_progress  build_preadh_progress build_adh_progress install_adh_progress > install_adh
@@ -679,53 +679,41 @@ distclean_adh:
 	mv -f install_adh install_adh_last
 	cd adh && rm -rf build_preadh && rm -rf build
 
-#Parmetis-3.2 for adh
-newConfig_adh-ParMetis-3.2.0:
-	cd adh-ParMetis-3.2.0 && cp Makefile.in Makefile.in.${PROTEUS_ARCH}
 
-editConfig_adh-ParMetis-3.2.0:
-	cd adh-ParMetis-3.2.0 && ${EDITOR} Makefile.in.${PROTEUS_ARCH}
+#external library dependencies for adh 
+newConfig_adh-externals:
+	cd adh-externalsConfig/ParMetisConfig && cp Makefile.in Makefile.in.${PROTEUS_ARCH}
+	cd adh-externalsConfig/UMFPACKConfig && cp Make.generic Make.${PROTEUS_ARCH}
+	cd adh-externalsConfig && cp unpack-generic.py unpack-${PROTEUS_ARCH}.py
 
-config_adh-ParMetis-3.2.0:
-	cp adh-ParMetis-3.2.0Config/Makefile.in.${PROTEUS_ARCH} adh-ParMetis-3.2.0 > config_adh-ParMetis-3.2.0_progress  2>&1
+editConfig_adh-externals:
+	cd adh-externalsConfig/ParMetisConfig && ${EDITOR} Makefile.in.${PROTEUS_ARCH}
+	cd adh-externalsConfig/UMFPACK && ${EDITOR} Make.${PROTEUS_ARCH}
+	cd adh-externalsConfig && ${EDITOR} unpack-${PROTEUS_ARCH}.py
 
-build_adh-ParMetis-3.2.0:
-	cd adh-ParMetis-3.2.0/METISLib && make > ../../build_adh-ParMetis-3.2.0_progress  2>&1 
-	cd adh-ParMetis-3.2.0/ParMETISLib && make  >> ../../build_adh-ParMetis-3.2.0_progress  2>&1
+config_adh-externals:
+	cd adh-externalsConfig && unpack-${PROTEUS_ARCH}.py 
+	cp adh-externalsConfig/ParMetisConfig/Makefile.in.${PROTEUS_ARCH} adh-externals/ParMetis > config_adh-externals_progress  2>&1
+	cp adh-externalsConfig/UMFPACKConfig/Make.${PROTEUS_ARCH} adh-externals/UMFPACK >> config_adh-externals_progress  2>&1
 
-install_adh-ParMetis-3.2.0:
-	make config_adh-ParMetis-3.2.0 build_adh-ParMetis-3.2.0
-	echo "no adh-ParMetis-3.2.0 install target" > install_adh-ParMetis-3.2.0_progress 2>&1
-	cat config_adh-ParMetis-3.2.0_progress  build_adh-ParMetis-3.2.0_progress install_adh-ParMetis-3.2.0_progress > install_adh-ParMetis-3.2
 
-distclean_adh-ParMetis-3.2.0:
-	touch install_adh-ParMetis-3.2.0
-	mv -f install_adh-ParMetis-3.2.0 install_adh-ParMetis-3.2.0_last
-	cd adh-ParMetis-3.2.0/METISLib && make clean
-	cd adh-ParMetis-3.2.0/ParMETISLib && make clean
+build_adh-externals:
+	cd adh-externals/ParMetis/METISLib && make > ../../../build_adh-externals_progress  2>&1 
+	cd adh-externals/ParMetis/ParMETISLib && make  >> ../../../build_adh-externals_progress  2>&1
+	cd adh-externals/UMFPACK && make >> ../../build_adh-externals_progress  2>&1 
 
-#Parmetis-3.2 for adh
-newConfig_adh-UMFPACK3.2:
-	cd adh-UMFPACK3.2 && cp Make.generic Make.${PROTEUS_ARCH}
+install_adh-externals:
+	make config_adh-externals build_adh-externals
+	echo "no adh-externals install target" > install_adh-externals_progress 2>&1
+	cat config_adh-externals_progress  build_adh-externals_progress install_adh-externals_progress > install_adh-externals
 
-editConfig_adh-UMFPACK3.2:
-	cd adh-UMFPACK3.2 && ${EDITOR} Make.${PROTEUS_ARCH}
+distclean_adh-externals:
+	touch install_adh-externals
+	mv -f install_adh-externals install_adh-externals_last
+	cd adh-externals/ParMetis/METISLib && make clean
+	cd adh-externals/ParMetis/ParMETISLib && make clean
+	cd adh-externals/UMFPACK && make clean
 
-config_adh-UMFPACK3.2:
-	cp adh-UMFPACK3.2Config/Make.${PROTEUS_ARCH} adh-UMFPACK3.2 > config_adh-UMFPACK3.2_progress  2>&1
-
-build_adh-UMFPACK3.2:
-	cd adh-UMFPACK3.2 && make > ../build_adh-UMFPACK3.2_progress  2>&1 
-
-install_adh-UMFPACK3.2:
-	make config_adh-UMFPACK3.2 build_adh-UMFPACK3.2
-	echo "no adh-UMFPACK3.2 install target" > install_adh-UMFPACK3.2_progress 2>&1
-	cat config_adh-UMFPACK3.2_progress  build_adh-UMFPACK3.2_progress install_adh-UMFPACK3.2_progress > install_adh-ParMetis-3.2
-
-distclean_adh-UMFPACK3.2:
-	touch install_adh-UMFPACK3.2
-	mv -f install_adh-UMFPACK3.2 install_adh-UMFPACK3.2_last
-	cd adh-UMFPACK3.2 && make clean
 
 #adcirc
 newConfig_adcirc:

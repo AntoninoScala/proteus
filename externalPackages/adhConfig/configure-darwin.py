@@ -9,9 +9,9 @@ externalPackages = os.path.join(proteus,'externalPackages')
 #define adh-specific variables that are needed
 adh_dir          = os.path.join(externalPackages,'adh')
 #adh requires parmetis 3.2
-parmetis_dir     = os.path.join(externalPackages,'adh-ParMetis-3.2.0')
+parmetis_dir     = os.path.join(externalPackages,'adh-externals/ParMetis')
 #adh requires UMFPACK 3.2
-umfpack_dir      = os.path.join(externalPackages,'adh-UMFPACK3.2')
+umfpack_dir      = os.path.join(externalPackages,'adh-externals/UMFPACK')
 
 CMAKE = os.path.join(proteus,proteus_arch,'bin','cmake')
 
