@@ -27,6 +27,8 @@ adh_config_variables = {'BUILD_PRE_ADH':'ON',
                         '_ADH_SEDIMENT':'OFF',
                         'UMFPACK_INCLUDE_DIR':os.path.join(umfpack_dir),
                         'UMFPACK_LIBRARY':os.path.join(umfpack_dir,'libumfpack.a'),
+                        'UMFPACK_VERSION':3,
+                        'UMFPACK_INT_SIZE':32,
                         'METIS_INCLUDE_DIR':os.path.join(parmetis_dir,'METISLib'),
                         'METIS_LIBRARY':os.path.join(parmetis_dir,'libmetis.a'),
                         'PARMETIS_LIBRARY':os.path.join(parmetis_dir,'libparmetis.a'),
@@ -113,4 +115,7 @@ if __name__ == '__main__':
     if echo:
         print "configure returned fail = {0} ".format(fail)
 
+    if not opts.pre_adh and fail: #looks like it can fail with just one iteration through
+        fail = subprocess.call(command.split())
+    
     sys.exit(fail)
