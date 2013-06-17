@@ -651,16 +651,16 @@ distclean_ipython:
 
 #adh
 newConfig_adh:
-	echo "no adh customization implemented"
+	cd adhConfig && cp configure.py configure-${PROTEUS_ARCH}.py
 
 editConfig_adh:
 	echo "no adh customization implemented"
 
 config_preadh: install_adh-externals
-	cd adhConfig && configure-${PROTEUS_ARCH}.py -V --pre-adh  > ../config_preadh_progress 2>&1
+	cd adhConfig && ./configure-${PROTEUS_ARCH}.py -V --pre-adh  > ../config_preadh_progress 2>&1
 
 config_adh: install_adh-externals
-	cd adhConfig && configure-${PROTEUS_ARCH}.py -V  > ../config_adh_progress 2>&1
+	cd adhConfig && ./configure-${PROTEUS_ARCH}.py -V  > ../config_adh_progress 2>&1
 
 build_preadh:
 	cd adh/build_preadh && make  > ../../build_preadh_progress 2>&1
@@ -691,15 +691,15 @@ editConfig_adh-externals:
 	cd adh-externalsConfig && ${EDITOR} unpack-${PROTEUS_ARCH}.py
 
 config_adh-externals:
-	cd adh-externalsConfig && unpack-${PROTEUS_ARCH}.py 
+	cd adh-externalsConfig && ./unpack-${PROTEUS_ARCH}.py 
 	cp adh-externalsConfig/ParMetisConfig/Makefile.in.${PROTEUS_ARCH} adh-externals/ParMetis > config_adh-externals_progress  2>&1
-	cp adh-externalsConfig/UMFPACKConfig/Make.${PROTEUS_ARCH} adh-externals/UMFPACK >> config_adh-externals_progress  2>&1
+	cp adh-externalsConfig/UMFPACKConfig/Make.${PROTEUS_ARCH} adh-externals/UMFPACK > config_adh-externals_progress  2>&1
 
 
 build_adh-externals:
 	cd adh-externals/ParMetis/METISLib && make > ../../../build_adh-externals_progress  2>&1 
-	cd adh-externals/ParMetis/ParMETISLib && make  >> ../../../build_adh-externals_progress  2>&1
-	cd adh-externals/UMFPACK && make >> ../../build_adh-externals_progress  2>&1 
+	cd adh-externals/ParMetis/ParMETISLib && make  > ../../../build_adh-externals_progress  2>&1
+	cd adh-externals/UMFPACK && make > ../../build_adh-externals_progress  2>&1 
 
 install_adh-externals:
 	make config_adh-externals build_adh-externals
