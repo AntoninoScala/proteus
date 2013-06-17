@@ -651,10 +651,10 @@ distclean_ipython:
 
 #adh
 newConfig_adh:
-	echo "no adh customization implemented"
+	cd adhConfig && cp configure-darwin.py configure-${PROTEUS_ARCH}.py
 
 editConfig_adh:
-	echo "no adh customization implemented"
+	cd adhConfig && ${EDITOR} configure-${PROTEUS_ARCH}.py
 
 config_preadh: install_adh-externals
 	cd adhConfig && configure-${PROTEUS_ARCH}.py -V --pre-adh  > ../config_preadh_progress 2>&1
