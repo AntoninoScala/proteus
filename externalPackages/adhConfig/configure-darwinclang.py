@@ -15,7 +15,11 @@ umfpack_dir      = os.path.join(externalPackages,'adh-externals', 'UMFPACK') #'a
 
 CMAKE = 'cmake' #os.path.join(proteus,proteus_arch,'bin','cmake')
 
-adh_config_variables = {'BUILD_PRE_ADH':'ON',
+adh_config_variables = {'MPI_LIBRARY':'/usr/local/lib/libpmpich.a;/usr/local/lib/libmpich.a;/usr/local/lib/libopa.a;/usr/local/lib/libmpl.a',
+                        #'CMAKE_C_COMPILER':'/usr/local/bin/mpicc',
+                        #'CMAKE_CXX_COMPILER':'/usr/local/bin/mpicxx',
+                        #'CMAKE_Fortran_COMPILER':'/usr/local/bin/mpif90',
+                        'BUILD_PRE_ADH':'ON',
                         'CMAKE_BUILD_TYPE':'Debug',
                         'CMAKE_OSX_ARCHITECTURES':'x86_64',
                         'CMAKE_OSX_DEPLOYMENT_TARGET':'10.8',

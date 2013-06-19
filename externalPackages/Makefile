@@ -46,7 +46,7 @@ install_core_modules: install_numpy install_nose install_numexpr install_cython 
 
 install_extensions_libraries:
 
-install_extensions_modules: install_setuptools install_matplotlib install_stwave install_adcirc install_adh install_jasper install_grib_api install_pyproj install_pygrib install_netcdf install_netcdf4-python
+install_extensions_modules: easy_install install_matplotlib install_stwave install_adcirc install_adh install_jasper install_grib_api install_pyproj install_pygrib install_netcdf install_netcdf4-python
 
 #distclean
 distclean_core_python: distclean_python
@@ -881,8 +881,9 @@ editConfig_netcdf4-python:
 	echo "no netcdf4-python customization implemented"
 
 config_netcdf4-python:
-	cd ${NETCDF4-PYTHON_VERSION} && ${PROTEUS_PYTHON} generate_setup-cfg.py  
-	echo "setup.cfg for netcdf4-python created" > config_netcdf4-python_progress 2>&1
+	echo "no netcdf4-python customization implemented"
+#	cd ${NETCDF4-PYTHON_VERSION} && ${PROTEUS_PYTHON} generate_setup-cfg.py  
+#	echo "setup.cfg for netcdf4-python created" > config_netcdf4-python_progress 2>&1
 
 build_netcdf4-python:
 	cd ${NETCDF4-PYTHON_VERSION} && ${PROTEUS_PYTHON} setup.py build > ../build_netcdf4-python_progress 2>&1

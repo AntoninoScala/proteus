@@ -74,7 +74,7 @@ ifeq ($(PROTEUS_ARCH),darwinclang)
 
   ifeq ($(compiler),gcc)
     FC          := gfortran
-    PFC		:= $(PROTEUS_PREFIX)/bin/mpif90
+    PFC		:= /usr/local/bin/mpif90
     CC          := gcc
     CXX		:= g++
     IMODS       := -I
@@ -86,7 +86,7 @@ ifeq ($(PROTEUS_ARCH),darwinclang)
 
   ifeq ($(compiler),clang)
     FC          := gfortran
-    PFC		:= $(PROTEUS_PREFIX)/bin/mpif90
+    PFC		:= /usr/local/bin/mpif90
     CC          := clang
     CXX         := clang++
     IMODS       := -I
