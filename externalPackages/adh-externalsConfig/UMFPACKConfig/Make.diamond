@@ -1,0 +1,19 @@
+#-------------------------------------------------------------------------------
+# Generic configuration without the BLAS - works on most Unix systems
+#-------------------------------------------------------------------------------
+
+# You can use this as a template for your own compile-time configurations.
+# Performance will not be the best, since this does not use the BLAS.
+
+CC = icc
+
+CFLAGS = -O
+RANLIB = ranlib
+
+# Set RANLIB = echo # if your system doesn't have (or doesn't need) ranlib.
+# RANLIB = echo
+
+# with no BLAS (this will be slow)
+CONFIG = -DNBLAS
+LIB = -lm
+

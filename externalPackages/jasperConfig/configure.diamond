@@ -1,0 +1,2 @@
+CC=icc CXX=icpc FC=ifort ./configure --prefix=${PROTEUS_PREFIX} --enable-shared
+ 

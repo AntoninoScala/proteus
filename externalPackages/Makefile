@@ -8,16 +8,18 @@ include versionsConfig/versions.${PROTEUS_ARCH}
 
 REHASH=hash
 
-all: install pip pexpect
+all: install install_pip 
 
-pip: easy_install
+install_pip: install_easy_install
 	${REHASH} && easy_install pip
-
-easy_install:
+	echo "Done installing pip" > install_pip
+install_easy_install:
 	${PROTEUS_PYTHON} distribute_setup.py
+	echo "Done installing easy_install" > install_easy_install
 
-pexpect:
+install_pexpect:  
 	${REHASH} && pip install pexpect
+	echo "Done installing pexpect" > install_pexpect
 
 install: install_core install_extensions
 
@@ -46,7 +48,7 @@ install_core_modules: install_numpy install_nose install_numexpr install_cython 
 
 install_extensions_libraries:
 
-install_extensions_modules: easy_install install_matplotlib install_stwave install_adcirc install_adh install_jasper install_grib_api install_pyproj install_pygrib install_netcdf install_netcdf4-python
+install_extensions_modules: install_easy_install install_matplotlib install_stwave install_adcirc install_adh install_jasper install_grib_api install_pyproj install_pygrib install_netcdf install_netcdf4-python
 
 #distclean
 distclean_core_python: distclean_python
@@ -663,7 +665,7 @@ config_adh: install_adh-externals
 	cd adhConfig && ./configure-${PROTEUS_ARCH}.py -V  > ../config_adh_progress 2>&1
 
 build_preadh:
-	cd adh/build_preadh && make  > ../../build_preadh_progress 2>&1
+	cd adh/build_preadh && make pre_adh > ../../build_preadh_progress 2>&1
 
 build_adh: 
 	cd adh/build && make  > ../../build_adh_progress 2>&1
@@ -891,7 +893,7 @@ build_netcdf4-python:
 install_netcdf4-python:
 	make config_netcdf4-python build_netcdf4-python
 	cd ${NETCDF4-PYTHON_VERSION} && ${PROTEUS_PYTHON} setup.py install > ../install_netcdf4-python_progress 2>&1
-	cat config_netcdf4-python_progress build_netcdf4-python_progress install_netcdf4-python_progress > install_netcdf4-python
+	cat build_netcdf4-python_progress install_netcdf4-python_progress > install_netcdf4-python
 
 test_netcdf4-python:
 	cd ${NETCDF4-PYTHON_VERSION}/test && ${PROTEUS_PYTHON} run_all.py 

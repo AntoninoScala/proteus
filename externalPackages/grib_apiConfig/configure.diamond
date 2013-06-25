@@ -1,0 +1,12 @@
+./configure --prefix=${PROTEUS_PREFIX} \
+ --with-jasper=${PROTEUS_PREFIX} \
+CC=icc \
+CFLAGS="-fPIC" \
+CXX=icpc \
+CXXXFLAGS="-fPIC" \
+FC=ifort \
+FCFLAGS="-fPIC" \
+F90=ifort \
+F90FLAGS="-fPIC" \
+F77=ifort \
+F77FLAGS="-fPIC"

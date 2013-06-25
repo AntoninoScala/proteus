@@ -1,0 +1,11 @@
+./configure --prefix=${PROTEUS_PREFIX} --enable-shared --disable-fortran \
+CPPFLAGS=-I${PROTEUS_PREFIX}/include \
+LDFLAGS=-L${PROTEUS_PREFIX}/lib \
+CXXFLAGS=-I${PROTEUS_PREFIX}/include \
+FCFLAGS=-I${PROTEUS_PREFIX}/include \
+FFLAGS=-I${PROTEUS_PREFIX}/include \
+LIBS='-lz -lsz' \
+CC=mpiicc \
+CXX=mpiicpc \
+FC=mpiifort \
+F77=mpiifort
