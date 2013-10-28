@@ -1,0 +1,11 @@
+./configure --prefix=${PROTEUS_PREFIX} --enable-shared \
+CPPFLAGS=-I${PROTEUS_PREFIX}/include \
+LDFLAGS=-L${PROTEUS_PREFIX}/lib \
+CXXFLAGS=-I${PROTEUS_PREFIX}/include \
+FCFLAGS=-I${PROTEUS_PREFIX}/include \
+FFLAGS=-I${PROTEUS_PREFIX}/include \
+LIBS='-lz -lsz' \
+CC=gcc \
+CXX=g++ \
+FC=gfortran \
+F77=gfortran

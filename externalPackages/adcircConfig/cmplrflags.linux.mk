@@ -40,6 +40,7 @@ ifeq ($(compiler),gnu)
      MULTIPLE := TRUE
   endif
 endif
+
 #
 ifeq ($(compiler),g95)
   PPFC		:=  g95
@@ -68,6 +69,41 @@ endif
 
 endif
 
+ifeq ($(PROTEUS_ARCH),linux)
+#
+# NOTE: User must select between various Linux setups
+#        by commenting/uncommenting the appropriate compiler
+#
+compiler=gnu
+#compiler=g95
+#compiler=intel ... to be implemented
+
+# Compiler Flags for gfortran and gcc
+ifeq ($(compiler),gnu)
+  PPFC		:=  gfortran
+  FC		:=  gfortran
+  PFC		:=  mpif90
+  FFLAGS1	:=  $(INCDIRS) -O2 -mcmodel=medium -ffixed-line-length-132 -march=k8 -m64
+  FFLAGS2	:=  $(FFLAGS1)
+  FFLAGS3	:=  $(FFLAGS1)
+  DA		:=  -DREAL8 -DLINUX -DCSCA
+  DP		:=  -DREAL8 -DLINUX -DCSCA -DCMPI -DHAVE_MPI_MOD
+  DPRE		:=  -DREAL8 -DLINUX
+  IMODS 	:=  -I
+  CC		:= gcc
+  CCBE		:= $(CC)
+  CFLAGS	:= $(INCDIRS) -O2 -mcmodel=medium -DLINUX -march=k8 -m64
+  CLIBS	:=
+  LIBS		:=
+  MSGLIBS	:=
+  $(warning (INFO) Corresponding compilers and flags found in cmplrflags.mk.)
+  ifneq ($(FOUND),TRUE)
+     FOUND := TRUE
+  else
+     MULTIPLE := TRUE
+  endif
+endif
+endif
 ########################################################################
 ifneq ($(FOUND), TRUE)
      $(warning (WARNING) None of the archtectures found in cmplrflags.mk match your platform. As a result, the specific compilers and flags that are appropriate for you could not be specified. Please edit the cmplrflags.$(PROTEUS_ARCH).mk file to include your machine and operating system. Continuing with generic selections for compilers.)

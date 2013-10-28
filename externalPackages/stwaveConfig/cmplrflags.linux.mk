@@ -87,3 +87,47 @@ ifeq ($(PROTEUS_ARCH),linux-suse)
   endif	
 endif
 
+ifeq ($(PROTEUS_ARCH),linux)
+
+  # Default compiler if none provided in command line
+  ifeq ($(compiler),)
+    compiler 	:= gcc
+  endif
+
+  ifeq ($(compiler),intel)
+    CC	        :=  icc
+    FC	        :=  ifort
+    PFC	        :=  mpif90
+
+    OPTLVL      := -O2 #-axT
+    ifeq ($(TARG_METHOD),dbg)
+      OPTLVL    := -g -traceback -DSTW_DEBUG
+    endif
+    ifeq ($(TARG_METHOD),mdbg)
+      OPTLVL    := -g -traceback -CB -check uninit -fpe0 -DSTW_DEBUG
+    endif
+    COMMON_FLGS := $(OPTLVL) -FR $(PRECISION)  $(EXTRA_FLAGS)
+    FFLAGS1	:= $(COMMON_FLGS)
+    FFLAGS2	:= $(COMMON_FLGS) -DMPI -DPARALLEL
+    FFLAGS3     := $(FFLAGS1) -DMPI
+    IMODS	:=  -module
+    MSGLIBS	:=
+    ifeq ($(USE_PERF),yes)
+      PERFLIBS	:= $(EXPANDED_LOCAL_LIB) -lparaperf -lpapi -lperfctr
+    endif
+  endif
+
+  ifeq ($(compiler),gcc)
+    FC          := gfortran
+    CC          := gcc
+    CXX		:= g++
+    PFC		:= mpif90
+
+    IMODS       := -I
+    COMMON_FLGS := -g $(PRECISION) -ffree-form
+    FFLAGS1     := $(COMMON_FLGS)
+    FFLAGS2	:= $(COMMON_FLGS) -DMPI -DPARALLEL
+    FFLAGS3     := $(FFLAGS1) -DMPI
+  endif	
+endif
+

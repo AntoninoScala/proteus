@@ -1,0 +1,11 @@
+./configure --prefix=${PROTEUS_PREFIX} \
+ --with-jasper=${PROTEUS_PREFIX} \
+CC=gcc \
+CFLAGS="-fPIC" \
+CXX=g++ \
+CXXFLAGS="-fPIC" \
+FC=gfortran \
+FCFLAGS="-fPIC" \
+F90=gfortan \
+FFLAGS="-fPIC" \
+F77=gfortran
