@@ -4,6 +4,411 @@
   <Domain>
     <Grid CollectionType="Temporal" GridType="Collection" Name="Mesh Spatial_Domain">
       <Grid GridType="Uniform">
+        <Time Name="0" Value="0.0" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain0</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain0</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t0</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t0</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t0</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t0</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="1" Value="0.0125" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain1</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain1</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t1</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t1</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t1</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t1</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t1</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="2" Value="0.025" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain2</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain2</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t2</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t2</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t2</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t2</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t2</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="3" Value="0.0375" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain3</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain3</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t3</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t3</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t3</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t3</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t3</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="4" Value="0.05" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain4</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain4</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t4</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t4</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t4</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t4</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t4</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="5" Value="0.0625" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain5</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain5</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t5</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t5</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t5</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t5</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t5</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="6" Value="0.075" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain6</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain6</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t6</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t6</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t6</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t6</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t6</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="7" Value="0.0875" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain7</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain7</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t7</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t7</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t7</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t7</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t7</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="8" Value="0.1" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain8</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain8</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t8</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t8</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t8</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t8</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t8</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="9" Value="0.1125" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain9</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain9</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t9</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t9</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t9</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t9</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t9</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="10" Value="0.125" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain10</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain10</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t10</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t10</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t10</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t10</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t10</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="11" Value="0.1375" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain11</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain11</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t11</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t11</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t11</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t11</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t11</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="12" Value="0.15" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain12</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain12</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t12</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t12</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t12</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t12</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t12</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="13" Value="0.1625" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain13</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain13</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t13</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t13</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t13</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t13</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t13</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="14" Value="0.175" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain14</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain14</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t14</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t14</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t14</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t14</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t14</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="15" Value="0.1875" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain15</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain15</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t15</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t15</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t15</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t15</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t15</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="16" Value="0.2" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain16</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain16</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t16</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t16</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t16</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t16</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t16</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
         <Time Name="17" Value="0.2125" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain17</DataItem>
@@ -25,6 +430,558 @@
         </Attribute>
         <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
           <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t17</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="18" Value="0.225" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain18</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain18</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t18</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t18</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t18</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t18</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t18</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="19" Value="0.2375" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain19</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain19</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t19</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t19</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t19</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t19</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t19</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="20" Value="0.25" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain20</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain20</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t20</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t20</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t20</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t20</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t20</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="21" Value="0.2625" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain21</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain21</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t21</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t21</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t21</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t21</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t21</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="22" Value="0.275" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain22</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain22</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t22</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t22</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t22</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t22</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t22</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="23" Value="0.2875" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain23</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain23</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t23</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t23</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t23</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t23</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t23</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="24" Value="0.3" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain24</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain24</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t24</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t24</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t24</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t24</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t24</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="25" Value="0.3125" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain25</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain25</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t25</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t25</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t25</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t25</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t25</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="26" Value="0.325" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain26</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain26</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t26</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t26</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t26</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t26</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t26</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="27" Value="0.3375" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain27</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain27</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t27</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t27</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t27</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t27</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t27</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="28" Value="0.35" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain28</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain28</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t28</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t28</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t28</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t28</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t28</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="29" Value="0.3625" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain29</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain29</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t29</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t29</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t29</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t29</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t29</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="30" Value="0.375" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain30</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain30</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t30</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t30</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t30</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t30</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t30</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="31" Value="0.3875" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain31</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain31</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t31</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t31</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t31</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t31</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t31</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="32" Value="0.4" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain32</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain32</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t32</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t32</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t32</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t32</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t32</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="33" Value="0.4125" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain33</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain33</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t33</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t33</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t33</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t33</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t33</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="34" Value="0.425" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain34</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain34</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t34</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t34</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t34</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t34</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t34</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="35" Value="0.4375" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain35</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain35</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t35</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t35</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t35</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t35</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t35</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="36" Value="0.45" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain36</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain36</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t36</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t36</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t36</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t36</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t36</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="37" Value="0.4625" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain37</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain37</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t37</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t37</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t37</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t37</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t37</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="38" Value="0.475" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain38</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain38</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t38</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t38</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t38</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t38</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t38</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="39" Value="0.4875" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain39</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain39</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t39</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t39</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t39</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t39</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t39</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid GridType="Uniform">
+        <Time Name="40" Value="0.5" />
+        <Topology NumberOfElements="2048" Type="Triangle">
+          <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain40</DataItem>
+        </Topology>
+        <Geometry Type="XYZ">
+          <DataItem DataType="Float" Dimensions="1089 3" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/nodesSpatial_Domain40</DataItem>
+        </Geometry>
+        <Attribute AttributeType="Scalar" Center="Node" Name="nodeMaterialTypes">
+          <DataItem DataType="Int" Dimensions="1089" Format="HDF">burgers_tri_be_32_1_ls.h5:/nodeMaterialTypes_t40</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Cell" Name="elementMaterialTypes">
+          <DataItem DataType="Int" Dimensions="2048" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementMaterialTypes_t40</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_t40</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="u_analytical">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/u_analytical_t40</DataItem>
+        </Attribute>
+        <Attribute AttributeType="Scalar" Center="Node" Name="quantDOFs_for_burgers_tri_be_32_1_ls0">
+          <DataItem DataType="Float" Dimensions="1089" Format="HDF" Precision="8">burgers_tri_be_32_1_ls.h5:/quantDOFs_for_burgers_tri_be_32_1_ls0_t40</DataItem>
         </Attribute>
       </Grid>
     </Grid>
