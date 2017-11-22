@@ -25,7 +25,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="1" Value="0.005" />
+        <Time Name="1" Value="0.0125" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain1</DataItem>
         </Topology>
@@ -49,7 +49,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="2" Value="0.01" />
+        <Time Name="2" Value="0.025" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain2</DataItem>
         </Topology>
@@ -73,7 +73,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="3" Value="0.015" />
+        <Time Name="3" Value="0.0375" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain3</DataItem>
         </Topology>
@@ -97,7 +97,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="4" Value="0.02" />
+        <Time Name="4" Value="0.05" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain4</DataItem>
         </Topology>
@@ -121,7 +121,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="5" Value="0.025" />
+        <Time Name="5" Value="0.0625" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain5</DataItem>
         </Topology>
@@ -145,7 +145,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="6" Value="0.03" />
+        <Time Name="6" Value="0.075" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain6</DataItem>
         </Topology>
@@ -169,7 +169,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="7" Value="0.035" />
+        <Time Name="7" Value="0.0875" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain7</DataItem>
         </Topology>
@@ -193,7 +193,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="8" Value="0.04" />
+        <Time Name="8" Value="0.1" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain8</DataItem>
         </Topology>
@@ -217,7 +217,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="9" Value="0.045" />
+        <Time Name="9" Value="0.1125" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain9</DataItem>
         </Topology>
@@ -241,7 +241,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="10" Value="0.05" />
+        <Time Name="10" Value="0.125" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain10</DataItem>
         </Topology>
@@ -265,7 +265,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="11" Value="0.055" />
+        <Time Name="11" Value="0.1375" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain11</DataItem>
         </Topology>
@@ -289,7 +289,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="12" Value="0.06" />
+        <Time Name="12" Value="0.15" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain12</DataItem>
         </Topology>
@@ -313,7 +313,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="13" Value="0.065" />
+        <Time Name="13" Value="0.1625" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain13</DataItem>
         </Topology>
@@ -337,7 +337,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="14" Value="0.07" />
+        <Time Name="14" Value="0.175" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain14</DataItem>
         </Topology>
@@ -361,7 +361,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="15" Value="0.075" />
+        <Time Name="15" Value="0.1875" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain15</DataItem>
         </Topology>
@@ -385,7 +385,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="16" Value="0.08" />
+        <Time Name="16" Value="0.2" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain16</DataItem>
         </Topology>
@@ -409,7 +409,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="17" Value="0.085" />
+        <Time Name="17" Value="0.2125" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain17</DataItem>
         </Topology>
@@ -433,7 +433,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="18" Value="0.09" />
+        <Time Name="18" Value="0.225" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain18</DataItem>
         </Topology>
@@ -457,7 +457,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="19" Value="0.095" />
+        <Time Name="19" Value="0.2375" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain19</DataItem>
         </Topology>
@@ -481,7 +481,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="20" Value="0.1" />
+        <Time Name="20" Value="0.25" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain20</DataItem>
         </Topology>
@@ -505,7 +505,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="21" Value="0.105" />
+        <Time Name="21" Value="0.2625" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain21</DataItem>
         </Topology>
@@ -529,7 +529,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="22" Value="0.11" />
+        <Time Name="22" Value="0.275" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain22</DataItem>
         </Topology>
@@ -553,7 +553,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="23" Value="0.115" />
+        <Time Name="23" Value="0.2875" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain23</DataItem>
         </Topology>
@@ -577,7 +577,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="24" Value="0.12" />
+        <Time Name="24" Value="0.3" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain24</DataItem>
         </Topology>
@@ -601,7 +601,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="25" Value="0.125" />
+        <Time Name="25" Value="0.3125" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain25</DataItem>
         </Topology>
@@ -625,7 +625,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="26" Value="0.13" />
+        <Time Name="26" Value="0.325" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain26</DataItem>
         </Topology>
@@ -649,7 +649,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="27" Value="0.135" />
+        <Time Name="27" Value="0.3375" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain27</DataItem>
         </Topology>
@@ -673,7 +673,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="28" Value="0.14" />
+        <Time Name="28" Value="0.35" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain28</DataItem>
         </Topology>
@@ -697,7 +697,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="29" Value="0.145" />
+        <Time Name="29" Value="0.3625" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain29</DataItem>
         </Topology>
@@ -721,7 +721,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="30" Value="0.15" />
+        <Time Name="30" Value="0.375" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain30</DataItem>
         </Topology>
@@ -745,7 +745,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="31" Value="0.155" />
+        <Time Name="31" Value="0.3875" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain31</DataItem>
         </Topology>
@@ -769,7 +769,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="32" Value="0.16" />
+        <Time Name="32" Value="0.4" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain32</DataItem>
         </Topology>
@@ -793,7 +793,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="33" Value="0.165" />
+        <Time Name="33" Value="0.4125" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain33</DataItem>
         </Topology>
@@ -817,7 +817,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="34" Value="0.17" />
+        <Time Name="34" Value="0.425" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain34</DataItem>
         </Topology>
@@ -841,7 +841,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="35" Value="0.175" />
+        <Time Name="35" Value="0.4375" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain35</DataItem>
         </Topology>
@@ -865,7 +865,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="36" Value="0.18" />
+        <Time Name="36" Value="0.45" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain36</DataItem>
         </Topology>
@@ -889,7 +889,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="37" Value="0.185" />
+        <Time Name="37" Value="0.4625" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain37</DataItem>
         </Topology>
@@ -913,7 +913,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="38" Value="0.19" />
+        <Time Name="38" Value="0.475" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain38</DataItem>
         </Topology>
@@ -937,7 +937,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="39" Value="0.195" />
+        <Time Name="39" Value="0.4875" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain39</DataItem>
         </Topology>
@@ -961,7 +961,7 @@
         </Attribute>
       </Grid>
       <Grid GridType="Uniform">
-        <Time Name="40" Value="0.2" />
+        <Time Name="40" Value="0.5" />
         <Topology NumberOfElements="2048" Type="Triangle">
           <DataItem DataType="Int" Dimensions="2048 3" Format="HDF">burgers_tri_be_32_1_ls.h5:/elementsSpatial_Domain40</DataItem>
         </Topology>
