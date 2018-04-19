@@ -95,7 +95,7 @@ class zero:
         pi = np.pi
         x=X[0]
         y=X[1]
-        return 0.
+        return 1.
     
 class poisson_soln:
     def __init__(self):
@@ -104,13 +104,14 @@ class poisson_soln:
         pi = np.pi
         x=X[0]
         y=X[1]
-        return np.cos(pi*x)*np.cos(pi*y)*np.sin(t)
-
+        #return np.cos(pi*x)*np.cos(pi*y)*np.sin(t)
+        return np.exp(-pi*t)
 def force(X,t):
     pi=np.pi
     x=X[0]
     y=X[1]
-    return np.cos(pi*x)*np.cos(pi*y)*(np.cos(t)) #+0*2*pi**2*np.sin(t))
+    #return np.cos(pi*x)*np.cos(pi*y)*(np.cos(t)) #+0*2*pi**2*np.sin(t))
+    return -pi*np.exp(-pi*t)
     
 initialConditions = {0:zero()}
 analyticalSolution = {0:poisson_soln()}

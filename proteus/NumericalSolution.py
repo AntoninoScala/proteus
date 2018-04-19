@@ -1379,17 +1379,21 @@ class NS_base:  # (HasTraits):
                                                                                  model.stepController.dt_model,
                                                                                  model.name),level=3)
                             for self.tSubstep in model.stepController.substeps:
-
+                                
                                 logEvent("Model substep t=%12.5e for model %s" % (self.tSubstep,model.name),level=3)
                                 #TODO: model.stepController.substeps doesn't seem to be updated after a solver failure unless model.stepController.stepExact is true
                                 logEvent("Model substep t=%12.5e for model %s model.timeIntegration.t= %12.5e" % (self.tSubstep,model.name,model.levelModelList[-1].timeIntegration.t),level=3)
 
                                 model.stepController.setInitialGuess(model.uList,model.rList)
-
-                                solverFailed = model.solver.solveMultilevel(uList=model.uList,
-                                                                            rList=model.rList,
-                                                                            par_uList=model.par_uList,
-                                                                            par_rList=model.par_rList)
+                                from math import pi,exp,sqrt
+                                import numpy as np
+                                m = model.levelModelList[-1]
+                                m.u[0].dof[:] = m.u_dof_old - m.timeIntegration.dt*pi*m.u_dof_old
+                                solverFailed = False
+                                #solverFailed = model.solver.solveMultilevel(uList=model.uList,
+                                #                                            rList=model.rList,
+                                #                                            par_uList=model.par_uList,
+                                #                                            par_rList=model.par_rList)
                                 Profiling.memory("solver.solveMultilevel")
                                 if self.opts.wait:
                                     raw_input("Hit any key to continue")
@@ -1401,6 +1405,10 @@ class NS_base:  # (HasTraits):
                                         self.restrictFromFineMesh(model)
                                     model.stepController.updateSubstep()
                             #end model substeps
+                            m.q[('u',0)][:] = m.u[0].dof[0]
+                            print "error==========================",np.absolute(m.u[0].dof - exp(-pi*m.timeIntegration.t)).max()
+                            print "error q==========================",sqrt(np.sum(m.q['dV']*(m.q[('u',0)] - exp(-pi*m.timeIntegration.t))**2))
+                            print "vol q==========================",sqrt(np.sum(m.q['dV']))
                             if solverFailed:
                                 logEvent("Step failed due to solver failure")
                                 stepFailed = not self.systemStepController.retryModelStep_solverFailure(model)

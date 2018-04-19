@@ -41,8 +41,8 @@ class fixed_dt(Min_dt_controller):
         self.set_dt_allLevels()
         self.setSubsteps([self.t_model])        
         
-#stepController = fixed_dt
-stepController  = Min_dt_cfl_controller
+stepController = fixed_dt
+#stepController  = Min_dt_cfl_controller
 
 if useHex:
     hex=True
