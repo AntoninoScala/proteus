@@ -16,6 +16,6 @@
               # ("pressure_p", "pressure_n"),#8
               # ("pressureInitial_p", "pressureInitial_n")]#9
 
-simFlagsList[4]['storeQuantities'] = ["q:('phis',0)"]
+simFlagsList[0]['storeQuantities'] = ["q:('phis',0)"]
 start
 end

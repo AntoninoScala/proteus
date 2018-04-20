@@ -345,3 +345,13 @@ def particle_sdf(t, x):
 def particle_vel(t, x):
     return (0.0,0.0)
 
+def particle_sdf2(t, x):
+    cx = 0.8
+    cy = 0.2
+    r = math.sqrt( (x[0]-cx)**2 + (x[1]-cy)**2)
+    n = ((x[0]-cx)/r,(x[1]-cy)/r)
+    return  r - 0.05,n
+
+def particle_vel2(t, x):
+    return (0.0,0.0)
+
