@@ -1,0 +1,2541 @@
+{
+  "build" : {
+    "commands" : [
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${PYTHON_DIR}/bin"
+      }, 
+      {
+        "prepend_path" : "PKG_CONFIG_PATH", 
+        "value" : "${PYTHON_DIR}/lib/pkgconfig"
+      }, 
+      {
+        "set" : "PYTHON", 
+        "value" : "${PYTHON_DIR}/bin/python"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${MARKUPSAFE_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${ALABASTER_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${APIPKG_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${ATTRS_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${BABEL_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${BACKPORTS_ABC_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${BACKPORTS_SHUTIL_GET_TERMINAL_SIZE_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${BACKPORTS_SSL_MATCH_HOSTNAME_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${BISON_DIR}/bin"
+      }, 
+      {
+        "set" : "BLAS_LDFLAGS", 
+        "value" : "-lsci_gnu"
+      }, 
+      {
+        "set" : "BOOST_MULTITHREADED", 
+        "value" : "OFF"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${CYCLER_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${FREETYPE_DIR}/bin"
+      }, 
+      {
+        "prepend_path" : "PKG_CONFIG_PATH", 
+        "value" : "${FREETYPE_DIR}/lib/pkgconfig"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${FUNCTOOLS32_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SETUPTOOLS_SCM_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${FUNCTOOLS_LRU_CACHE_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${KIWISOLVER_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${CYTHON_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${NUMPY_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PKG_CONFIG_PATH", 
+        "value" : "${PNG_DIR}/lib/pkgconfig"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYPARSING_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYTHON_DATEUTIL_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SIX_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${MATPLOTLIB_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${CLAWPACK_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${CMAKE_DIR}/bin"
+      }, 
+      {
+        "set" : "CMAKE", 
+        "value" : "${CMAKE_DIR}/bin/cmake"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${CONFIGPARSER_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${COVERAGE_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${DOCUTILS_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${EXECNET_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${FASTCACHE_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${FLEX_DIR}/bin"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${FUNCSIGS_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${GEOJSON_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "set" : "GEOS_CONFIG", 
+        "value" : "${GEOS_DIR}/bin/geos-config"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${GEOS_DIR}/bin"
+      }, 
+      {
+        "set" : "MPI_ROOT", 
+        "value" : ""
+      }, 
+      {
+        "set" : "MPICXX", 
+        "value" : "CC"
+      }, 
+      {
+        "set" : "MPICC", 
+        "value" : "cc"
+      }, 
+      {
+        "set" : "MPIF77", 
+        "value" : "ftn"
+      }, 
+      {
+        "set" : "MPIF90", 
+        "value" : "ftn"
+      }, 
+      {
+        "set" : "MPIEXEC", 
+        "value" : "aprun"
+      }, 
+      {
+        "prepend_path" : "LD_LIBRARY_PATH", 
+        "value" : "${MPI_ROOT}/lib"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${MPI4PY_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${H5PY_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${HDF5_DIR}/bin"
+      }, 
+      {
+        "set" : "HDF5_ROOT", 
+        "value" : "${HDF5_DIR}"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${HTTPLIB2_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${IMAGESIZE_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${JINJA2_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "set" : "LAPACK_LDFLAGS", 
+        "value" : "-lsci_gnu"
+      }, 
+      {
+        "set" : "LAUNCHER", 
+        "value" : "${LAUNCHER_DIR}/bin/launcher"
+      }, 
+      {
+        "prepend_path" : "PKG_CONFIG_PATH", 
+        "value" : "${LIBIDN_DIR}/lib/pkgconfig"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${LIBTOOL_DIR}/bin"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${M4_DIR}/bin"
+      }, 
+      {
+        "set" : "MATLAB", 
+        "value" : ""
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PSUTIL_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${MEMORY_PROFILER_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${MPMATH_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${NOSE_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${NUMEXPR_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${OAUTHLIB_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "set" : "PKG_CONFIG_EXECUTABLE", 
+        "value" : ""
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${PARMETIS_DIR}/bin"
+      }, 
+      {
+        "set" : "PATCHELF", 
+        "value" : "${PATCHELF_DIR}/bin/patchelf"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PAVER_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${PCRE_DIR}/bin"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PCS_API_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PETSC4PY_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PEXPECT_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PIP_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PKGCONFIG_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PLUGGY_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PY_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYDAP_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYGMENTS_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYPROJ_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYTABLES_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYTEST_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYTEST_FORKED_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYTEST_XDIST_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYTHON_NETCDF4_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYTZ_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${PYZMQ_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${RDP_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${RECORDTYPE_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${REQUESTS_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${REQUESTS_OAUTHLIB_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SCIPY_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SETUPTOOLS_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SHAPELY_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SINGLEDISPATCH_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SNOWBALLSTEMMER_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SPHINX_RTD_THEME_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SPHINX_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SPHINX_BOOTSTRAP_THEME_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "set" : "SWIG_EXECUTABLE", 
+        "value" : "${SWIG_DIR}/bin/swig"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${SWIG_DIR}/bin"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${SYMPY_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${TORNADO_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PYTHONPATH", 
+        "value" : "${VAPORY_DIR}/lib/python2.7/site-packages"
+      }, 
+      {
+        "prepend_path" : "PATH", 
+        "value" : "${ZMQ_DIR}/bin"
+      }, 
+      {
+        "prepend_path" : "PKG_CONFIG_PATH", 
+        "value" : "${ZMQ_DIR}/lib/pkgconfig"
+      }, 
+      {
+        "hit" : [
+          "create-links", 
+          "$in0"
+        ], 
+        "inputs" : [
+          {
+            "json" : [
+              {
+                "action" : "launcher", 
+                "prefix" : "${PYTHON_DIR}", 
+                "select" : "${PYTHON_DIR}/bin/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYTHON_DIR}", 
+                "select" : "${PYTHON_DIR}/lib/python2.7/site-packages/__pycache__/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYTHON_DIR}", 
+                "select" : "${PYTHON_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYTHON_DIR}", 
+                "select" : "${PYTHON_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${MARKUPSAFE_DIR}", 
+                "select" : "${MARKUPSAFE_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${MARKUPSAFE_DIR}", 
+                "select" : "${MARKUPSAFE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${ALABASTER_DIR}", 
+                "select" : "${ALABASTER_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${ALABASTER_DIR}", 
+                "select" : "${ALABASTER_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${APIPKG_DIR}", 
+                "select" : "${APIPKG_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${APIPKG_DIR}", 
+                "select" : "${APIPKG_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${ATTRS_DIR}", 
+                "select" : "${ATTRS_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${ATTRS_DIR}", 
+                "select" : "${ATTRS_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${BABEL_DIR}", 
+                "select" : "${BABEL_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${BABEL_DIR}", 
+                "select" : "${BABEL_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${BACKPORTS_ABC_DIR}", 
+                "select" : "${BACKPORTS_ABC_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${BACKPORTS_ABC_DIR}", 
+                "select" : "${BACKPORTS_ABC_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${BACKPORTS_SHUTIL_GET_TERMINAL_SIZE_DIR}", 
+                "select" : "${BACKPORTS_SHUTIL_GET_TERMINAL_SIZE_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${BACKPORTS_SHUTIL_GET_TERMINAL_SIZE_DIR}", 
+                "select" : "${BACKPORTS_SHUTIL_GET_TERMINAL_SIZE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${BACKPORTS_SSL_MATCH_HOSTNAME_DIR}", 
+                "select" : "${BACKPORTS_SSL_MATCH_HOSTNAME_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${BACKPORTS_SSL_MATCH_HOSTNAME_DIR}", 
+                "select" : "${BACKPORTS_SSL_MATCH_HOSTNAME_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${BISON_DIR}", 
+                "select" : "${BISON_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${BLAZE_DIR}", 
+                "select" : "${BLAZE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${BOOST_DIR}", 
+                "select" : "${BOOST_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${BZIP2_DIR}", 
+                "select" : "${BZIP2_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${CHRONO_DIR}", 
+                "select" : "${CHRONO_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${CYCLER_DIR}", 
+                "select" : "${CYCLER_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${CYCLER_DIR}", 
+                "select" : "${CYCLER_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${ZLIB_DIR}", 
+                "select" : "${ZLIB_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${FREETYPE_DIR}", 
+                "select" : "${FREETYPE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${FUNCTOOLS32_DIR}", 
+                "select" : "${FUNCTOOLS32_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${FUNCTOOLS32_DIR}", 
+                "select" : "${FUNCTOOLS32_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SETUPTOOLS_SCM_DIR}", 
+                "select" : "${SETUPTOOLS_SCM_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SETUPTOOLS_SCM_DIR}", 
+                "select" : "${SETUPTOOLS_SCM_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${FUNCTOOLS_LRU_CACHE_DIR}", 
+                "select" : "${FUNCTOOLS_LRU_CACHE_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${FUNCTOOLS_LRU_CACHE_DIR}", 
+                "select" : "${FUNCTOOLS_LRU_CACHE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${KIWISOLVER_DIR}", 
+                "select" : "${KIWISOLVER_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${KIWISOLVER_DIR}", 
+                "select" : "${KIWISOLVER_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${CYTHON_DIR}", 
+                "select" : "${CYTHON_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${CYTHON_DIR}", 
+                "select" : "${CYTHON_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${NUMPY_DIR}", 
+                "select" : "${NUMPY_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${NUMPY_DIR}", 
+                "select" : "${NUMPY_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PNG_DIR}", 
+                "select" : "${PNG_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYPARSING_DIR}", 
+                "select" : "${PYPARSING_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYPARSING_DIR}", 
+                "select" : "${PYPARSING_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYTHON_DATEUTIL_DIR}", 
+                "select" : "${PYTHON_DATEUTIL_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYTHON_DATEUTIL_DIR}", 
+                "select" : "${PYTHON_DATEUTIL_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SIX_DIR}", 
+                "select" : "${SIX_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SIX_DIR}", 
+                "select" : "${SIX_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${MATPLOTLIB_DIR}", 
+                "select" : "${MATPLOTLIB_DIR}/lib/python2.7/site-packages/mpl_toolkits/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/mpl_toolkits/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${MATPLOTLIB_DIR}", 
+                "select" : "${MATPLOTLIB_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${MATPLOTLIB_DIR}", 
+                "select" : "${MATPLOTLIB_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${CLAWPACK_DIR}", 
+                "select" : "${CLAWPACK_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${CLAWPACK_DIR}", 
+                "select" : "${CLAWPACK_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${CMAKE_DIR}", 
+                "select" : "${CMAKE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${CONFIGPARSER_DIR}", 
+                "select" : "${CONFIGPARSER_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${CONFIGPARSER_DIR}", 
+                "select" : "${CONFIGPARSER_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${COVERAGE_DIR}", 
+                "select" : "${COVERAGE_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${COVERAGE_DIR}", 
+                "select" : "${COVERAGE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${CURL_DIR}", 
+                "select" : "${CURL_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${DAETK_DIR}", 
+                "select" : "${DAETK_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${DOCUTILS_DIR}", 
+                "select" : "${DOCUTILS_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${DOCUTILS_DIR}", 
+                "select" : "${DOCUTILS_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${DOXYGEN_DIR}", 
+                "select" : "${DOXYGEN_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${EXECNET_DIR}", 
+                "select" : "${EXECNET_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${EXECNET_DIR}", 
+                "select" : "${EXECNET_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${EXPAT_DIR}", 
+                "select" : "${EXPAT_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${FASTCACHE_DIR}", 
+                "select" : "${FASTCACHE_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${FASTCACHE_DIR}", 
+                "select" : "${FASTCACHE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${FLEX_DIR}", 
+                "select" : "${FLEX_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${FUNCSIGS_DIR}", 
+                "select" : "${FUNCSIGS_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${FUNCSIGS_DIR}", 
+                "select" : "${FUNCSIGS_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${GDBM_DIR}", 
+                "select" : "${GDBM_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${GEOJSON_DIR}", 
+                "select" : "${GEOJSON_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${GEOJSON_DIR}", 
+                "select" : "${GEOJSON_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${GEOS_DIR}", 
+                "select" : "${GEOS_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${MPI4PY_DIR}", 
+                "select" : "${MPI4PY_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${MPI4PY_DIR}", 
+                "select" : "${MPI4PY_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${H5PY_DIR}", 
+                "select" : "${H5PY_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${H5PY_DIR}", 
+                "select" : "${H5PY_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${HDF5_DIR}", 
+                "select" : "${HDF5_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${HTTPLIB2_DIR}", 
+                "select" : "${HTTPLIB2_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${HTTPLIB2_DIR}", 
+                "select" : "${HTTPLIB2_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${IMAGESIZE_DIR}", 
+                "select" : "${IMAGESIZE_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${IMAGESIZE_DIR}", 
+                "select" : "${IMAGESIZE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${JASPER_DIR}", 
+                "select" : "${JASPER_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${JINJA2_DIR}", 
+                "select" : "${JINJA2_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${JINJA2_DIR}", 
+                "select" : "${JINJA2_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${LIBIDN_DIR}", 
+                "select" : "${LIBIDN_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${LIBJPEG_DIR}", 
+                "select" : "${LIBJPEG_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${LIBTOOL_DIR}", 
+                "select" : "${LIBTOOL_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${M4_DIR}", 
+                "select" : "${M4_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PSUTIL_DIR}", 
+                "select" : "${PSUTIL_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PSUTIL_DIR}", 
+                "select" : "${PSUTIL_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${MEMORY_PROFILER_DIR}", 
+                "select" : "${MEMORY_PROFILER_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${MEMORY_PROFILER_DIR}", 
+                "select" : "${MEMORY_PROFILER_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${MPMATH_DIR}", 
+                "select" : "${MPMATH_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${MPMATH_DIR}", 
+                "select" : "${MPMATH_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${NCURSES_DIR}", 
+                "select" : "${NCURSES_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${NETCDF4_DIR}", 
+                "select" : "${NETCDF4_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${NETCDF4CPP_DIR}", 
+                "select" : "${NETCDF4CPP_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${NETCDF4F_DIR}", 
+                "select" : "${NETCDF4F_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${NOSE_DIR}", 
+                "select" : "${NOSE_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${NOSE_DIR}", 
+                "select" : "${NOSE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${NUMEXPR_DIR}", 
+                "select" : "${NUMEXPR_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${NUMEXPR_DIR}", 
+                "select" : "${NUMEXPR_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${OAUTHLIB_DIR}", 
+                "select" : "${OAUTHLIB_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${OAUTHLIB_DIR}", 
+                "select" : "${OAUTHLIB_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${ODE_DIR}", 
+                "select" : "${ODE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${OPENJPEG_DIR}", 
+                "select" : "${OPENJPEG_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PARMETIS_DIR}", 
+                "select" : "${PARMETIS_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PATCHELF_DIR}", 
+                "select" : "${PATCHELF_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PAVER_DIR}", 
+                "select" : "${PAVER_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PAVER_DIR}", 
+                "select" : "${PAVER_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PCRE_DIR}", 
+                "select" : "${PCRE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PCS_API_DIR}", 
+                "select" : "${PCS_API_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PCS_API_DIR}", 
+                "select" : "${PCS_API_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PETSC_DIR}", 
+                "select" : "${PETSC_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PETSC4PY_DIR}", 
+                "select" : "${PETSC4PY_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PETSC4PY_DIR}", 
+                "select" : "${PETSC4PY_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PEXPECT_DIR}", 
+                "select" : "${PEXPECT_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PEXPECT_DIR}", 
+                "select" : "${PEXPECT_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PIP_DIR}", 
+                "select" : "${PIP_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PIP_DIR}", 
+                "select" : "${PIP_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PKGCONFIG_DIR}", 
+                "select" : "${PKGCONFIG_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PKGCONFIG_DIR}", 
+                "select" : "${PKGCONFIG_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PLUGGY_DIR}", 
+                "select" : "${PLUGGY_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PLUGGY_DIR}", 
+                "select" : "${PLUGGY_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PY_DIR}", 
+                "select" : "${PY_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PY_DIR}", 
+                "select" : "${PY_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYDAP_DIR}", 
+                "select" : "${PYDAP_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYDAP_DIR}", 
+                "select" : "${PYDAP_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYGMENTS_DIR}", 
+                "select" : "${PYGMENTS_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYGMENTS_DIR}", 
+                "select" : "${PYGMENTS_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYPROJ_DIR}", 
+                "select" : "${PYPROJ_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYPROJ_DIR}", 
+                "select" : "${PYPROJ_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SZIP_DIR}", 
+                "select" : "${SZIP_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYTABLES_DIR}", 
+                "select" : "${PYTABLES_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYTABLES_DIR}", 
+                "select" : "${PYTABLES_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYTEST_DIR}", 
+                "select" : "${PYTEST_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYTEST_DIR}", 
+                "select" : "${PYTEST_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYTEST_FORKED_DIR}", 
+                "select" : "${PYTEST_FORKED_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYTEST_FORKED_DIR}", 
+                "select" : "${PYTEST_FORKED_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYTEST_XDIST_DIR}", 
+                "select" : "${PYTEST_XDIST_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYTEST_XDIST_DIR}", 
+                "select" : "${PYTEST_XDIST_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYTHON_NETCDF4_DIR}", 
+                "select" : "${PYTHON_NETCDF4_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYTHON_NETCDF4_DIR}", 
+                "select" : "${PYTHON_NETCDF4_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYTZ_DIR}", 
+                "select" : "${PYTZ_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYTZ_DIR}", 
+                "select" : "${PYTZ_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${PYZMQ_DIR}", 
+                "select" : "${PYZMQ_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${PYZMQ_DIR}", 
+                "select" : "${PYZMQ_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${RDP_DIR}", 
+                "select" : "${RDP_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${RDP_DIR}", 
+                "select" : "${RDP_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${READLINE_DIR}", 
+                "select" : "${READLINE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${RECORDTYPE_DIR}", 
+                "select" : "${RECORDTYPE_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${RECORDTYPE_DIR}", 
+                "select" : "${RECORDTYPE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${REQUESTS_DIR}", 
+                "select" : "${REQUESTS_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${REQUESTS_DIR}", 
+                "select" : "${REQUESTS_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${REQUESTS_OAUTHLIB_DIR}", 
+                "select" : "${REQUESTS_OAUTHLIB_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${REQUESTS_OAUTHLIB_DIR}", 
+                "select" : "${REQUESTS_OAUTHLIB_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SCIPY_DIR}", 
+                "select" : "${SCIPY_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SCIPY_DIR}", 
+                "select" : "${SCIPY_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SCOREC_DIR}", 
+                "select" : "${SCOREC_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SETUPTOOLS_DIR}", 
+                "select" : "${SETUPTOOLS_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SETUPTOOLS_DIR}", 
+                "select" : "${SETUPTOOLS_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SHAPELY_DIR}", 
+                "select" : "${SHAPELY_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SHAPELY_DIR}", 
+                "select" : "${SHAPELY_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SINGLEDISPATCH_DIR}", 
+                "select" : "${SINGLEDISPATCH_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SINGLEDISPATCH_DIR}", 
+                "select" : "${SINGLEDISPATCH_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SNOWBALLSTEMMER_DIR}", 
+                "select" : "${SNOWBALLSTEMMER_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SNOWBALLSTEMMER_DIR}", 
+                "select" : "${SNOWBALLSTEMMER_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SPHINX_RTD_THEME_DIR}", 
+                "select" : "${SPHINX_RTD_THEME_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SPHINX_RTD_THEME_DIR}", 
+                "select" : "${SPHINX_RTD_THEME_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SPHINX_DIR}", 
+                "select" : "${SPHINX_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SPHINX_DIR}", 
+                "select" : "${SPHINX_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SPHINX_BOOTSTRAP_THEME_DIR}", 
+                "select" : "${SPHINX_BOOTSTRAP_THEME_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SPHINX_BOOTSTRAP_THEME_DIR}", 
+                "select" : "${SPHINX_BOOTSTRAP_THEME_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SQLITE_DIR}", 
+                "select" : "${SQLITE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SWIG_DIR}", 
+                "select" : "${SWIG_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${SYMPY_DIR}", 
+                "select" : "${SYMPY_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${SYMPY_DIR}", 
+                "select" : "${SYMPY_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${TETGEN_DIR}", 
+                "select" : "${TETGEN_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${TORNADO_DIR}", 
+                "select" : "${TORNADO_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${TORNADO_DIR}", 
+                "select" : "${TORNADO_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${TRIANGLE_DIR}", 
+                "select" : "${TRIANGLE_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : true, 
+                "prefix" : "${VAPORY_DIR}", 
+                "select" : "${VAPORY_DIR}/lib/python2.7/site-packages/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "exclude", 
+                "select" : "lib/python2.7/site-packages/**/*"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${VAPORY_DIR}", 
+                "select" : "${VAPORY_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${ZMQ_DIR}", 
+                "select" : "${ZMQ_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }, 
+              {
+                "action" : "absolute_symlink", 
+                "dirs" : false, 
+                "prefix" : "${ZOLTAN_DIR}", 
+                "select" : "${ZOLTAN_DIR}/*/**/*", 
+                "target" : "${ARTIFACT}"
+              }
+            ]
+          }
+        ]
+      }
+    ], 
+    "import" : [
+      {
+        "id" : "python/qxbeimiha2t5vxw4munb4ki2txqg2nzc", 
+        "ref" : "PYTHON"
+      }, 
+      {
+        "id" : "MarkupSafe/hpqcoa5hzg2dgdyvidjwaxro3k7tsr2v", 
+        "ref" : "MARKUPSAFE"
+      }, 
+      {
+        "id" : "alabaster/3tufp6eovghaq2up532es2vmetyntd6z", 
+        "ref" : "ALABASTER"
+      }, 
+      {
+        "id" : "apipkg/g22aavubikmhxwunsdxyvc6ry2ncfy2y", 
+        "ref" : "APIPKG"
+      }, 
+      {
+        "id" : "attrs/aujjwhd6vjl3uotx7fugqu3nseo4kvgg", 
+        "ref" : "ATTRS"
+      }, 
+      {
+        "id" : "babel/mwhmozxomqnmgx3wto7y4m7ezuxyu72j", 
+        "ref" : "BABEL"
+      }, 
+      {
+        "id" : "backports-abc/icfo3kl6h74w5qycfdpae6rtniw7rx4l", 
+        "ref" : "BACKPORTS_ABC"
+      }, 
+      {
+        "id" : "backports-shutil-get-terminal-size/7oquj7hzzpifhh5qfowgmjzxqygas73p", 
+        "ref" : "BACKPORTS_SHUTIL_GET_TERMINAL_SIZE"
+      }, 
+      {
+        "id" : "backports-ssl_match_hostname/2s5zyk3rab5tkyor2qltv2jtt4imtzrr", 
+        "ref" : "BACKPORTS_SSL_MATCH_HOSTNAME"
+      }, 
+      {
+        "id" : "bison/ijh7xh6frykdis57ib5o3vjrpomz7cgs", 
+        "ref" : "BISON"
+      }, 
+      {
+        "id" : "blas/orqin7luuh5djmhk6kktv3vx3w5g6kux", 
+        "ref" : "BLAS"
+      }, 
+      {
+        "id" : "blaze/6yzadh3r5e2jxokfvzlhifizryu4diis", 
+        "ref" : "BLAZE"
+      }, 
+      {
+        "id" : "boost/b4aq3tz7mwoaidg4kmm47tmd4izijszg", 
+        "ref" : "BOOST"
+      }, 
+      {
+        "id" : "bzip2/aeds5lkddssrk7iotg3fknj3hm33i5tp", 
+        "ref" : "BZIP2"
+      }, 
+      {
+        "id" : "chrono/aysqmmwaj4ifafwjqqsb44dvzmzcuzk6", 
+        "ref" : "CHRONO"
+      }, 
+      {
+        "id" : "cycler/z6lvmem4zsulvuvjilqgfjpdehv3ewty", 
+        "ref" : "CYCLER"
+      }, 
+      {
+        "id" : "zlib/lrdxlugx3puonm4mjyhzttssrmdbu6kk", 
+        "ref" : "ZLIB"
+      }, 
+      {
+        "id" : "freetype/p3der7arx7i7nzqvoqf7e74tq66pzhz4", 
+        "ref" : "FREETYPE"
+      }, 
+      {
+        "id" : "functools32/pnhi3wkqhzrhxgr7jbf5qnhl6d2ysxrr", 
+        "ref" : "FUNCTOOLS32"
+      }, 
+      {
+        "id" : "setuptools-scm/xnh7haw7q3imo3blhbth6n57ofipf3zb", 
+        "ref" : "SETUPTOOLS_SCM"
+      }, 
+      {
+        "id" : "functools_lru_cache/3egbp64rsrwvz5w7lo7zghs5sqxuk4jj", 
+        "ref" : "FUNCTOOLS_LRU_CACHE"
+      }, 
+      {
+        "id" : "kiwisolver/l4s7to4ngg7qwowrs4dqv522i2ni32h2", 
+        "ref" : "KIWISOLVER"
+      }, 
+      {
+        "id" : "cython/d4jiwimztoiwyzhfup3e4kskve3spzri", 
+        "ref" : "CYTHON"
+      }, 
+      {
+        "id" : "numpy/yyc447tnz5xp5kx6b543zmxocxqu4hsz", 
+        "ref" : "NUMPY"
+      }, 
+      {
+        "id" : "png/7643sichxpirprgabp7i57dwsk475fdp", 
+        "ref" : "PNG"
+      }, 
+      {
+        "id" : "pyparsing/jxcwxrl2iukmaa3mfi6vkx57of377uxk", 
+        "ref" : "PYPARSING"
+      }, 
+      {
+        "id" : "python-dateutil/hntmmvamwiinxmekfzh2e4h3ts3sxcgn", 
+        "ref" : "PYTHON_DATEUTIL"
+      }, 
+      {
+        "id" : "six/6rnmfic2i3xgsblucill6cx3sf27dgnj", 
+        "ref" : "SIX"
+      }, 
+      {
+        "id" : "matplotlib/o3pmo2cdhnouhhmx627wq26azee3tidq", 
+        "ref" : "MATPLOTLIB"
+      }, 
+      {
+        "id" : "clawpack/wsyxvoii6wzutviab7hgllrw3cdqo4il", 
+        "ref" : "CLAWPACK"
+      }, 
+      {
+        "id" : "cmake/rpuvdavnd5iamct2grqem4qjh6mfrrll", 
+        "ref" : "CMAKE"
+      }, 
+      {
+        "id" : "configparser/xv65pjsjtvoy2zka4p4xidjca2tvoadr", 
+        "ref" : "CONFIGPARSER"
+      }, 
+      {
+        "id" : "coverage/oggd2yluztfqxduramzhu2yguij6fs3u", 
+        "ref" : "COVERAGE"
+      }, 
+      {
+        "id" : "curl/qc2iwbufjxw2ij55ude45kcgvlp4hn6x", 
+        "ref" : "CURL"
+      }, 
+      {
+        "id" : "daetk/jwflav7jojpapfznlafjq4ycfkzuigsb", 
+        "ref" : "DAETK"
+      }, 
+      {
+        "id" : "docutils/tmy2sihnaoj56lavdyeenhtq4fojzjew", 
+        "ref" : "DOCUTILS"
+      }, 
+      {
+        "id" : "doxygen/tkuzklgss3o4njr5soa7rqevmrfabq66", 
+        "ref" : "DOXYGEN"
+      }, 
+      {
+        "id" : "execnet/dgaf5j76utpmtrvldkozx5ej7mkbjlxu", 
+        "ref" : "EXECNET"
+      }, 
+      {
+        "id" : "expat/r76ropp6u3m6nei2f3xheu3bqhnbazhu", 
+        "ref" : "EXPAT"
+      }, 
+      {
+        "id" : "fastcache/ymzyxm7ebhuqu6cjwgrr6zzeggezwjhk", 
+        "ref" : "FASTCACHE"
+      }, 
+      {
+        "id" : "flex/7xzgr4zuemak5ipzompy4kielr2zj7b7", 
+        "ref" : "FLEX"
+      }, 
+      {
+        "id" : "funcsigs/pqyj2nezmmwnz56vextzzr6gjruuy27l", 
+        "ref" : "FUNCSIGS"
+      }, 
+      {
+        "id" : "gdbm/oovog225omsryvmo24cfxomwgbfm3d6b", 
+        "ref" : "GDBM"
+      }, 
+      {
+        "id" : "geojson/utfa42uuku6eamhx3ksdgrvqkerfwt6p", 
+        "ref" : "GEOJSON"
+      }, 
+      {
+        "id" : "geos/hmgyyqjue44ujbzqmxtwgnoqad666o2k", 
+        "ref" : "GEOS"
+      }, 
+      {
+        "id" : "mpi/jrk6uiczudlaefwdkha2n7rxzurqwlzv", 
+        "ref" : "MPI"
+      }, 
+      {
+        "id" : "mpi4py/zwm6l77f45bixdntkczac2eoaeuepuh5", 
+        "ref" : "MPI4PY"
+      }, 
+      {
+        "id" : "h5py/no4iy5fjhzjmkymoxn7uby6nkwdmhayc", 
+        "ref" : "H5PY"
+      }, 
+      {
+        "id" : "hdf5/kszr4w4jtqdtgswm4ztahc2x5peqbwka", 
+        "ref" : "HDF5"
+      }, 
+      {
+        "id" : "httplib2/46fyyrm7ro7l2y2oshrdg5fuqcw4imnx", 
+        "ref" : "HTTPLIB2"
+      }, 
+      {
+        "id" : "imagesize/ru4nbshpv4abta2aztn26m4z7bhmwue4", 
+        "ref" : "IMAGESIZE"
+      }, 
+      {
+        "id" : "jasper/rlzkvwqp3um3xhchiguxuufibhj2uujw", 
+        "ref" : "JASPER"
+      }, 
+      {
+        "id" : "jinja2/g7w6ch3wap26bg2bgh3jjv3dz4idhyci", 
+        "ref" : "JINJA2"
+      }, 
+      {
+        "id" : "lapack/xvzyk5hqp7ew6efjewod67hcj5ipw7o4", 
+        "ref" : "LAPACK"
+      }, 
+      {
+        "id" : "launcher/cp2ox5h766m7egvkkszikux3hcocsph2", 
+        "ref" : "LAUNCHER"
+      }, 
+      {
+        "id" : "libidn/k4e6e3yfsqajbwoqxt4xm7gbrhqkxcps", 
+        "ref" : "LIBIDN"
+      }, 
+      {
+        "id" : "libjpeg/ylpwceyj5w2jnorzcv2blzkafmsfm7gf", 
+        "ref" : "LIBJPEG"
+      }, 
+      {
+        "id" : "libtool/6hubdbrtbutki3ao3fwrzgxwhm7a6hic", 
+        "ref" : "LIBTOOL"
+      }, 
+      {
+        "id" : "m4/yd3ikxoajo3jaatptqdqvie7fujn6cwj", 
+        "ref" : "M4"
+      }, 
+      {
+        "id" : "matlab/kk2fbp63rwyjzoxcfi4cbv4wpr7n4tzn", 
+        "ref" : "MATLAB"
+      }, 
+      {
+        "id" : "psutil/cnie3kmdcxjvrj777etmfpdt5zm723q2", 
+        "ref" : "PSUTIL"
+      }, 
+      {
+        "id" : "memory_profiler/dx2oy7r2f2iifeiucdnhbel6lzxpafnw", 
+        "ref" : "MEMORY_PROFILER"
+      }, 
+      {
+        "id" : "mpmath/x7qygit67narv42cljgkre6e7f6jdiqf", 
+        "ref" : "MPMATH"
+      }, 
+      {
+        "id" : "ncurses/kbmavmc5lpnq33egn3qkld5sshwad2gf", 
+        "ref" : "NCURSES"
+      }, 
+      {
+        "id" : "netcdf4/ykkkkt5rf4k4vdzeohamn2ilon4lu2h6", 
+        "ref" : "NETCDF4"
+      }, 
+      {
+        "id" : "netcdf4cpp/mom5xz54diziki3rhopzlrew7zuur4z6", 
+        "ref" : "NETCDF4CPP"
+      }, 
+      {
+        "id" : "netcdf4f/rnvfi5qzzojr4qbzmt5cfnoutxevenh3", 
+        "ref" : "NETCDF4F"
+      }, 
+      {
+        "id" : "nose/24mgfo3quco263n4qnb2gv6pwubvwvng", 
+        "ref" : "NOSE"
+      }, 
+      {
+        "id" : "numexpr/veet6okvmeohpwpmpg4swbrphesbdehd", 
+        "ref" : "NUMEXPR"
+      }, 
+      {
+        "id" : "oauthlib/knnabmi77g4rq3dk63le6zjikyhz3vyv", 
+        "ref" : "OAUTHLIB"
+      }, 
+      {
+        "id" : "pkg-config/satmw7zew7c2iuseoajzctg57hgubgjb", 
+        "ref" : "PKG_CONFIG"
+      }, 
+      {
+        "id" : "ode/q5l45gyqlqoczk5fhp6uateuwwdzldcp", 
+        "ref" : "ODE"
+      }, 
+      {
+        "id" : "openjpeg/ijbdgohlz4l5w2ovkldyohdwjizkq2sf", 
+        "ref" : "OPENJPEG"
+      }, 
+      {
+        "id" : "openssl/nnqbgp4kemir2msmmhmazdj2tbw3fteq", 
+        "ref" : "OPENSSL"
+      }, 
+      {
+        "id" : "parmetis/gldntn7nvmifwwbm6onbcgwobvoykvio", 
+        "ref" : "PARMETIS"
+      }, 
+      {
+        "id" : "patchelf/tymj2o7hmh3jnyv6g2sfd5i6lb3cg4k5", 
+        "ref" : "PATCHELF"
+      }, 
+      {
+        "id" : "paver/qpin6s4rvvclyo4vgqcx6eicl6zsy2bg", 
+        "ref" : "PAVER"
+      }, 
+      {
+        "id" : "pcre/kkd3tmqrcaudmpncdi4e46wbr5lowdwu", 
+        "ref" : "PCRE"
+      }, 
+      {
+        "id" : "pcs_api/r3mcor3povbkf5zzn3wbpzlaedz4thej", 
+        "ref" : "PCS_API"
+      }, 
+      {
+        "id" : "petsc/w5n6w6lmipr67rbcbvdfxghyq5ckxhdg", 
+        "ref" : "PETSC"
+      }, 
+      {
+        "id" : "petsc4py/qrxvii4bd5csu6kxazo6apjgaya3ty4i", 
+        "ref" : "PETSC4PY"
+      }, 
+      {
+        "id" : "pexpect/7eppsc5myoi43xkhmyxpeonrfixxlr2d", 
+        "ref" : "PEXPECT"
+      }, 
+      {
+        "id" : "pip/gf77yn4e365mqpnj5rprzekr4luyro7u", 
+        "ref" : "PIP"
+      }, 
+      {
+        "id" : "pkgconfig/is7brwcvbtgwzwkfbss2yf2bqcwqvhld", 
+        "ref" : "PKGCONFIG"
+      }, 
+      {
+        "id" : "pluggy/ofjrskuweh3lbx2hoapdzfezlm2lu7pq", 
+        "ref" : "PLUGGY"
+      }, 
+      {
+        "id" : "py/kupjyvvd74gj7shfble5bm6gggqk7zbu", 
+        "ref" : "PY"
+      }, 
+      {
+        "id" : "pydap/dkpchjsfwtcbqz227ule6z5zp7w4bkm3", 
+        "ref" : "PYDAP"
+      }, 
+      {
+        "id" : "pygments/643tfr6cybdjibykcudzzctdkednvv74", 
+        "ref" : "PYGMENTS"
+      }, 
+      {
+        "id" : "pyproj/h2zkjxr6vrk6mnh3fe3otkyainsy642x", 
+        "ref" : "PYPROJ"
+      }, 
+      {
+        "id" : "szip/42vvwz3ukuojwl4n4ye4qtaj2di7ugwr", 
+        "ref" : "SZIP"
+      }, 
+      {
+        "id" : "pytables/4dkievxgs4llfakahfr7mtrigesah6ok", 
+        "ref" : "PYTABLES"
+      }, 
+      {
+        "id" : "pytest/cc5hotfcmyo5dbpwphl6utv3gllv4sta", 
+        "ref" : "PYTEST"
+      }, 
+      {
+        "id" : "pytest-forked/dc4k5eedq7exhmcfit475ie2erilt2rp", 
+        "ref" : "PYTEST_FORKED"
+      }, 
+      {
+        "id" : "pytest-xdist/4oa444tf7uo2jup4o4hvab3vnhrkza3k", 
+        "ref" : "PYTEST_XDIST"
+      }, 
+      {
+        "id" : "python-netcdf4/wpwfwzmavw3jdlrs7taxip7t3wkpzkds", 
+        "ref" : "PYTHON_NETCDF4"
+      }, 
+      {
+        "id" : "pytz/ouggynlu7h73yh5csosmxbh3pfjjvis4", 
+        "ref" : "PYTZ"
+      }, 
+      {
+        "id" : "pyzmq/qupgaortaeegnm54cdkzw5aci5ii66qx", 
+        "ref" : "PYZMQ"
+      }, 
+      {
+        "id" : "rdp/7weuxhzxj6qxoeenshiy6cxkmdnfof4a", 
+        "ref" : "RDP"
+      }, 
+      {
+        "id" : "readline/prx3lqf7ogzq35lwyvqk4hgib7bkgigc", 
+        "ref" : "READLINE"
+      }, 
+      {
+        "id" : "recordtype/jmay7alvphrvq4neb2wj6wu2q4xuwioh", 
+        "ref" : "RECORDTYPE"
+      }, 
+      {
+        "id" : "requests/zegr77jotcbjqqyzoor5tvuj4np2otyd", 
+        "ref" : "REQUESTS"
+      }, 
+      {
+        "id" : "requests_oauthlib/g24nyvg44lgrwiqyx43pcxyyxj2mc6po", 
+        "ref" : "REQUESTS_OAUTHLIB"
+      }, 
+      {
+        "id" : "scipy/6zqcaeysa3aflhhegal5d5yxlj3cbrqd", 
+        "ref" : "SCIPY"
+      }, 
+      {
+        "id" : "scorec/n4iihfutsz5smjoahpp7b4qopctrb2sf", 
+        "ref" : "SCOREC"
+      }, 
+      {
+        "id" : "setuptools/uwmcynxfjggrq6a2okgrz7tfbmqfrwap", 
+        "ref" : "SETUPTOOLS"
+      }, 
+      {
+        "id" : "shapely/njnhwfrybn2mvivkkraaq3afp24pttij", 
+        "ref" : "SHAPELY"
+      }, 
+      {
+        "id" : "singledispatch/j6unqemjj7i27kflhxveadmu2cn7e6c4", 
+        "ref" : "SINGLEDISPATCH"
+      }, 
+      {
+        "id" : "snowballstemmer/ubut7psrlh4s5vfwsfxtguvnsxf26oqf", 
+        "ref" : "SNOWBALLSTEMMER"
+      }, 
+      {
+        "id" : "sphinx_rtd_theme/o3mkgom4k76pxcc4dcd7mpg2o7cdcpki", 
+        "ref" : "SPHINX_RTD_THEME"
+      }, 
+      {
+        "id" : "sphinx/vxshv7tpdsrozlkpm3xplrxetoscnkio", 
+        "ref" : "SPHINX"
+      }, 
+      {
+        "id" : "sphinx-bootstrap-theme/yqxkt2uayaglccu4ekuo3in4hp3iwpsr", 
+        "ref" : "SPHINX_BOOTSTRAP_THEME"
+      }, 
+      {
+        "id" : "sqlite/h2lhl5k6uquby2rivvpccw7cliwudvuk", 
+        "ref" : "SQLITE"
+      }, 
+      {
+        "id" : "swig/5l5r72m24wbdq6m6tiwegu57knof43md", 
+        "ref" : "SWIG"
+      }, 
+      {
+        "id" : "sympy/hzryupfb3xamyrobgkknoni4e6g77jkd", 
+        "ref" : "SYMPY"
+      }, 
+      {
+        "id" : "tetgen/nf2h46nmapotrbcjhovmawo3hzpwwjsm", 
+        "ref" : "TETGEN"
+      }, 
+      {
+        "id" : "tornado/qamtddtuzvccjnat73fl676g62xk6poy", 
+        "ref" : "TORNADO"
+      }, 
+      {
+        "id" : "triangle/4z2a2bpt5ohc6v52uv2fiherzz7mwh7j", 
+        "ref" : "TRIANGLE"
+      }, 
+      {
+        "id" : "vapory/tglztfgmsw3oq7bi3khwctycpc57xarm", 
+        "ref" : "VAPORY"
+      }, 
+      {
+        "id" : "zmq/hghjkhwtzhl3cksjneiy6rccxj6pm5u7", 
+        "ref" : "ZMQ"
+      }, 
+      {
+        "id" : "zoltan/4gkbdibxzzox3utjkoh5z63uq2gjvg53", 
+        "ref" : "ZOLTAN"
+      }
+    ]
+  }, 
+  "name" : "profile", 
+  "version" : "n"
+}
