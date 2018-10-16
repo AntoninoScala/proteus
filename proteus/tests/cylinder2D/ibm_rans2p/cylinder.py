@@ -24,6 +24,7 @@ ct = Context.Options([
     ##################################
     ("use_ball_as_particle",1,"1 or 0 == use ball or particle"),
     ("isHotStart",False,"Use hotStart or not"),
+    ("enale_rkpm",False,"Run with rkpm solid model on"),
 ], mutable=True)
 
 
@@ -418,6 +419,25 @@ def particle_sdf(t, x):
 
 def particle_vel(t, x):
     return (0.0,0.0)
+
+class RKPM(proteus.AuxiliaryVariables.AV_base):
+    def __init__(nNodes,solid_type):
+        self.nNodes=nNodes
+        self.solid_type=solid_type)
+    #def attachModel(self, model, ar):
+    #
+    #
+    def calculate(self):
+        #options 1 
+        #self.advance_solid(self.model.f_rkpm_nodes)
+        #self.set_ibm_quantities(self.model.q_phi_solid,
+        #                        self.model.q_velocity_solid,
+        #                        self.model.q_rkpm_shape)
+        #option 2
+        self.advance_solid(self.model.rkpm_nodal_stresses)
+        self.set_ibm_quantities(self.model.q_phi_solid,
+                                self.model.q_velocity_solid)
+rkpm_object = RKPM(opts.nParticles_rkpm, opts.solid_type)
 
 #===============================================================================
 # Use balls

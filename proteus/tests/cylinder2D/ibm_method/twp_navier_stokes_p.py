@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from builtins import object
 from proteus import *
 from proteus.default_p import *
-from .cylinder import *
+from cylinder import *
 from proteus.mprans import RANS3PF
 name="rans3p"
 LevelModelType = RANS3PF.LevelModel

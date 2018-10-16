@@ -223,7 +223,8 @@ class Coefficients(proteus.TransportCoefficients.TC_base):
                  particle_alpha=1000.0,
                  particle_beta=1000.0,
                  particle_penalty_constant=1000.0,
-                 particle_nitsche=1.0,):
+                 particle_nitsche=1.0,
+                 RKPM_MODEL_OBJECT=None):
         self.use_ball_as_particle = use_ball_as_particle
         self.nParticles = nParticles
         self.particle_nitsche = particle_nitsche
@@ -317,6 +318,7 @@ class Coefficients(proteus.TransportCoefficients.TC_base):
         self.nonlinearDragFactor = 1.0
         if self.killNonlinearDrag:
             self.nonlinearDragFactor = 0.0
+        self.RKPM_MODEL_OBJECT=RKPM_MODEL_OBJECT
         mass = {}
         advection = {}
         diffusion = {}
@@ -1709,7 +1711,11 @@ class LevelModel(proteus.Transport.OneLevelTransport):
                                       self.coefficients.particle_epsFact,
                                       self.coefficients.particle_alpha,
                                       self.coefficients.particle_beta,
-                                      self.coefficients.particle_penalty_constant)
+                                      self.coefficients.particle_penalty_constant,
+                                      self.coefficients.RKPM_MODEL_OBJECT.q_phi,
+                                      self.coefficients.RKPM_MODEL_OBJECT.q_velocity,
+                                      self.coefficients.RKPM_MODEL_OBJECT.q_rkpm_trial,
+        )
         from proteus.flcbdfWrappers import globalSum
         for i in range(self.coefficients.netForces_p.shape[0]):
             self.coefficients.wettedAreas[i] = globalSum(self.coefficients.wettedAreas[i])

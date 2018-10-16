@@ -3,7 +3,7 @@ from builtins import object
 from math import *
 from proteus import *
 from proteus.default_p import *
-from .cylinder import *
+from cylinder import *
 
 
 #domain = ctx.domain

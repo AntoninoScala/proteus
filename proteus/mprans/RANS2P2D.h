@@ -2058,7 +2058,12 @@ namespace proteus
                              double particle_epsFact,
                              double particle_alpha,
                              double particle_beta,
-                             double particle_penalty_constant)
+                             double particle_penalty_constant,
+			     double* q_rkpm_phi,
+			     double* q_rkpm_velocity,
+			     double* q_rkpm_trial,
+			     int rkpm_n_trial,
+			     int* rkpm_neighbor_list)
       {
         logEvent("Entered mprans 2D calculateResidual",6);
 

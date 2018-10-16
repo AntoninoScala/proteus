@@ -34,7 +34,8 @@ coefficients = RANS2P.Coefficients(epsFact=epsFact_viscosity,
                                      MOMENTUM_SGE=ct.use_supg,
                                      PRESSURE_SGE=ct.use_supg,
                                      VELOCITY_SGE=ct.use_supg,
-                                     PRESSURE_PROJECTION_STABILIZATION=0.0)
+                                     PRESSURE_PROJECTION_STABILIZATION=0.0,
+                                   RKPM_MODEL_OBJECT=rkpm_object)
 #===============================================================================
 # BC
 #===============================================================================
