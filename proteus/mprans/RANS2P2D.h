@@ -197,7 +197,10 @@ namespace proteus
                                    double particle_epsFact,
                                    double particle_alpha,
                                    double particle_beta,
-                                   double particle_penalty_constant)=0;
+                                   double particle_penalty_constant,
+                                   int nRKPM_nodes,
+                                   double* rkpm_test,
+                                   double* rkpm_force)=0;
     virtual void calculateJacobian(double NONCONSERVATIVE_FORM,
                                    double MOMENTUM_SGE,
                                    double PRESSURE_SGE,
@@ -928,10 +931,10 @@ namespace proteus
                                            const double dV,
                                            const int nParticles,
                                            const int sd_offset,
-//                                           double *particle_signed_distances,
-//                                           double *particle_signed_distance_normals,
-//                                           double *particle_velocities,
-//                                           double *particle_centroids,
+                                           /* double *particle_signed_distances, */
+                                           /* double *particle_signed_distance_normals, */
+                                           /* double *particle_velocities, */
+                                           /* double *particle_centroids, */
                                            const int use_ball_as_particle,
                                            const double* ball_center,
                                            const double* ball_radius,
@@ -1025,15 +1028,13 @@ namespace proteus
             }
             else
             {
-//                phi_s = particle_signed_distances[i * sd_offset];
-//                phi_s_normal[0] = particle_signed_distance_normals[i * sd_offset * nSpace + 0];
-//                phi_s_normal[1] = particle_signed_distance_normals[i * sd_offset * nSpace + 1];
-//                vel[0] = particle_velocities[i * sd_offset * nSpace + 0];
-//                vel[1] = particle_velocities[i * sd_offset * nSpace + 1];
-//                center[0] = particle_centroids[3*i+0];
-//                center[1] = particle_centroids[3*i+1];
-                std::cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!YY: use_ball_as_particle should be 1"<<std::endl;
-
+               /* phi_s = particle_signed_distances[i * sd_offset]; */
+               /* phi_s_normal[0] = particle_signed_distance_normals[i * sd_offset * nSpace + 0]; */
+               /* phi_s_normal[1] = particle_signed_distance_normals[i * sd_offset * nSpace + 1]; */
+               /* vel[0] = particle_velocities[i * sd_offset * nSpace + 0]; */
+               /* vel[1] = particle_velocities[i * sd_offset * nSpace + 1]; */
+               /* center[0] = particle_centroids[3*i+0]; */
+               /* center[1] = particle_centroids[3*i+1]; */
             }
             fluid_outward_normal[0] = -phi_s_normal[0];
             fluid_outward_normal[1] = -phi_s_normal[1];
@@ -2068,11 +2069,9 @@ namespace proteus
                              double particle_alpha,
                              double particle_beta,
                              double particle_penalty_constant,
-			     double* q_rkpm_phi,
-			     double* q_rkpm_velocity,
-			     double* q_rkpm_trial,
-			     int rkpm_n_trial,
-			     int* rkpm_neighbor_list)
+                             int nRKPM_nodes,
+                             double* rkpm_test,
+                             double* rkpm_force)
       {
         logEvent("Entered mprans 2D calculateResidual",6);
 
@@ -2423,85 +2422,151 @@ namespace proteus
                                                   dmom_u_source,
                                                   dmom_v_source,
                                                   dmom_w_source);
-
                 const double particle_eps  = particle_epsFact*(useMetrics*h_phi+(1.0-useMetrics)*elementDiameter[eN]);
                 if(nParticles > 0)
-                    updateSolidParticleTerms(NONCONSERVATIVE_FORM,
-                                            eN < nElements_owned,
-                                            particle_nitsche,
-                                            dV,
-                                            nParticles,
-                                            nQuadraturePoints_global,
-//                                            &particle_signed_distances[eN_k],
-//                                            &particle_signed_distance_normals[eN_k_nSpace],
-//                                            particle_velocities,
-//                                            particle_centroids,
-                                            use_ball_as_particle,
-                                            ball_center,
-                                            ball_radius,
-                                            ball_velocity,
-                                            ball_angular_velocity,
-                                            porosity,
-                                            particle_penalty_constant/h_phi,//penalty,
-                                            particle_alpha,
-                                            particle_beta,
-                                            eps_rho,
-                                            eps_mu,
-                                            rho_0,
-                                            nu_0,
-                                            rho_1,
-                                            nu_1,
-                                            useVF,
-                                            vf[eN_k],
-                                            phi[eN_k],
-                                            x,
-                                            y,
-                                            z,
-                                            p,
-                                            u,
-                                            v,
-                                            w,
-                                            q_velocity_sge[eN_k_nSpace+0],
-                                            q_velocity_sge[eN_k_nSpace+1],
-                                            q_velocity_sge[eN_k_nSpace+1],
-                                            particle_eps,
-                                            grad_u,
-                                            grad_v,
-                                            grad_w,
-                                            mom_u_source,
-                                            mom_v_source,
-                                            mom_w_source,
-                                            dmom_u_source,
-                                            dmom_v_source,
-                                            dmom_w_source,
-                                            mom_u_adv,
-                                            mom_v_adv,
-                                            mom_w_adv,
-                                            dmom_u_adv_u,
-                                            dmom_v_adv_v,
-                                            dmom_w_adv_w,
-                                            mom_u_ham,
-                                            dmom_u_ham_grad_u,
-                                            dmom_u_ham_u,
-                                            dmom_u_ham_v,
-                                            dmom_u_ham_w,
-                                            mom_v_ham,
-                                            dmom_v_ham_grad_v,
-                                            dmom_v_ham_u,
-                                            dmom_v_ham_v,
-                                            dmom_v_ham_w,
-                                            mom_w_ham,
-                                            dmom_w_ham_grad_w,
-                                            dmom_w_ham_u,
-                                            dmom_w_ham_v,
-                                            dmom_w_ham_w,
-                                            mass_ham,
-                                            dmass_ham_u,
-                                            dmass_ham_v,
-                                            dmass_ham_w,
-                                            &particle_netForces[0],
-                                            &particle_netMoments[0],
-                                            &particle_surfaceArea[0]);
+                  updateSolidParticleTerms(NONCONSERVATIVE_FORM,
+                                           eN < nElements_owned,
+                                           particle_nitsche,
+                                           dV,
+                                           nParticles,
+                                           nQuadraturePoints_global,
+                                           /* &particle_signed_distances[eN_k], */
+                                           /* &particle_signed_distance_normals[eN_k_nSpace], */
+                                           /* particle_velocities, */
+                                           /* particle_centroids, */
+                                           use_ball_as_particle,
+                                           ball_center,
+                                           ball_radius,
+                                           ball_velocity,
+                                           ball_angular_velocity,
+                                           porosity,
+                                           particle_penalty_constant/h_phi,//penalty,
+                                           particle_alpha,
+                                           particle_beta,
+                                           eps_rho,
+                                           eps_mu,
+                                           rho_0,
+                                           nu_0,
+                                           rho_1,
+                                           nu_1,
+                                           useVF,
+                                           vf[eN_k],
+                                           phi[eN_k],
+                                           x,
+                                           y,
+                                           z,
+                                           p,
+                                           u,
+                                           v,
+                                           w,
+                                           q_velocity_sge[eN_k_nSpace+0],
+                                           q_velocity_sge[eN_k_nSpace+1],
+                                           q_velocity_sge[eN_k_nSpace+1],
+                                           particle_eps,
+                                           grad_u,
+                                           grad_v,
+                                           grad_w,
+                                           mom_u_source,
+                                           mom_v_source,
+                                           mom_w_source,
+                                           dmom_u_source,
+                                           dmom_v_source,
+                                           dmom_w_source,
+                                           mom_u_adv,
+                                           mom_v_adv,
+                                           mom_w_adv,
+                                           dmom_u_adv_u,
+                                           dmom_v_adv_v,
+                                           dmom_w_adv_w,
+                                           mom_u_ham,
+                                           dmom_u_ham_grad_u,
+                                           dmom_u_ham_u,
+                                           dmom_u_ham_v,
+                                           dmom_u_ham_w,
+                                           mom_v_ham,
+                                           dmom_v_ham_grad_v,
+                                           dmom_v_ham_u,
+                                           dmom_v_ham_v,
+                                           dmom_v_ham_w,
+                                           mom_w_ham,
+                                           dmom_w_ham_grad_w,
+                                           dmom_w_ham_u,
+                                           dmom_w_ham_v,
+                                           dmom_w_ham_w,
+                                           mass_ham,
+                                           dmass_ham_u,
+                                           dmass_ham_v,
+                                           dmass_ham_w,
+                                           &particle_netForces[0],
+                                           &particle_netMoments[0],
+                                           &particle_surfaceArea[0]);
+                //try to compute rkpm nodal forces
+                if(nRKPM_nodes > 0)
+                  {
+                    for (int iRKPM=0; iRKPM < nRKPM_nodes; iRKPM++)
+                      {
+                        double C, rho, mu, nu, H_mu, uc, duc_du, duc_dv, duc_dw, H_s, D_s, phi_s, u_s, v_s, w_s;
+                        double force_x, force_y, r_x, r_y, force_p_x, force_p_y, force_stress_x, force_stress_y;
+                        double phi_s_normal[2]={0.0};
+                        double fluid_outward_normal[2];
+                        double vel[2];
+                        double center[2];
+                        H_mu = (1.0 - useVF) * smoothedHeaviside(eps_mu, phi[eN_k]) + useVF * fmin(1.0, fmax(0.0, vf[eN_k]));
+                        nu = nu_0 * (1.0 - H_mu) + nu_1 * H_mu;
+                        rho = rho_0 * (1.0 - H_mu) + rho_1 * H_mu;
+                        mu = rho_0 * nu_0 * (1.0 - H_mu) + rho_1 * nu_1 * H_mu;
+                        C = 0.0;
+
+                        //cek hack -- just assume rkpm is modeling a single spherical solid ball matching the 6DOF solid
+                        int i=0;
+                        assert(use_ball_as_particle==1);
+                        if(use_ball_as_particle==1)
+                          {
+                            get_distance_to_ith_ball(nParticles,ball_center,ball_radius,i,x,y,z,phi_s);
+                            get_normal_to_ith_ball(nParticles,ball_center,ball_radius,i,x,y,z,phi_s_normal[0],phi_s_normal[1]);
+                            get_velocity_to_ith_ball(nParticles,ball_center,ball_radius,
+                                                     ball_velocity,ball_angular_velocity,
+                                                     i,x,y,z,
+                                                     vel[0],vel[1]);
+                            center[0] = ball_center[3*i+0];
+                            center[1] = ball_center[3*i+1];
+                          }
+                        else
+                          {
+                            /* phi_s = particle_signed_distances[i * sd_offset]; */
+                            /* phi_s_normal[0] = particle_signed_distance_normals[i * sd_offset * nSpace + 0]; */
+                            /* phi_s_normal[1] = particle_signed_distance_normals[i * sd_offset * nSpace + 1]; */
+                            /* vel[0] = particle_velocities[i * sd_offset * nSpace + 0]; */
+                            /* vel[1] = particle_velocities[i * sd_offset * nSpace + 1]; */
+                            /* center[0] = particle_centroids[3*i+0]; */
+                            /* center[1] = particle_centroids[3*i+1]; */
+                          }
+
+                        fluid_outward_normal[0] = -phi_s_normal[0];
+                        fluid_outward_normal[1] = -phi_s_normal[1];
+                        u_s = vel[0];
+                        v_s = vel[1];
+                        w_s = 0;
+                        H_s = smoothedHeaviside(particle_eps, phi_s);
+                        D_s = smoothedDirac(particle_eps, phi_s);
+                        
+                        force_p_x = dV * D_s * p * fluid_outward_normal[0];
+                        force_stress_x = dV * D_s * (-mu) * (fluid_outward_normal[0] * 2* grad_u[0] + fluid_outward_normal[1] * (grad_u[1]+grad_v[0]));
+                        force_p_y = dV * D_s * p * fluid_outward_normal[1];
+                        force_stress_y = dV * D_s * (-mu) * (fluid_outward_normal[0] * (grad_u[1]+grad_v[0]) + fluid_outward_normal[1] * 2* grad_v[1]);
+                        force_x = force_p_x + force_stress_x;
+                        force_y = force_p_y + force_stress_y;
+
+                        
+                        if (eN < nElements_owned)
+                          {
+                            rkpm_force[i*3 + 0] += D_s*rkpm_test[i*nElements_global*nQuadraturePoints_element+eN_k]*force_x;
+                            rkpm_force[i*3 + 1] += D_s*rkpm_test[i*nElements_global*nQuadraturePoints_element+eN_k]*force_y;
+                            //rkpm_force[i*3 + 2] += D_s*rkpm_test[i*nElements_global*nQuadraturePoints_element+eN_k]*force_z;
+                          }
+                      }
+                  }
+
                 //Turbulence closure model
                 if (turbulenceClosureModel >= 3)
                   {
@@ -4100,81 +4165,81 @@ namespace proteus
                 const double particle_eps  = particle_epsFact*(useMetrics*h_phi+(1.0-useMetrics)*elementDiameter[eN]);
                 if(nParticles > 0)
                     updateSolidParticleTerms(NONCONSERVATIVE_FORM,
-                                            eN < nElements_owned,
-                                            particle_nitsche,
-                                            dV,
-                                            nParticles,
-                                            nQuadraturePoints_global,
-//                                            &particle_signed_distances[eN_k],
-//                                            &particle_signed_distance_normals[eN_k_nSpace],
-//                                            particle_velocities,
-//                                            particle_centroids,
-                                            use_ball_as_particle,
-                                            ball_center,
-                                            ball_radius,
-                                            ball_velocity,
-                                            ball_angular_velocity,
-                                            porosity,
-                                            particle_penalty_constant/h_phi,//penalty,
-                                            particle_alpha,
-                                            particle_beta,
-                                            eps_rho,
-                                            eps_mu,
-                                            rho_0,
-                                            nu_0,
-                                            rho_1,
-                                            nu_1,
-                                            useVF,
-                                            vf[eN_k],
-                                            phi[eN_k],
-                                            x,
-                                            y,
-                                            z,
-                                            p,
-                                            u,
-                                            v,
-                                            w,
-                                            q_velocity_sge[eN_k_nSpace+0],
-                                            q_velocity_sge[eN_k_nSpace+1],
-                                            q_velocity_sge[eN_k_nSpace+1],
-                                            particle_eps,
-                                            grad_u,
-                                            grad_v,
-                                            grad_w,
-                                            mom_u_source,
-                                            mom_v_source,
-                                            mom_w_source,
-                                            dmom_u_source,
-                                            dmom_v_source,
-                                            dmom_w_source,
-                                            mom_u_adv,
-                                            mom_v_adv,
-                                            mom_w_adv,
-                                            dmom_u_adv_u,
-                                            dmom_v_adv_v,
-                                            dmom_w_adv_w,
-                                            mom_u_ham,
-                                            dmom_u_ham_grad_u,
-                                            dmom_u_ham_u,
-                                            dmom_u_ham_v,
-                                            dmom_u_ham_w,
-                                            mom_v_ham,
-                                            dmom_v_ham_grad_v,
-                                            dmom_v_ham_u,
-                                            dmom_v_ham_v,
-                                            dmom_v_ham_w,
-                                            mom_w_ham,
-                                            dmom_w_ham_grad_w,
-                                            dmom_w_ham_u,
-                                            dmom_w_ham_v,
-                                            dmom_w_ham_w,
-                                            mass_ham,
-                                            dmass_ham_u,
-                                            dmass_ham_v,
-                                            dmass_ham_w,
-                                            &particle_netForces[0],
-                                            &particle_netMoments[0],
-                                            &particle_surfaceArea[0]);
+                                             eN < nElements_owned,
+                                             particle_nitsche,
+                                             dV,
+                                             nParticles,
+                                             nQuadraturePoints_global,
+                                             /* &particle_signed_distances[eN_k], */
+                                             /* &particle_signed_distance_normals[eN_k_nSpace], */
+                                             /* particle_velocities, */
+                                             /* particle_centroids, */
+                                             use_ball_as_particle,
+                                             ball_center,
+                                             ball_radius,
+                                             ball_velocity,
+                                             ball_angular_velocity,
+                                             porosity,
+                                             particle_penalty_constant/h_phi,//penalty,
+                                             particle_alpha,
+                                             particle_beta,
+                                             eps_rho,
+                                             eps_mu,
+                                             rho_0,
+                                             nu_0,
+                                             rho_1,
+                                             nu_1,
+                                             useVF,
+                                             vf[eN_k],
+                                             phi[eN_k],
+                                             x,
+                                             y,
+                                             z,
+                                             p,
+                                             u,
+                                             v,
+                                             w,
+                                             q_velocity_sge[eN_k_nSpace+0],
+                                             q_velocity_sge[eN_k_nSpace+1],
+                                             q_velocity_sge[eN_k_nSpace+1],
+                                             particle_eps,
+                                             grad_u,
+                                             grad_v,
+                                             grad_w,
+                                             mom_u_source,
+                                             mom_v_source,
+                                             mom_w_source,
+                                             dmom_u_source,
+                                             dmom_v_source,
+                                             dmom_w_source,
+                                             mom_u_adv,
+                                             mom_v_adv,
+                                             mom_w_adv,
+                                             dmom_u_adv_u,
+                                             dmom_v_adv_v,
+                                             dmom_w_adv_w,
+                                             mom_u_ham,
+                                             dmom_u_ham_grad_u,
+                                             dmom_u_ham_u,
+                                             dmom_u_ham_v,
+                                             dmom_u_ham_w,
+                                             mom_v_ham,
+                                             dmom_v_ham_grad_v,
+                                             dmom_v_ham_u,
+                                             dmom_v_ham_v,
+                                             dmom_v_ham_w,
+                                             mom_w_ham,
+                                             dmom_w_ham_grad_w,
+                                             dmom_w_ham_u,
+                                             dmom_w_ham_v,
+                                             dmom_w_ham_w,
+                                             mass_ham,
+                                             dmass_ham_u,
+                                             dmass_ham_v,
+                                             dmass_ham_w,
+                                             &particle_netForces[0],
+                                             &particle_netMoments[0],
+                                             &particle_surfaceArea[0]);
                 //Turbulence closure model
                 if (turbulenceClosureModel >= 3)
                   {

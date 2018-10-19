@@ -224,7 +224,7 @@ class Coefficients(proteus.TransportCoefficients.TC_base):
                  particle_beta=1000.0,
                  particle_penalty_constant=1000.0,
                  particle_nitsche=1.0,
-                 RKPM_MODEL_OBJECT=None,
+                 rkpm_force=None,
                  nullSpace='NoNullSpace'):
         self.use_ball_as_particle = use_ball_as_particle
         self.nParticles = nParticles
@@ -319,7 +319,7 @@ class Coefficients(proteus.TransportCoefficients.TC_base):
         self.nonlinearDragFactor = 1.0
         if self.killNonlinearDrag:
             self.nonlinearDragFactor = 0.0
-        self.RKPM_MODEL_OBJECT=RKPM_MODEL_OBJECT
+        self.rkpm_force = rkpm_force
         self.nullSpace = nullSpace
         mass = {}
         advection = {}
@@ -1525,6 +1525,7 @@ class LevelModel(proteus.Transport.OneLevelTransport):
                                                  self.timeIntegration.t)
                         if self.MOVING_DOMAIN == 1.0:
                             self.u[cj].dof[dofN] += self.mesh.nodeVelocityArray[dofN, cj - 1]
+        self.coefficients.rkpm_force[...]=0.0#initialize to zero here
         self.rans2p.calculateResidual(self.coefficients.NONCONSERVATIVE_FORM,
                                       self.coefficients.MOMENTUM_SGE,
                                       self.coefficients.PRESSURE_SGE,
@@ -1715,10 +1716,9 @@ class LevelModel(proteus.Transport.OneLevelTransport):
                                       self.coefficients.particle_alpha,
                                       self.coefficients.particle_beta,
                                       self.coefficients.particle_penalty_constant,
-                                      self.coefficients.RKPM_MODEL_OBJECT.q_phi,
-                                      self.coefficients.RKPM_MODEL_OBJECT.q_velocity,
-                                      self.coefficients.RKPM_MODEL_OBJECT.q_rkpm_trial,
-        )
+                                      self.coefficients.rkpm_test.shape[0],
+                                      self.coefficients.rkpm_test,
+                                      self.coefficients.rkpm_force)
         from proteus.flcbdfWrappers import globalSum
         for i in range(self.coefficients.netForces_p.shape[0]):
             self.coefficients.wettedAreas[i] = globalSum(self.coefficients.wettedAreas[i])

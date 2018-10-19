@@ -200,7 +200,10 @@ namespace proteus
                                    double particle_epsFact,
                                    double particle_alpha,
                                    double particle_beta,
-                                   double particle_penalty_constant)=0;
+                                   double particle_penalty_constant,
+                                   int nRKPM_nodes,
+                                   double* rkpm_test,
+                                   double* rkpm_force)=0;
     virtual void calculateJacobian(double NONCONSERVATIVE_FORM,
                                    double MOMENTUM_SGE,
                                    double PRESSURE_SGE,
@@ -2526,7 +2529,10 @@ namespace proteus
                              double particle_epsFact,
                              double particle_alpha,
                              double particle_beta,
-                             double particle_penalty_constant)
+                             double particle_penalty_constant,
+                             int nRKPM_nodes,
+                             double* rkpm_test,
+                             double* rkpm_force)
       {
         logEvent("Entered mprans 3D calculateResidual",6);
         const int nQuadraturePoints_global(nElements_global*nQuadraturePoints_element);
