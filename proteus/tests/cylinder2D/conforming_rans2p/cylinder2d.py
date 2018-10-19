@@ -71,6 +71,7 @@ try:
     from .symmetricDomain_john import *
 except:
     from symmetricDomain_john import *
+    
 domain = symmetric2D(box=(2.2,0.41),
                      L= 0.2,
                      H = 0.2,

@@ -11,7 +11,7 @@ import sys
 try:
     from .cylinder2d import *
 except:
-    from cylinder2d import*
+    from cylinder2d import *
 from proteus.mprans import RANS2P
 name="rans2p"
 bcsTimeDependent = True
