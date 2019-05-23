@@ -923,7 +923,7 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "mprans/cTIM.pyx":323
+/* "mprans/cTIM.pyx":317
  *                        int CompKernelFlag)
  * 
  * cdef class cTIM_base:             # <<<<<<<<<<<<<<
@@ -1388,13 +1388,11 @@ static const char __pyx_k_cfl[] = "cfl";
 static const char __pyx_k_q_m[] = "q_m";
 static const char __pyx_k_q_u[] = "q_u";
 static const char __pyx_k_main[] = "__main__";
-static const char __pyx_k_poro[] = "poro";
 static const char __pyx_k_q_dV[] = "q_dV";
 static const char __pyx_k_solH[] = "solH";
 static const char __pyx_k_soln[] = "soln";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_numpy[] = "numpy";
-static const char __pyx_k_p_dof[] = "p_dof";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_u_dof[] = "u_dof";
 static const char __pyx_k_u_l2g[] = "u_l2g";
@@ -1586,8 +1584,6 @@ static PyObject *__pyx_n_s_numpy;
 static PyObject *__pyx_kp_s_numpy_core_multiarray_failed_to;
 static PyObject *__pyx_kp_s_numpy_core_umath_failed_to_impor;
 static PyObject *__pyx_n_s_offset_u;
-static PyObject *__pyx_n_s_p_dof;
-static PyObject *__pyx_n_s_poro;
 static PyObject *__pyx_n_s_porosity_dof;
 static PyObject *__pyx_n_s_proteus;
 static PyObject *__pyx_n_s_proteus_Transport;
@@ -1627,8 +1623,8 @@ static PyObject *__pyx_n_s_velocity;
 static int __pyx_pf_6mprans_4cTIM_9cTIM_base___cinit__(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, int __pyx_v_nSpaceIn, int __pyx_v_nQuadraturePoints_elementIn, int __pyx_v_nDOF_mesh_trial_elementIn, int __pyx_v_nDOF_trial_elementIn, int __pyx_v_nDOF_test_elementIn, int __pyx_v_nQuadraturePoints_elementBoundaryIn, int __pyx_v_CompKernelFlag); /* proto */
 static void __pyx_pf_6mprans_4cTIM_9cTIM_base_2__dealloc__(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_4FCTStep(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, int __pyx_v_NNZ, int __pyx_v_numDOFs, PyArrayObject *__pyx_v_lumped_mass_matrix, PyArrayObject *__pyx_v_soln, PyArrayObject *__pyx_v_solH, PyArrayObject *__pyx_v_low_order_solution, PyArrayObject *__pyx_v_limited_solution, PyArrayObject *__pyx_v_csrRowIndeces_DofLoops, PyArrayObject *__pyx_v_csrColumnOffsets_DofLoops, PyArrayObject *__pyx_v_MassMatrix, PyArrayObject *__pyx_v_dt_times_dH_minus_dL, PyArrayObject *__pyx_v_min_u_bc, PyArrayObject *__pyx_v_max_u_bc, int __pyx_v_LUMPED_MASS_MATRIX); /* proto */
-static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_6calculateResidual(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, double __pyx_v_dt, PyArrayObject *__pyx_v_mesh_trial_ref, PyArrayObject *__pyx_v_mesh_grad_trial_ref, PyArrayObject *__pyx_v_mesh_dof, PyArrayObject *__pyx_v_mesh_velocity_dof, double __pyx_v_MOVING_DOMAIN, PyArrayObject *__pyx_v_mesh_l2g, PyArrayObject *__pyx_v_dV_ref, PyArrayObject *__pyx_v_u_trial_ref, PyArrayObject *__pyx_v_u_grad_trial_ref, PyArrayObject *__pyx_v_u_test_ref, PyArrayObject *__pyx_v_u_grad_test_ref, PyArrayObject *__pyx_v_mesh_trial_trace_ref, PyArrayObject *__pyx_v_mesh_grad_trial_trace_ref, PyArrayObject *__pyx_v_dS_ref, PyArrayObject *__pyx_v_u_trial_trace_ref, PyArrayObject *__pyx_v_u_grad_trial_trace_ref, PyArrayObject *__pyx_v_u_test_trace_ref, PyArrayObject *__pyx_v_u_grad_test_trace_ref, PyArrayObject *__pyx_v_normal_ref, PyArrayObject *__pyx_v_boundaryJac_ref, int __pyx_v_nElements_global, double __pyx_v_useMetrics, double __pyx_v_alphaBDF, int __pyx_v_lag_shockCapturing, double __pyx_v_shockCapturingDiffusion, double __pyx_v_sc_uref, double __pyx_v_sc_alpha, PyArrayObject *__pyx_v_q_porosity, PyArrayObject *__pyx_v_porosity_dof, PyArrayObject *__pyx_v_u_l2g, PyArrayObject *__pyx_v_elementDiameter, int __pyx_v_degree_polynomial, PyArrayObject *__pyx_v_u_dof, PyArrayObject *__pyx_v_u_dof_old, PyArrayObject *__pyx_v_velocity, PyArrayObject *__pyx_v_q_m, PyArrayObject *__pyx_v_q_u, PyArrayObject *__pyx_v_q_m_betaBDF, PyArrayObject *__pyx_v_q_dV, PyArrayObject *__pyx_v_q_dV_last, PyArrayObject *__pyx_v_cfl, PyArrayObject *__pyx_v_edge_based_cfl, PyArrayObject *__pyx_v_q_numDiff_u, PyArrayObject *__pyx_v_q_numDiff_u_last, int __pyx_v_offset_u, int __pyx_v_stride_u, PyArrayObject *__pyx_v_globalResidual, int __pyx_v_nExteriorElementBoundaries_global, PyArrayObject *__pyx_v_exteriorElementBoundariesArray, PyArrayObject *__pyx_v_elementBoundaryElementsArray, PyArrayObject *__pyx_v_elementBoundaryLocalElementBoundariesArray, PyArrayObject *__pyx_v_ebqe_velocity_ext, PyArrayObject *__pyx_v_ebqe_porosity_ext, PyArrayObject *__pyx_v_isDOFBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_u_ext, PyArrayObject *__pyx_v_isFluxBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_flux_u_ext, PyArrayObject *__pyx_v_ebqe_phi, double __pyx_v_epsFact, PyArrayObject *__pyx_v_ebqe_u, PyArrayObject *__pyx_v_ebqe_flux, double __pyx_v_cE, double __pyx_v_cK, double __pyx_v_uL, double __pyx_v_uR, int __pyx_v_numDOFs, int __pyx_v_NNZ, PyArrayObject *__pyx_v_csrRowIndeces_DofLoops, PyArrayObject *__pyx_v_csrColumnOffsets_DofLoops, PyArrayObject *__pyx_v_csrRowIndeces_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_eb_CellLoops, PyArrayObject *__pyx_v_Cx, PyArrayObject *__pyx_v_Cy, PyArrayObject *__pyx_v_Cz, PyArrayObject *__pyx_v_CTx, PyArrayObject *__pyx_v_CTy, PyArrayObject *__pyx_v_CTz, PyArrayObject *__pyx_v_ML, int __pyx_v_LUMPED_MASS_MATRIX, int __pyx_v_STABILIZATION_TYPE, int __pyx_v_ENTROPY_TYPE, PyArrayObject *__pyx_v_low_order_solution, PyArrayObject *__pyx_v_dt_times_dH_minus_dL, PyArrayObject *__pyx_v_min_u_bc, PyArrayObject *__pyx_v_max_u_bc, PyArrayObject *__pyx_v_quantDOFs, double __pyx_v_poro, PyArrayObject *__pyx_v_p_dof); /* proto */
-static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_8calculateResidual_entropy_viscosity(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, double __pyx_v_dt, PyArrayObject *__pyx_v_mesh_trial_ref, PyArrayObject *__pyx_v_mesh_grad_trial_ref, PyArrayObject *__pyx_v_mesh_dof, PyArrayObject *__pyx_v_mesh_velocity_dof, double __pyx_v_MOVING_DOMAIN, PyArrayObject *__pyx_v_mesh_l2g, PyArrayObject *__pyx_v_dV_ref, PyArrayObject *__pyx_v_u_trial_ref, PyArrayObject *__pyx_v_u_grad_trial_ref, PyArrayObject *__pyx_v_u_test_ref, PyArrayObject *__pyx_v_u_grad_test_ref, PyArrayObject *__pyx_v_mesh_trial_trace_ref, PyArrayObject *__pyx_v_mesh_grad_trial_trace_ref, PyArrayObject *__pyx_v_dS_ref, PyArrayObject *__pyx_v_u_trial_trace_ref, PyArrayObject *__pyx_v_u_grad_trial_trace_ref, PyArrayObject *__pyx_v_u_test_trace_ref, PyArrayObject *__pyx_v_u_grad_test_trace_ref, PyArrayObject *__pyx_v_normal_ref, PyArrayObject *__pyx_v_boundaryJac_ref, int __pyx_v_nElements_global, double __pyx_v_useMetrics, double __pyx_v_alphaBDF, int __pyx_v_lag_shockCapturing, double __pyx_v_shockCapturingDiffusion, double __pyx_v_sc_uref, double __pyx_v_sc_alpha, PyArrayObject *__pyx_v_q_porosity, PyArrayObject *__pyx_v_porosity_dof, PyArrayObject *__pyx_v_u_l2g, PyArrayObject *__pyx_v_elementDiameter, int __pyx_v_degree_polynomial, PyArrayObject *__pyx_v_u_dof, PyArrayObject *__pyx_v_u_dof_old, PyArrayObject *__pyx_v_velocity, PyArrayObject *__pyx_v_q_m, PyArrayObject *__pyx_v_q_u, PyArrayObject *__pyx_v_q_m_betaBDF, PyArrayObject *__pyx_v_q_dV, PyArrayObject *__pyx_v_q_dV_last, PyArrayObject *__pyx_v_cfl, PyArrayObject *__pyx_v_edge_based_cfl, PyArrayObject *__pyx_v_q_numDiff_u, PyArrayObject *__pyx_v_q_numDiff_u_last, int __pyx_v_offset_u, int __pyx_v_stride_u, PyArrayObject *__pyx_v_globalResidual, int __pyx_v_nExteriorElementBoundaries_global, PyArrayObject *__pyx_v_exteriorElementBoundariesArray, PyArrayObject *__pyx_v_elementBoundaryElementsArray, PyArrayObject *__pyx_v_elementBoundaryLocalElementBoundariesArray, PyArrayObject *__pyx_v_ebqe_velocity_ext, PyArrayObject *__pyx_v_ebqe_porosity_ext, PyArrayObject *__pyx_v_isDOFBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_u_ext, PyArrayObject *__pyx_v_isFluxBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_flux_u_ext, PyArrayObject *__pyx_v_ebqe_phi, double __pyx_v_epsFact, PyArrayObject *__pyx_v_ebqe_u, PyArrayObject *__pyx_v_ebqe_flux, double __pyx_v_cE, double __pyx_v_cK, double __pyx_v_uL, double __pyx_v_uR, int __pyx_v_numDOFs, int __pyx_v_NNZ, PyArrayObject *__pyx_v_csrRowIndeces_DofLoops, PyArrayObject *__pyx_v_csrColumnOffsets_DofLoops, PyArrayObject *__pyx_v_csrRowIndeces_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_eb_CellLoops, PyArrayObject *__pyx_v_Cx, PyArrayObject *__pyx_v_Cy, PyArrayObject *__pyx_v_Cz, PyArrayObject *__pyx_v_CTx, PyArrayObject *__pyx_v_CTy, PyArrayObject *__pyx_v_CTz, PyArrayObject *__pyx_v_ML, int __pyx_v_LUMPED_MASS_MATRIX, int __pyx_v_STABILIZATION_TYPE, int __pyx_v_ENTROPY_TYPE, PyArrayObject *__pyx_v_low_order_solution, PyArrayObject *__pyx_v_dt_times_dH_minus_dL, PyArrayObject *__pyx_v_min_u_bc, PyArrayObject *__pyx_v_max_u_bc, PyArrayObject *__pyx_v_quantDOFs, double __pyx_v_poro, PyArrayObject *__pyx_v_p_dof); /* proto */
+static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_6calculateResidual(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, double __pyx_v_dt, PyArrayObject *__pyx_v_mesh_trial_ref, PyArrayObject *__pyx_v_mesh_grad_trial_ref, PyArrayObject *__pyx_v_mesh_dof, PyArrayObject *__pyx_v_mesh_velocity_dof, double __pyx_v_MOVING_DOMAIN, PyArrayObject *__pyx_v_mesh_l2g, PyArrayObject *__pyx_v_dV_ref, PyArrayObject *__pyx_v_u_trial_ref, PyArrayObject *__pyx_v_u_grad_trial_ref, PyArrayObject *__pyx_v_u_test_ref, PyArrayObject *__pyx_v_u_grad_test_ref, PyArrayObject *__pyx_v_mesh_trial_trace_ref, PyArrayObject *__pyx_v_mesh_grad_trial_trace_ref, PyArrayObject *__pyx_v_dS_ref, PyArrayObject *__pyx_v_u_trial_trace_ref, PyArrayObject *__pyx_v_u_grad_trial_trace_ref, PyArrayObject *__pyx_v_u_test_trace_ref, PyArrayObject *__pyx_v_u_grad_test_trace_ref, PyArrayObject *__pyx_v_normal_ref, PyArrayObject *__pyx_v_boundaryJac_ref, int __pyx_v_nElements_global, double __pyx_v_useMetrics, double __pyx_v_alphaBDF, int __pyx_v_lag_shockCapturing, double __pyx_v_shockCapturingDiffusion, double __pyx_v_sc_uref, double __pyx_v_sc_alpha, PyArrayObject *__pyx_v_q_porosity, PyArrayObject *__pyx_v_porosity_dof, PyArrayObject *__pyx_v_u_l2g, PyArrayObject *__pyx_v_elementDiameter, int __pyx_v_degree_polynomial, PyArrayObject *__pyx_v_u_dof, PyArrayObject *__pyx_v_u_dof_old, PyArrayObject *__pyx_v_velocity, PyArrayObject *__pyx_v_q_m, PyArrayObject *__pyx_v_q_u, PyArrayObject *__pyx_v_q_m_betaBDF, PyArrayObject *__pyx_v_q_dV, PyArrayObject *__pyx_v_q_dV_last, PyArrayObject *__pyx_v_cfl, PyArrayObject *__pyx_v_edge_based_cfl, PyArrayObject *__pyx_v_q_numDiff_u, PyArrayObject *__pyx_v_q_numDiff_u_last, int __pyx_v_offset_u, int __pyx_v_stride_u, PyArrayObject *__pyx_v_globalResidual, int __pyx_v_nExteriorElementBoundaries_global, PyArrayObject *__pyx_v_exteriorElementBoundariesArray, PyArrayObject *__pyx_v_elementBoundaryElementsArray, PyArrayObject *__pyx_v_elementBoundaryLocalElementBoundariesArray, PyArrayObject *__pyx_v_ebqe_velocity_ext, PyArrayObject *__pyx_v_ebqe_porosity_ext, PyArrayObject *__pyx_v_isDOFBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_u_ext, PyArrayObject *__pyx_v_isFluxBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_flux_u_ext, PyArrayObject *__pyx_v_ebqe_phi, double __pyx_v_epsFact, PyArrayObject *__pyx_v_ebqe_u, PyArrayObject *__pyx_v_ebqe_flux, double __pyx_v_cE, double __pyx_v_cK, double __pyx_v_uL, double __pyx_v_uR, int __pyx_v_numDOFs, int __pyx_v_NNZ, PyArrayObject *__pyx_v_csrRowIndeces_DofLoops, PyArrayObject *__pyx_v_csrColumnOffsets_DofLoops, PyArrayObject *__pyx_v_csrRowIndeces_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_eb_CellLoops, PyArrayObject *__pyx_v_Cx, PyArrayObject *__pyx_v_Cy, PyArrayObject *__pyx_v_Cz, PyArrayObject *__pyx_v_CTx, PyArrayObject *__pyx_v_CTy, PyArrayObject *__pyx_v_CTz, PyArrayObject *__pyx_v_ML, int __pyx_v_LUMPED_MASS_MATRIX, int __pyx_v_STABILIZATION_TYPE, int __pyx_v_ENTROPY_TYPE, PyArrayObject *__pyx_v_low_order_solution, PyArrayObject *__pyx_v_dt_times_dH_minus_dL, PyArrayObject *__pyx_v_min_u_bc, PyArrayObject *__pyx_v_max_u_bc, PyArrayObject *__pyx_v_quantDOFs); /* proto */
+static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_8calculateResidual_entropy_viscosity(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, double __pyx_v_dt, PyArrayObject *__pyx_v_mesh_trial_ref, PyArrayObject *__pyx_v_mesh_grad_trial_ref, PyArrayObject *__pyx_v_mesh_dof, PyArrayObject *__pyx_v_mesh_velocity_dof, double __pyx_v_MOVING_DOMAIN, PyArrayObject *__pyx_v_mesh_l2g, PyArrayObject *__pyx_v_dV_ref, PyArrayObject *__pyx_v_u_trial_ref, PyArrayObject *__pyx_v_u_grad_trial_ref, PyArrayObject *__pyx_v_u_test_ref, PyArrayObject *__pyx_v_u_grad_test_ref, PyArrayObject *__pyx_v_mesh_trial_trace_ref, PyArrayObject *__pyx_v_mesh_grad_trial_trace_ref, PyArrayObject *__pyx_v_dS_ref, PyArrayObject *__pyx_v_u_trial_trace_ref, PyArrayObject *__pyx_v_u_grad_trial_trace_ref, PyArrayObject *__pyx_v_u_test_trace_ref, PyArrayObject *__pyx_v_u_grad_test_trace_ref, PyArrayObject *__pyx_v_normal_ref, PyArrayObject *__pyx_v_boundaryJac_ref, int __pyx_v_nElements_global, double __pyx_v_useMetrics, double __pyx_v_alphaBDF, int __pyx_v_lag_shockCapturing, double __pyx_v_shockCapturingDiffusion, double __pyx_v_sc_uref, double __pyx_v_sc_alpha, PyArrayObject *__pyx_v_q_porosity, PyArrayObject *__pyx_v_porosity_dof, PyArrayObject *__pyx_v_u_l2g, PyArrayObject *__pyx_v_elementDiameter, int __pyx_v_degree_polynomial, PyArrayObject *__pyx_v_u_dof, PyArrayObject *__pyx_v_u_dof_old, PyArrayObject *__pyx_v_velocity, PyArrayObject *__pyx_v_q_m, PyArrayObject *__pyx_v_q_u, PyArrayObject *__pyx_v_q_m_betaBDF, PyArrayObject *__pyx_v_q_dV, PyArrayObject *__pyx_v_q_dV_last, PyArrayObject *__pyx_v_cfl, PyArrayObject *__pyx_v_edge_based_cfl, PyArrayObject *__pyx_v_q_numDiff_u, PyArrayObject *__pyx_v_q_numDiff_u_last, int __pyx_v_offset_u, int __pyx_v_stride_u, PyArrayObject *__pyx_v_globalResidual, int __pyx_v_nExteriorElementBoundaries_global, PyArrayObject *__pyx_v_exteriorElementBoundariesArray, PyArrayObject *__pyx_v_elementBoundaryElementsArray, PyArrayObject *__pyx_v_elementBoundaryLocalElementBoundariesArray, PyArrayObject *__pyx_v_ebqe_velocity_ext, PyArrayObject *__pyx_v_ebqe_porosity_ext, PyArrayObject *__pyx_v_isDOFBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_u_ext, PyArrayObject *__pyx_v_isFluxBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_flux_u_ext, PyArrayObject *__pyx_v_ebqe_phi, double __pyx_v_epsFact, PyArrayObject *__pyx_v_ebqe_u, PyArrayObject *__pyx_v_ebqe_flux, double __pyx_v_cE, double __pyx_v_cK, double __pyx_v_uL, double __pyx_v_uR, int __pyx_v_numDOFs, int __pyx_v_NNZ, PyArrayObject *__pyx_v_csrRowIndeces_DofLoops, PyArrayObject *__pyx_v_csrColumnOffsets_DofLoops, PyArrayObject *__pyx_v_csrRowIndeces_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_eb_CellLoops, PyArrayObject *__pyx_v_Cx, PyArrayObject *__pyx_v_Cy, PyArrayObject *__pyx_v_Cz, PyArrayObject *__pyx_v_CTx, PyArrayObject *__pyx_v_CTy, PyArrayObject *__pyx_v_CTz, PyArrayObject *__pyx_v_ML, int __pyx_v_LUMPED_MASS_MATRIX, int __pyx_v_STABILIZATION_TYPE, int __pyx_v_ENTROPY_TYPE, PyArrayObject *__pyx_v_low_order_solution, PyArrayObject *__pyx_v_dt_times_dH_minus_dL, PyArrayObject *__pyx_v_min_u_bc, PyArrayObject *__pyx_v_max_u_bc, PyArrayObject *__pyx_v_quantDOFs); /* proto */
 static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, double __pyx_v_dt, PyArrayObject *__pyx_v_mesh_trial_ref, PyArrayObject *__pyx_v_mesh_grad_trial_ref, PyArrayObject *__pyx_v_mesh_dof, PyArrayObject *__pyx_v_mesh_velocity_dof, double __pyx_v_MOVING_DOMAIN, PyArrayObject *__pyx_v_mesh_l2g, PyArrayObject *__pyx_v_dV_ref, PyArrayObject *__pyx_v_u_trial_ref, PyArrayObject *__pyx_v_u_grad_trial_ref, PyArrayObject *__pyx_v_u_test_ref, PyArrayObject *__pyx_v_u_grad_test_ref, PyArrayObject *__pyx_v_mesh_trial_trace_ref, PyArrayObject *__pyx_v_mesh_grad_trial_trace_ref, PyArrayObject *__pyx_v_dS_ref, PyArrayObject *__pyx_v_u_trial_trace_ref, PyArrayObject *__pyx_v_u_grad_trial_trace_ref, PyArrayObject *__pyx_v_u_test_trace_ref, PyArrayObject *__pyx_v_u_grad_test_trace_ref, PyArrayObject *__pyx_v_normal_ref, PyArrayObject *__pyx_v_boundaryJac_ref, int __pyx_v_nElements_global, double __pyx_v_useMetrics, double __pyx_v_alphaBDF, int __pyx_v_lag_shockCapturing, double __pyx_v_shockCapturingDiffusion, PyArrayObject *__pyx_v_q_porosity, PyArrayObject *__pyx_v_u_l2g, PyArrayObject *__pyx_v_elementDiameter, int __pyx_v_degree_polynomial, PyArrayObject *__pyx_v_u_dof, PyArrayObject *__pyx_v_velocity, PyArrayObject *__pyx_v_q_m_betaBDF, PyArrayObject *__pyx_v_cfl, PyArrayObject *__pyx_v_q_numDiff_u_last, PyArrayObject *__pyx_v_csrRowIndeces_u_u, PyArrayObject *__pyx_v_csrColumnOffsets_u_u, PyObject *__pyx_v_globalJacobian, int __pyx_v_nExteriorElementBoundaries_global, PyArrayObject *__pyx_v_exteriorElementBoundariesArray, PyArrayObject *__pyx_v_elementBoundaryElementsArray, PyArrayObject *__pyx_v_elementBoundaryLocalElementBoundariesArray, PyArrayObject *__pyx_v_ebqe_velocity_ext, PyArrayObject *__pyx_v_ebqe_porosity_ext, PyArrayObject *__pyx_v_isDOFBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_u_ext, PyArrayObject *__pyx_v_isFluxBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_flux_u_ext, PyArrayObject *__pyx_v_csrColumnOffsets_eb_u_u, int __pyx_v_LUMPED_MASS_MATRIX); /* proto */
 static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_12calculateMassMatrix(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, double __pyx_v_dt, PyArrayObject *__pyx_v_mesh_trial_ref, PyArrayObject *__pyx_v_mesh_grad_trial_ref, PyArrayObject *__pyx_v_mesh_dof, PyArrayObject *__pyx_v_mesh_velocity_dof, double __pyx_v_MOVING_DOMAIN, PyArrayObject *__pyx_v_mesh_l2g, PyArrayObject *__pyx_v_dV_ref, PyArrayObject *__pyx_v_u_trial_ref, PyArrayObject *__pyx_v_u_grad_trial_ref, PyArrayObject *__pyx_v_u_test_ref, PyArrayObject *__pyx_v_u_grad_test_ref, PyArrayObject *__pyx_v_mesh_trial_trace_ref, PyArrayObject *__pyx_v_mesh_grad_trial_trace_ref, PyArrayObject *__pyx_v_dS_ref, PyArrayObject *__pyx_v_u_trial_trace_ref, PyArrayObject *__pyx_v_u_grad_trial_trace_ref, PyArrayObject *__pyx_v_u_test_trace_ref, PyArrayObject *__pyx_v_u_grad_test_trace_ref, PyArrayObject *__pyx_v_normal_ref, PyArrayObject *__pyx_v_boundaryJac_ref, int __pyx_v_nElements_global, double __pyx_v_useMetrics, double __pyx_v_alphaBDF, int __pyx_v_lag_shockCapturing, double __pyx_v_shockCapturingDiffusion, PyArrayObject *__pyx_v_q_porosity, PyArrayObject *__pyx_v_u_l2g, PyArrayObject *__pyx_v_elementDiameter, int __pyx_v_degree_polynomial, PyArrayObject *__pyx_v_u_dof, PyArrayObject *__pyx_v_velocity, PyArrayObject *__pyx_v_q_m_betaBDF, PyArrayObject *__pyx_v_cfl, PyArrayObject *__pyx_v_q_numDiff_u_last, PyArrayObject *__pyx_v_csrRowIndeces_u_u, PyArrayObject *__pyx_v_csrColumnOffsets_u_u, PyObject *__pyx_v_globalJacobian, int __pyx_v_nExteriorElementBoundaries_global, PyArrayObject *__pyx_v_exteriorElementBoundariesArray, PyArrayObject *__pyx_v_elementBoundaryElementsArray, PyArrayObject *__pyx_v_elementBoundaryLocalElementBoundariesArray, PyArrayObject *__pyx_v_ebqe_velocity_ext, PyArrayObject *__pyx_v_ebqe_porosity_ext, PyArrayObject *__pyx_v_isDOFBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_u_ext, PyArrayObject *__pyx_v_isFluxBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_flux_u_ext, PyArrayObject *__pyx_v_csrColumnOffsets_eb_u_u, int __pyx_v_LUMPED_MASS_MATRIX); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
@@ -1644,7 +1640,7 @@ static PyObject *__pyx_tuple__7;
 static PyObject *__pyx_tuple__8;
 static PyObject *__pyx_tuple__9;
 
-/* "mprans/cTIM.pyx":325
+/* "mprans/cTIM.pyx":319
  * cdef class cTIM_base:
  *    cdef TIM_base* thisptr
  *    def __cinit__(self,             # <<<<<<<<<<<<<<
@@ -1690,36 +1686,36 @@ static int __pyx_pw_6mprans_4cTIM_9cTIM_base_1__cinit__(PyObject *__pyx_v_self, 
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nQuadraturePoints_elementIn)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 1); __PYX_ERR(0, 325, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 1); __PYX_ERR(0, 319, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nDOF_mesh_trial_elementIn)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 2); __PYX_ERR(0, 325, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 2); __PYX_ERR(0, 319, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nDOF_trial_elementIn)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 3); __PYX_ERR(0, 325, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 3); __PYX_ERR(0, 319, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nDOF_test_elementIn)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 4); __PYX_ERR(0, 325, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 4); __PYX_ERR(0, 319, __pyx_L3_error)
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nQuadraturePoints_elementBoundar)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 5); __PYX_ERR(0, 325, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 5); __PYX_ERR(0, 319, __pyx_L3_error)
         }
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_CompKernelFlag)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 6); __PYX_ERR(0, 325, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, 6); __PYX_ERR(0, 319, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 325, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 319, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 7) {
       goto __pyx_L5_argtuple_error;
@@ -1732,17 +1728,17 @@ static int __pyx_pw_6mprans_4cTIM_9cTIM_base_1__cinit__(PyObject *__pyx_v_self, 
       values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
       values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
     }
-    __pyx_v_nSpaceIn = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_nSpaceIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 326, __pyx_L3_error)
-    __pyx_v_nQuadraturePoints_elementIn = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_nQuadraturePoints_elementIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 327, __pyx_L3_error)
-    __pyx_v_nDOF_mesh_trial_elementIn = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_nDOF_mesh_trial_elementIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 328, __pyx_L3_error)
-    __pyx_v_nDOF_trial_elementIn = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_nDOF_trial_elementIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 329, __pyx_L3_error)
-    __pyx_v_nDOF_test_elementIn = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_nDOF_test_elementIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 330, __pyx_L3_error)
-    __pyx_v_nQuadraturePoints_elementBoundaryIn = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_nQuadraturePoints_elementBoundaryIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 331, __pyx_L3_error)
-    __pyx_v_CompKernelFlag = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_CompKernelFlag == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 332, __pyx_L3_error)
+    __pyx_v_nSpaceIn = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_nSpaceIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 320, __pyx_L3_error)
+    __pyx_v_nQuadraturePoints_elementIn = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_nQuadraturePoints_elementIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 321, __pyx_L3_error)
+    __pyx_v_nDOF_mesh_trial_elementIn = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_nDOF_mesh_trial_elementIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 322, __pyx_L3_error)
+    __pyx_v_nDOF_trial_elementIn = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_nDOF_trial_elementIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 323, __pyx_L3_error)
+    __pyx_v_nDOF_test_elementIn = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_nDOF_test_elementIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 324, __pyx_L3_error)
+    __pyx_v_nQuadraturePoints_elementBoundaryIn = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_nQuadraturePoints_elementBoundaryIn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 325, __pyx_L3_error)
+    __pyx_v_CompKernelFlag = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_CompKernelFlag == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 326, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 325, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 319, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.cTIM.cTIM_base.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1760,7 +1756,7 @@ static int __pyx_pf_6mprans_4cTIM_9cTIM_base___cinit__(struct __pyx_obj_6mprans_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "mprans/cTIM.pyx":333
+  /* "mprans/cTIM.pyx":327
  *                  int nQuadraturePoints_elementBoundaryIn,
  *                  int CompKernelFlag):
  *        self.thisptr = newTIM(nSpaceIn,             # <<<<<<<<<<<<<<
@@ -1769,7 +1765,7 @@ static int __pyx_pf_6mprans_4cTIM_9cTIM_base___cinit__(struct __pyx_obj_6mprans_
  */
   __pyx_v_self->thisptr = proteus::newTIM(__pyx_v_nSpaceIn, __pyx_v_nQuadraturePoints_elementIn, __pyx_v_nDOF_mesh_trial_elementIn, __pyx_v_nDOF_trial_elementIn, __pyx_v_nDOF_test_elementIn, __pyx_v_nQuadraturePoints_elementBoundaryIn, __pyx_v_CompKernelFlag);
 
-  /* "mprans/cTIM.pyx":325
+  /* "mprans/cTIM.pyx":319
  * cdef class cTIM_base:
  *    cdef TIM_base* thisptr
  *    def __cinit__(self,             # <<<<<<<<<<<<<<
@@ -1783,7 +1779,7 @@ static int __pyx_pf_6mprans_4cTIM_9cTIM_base___cinit__(struct __pyx_obj_6mprans_
   return __pyx_r;
 }
 
-/* "mprans/cTIM.pyx":340
+/* "mprans/cTIM.pyx":334
  *                              nQuadraturePoints_elementBoundaryIn,
  *                              CompKernelFlag)
  *    def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1806,7 +1802,7 @@ static void __pyx_pf_6mprans_4cTIM_9cTIM_base_2__dealloc__(struct __pyx_obj_6mpr
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "mprans/cTIM.pyx":341
+  /* "mprans/cTIM.pyx":335
  *                              CompKernelFlag)
  *    def __dealloc__(self):
  *        del self.thisptr             # <<<<<<<<<<<<<<
@@ -1815,7 +1811,7 @@ static void __pyx_pf_6mprans_4cTIM_9cTIM_base_2__dealloc__(struct __pyx_obj_6mpr
  */
   delete __pyx_v_self->thisptr;
 
-  /* "mprans/cTIM.pyx":340
+  /* "mprans/cTIM.pyx":334
  *                              nQuadraturePoints_elementBoundaryIn,
  *                              CompKernelFlag)
  *    def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1827,7 +1823,7 @@ static void __pyx_pf_6mprans_4cTIM_9cTIM_base_2__dealloc__(struct __pyx_obj_6mpr
   __Pyx_RefNannyFinishContext();
 }
 
-/* "mprans/cTIM.pyx":342
+/* "mprans/cTIM.pyx":336
  *    def __dealloc__(self):
  *        del self.thisptr
  *    def FCTStep(self,             # <<<<<<<<<<<<<<
@@ -1887,71 +1883,71 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_5FCTStep(PyObject *__pyx_v_se
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_numDOFs)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 1); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 1); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lumped_mass_matrix)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 2); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 2); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_soln)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 3); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 3); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_solH)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 4); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 4); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_low_order_solution)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 5); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 5); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_limited_solution)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 6); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 6); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case  7:
         if (likely((values[7] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrRowIndeces_DofLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 7); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 7); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case  8:
         if (likely((values[8] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_DofLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 8); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 8); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case  9:
         if (likely((values[9] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_MassMatrix)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 9); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 9); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case 10:
         if (likely((values[10] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dt_times_dH_minus_dL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 10); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 10); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case 11:
         if (likely((values[11] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_min_u_bc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 11); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 11); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case 12:
         if (likely((values[12] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_max_u_bc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 12); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 12); __PYX_ERR(0, 336, __pyx_L3_error)
         }
         case 13:
         if (likely((values[13] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_LUMPED_MASS_MATRIX)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 13); __PYX_ERR(0, 342, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, 13); __PYX_ERR(0, 336, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "FCTStep") < 0)) __PYX_ERR(0, 342, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "FCTStep") < 0)) __PYX_ERR(0, 336, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 14) {
       goto __pyx_L5_argtuple_error;
@@ -1971,8 +1967,8 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_5FCTStep(PyObject *__pyx_v_se
       values[12] = PyTuple_GET_ITEM(__pyx_args, 12);
       values[13] = PyTuple_GET_ITEM(__pyx_args, 13);
     }
-    __pyx_v_NNZ = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_NNZ == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 343, __pyx_L3_error)
-    __pyx_v_numDOFs = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_numDOFs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 344, __pyx_L3_error)
+    __pyx_v_NNZ = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_NNZ == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 337, __pyx_L3_error)
+    __pyx_v_numDOFs = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_numDOFs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 338, __pyx_L3_error)
     __pyx_v_lumped_mass_matrix = ((PyArrayObject *)values[2]);
     __pyx_v_soln = ((PyArrayObject *)values[3]);
     __pyx_v_solH = ((PyArrayObject *)values[4]);
@@ -1984,27 +1980,27 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_5FCTStep(PyObject *__pyx_v_se
     __pyx_v_dt_times_dH_minus_dL = ((PyArrayObject *)values[10]);
     __pyx_v_min_u_bc = ((PyArrayObject *)values[11]);
     __pyx_v_max_u_bc = ((PyArrayObject *)values[12]);
-    __pyx_v_LUMPED_MASS_MATRIX = __Pyx_PyInt_As_int(values[13]); if (unlikely((__pyx_v_LUMPED_MASS_MATRIX == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 356, __pyx_L3_error)
+    __pyx_v_LUMPED_MASS_MATRIX = __Pyx_PyInt_As_int(values[13]); if (unlikely((__pyx_v_LUMPED_MASS_MATRIX == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 350, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 342, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("FCTStep", 1, 14, 14, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 336, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.cTIM.cTIM_base.FCTStep", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_lumped_mass_matrix), __pyx_ptype_5numpy_ndarray, 1, "lumped_mass_matrix", 0))) __PYX_ERR(0, 345, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_soln), __pyx_ptype_5numpy_ndarray, 1, "soln", 0))) __PYX_ERR(0, 346, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_solH), __pyx_ptype_5numpy_ndarray, 1, "solH", 0))) __PYX_ERR(0, 347, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_low_order_solution), __pyx_ptype_5numpy_ndarray, 1, "low_order_solution", 0))) __PYX_ERR(0, 348, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_limited_solution), __pyx_ptype_5numpy_ndarray, 1, "limited_solution", 0))) __PYX_ERR(0, 349, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_DofLoops", 0))) __PYX_ERR(0, 350, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_DofLoops", 0))) __PYX_ERR(0, 351, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_MassMatrix), __pyx_ptype_5numpy_ndarray, 1, "MassMatrix", 0))) __PYX_ERR(0, 352, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dt_times_dH_minus_dL), __pyx_ptype_5numpy_ndarray, 1, "dt_times_dH_minus_dL", 0))) __PYX_ERR(0, 353, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_min_u_bc), __pyx_ptype_5numpy_ndarray, 1, "min_u_bc", 0))) __PYX_ERR(0, 354, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_max_u_bc), __pyx_ptype_5numpy_ndarray, 1, "max_u_bc", 0))) __PYX_ERR(0, 355, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_lumped_mass_matrix), __pyx_ptype_5numpy_ndarray, 1, "lumped_mass_matrix", 0))) __PYX_ERR(0, 339, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_soln), __pyx_ptype_5numpy_ndarray, 1, "soln", 0))) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_solH), __pyx_ptype_5numpy_ndarray, 1, "solH", 0))) __PYX_ERR(0, 341, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_low_order_solution), __pyx_ptype_5numpy_ndarray, 1, "low_order_solution", 0))) __PYX_ERR(0, 342, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_limited_solution), __pyx_ptype_5numpy_ndarray, 1, "limited_solution", 0))) __PYX_ERR(0, 343, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_DofLoops", 0))) __PYX_ERR(0, 344, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_DofLoops", 0))) __PYX_ERR(0, 345, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_MassMatrix), __pyx_ptype_5numpy_ndarray, 1, "MassMatrix", 0))) __PYX_ERR(0, 346, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dt_times_dH_minus_dL), __pyx_ptype_5numpy_ndarray, 1, "dt_times_dH_minus_dL", 0))) __PYX_ERR(0, 347, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_min_u_bc), __pyx_ptype_5numpy_ndarray, 1, "min_u_bc", 0))) __PYX_ERR(0, 348, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_max_u_bc), __pyx_ptype_5numpy_ndarray, 1, "max_u_bc", 0))) __PYX_ERR(0, 349, __pyx_L1_error)
   __pyx_r = __pyx_pf_6mprans_4cTIM_9cTIM_base_4FCTStep(((struct __pyx_obj_6mprans_4cTIM_cTIM_base *)__pyx_v_self), __pyx_v_NNZ, __pyx_v_numDOFs, __pyx_v_lumped_mass_matrix, __pyx_v_soln, __pyx_v_solH, __pyx_v_low_order_solution, __pyx_v_limited_solution, __pyx_v_csrRowIndeces_DofLoops, __pyx_v_csrColumnOffsets_DofLoops, __pyx_v_MassMatrix, __pyx_v_dt_times_dH_minus_dL, __pyx_v_min_u_bc, __pyx_v_max_u_bc, __pyx_v_LUMPED_MASS_MATRIX);
 
   /* function exit code */
@@ -2021,7 +2017,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_4FCTStep(struct __pyx_obj_6mp
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("FCTStep", 0);
 
-  /* "mprans/cTIM.pyx":357
+  /* "mprans/cTIM.pyx":351
  *                numpy.ndarray max_u_bc,
  *                int LUMPED_MASS_MATRIX):
  *        self.thisptr.FCTStep(NNZ,             # <<<<<<<<<<<<<<
@@ -2030,7 +2026,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_4FCTStep(struct __pyx_obj_6mp
  */
   __pyx_v_self->thisptr->FCTStep(__pyx_v_NNZ, __pyx_v_numDOFs, ((double *)__pyx_v_lumped_mass_matrix->data), ((double *)__pyx_v_soln->data), ((double *)__pyx_v_solH->data), ((double *)__pyx_v_low_order_solution->data), ((double *)__pyx_v_limited_solution->data), ((int *)__pyx_v_csrRowIndeces_DofLoops->data), ((int *)__pyx_v_csrColumnOffsets_DofLoops->data), ((double *)__pyx_v_MassMatrix->data), ((double *)__pyx_v_dt_times_dH_minus_dL->data), ((double *)__pyx_v_min_u_bc->data), ((double *)__pyx_v_max_u_bc->data), __pyx_v_LUMPED_MASS_MATRIX);
 
-  /* "mprans/cTIM.pyx":342
+  /* "mprans/cTIM.pyx":336
  *    def __dealloc__(self):
  *        del self.thisptr
  *    def FCTStep(self,             # <<<<<<<<<<<<<<
@@ -2045,7 +2041,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_4FCTStep(struct __pyx_obj_6mp
   return __pyx_r;
 }
 
-/* "mprans/cTIM.pyx":371
+/* "mprans/cTIM.pyx":365
  *                             <double*> max_u_bc.data,
  *                             LUMPED_MASS_MATRIX)
  *    def calculateResidual(self,             # <<<<<<<<<<<<<<
@@ -2144,20 +2140,16 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_7calculateResidual(PyObject *
   PyArrayObject *__pyx_v_min_u_bc = 0;
   PyArrayObject *__pyx_v_max_u_bc = 0;
   PyArrayObject *__pyx_v_quantDOFs = 0;
-  double __pyx_v_poro;
-  PyArrayObject *__pyx_v_p_dof = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("calculateResidual (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dt,&__pyx_n_s_mesh_trial_ref,&__pyx_n_s_mesh_grad_trial_ref,&__pyx_n_s_mesh_dof,&__pyx_n_s_mesh_velocity_dof,&__pyx_n_s_MOVING_DOMAIN,&__pyx_n_s_mesh_l2g,&__pyx_n_s_dV_ref,&__pyx_n_s_u_trial_ref,&__pyx_n_s_u_grad_trial_ref,&__pyx_n_s_u_test_ref,&__pyx_n_s_u_grad_test_ref,&__pyx_n_s_mesh_trial_trace_ref,&__pyx_n_s_mesh_grad_trial_trace_ref,&__pyx_n_s_dS_ref,&__pyx_n_s_u_trial_trace_ref,&__pyx_n_s_u_grad_trial_trace_ref,&__pyx_n_s_u_test_trace_ref,&__pyx_n_s_u_grad_test_trace_ref,&__pyx_n_s_normal_ref,&__pyx_n_s_boundaryJac_ref,&__pyx_n_s_nElements_global,&__pyx_n_s_useMetrics,&__pyx_n_s_alphaBDF,&__pyx_n_s_lag_shockCapturing,&__pyx_n_s_shockCapturingDiffusion,&__pyx_n_s_sc_uref,&__pyx_n_s_sc_alpha,&__pyx_n_s_q_porosity,&__pyx_n_s_porosity_dof,&__pyx_n_s_u_l2g,&__pyx_n_s_elementDiameter,&__pyx_n_s_degree_polynomial,&__pyx_n_s_u_dof,&__pyx_n_s_u_dof_old,&__pyx_n_s_velocity,&__pyx_n_s_q_m,&__pyx_n_s_q_u,&__pyx_n_s_q_m_betaBDF,&__pyx_n_s_q_dV,&__pyx_n_s_q_dV_last,&__pyx_n_s_cfl,&__pyx_n_s_edge_based_cfl,&__pyx_n_s_q_numDiff_u,&__pyx_n_s_q_numDiff_u_last,&__pyx_n_s_offset_u,&__pyx_n_s_stride_u,&__pyx_n_s_globalResidual,&__pyx_n_s_nExteriorElementBoundaries_globa,&__pyx_n_s_exteriorElementBoundariesArray,&__pyx_n_s_elementBoundaryElementsArray,&__pyx_n_s_elementBoundaryLocalElementBound,&__pyx_n_s_ebqe_velocity_ext,&__pyx_n_s_ebqe_porosity_ext,&__pyx_n_s_isDOFBoundary_u,&__pyx_n_s_ebqe_bc_u_ext,&__pyx_n_s_isFluxBoundary_u,&__pyx_n_s_ebqe_bc_flux_u_ext,&__pyx_n_s_ebqe_phi,&__pyx_n_s_epsFact,&__pyx_n_s_ebqe_u,&__pyx_n_s_ebqe_flux,&__pyx_n_s_cE,&__pyx_n_s_cK,&__pyx_n_s_uL,&__pyx_n_s_uR,&__pyx_n_s_numDOFs,&__pyx_n_s_NNZ,&__pyx_n_s_csrRowIndeces_DofLoops,&__pyx_n_s_csrColumnOffsets_DofLoops,&__pyx_n_s_csrRowIndeces_CellLoops,&__pyx_n_s_csrColumnOffsets_CellLoops,&__pyx_n_s_csrColumnOffsets_eb_CellLoops,&__pyx_n_s_Cx,&__pyx_n_s_Cy,&__pyx_n_s_Cz,&__pyx_n_s_CTx,&__pyx_n_s_CTy,&__pyx_n_s_CTz,&__pyx_n_s_ML,&__pyx_n_s_LUMPED_MASS_MATRIX,&__pyx_n_s_STABILIZATION_TYPE,&__pyx_n_s_ENTROPY_TYPE,&__pyx_n_s_low_order_solution,&__pyx_n_s_dt_times_dH_minus_dL,&__pyx_n_s_min_u_bc,&__pyx_n_s_max_u_bc,&__pyx_n_s_quantDOFs,&__pyx_n_s_poro,&__pyx_n_s_p_dof,0};
-    PyObject* values[90] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dt,&__pyx_n_s_mesh_trial_ref,&__pyx_n_s_mesh_grad_trial_ref,&__pyx_n_s_mesh_dof,&__pyx_n_s_mesh_velocity_dof,&__pyx_n_s_MOVING_DOMAIN,&__pyx_n_s_mesh_l2g,&__pyx_n_s_dV_ref,&__pyx_n_s_u_trial_ref,&__pyx_n_s_u_grad_trial_ref,&__pyx_n_s_u_test_ref,&__pyx_n_s_u_grad_test_ref,&__pyx_n_s_mesh_trial_trace_ref,&__pyx_n_s_mesh_grad_trial_trace_ref,&__pyx_n_s_dS_ref,&__pyx_n_s_u_trial_trace_ref,&__pyx_n_s_u_grad_trial_trace_ref,&__pyx_n_s_u_test_trace_ref,&__pyx_n_s_u_grad_test_trace_ref,&__pyx_n_s_normal_ref,&__pyx_n_s_boundaryJac_ref,&__pyx_n_s_nElements_global,&__pyx_n_s_useMetrics,&__pyx_n_s_alphaBDF,&__pyx_n_s_lag_shockCapturing,&__pyx_n_s_shockCapturingDiffusion,&__pyx_n_s_sc_uref,&__pyx_n_s_sc_alpha,&__pyx_n_s_q_porosity,&__pyx_n_s_porosity_dof,&__pyx_n_s_u_l2g,&__pyx_n_s_elementDiameter,&__pyx_n_s_degree_polynomial,&__pyx_n_s_u_dof,&__pyx_n_s_u_dof_old,&__pyx_n_s_velocity,&__pyx_n_s_q_m,&__pyx_n_s_q_u,&__pyx_n_s_q_m_betaBDF,&__pyx_n_s_q_dV,&__pyx_n_s_q_dV_last,&__pyx_n_s_cfl,&__pyx_n_s_edge_based_cfl,&__pyx_n_s_q_numDiff_u,&__pyx_n_s_q_numDiff_u_last,&__pyx_n_s_offset_u,&__pyx_n_s_stride_u,&__pyx_n_s_globalResidual,&__pyx_n_s_nExteriorElementBoundaries_globa,&__pyx_n_s_exteriorElementBoundariesArray,&__pyx_n_s_elementBoundaryElementsArray,&__pyx_n_s_elementBoundaryLocalElementBound,&__pyx_n_s_ebqe_velocity_ext,&__pyx_n_s_ebqe_porosity_ext,&__pyx_n_s_isDOFBoundary_u,&__pyx_n_s_ebqe_bc_u_ext,&__pyx_n_s_isFluxBoundary_u,&__pyx_n_s_ebqe_bc_flux_u_ext,&__pyx_n_s_ebqe_phi,&__pyx_n_s_epsFact,&__pyx_n_s_ebqe_u,&__pyx_n_s_ebqe_flux,&__pyx_n_s_cE,&__pyx_n_s_cK,&__pyx_n_s_uL,&__pyx_n_s_uR,&__pyx_n_s_numDOFs,&__pyx_n_s_NNZ,&__pyx_n_s_csrRowIndeces_DofLoops,&__pyx_n_s_csrColumnOffsets_DofLoops,&__pyx_n_s_csrRowIndeces_CellLoops,&__pyx_n_s_csrColumnOffsets_CellLoops,&__pyx_n_s_csrColumnOffsets_eb_CellLoops,&__pyx_n_s_Cx,&__pyx_n_s_Cy,&__pyx_n_s_Cz,&__pyx_n_s_CTx,&__pyx_n_s_CTy,&__pyx_n_s_CTz,&__pyx_n_s_ML,&__pyx_n_s_LUMPED_MASS_MATRIX,&__pyx_n_s_STABILIZATION_TYPE,&__pyx_n_s_ENTROPY_TYPE,&__pyx_n_s_low_order_solution,&__pyx_n_s_dt_times_dH_minus_dL,&__pyx_n_s_min_u_bc,&__pyx_n_s_max_u_bc,&__pyx_n_s_quantDOFs,0};
+    PyObject* values[88] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
-        case 90: values[89] = PyTuple_GET_ITEM(__pyx_args, 89);
-        case 89: values[88] = PyTuple_GET_ITEM(__pyx_args, 88);
         case 88: values[87] = PyTuple_GET_ITEM(__pyx_args, 87);
         case 87: values[86] = PyTuple_GET_ITEM(__pyx_args, 86);
         case 86: values[85] = PyTuple_GET_ITEM(__pyx_args, 85);
@@ -2257,453 +2249,443 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_7calculateResidual(PyObject *
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 1); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 1); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_grad_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 2); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 2); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 3); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 3); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_velocity_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 4); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 4); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_MOVING_DOMAIN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 5); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 5); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_l2g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 6); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 6); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case  7:
         if (likely((values[7] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dV_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 7); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 7); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case  8:
         if (likely((values[8] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 8); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 8); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case  9:
         if (likely((values[9] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 9); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 9); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 10:
         if (likely((values[10] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_test_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 10); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 10); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 11:
         if (likely((values[11] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_test_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 11); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 11); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 12:
         if (likely((values[12] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 12); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 12); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 13:
         if (likely((values[13] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_grad_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 13); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 13); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 14:
         if (likely((values[14] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dS_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 14); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 14); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 15:
         if (likely((values[15] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 15); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 15); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 16:
         if (likely((values[16] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 16); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 16); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 17:
         if (likely((values[17] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_test_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 17); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 17); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 18:
         if (likely((values[18] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_test_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 18); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 18); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 19:
         if (likely((values[19] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_normal_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 19); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 19); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 20:
         if (likely((values[20] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_boundaryJac_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 20); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 20); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 21:
         if (likely((values[21] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nElements_global)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 21); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 21); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 22:
         if (likely((values[22] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_useMetrics)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 22); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 22); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 23:
         if (likely((values[23] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_alphaBDF)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 23); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 23); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 24:
         if (likely((values[24] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lag_shockCapturing)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 24); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 24); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 25:
         if (likely((values[25] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_shockCapturingDiffusion)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 25); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 25); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 26:
         if (likely((values[26] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sc_uref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 26); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 26); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 27:
         if (likely((values[27] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sc_alpha)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 27); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 27); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 28:
         if (likely((values[28] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_porosity)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 28); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 28); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 29:
         if (likely((values[29] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_porosity_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 29); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 29); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 30:
         if (likely((values[30] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_l2g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 30); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 30); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 31:
         if (likely((values[31] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementDiameter)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 31); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 31); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 32:
         if (likely((values[32] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_degree_polynomial)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 32); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 32); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 33:
         if (likely((values[33] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 33); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 33); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 34:
         if (likely((values[34] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_dof_old)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 34); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 34); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 35:
         if (likely((values[35] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_velocity)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 35); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 35); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 36:
         if (likely((values[36] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_m)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 36); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 36); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 37:
         if (likely((values[37] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 37); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 37); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 38:
         if (likely((values[38] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_m_betaBDF)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 38); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 38); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 39:
         if (likely((values[39] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_dV)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 39); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 39); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 40:
         if (likely((values[40] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_dV_last)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 40); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 40); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 41:
         if (likely((values[41] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_cfl)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 41); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 41); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 42:
         if (likely((values[42] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_edge_based_cfl)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 42); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 42); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 43:
         if (likely((values[43] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_numDiff_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 43); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 43); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 44:
         if (likely((values[44] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_numDiff_u_last)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 44); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 44); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 45:
         if (likely((values[45] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_offset_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 45); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 45); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 46:
         if (likely((values[46] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_stride_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 46); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 46); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 47:
         if (likely((values[47] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_globalResidual)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 47); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 47); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 48:
         if (likely((values[48] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nExteriorElementBoundaries_globa)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 48); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 48); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 49:
         if (likely((values[49] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exteriorElementBoundariesArray)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 49); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 49); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 50:
         if (likely((values[50] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementBoundaryElementsArray)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 50); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 50); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 51:
         if (likely((values[51] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementBoundaryLocalElementBound)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 51); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 51); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 52:
         if (likely((values[52] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_velocity_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 52); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 52); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 53:
         if (likely((values[53] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_porosity_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 53); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 53); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 54:
         if (likely((values[54] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_isDOFBoundary_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 54); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 54); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 55:
         if (likely((values[55] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_bc_u_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 55); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 55); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 56:
         if (likely((values[56] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_isFluxBoundary_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 56); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 56); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 57:
         if (likely((values[57] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_bc_flux_u_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 57); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 57); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 58:
         if (likely((values[58] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_phi)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 58); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 58); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 59:
         if (likely((values[59] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_epsFact)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 59); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 59); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 60:
         if (likely((values[60] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 60); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 60); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 61:
         if (likely((values[61] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_flux)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 61); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 61); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 62:
         if (likely((values[62] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_cE)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 62); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 62); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 63:
         if (likely((values[63] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_cK)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 63); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 63); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 64:
         if (likely((values[64] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_uL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 64); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 64); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 65:
         if (likely((values[65] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_uR)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 65); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 65); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 66:
         if (likely((values[66] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_numDOFs)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 66); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 66); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 67:
         if (likely((values[67] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_NNZ)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 67); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 67); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 68:
         if (likely((values[68] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrRowIndeces_DofLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 68); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 68); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 69:
         if (likely((values[69] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_DofLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 69); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 69); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 70:
         if (likely((values[70] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrRowIndeces_CellLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 70); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 70); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 71:
         if (likely((values[71] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_CellLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 71); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 71); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 72:
         if (likely((values[72] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_eb_CellLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 72); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 72); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 73:
         if (likely((values[73] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Cx)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 73); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 73); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 74:
         if (likely((values[74] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Cy)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 74); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 74); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 75:
         if (likely((values[75] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Cz)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 75); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 75); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 76:
         if (likely((values[76] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_CTx)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 76); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 76); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 77:
         if (likely((values[77] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_CTy)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 77); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 77); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 78:
         if (likely((values[78] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_CTz)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 78); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 78); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 79:
         if (likely((values[79] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ML)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 79); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 79); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 80:
         if (likely((values[80] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_LUMPED_MASS_MATRIX)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 80); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 80); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 81:
         if (likely((values[81] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_STABILIZATION_TYPE)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 81); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 81); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 82:
         if (likely((values[82] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ENTROPY_TYPE)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 82); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 82); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 83:
         if (likely((values[83] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_low_order_solution)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 83); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 83); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 84:
         if (likely((values[84] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dt_times_dH_minus_dL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 84); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 84); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 85:
         if (likely((values[85] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_min_u_bc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 85); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 85); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 86:
         if (likely((values[86] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_max_u_bc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 86); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 86); __PYX_ERR(0, 365, __pyx_L3_error)
         }
         case 87:
         if (likely((values[87] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_quantDOFs)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 87); __PYX_ERR(0, 371, __pyx_L3_error)
-        }
-        case 88:
-        if (likely((values[88] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_poro)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 88); __PYX_ERR(0, 371, __pyx_L3_error)
-        }
-        case 89:
-        if (likely((values[89] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_p_dof)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, 89); __PYX_ERR(0, 371, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, 87); __PYX_ERR(0, 365, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calculateResidual") < 0)) __PYX_ERR(0, 371, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calculateResidual") < 0)) __PYX_ERR(0, 365, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 90) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 88) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
@@ -2794,15 +2776,13 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_7calculateResidual(PyObject *
       values[85] = PyTuple_GET_ITEM(__pyx_args, 85);
       values[86] = PyTuple_GET_ITEM(__pyx_args, 86);
       values[87] = PyTuple_GET_ITEM(__pyx_args, 87);
-      values[88] = PyTuple_GET_ITEM(__pyx_args, 88);
-      values[89] = PyTuple_GET_ITEM(__pyx_args, 89);
     }
-    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 372, __pyx_L3_error)
+    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 366, __pyx_L3_error)
     __pyx_v_mesh_trial_ref = ((PyArrayObject *)values[1]);
     __pyx_v_mesh_grad_trial_ref = ((PyArrayObject *)values[2]);
     __pyx_v_mesh_dof = ((PyArrayObject *)values[3]);
     __pyx_v_mesh_velocity_dof = ((PyArrayObject *)values[4]);
-    __pyx_v_MOVING_DOMAIN = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_MOVING_DOMAIN == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 377, __pyx_L3_error)
+    __pyx_v_MOVING_DOMAIN = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_MOVING_DOMAIN == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 371, __pyx_L3_error)
     __pyx_v_mesh_l2g = ((PyArrayObject *)values[6]);
     __pyx_v_dV_ref = ((PyArrayObject *)values[7]);
     __pyx_v_u_trial_ref = ((PyArrayObject *)values[8]);
@@ -2818,18 +2798,18 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_7calculateResidual(PyObject *
     __pyx_v_u_grad_test_trace_ref = ((PyArrayObject *)values[18]);
     __pyx_v_normal_ref = ((PyArrayObject *)values[19]);
     __pyx_v_boundaryJac_ref = ((PyArrayObject *)values[20]);
-    __pyx_v_nElements_global = __Pyx_PyInt_As_int(values[21]); if (unlikely((__pyx_v_nElements_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 393, __pyx_L3_error)
-    __pyx_v_useMetrics = __pyx_PyFloat_AsDouble(values[22]); if (unlikely((__pyx_v_useMetrics == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 394, __pyx_L3_error)
-    __pyx_v_alphaBDF = __pyx_PyFloat_AsDouble(values[23]); if (unlikely((__pyx_v_alphaBDF == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 395, __pyx_L3_error)
-    __pyx_v_lag_shockCapturing = __Pyx_PyInt_As_int(values[24]); if (unlikely((__pyx_v_lag_shockCapturing == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 396, __pyx_L3_error)
-    __pyx_v_shockCapturingDiffusion = __pyx_PyFloat_AsDouble(values[25]); if (unlikely((__pyx_v_shockCapturingDiffusion == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 397, __pyx_L3_error)
-    __pyx_v_sc_uref = __pyx_PyFloat_AsDouble(values[26]); if (unlikely((__pyx_v_sc_uref == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 398, __pyx_L3_error)
-    __pyx_v_sc_alpha = __pyx_PyFloat_AsDouble(values[27]); if (unlikely((__pyx_v_sc_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 398, __pyx_L3_error)
+    __pyx_v_nElements_global = __Pyx_PyInt_As_int(values[21]); if (unlikely((__pyx_v_nElements_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 387, __pyx_L3_error)
+    __pyx_v_useMetrics = __pyx_PyFloat_AsDouble(values[22]); if (unlikely((__pyx_v_useMetrics == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 388, __pyx_L3_error)
+    __pyx_v_alphaBDF = __pyx_PyFloat_AsDouble(values[23]); if (unlikely((__pyx_v_alphaBDF == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 389, __pyx_L3_error)
+    __pyx_v_lag_shockCapturing = __Pyx_PyInt_As_int(values[24]); if (unlikely((__pyx_v_lag_shockCapturing == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 390, __pyx_L3_error)
+    __pyx_v_shockCapturingDiffusion = __pyx_PyFloat_AsDouble(values[25]); if (unlikely((__pyx_v_shockCapturingDiffusion == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 391, __pyx_L3_error)
+    __pyx_v_sc_uref = __pyx_PyFloat_AsDouble(values[26]); if (unlikely((__pyx_v_sc_uref == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 392, __pyx_L3_error)
+    __pyx_v_sc_alpha = __pyx_PyFloat_AsDouble(values[27]); if (unlikely((__pyx_v_sc_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 392, __pyx_L3_error)
     __pyx_v_q_porosity = ((PyArrayObject *)values[28]);
     __pyx_v_porosity_dof = ((PyArrayObject *)values[29]);
     __pyx_v_u_l2g = ((PyArrayObject *)values[30]);
     __pyx_v_elementDiameter = ((PyArrayObject *)values[31]);
-    __pyx_v_degree_polynomial = __Pyx_PyInt_As_int(values[32]); if (unlikely((__pyx_v_degree_polynomial == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 405, __pyx_L3_error)
+    __pyx_v_degree_polynomial = __Pyx_PyInt_As_int(values[32]); if (unlikely((__pyx_v_degree_polynomial == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 399, __pyx_L3_error)
     __pyx_v_u_dof = ((PyArrayObject *)values[33]);
     __pyx_v_u_dof_old = ((PyArrayObject *)values[34]);
     __pyx_v_velocity = ((PyArrayObject *)values[35]);
@@ -2842,10 +2822,10 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_7calculateResidual(PyObject *
     __pyx_v_edge_based_cfl = ((PyArrayObject *)values[42]);
     __pyx_v_q_numDiff_u = ((PyArrayObject *)values[43]);
     __pyx_v_q_numDiff_u_last = ((PyArrayObject *)values[44]);
-    __pyx_v_offset_u = __Pyx_PyInt_As_int(values[45]); if (unlikely((__pyx_v_offset_u == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 418, __pyx_L3_error)
-    __pyx_v_stride_u = __Pyx_PyInt_As_int(values[46]); if (unlikely((__pyx_v_stride_u == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 418, __pyx_L3_error)
+    __pyx_v_offset_u = __Pyx_PyInt_As_int(values[45]); if (unlikely((__pyx_v_offset_u == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 412, __pyx_L3_error)
+    __pyx_v_stride_u = __Pyx_PyInt_As_int(values[46]); if (unlikely((__pyx_v_stride_u == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 412, __pyx_L3_error)
     __pyx_v_globalResidual = ((PyArrayObject *)values[47]);
-    __pyx_v_nExteriorElementBoundaries_global = __Pyx_PyInt_As_int(values[48]); if (unlikely((__pyx_v_nExteriorElementBoundaries_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 420, __pyx_L3_error)
+    __pyx_v_nExteriorElementBoundaries_global = __Pyx_PyInt_As_int(values[48]); if (unlikely((__pyx_v_nExteriorElementBoundaries_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 414, __pyx_L3_error)
     __pyx_v_exteriorElementBoundariesArray = ((PyArrayObject *)values[49]);
     __pyx_v_elementBoundaryElementsArray = ((PyArrayObject *)values[50]);
     __pyx_v_elementBoundaryLocalElementBoundariesArray = ((PyArrayObject *)values[51]);
@@ -2856,15 +2836,15 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_7calculateResidual(PyObject *
     __pyx_v_isFluxBoundary_u = ((PyArrayObject *)values[56]);
     __pyx_v_ebqe_bc_flux_u_ext = ((PyArrayObject *)values[57]);
     __pyx_v_ebqe_phi = ((PyArrayObject *)values[58]);
-    __pyx_v_epsFact = __pyx_PyFloat_AsDouble(values[59]); if (unlikely((__pyx_v_epsFact == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 432, __pyx_L3_error)
+    __pyx_v_epsFact = __pyx_PyFloat_AsDouble(values[59]); if (unlikely((__pyx_v_epsFact == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 426, __pyx_L3_error)
     __pyx_v_ebqe_u = ((PyArrayObject *)values[60]);
     __pyx_v_ebqe_flux = ((PyArrayObject *)values[61]);
-    __pyx_v_cE = __pyx_PyFloat_AsDouble(values[62]); if (unlikely((__pyx_v_cE == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 435, __pyx_L3_error)
-    __pyx_v_cK = __pyx_PyFloat_AsDouble(values[63]); if (unlikely((__pyx_v_cK == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 436, __pyx_L3_error)
-    __pyx_v_uL = __pyx_PyFloat_AsDouble(values[64]); if (unlikely((__pyx_v_uL == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 437, __pyx_L3_error)
-    __pyx_v_uR = __pyx_PyFloat_AsDouble(values[65]); if (unlikely((__pyx_v_uR == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 438, __pyx_L3_error)
-    __pyx_v_numDOFs = __Pyx_PyInt_As_int(values[66]); if (unlikely((__pyx_v_numDOFs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 439, __pyx_L3_error)
-    __pyx_v_NNZ = __Pyx_PyInt_As_int(values[67]); if (unlikely((__pyx_v_NNZ == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 440, __pyx_L3_error)
+    __pyx_v_cE = __pyx_PyFloat_AsDouble(values[62]); if (unlikely((__pyx_v_cE == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 429, __pyx_L3_error)
+    __pyx_v_cK = __pyx_PyFloat_AsDouble(values[63]); if (unlikely((__pyx_v_cK == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 430, __pyx_L3_error)
+    __pyx_v_uL = __pyx_PyFloat_AsDouble(values[64]); if (unlikely((__pyx_v_uL == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 431, __pyx_L3_error)
+    __pyx_v_uR = __pyx_PyFloat_AsDouble(values[65]); if (unlikely((__pyx_v_uR == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 432, __pyx_L3_error)
+    __pyx_v_numDOFs = __Pyx_PyInt_As_int(values[66]); if (unlikely((__pyx_v_numDOFs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 433, __pyx_L3_error)
+    __pyx_v_NNZ = __Pyx_PyInt_As_int(values[67]); if (unlikely((__pyx_v_NNZ == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 434, __pyx_L3_error)
     __pyx_v_csrRowIndeces_DofLoops = ((PyArrayObject *)values[68]);
     __pyx_v_csrColumnOffsets_DofLoops = ((PyArrayObject *)values[69]);
     __pyx_v_csrRowIndeces_CellLoops = ((PyArrayObject *)values[70]);
@@ -2877,92 +2857,89 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_7calculateResidual(PyObject *
     __pyx_v_CTy = ((PyArrayObject *)values[77]);
     __pyx_v_CTz = ((PyArrayObject *)values[78]);
     __pyx_v_ML = ((PyArrayObject *)values[79]);
-    __pyx_v_LUMPED_MASS_MATRIX = __Pyx_PyInt_As_int(values[80]); if (unlikely((__pyx_v_LUMPED_MASS_MATRIX == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 453, __pyx_L3_error)
-    __pyx_v_STABILIZATION_TYPE = __Pyx_PyInt_As_int(values[81]); if (unlikely((__pyx_v_STABILIZATION_TYPE == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 454, __pyx_L3_error)
-    __pyx_v_ENTROPY_TYPE = __Pyx_PyInt_As_int(values[82]); if (unlikely((__pyx_v_ENTROPY_TYPE == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 455, __pyx_L3_error)
+    __pyx_v_LUMPED_MASS_MATRIX = __Pyx_PyInt_As_int(values[80]); if (unlikely((__pyx_v_LUMPED_MASS_MATRIX == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 447, __pyx_L3_error)
+    __pyx_v_STABILIZATION_TYPE = __Pyx_PyInt_As_int(values[81]); if (unlikely((__pyx_v_STABILIZATION_TYPE == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 448, __pyx_L3_error)
+    __pyx_v_ENTROPY_TYPE = __Pyx_PyInt_As_int(values[82]); if (unlikely((__pyx_v_ENTROPY_TYPE == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 449, __pyx_L3_error)
     __pyx_v_low_order_solution = ((PyArrayObject *)values[83]);
     __pyx_v_dt_times_dH_minus_dL = ((PyArrayObject *)values[84]);
     __pyx_v_min_u_bc = ((PyArrayObject *)values[85]);
     __pyx_v_max_u_bc = ((PyArrayObject *)values[86]);
     __pyx_v_quantDOFs = ((PyArrayObject *)values[87]);
-    __pyx_v_poro = __pyx_PyFloat_AsDouble(values[88]); if (unlikely((__pyx_v_poro == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 462, __pyx_L3_error)
-    __pyx_v_p_dof = ((PyArrayObject *)values[89]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 90, 90, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 371, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("calculateResidual", 1, 88, 88, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 365, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.cTIM.cTIM_base.calculateResidual", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_ref", 0))) __PYX_ERR(0, 373, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_ref", 0))) __PYX_ERR(0, 374, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_dof", 0))) __PYX_ERR(0, 375, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_velocity_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_velocity_dof", 0))) __PYX_ERR(0, 376, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_l2g), __pyx_ptype_5numpy_ndarray, 1, "mesh_l2g", 0))) __PYX_ERR(0, 378, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dV_ref), __pyx_ptype_5numpy_ndarray, 1, "dV_ref", 0))) __PYX_ERR(0, 379, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_ref", 0))) __PYX_ERR(0, 380, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_ref", 0))) __PYX_ERR(0, 381, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_ref", 0))) __PYX_ERR(0, 382, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_ref", 0))) __PYX_ERR(0, 383, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_trace_ref", 0))) __PYX_ERR(0, 384, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_trace_ref", 0))) __PYX_ERR(0, 385, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dS_ref), __pyx_ptype_5numpy_ndarray, 1, "dS_ref", 0))) __PYX_ERR(0, 386, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_trace_ref", 0))) __PYX_ERR(0, 387, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_trace_ref", 0))) __PYX_ERR(0, 388, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_trace_ref", 0))) __PYX_ERR(0, 389, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_trace_ref", 0))) __PYX_ERR(0, 390, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_normal_ref), __pyx_ptype_5numpy_ndarray, 1, "normal_ref", 0))) __PYX_ERR(0, 391, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_boundaryJac_ref), __pyx_ptype_5numpy_ndarray, 1, "boundaryJac_ref", 0))) __PYX_ERR(0, 392, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_porosity), __pyx_ptype_5numpy_ndarray, 1, "q_porosity", 0))) __PYX_ERR(0, 400, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_porosity_dof), __pyx_ptype_5numpy_ndarray, 1, "porosity_dof", 0))) __PYX_ERR(0, 401, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_l2g), __pyx_ptype_5numpy_ndarray, 1, "u_l2g", 0))) __PYX_ERR(0, 403, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementDiameter), __pyx_ptype_5numpy_ndarray, 1, "elementDiameter", 0))) __PYX_ERR(0, 404, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof), __pyx_ptype_5numpy_ndarray, 1, "u_dof", 0))) __PYX_ERR(0, 406, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof_old), __pyx_ptype_5numpy_ndarray, 1, "u_dof_old", 0))) __PYX_ERR(0, 407, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_velocity), __pyx_ptype_5numpy_ndarray, 1, "velocity", 0))) __PYX_ERR(0, 408, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m), __pyx_ptype_5numpy_ndarray, 1, "q_m", 0))) __PYX_ERR(0, 409, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_u), __pyx_ptype_5numpy_ndarray, 1, "q_u", 0))) __PYX_ERR(0, 410, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m_betaBDF), __pyx_ptype_5numpy_ndarray, 1, "q_m_betaBDF", 0))) __PYX_ERR(0, 411, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_dV), __pyx_ptype_5numpy_ndarray, 1, "q_dV", 0))) __PYX_ERR(0, 412, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_dV_last), __pyx_ptype_5numpy_ndarray, 1, "q_dV_last", 0))) __PYX_ERR(0, 413, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cfl), __pyx_ptype_5numpy_ndarray, 1, "cfl", 0))) __PYX_ERR(0, 414, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_edge_based_cfl), __pyx_ptype_5numpy_ndarray, 1, "edge_based_cfl", 0))) __PYX_ERR(0, 415, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u", 0))) __PYX_ERR(0, 416, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u_last), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u_last", 0))) __PYX_ERR(0, 417, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_globalResidual), __pyx_ptype_5numpy_ndarray, 1, "globalResidual", 0))) __PYX_ERR(0, 419, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exteriorElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "exteriorElementBoundariesArray", 0))) __PYX_ERR(0, 421, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryElementsArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryElementsArray", 0))) __PYX_ERR(0, 422, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryLocalElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryLocalElementBoundariesArray", 0))) __PYX_ERR(0, 423, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_velocity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_velocity_ext", 0))) __PYX_ERR(0, 424, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_porosity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_porosity_ext", 0))) __PYX_ERR(0, 426, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isDOFBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isDOFBoundary_u", 0))) __PYX_ERR(0, 428, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_u_ext", 0))) __PYX_ERR(0, 429, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isFluxBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isFluxBoundary_u", 0))) __PYX_ERR(0, 430, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_flux_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_flux_u_ext", 0))) __PYX_ERR(0, 431, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_phi), __pyx_ptype_5numpy_ndarray, 1, "ebqe_phi", 0))) __PYX_ERR(0, 432, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_u), __pyx_ptype_5numpy_ndarray, 1, "ebqe_u", 0))) __PYX_ERR(0, 433, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_flux), __pyx_ptype_5numpy_ndarray, 1, "ebqe_flux", 0))) __PYX_ERR(0, 434, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_DofLoops", 0))) __PYX_ERR(0, 441, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_DofLoops", 0))) __PYX_ERR(0, 442, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_CellLoops", 0))) __PYX_ERR(0, 443, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_CellLoops", 0))) __PYX_ERR(0, 444, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_eb_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_eb_CellLoops", 0))) __PYX_ERR(0, 445, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cx), __pyx_ptype_5numpy_ndarray, 1, "Cx", 0))) __PYX_ERR(0, 446, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cy), __pyx_ptype_5numpy_ndarray, 1, "Cy", 0))) __PYX_ERR(0, 447, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cz), __pyx_ptype_5numpy_ndarray, 1, "Cz", 0))) __PYX_ERR(0, 448, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTx), __pyx_ptype_5numpy_ndarray, 1, "CTx", 0))) __PYX_ERR(0, 449, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTy), __pyx_ptype_5numpy_ndarray, 1, "CTy", 0))) __PYX_ERR(0, 450, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTz), __pyx_ptype_5numpy_ndarray, 1, "CTz", 0))) __PYX_ERR(0, 451, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ML), __pyx_ptype_5numpy_ndarray, 1, "ML", 0))) __PYX_ERR(0, 452, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_low_order_solution), __pyx_ptype_5numpy_ndarray, 1, "low_order_solution", 0))) __PYX_ERR(0, 456, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dt_times_dH_minus_dL), __pyx_ptype_5numpy_ndarray, 1, "dt_times_dH_minus_dL", 0))) __PYX_ERR(0, 457, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_min_u_bc), __pyx_ptype_5numpy_ndarray, 1, "min_u_bc", 0))) __PYX_ERR(0, 458, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_max_u_bc), __pyx_ptype_5numpy_ndarray, 1, "max_u_bc", 0))) __PYX_ERR(0, 459, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_quantDOFs), __pyx_ptype_5numpy_ndarray, 1, "quantDOFs", 0))) __PYX_ERR(0, 460, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p_dof), __pyx_ptype_5numpy_ndarray, 1, "p_dof", 0))) __PYX_ERR(0, 463, __pyx_L1_error)
-  __pyx_r = __pyx_pf_6mprans_4cTIM_9cTIM_base_6calculateResidual(((struct __pyx_obj_6mprans_4cTIM_cTIM_base *)__pyx_v_self), __pyx_v_dt, __pyx_v_mesh_trial_ref, __pyx_v_mesh_grad_trial_ref, __pyx_v_mesh_dof, __pyx_v_mesh_velocity_dof, __pyx_v_MOVING_DOMAIN, __pyx_v_mesh_l2g, __pyx_v_dV_ref, __pyx_v_u_trial_ref, __pyx_v_u_grad_trial_ref, __pyx_v_u_test_ref, __pyx_v_u_grad_test_ref, __pyx_v_mesh_trial_trace_ref, __pyx_v_mesh_grad_trial_trace_ref, __pyx_v_dS_ref, __pyx_v_u_trial_trace_ref, __pyx_v_u_grad_trial_trace_ref, __pyx_v_u_test_trace_ref, __pyx_v_u_grad_test_trace_ref, __pyx_v_normal_ref, __pyx_v_boundaryJac_ref, __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, __pyx_v_sc_uref, __pyx_v_sc_alpha, __pyx_v_q_porosity, __pyx_v_porosity_dof, __pyx_v_u_l2g, __pyx_v_elementDiameter, __pyx_v_degree_polynomial, __pyx_v_u_dof, __pyx_v_u_dof_old, __pyx_v_velocity, __pyx_v_q_m, __pyx_v_q_u, __pyx_v_q_m_betaBDF, __pyx_v_q_dV, __pyx_v_q_dV_last, __pyx_v_cfl, __pyx_v_edge_based_cfl, __pyx_v_q_numDiff_u, __pyx_v_q_numDiff_u_last, __pyx_v_offset_u, __pyx_v_stride_u, __pyx_v_globalResidual, __pyx_v_nExteriorElementBoundaries_global, __pyx_v_exteriorElementBoundariesArray, __pyx_v_elementBoundaryElementsArray, __pyx_v_elementBoundaryLocalElementBoundariesArray, __pyx_v_ebqe_velocity_ext, __pyx_v_ebqe_porosity_ext, __pyx_v_isDOFBoundary_u, __pyx_v_ebqe_bc_u_ext, __pyx_v_isFluxBoundary_u, __pyx_v_ebqe_bc_flux_u_ext, __pyx_v_ebqe_phi, __pyx_v_epsFact, __pyx_v_ebqe_u, __pyx_v_ebqe_flux, __pyx_v_cE, __pyx_v_cK, __pyx_v_uL, __pyx_v_uR, __pyx_v_numDOFs, __pyx_v_NNZ, __pyx_v_csrRowIndeces_DofLoops, __pyx_v_csrColumnOffsets_DofLoops, __pyx_v_csrRowIndeces_CellLoops, __pyx_v_csrColumnOffsets_CellLoops, __pyx_v_csrColumnOffsets_eb_CellLoops, __pyx_v_Cx, __pyx_v_Cy, __pyx_v_Cz, __pyx_v_CTx, __pyx_v_CTy, __pyx_v_CTz, __pyx_v_ML, __pyx_v_LUMPED_MASS_MATRIX, __pyx_v_STABILIZATION_TYPE, __pyx_v_ENTROPY_TYPE, __pyx_v_low_order_solution, __pyx_v_dt_times_dH_minus_dL, __pyx_v_min_u_bc, __pyx_v_max_u_bc, __pyx_v_quantDOFs, __pyx_v_poro, __pyx_v_p_dof);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_ref", 0))) __PYX_ERR(0, 367, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_ref", 0))) __PYX_ERR(0, 368, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_dof", 0))) __PYX_ERR(0, 369, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_velocity_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_velocity_dof", 0))) __PYX_ERR(0, 370, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_l2g), __pyx_ptype_5numpy_ndarray, 1, "mesh_l2g", 0))) __PYX_ERR(0, 372, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dV_ref), __pyx_ptype_5numpy_ndarray, 1, "dV_ref", 0))) __PYX_ERR(0, 373, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_ref", 0))) __PYX_ERR(0, 374, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_ref", 0))) __PYX_ERR(0, 375, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_ref", 0))) __PYX_ERR(0, 376, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_ref", 0))) __PYX_ERR(0, 377, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_trace_ref", 0))) __PYX_ERR(0, 378, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_trace_ref", 0))) __PYX_ERR(0, 379, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dS_ref), __pyx_ptype_5numpy_ndarray, 1, "dS_ref", 0))) __PYX_ERR(0, 380, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_trace_ref", 0))) __PYX_ERR(0, 381, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_trace_ref", 0))) __PYX_ERR(0, 382, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_trace_ref", 0))) __PYX_ERR(0, 383, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_trace_ref", 0))) __PYX_ERR(0, 384, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_normal_ref), __pyx_ptype_5numpy_ndarray, 1, "normal_ref", 0))) __PYX_ERR(0, 385, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_boundaryJac_ref), __pyx_ptype_5numpy_ndarray, 1, "boundaryJac_ref", 0))) __PYX_ERR(0, 386, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_porosity), __pyx_ptype_5numpy_ndarray, 1, "q_porosity", 0))) __PYX_ERR(0, 394, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_porosity_dof), __pyx_ptype_5numpy_ndarray, 1, "porosity_dof", 0))) __PYX_ERR(0, 395, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_l2g), __pyx_ptype_5numpy_ndarray, 1, "u_l2g", 0))) __PYX_ERR(0, 397, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementDiameter), __pyx_ptype_5numpy_ndarray, 1, "elementDiameter", 0))) __PYX_ERR(0, 398, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof), __pyx_ptype_5numpy_ndarray, 1, "u_dof", 0))) __PYX_ERR(0, 400, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof_old), __pyx_ptype_5numpy_ndarray, 1, "u_dof_old", 0))) __PYX_ERR(0, 401, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_velocity), __pyx_ptype_5numpy_ndarray, 1, "velocity", 0))) __PYX_ERR(0, 402, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m), __pyx_ptype_5numpy_ndarray, 1, "q_m", 0))) __PYX_ERR(0, 403, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_u), __pyx_ptype_5numpy_ndarray, 1, "q_u", 0))) __PYX_ERR(0, 404, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m_betaBDF), __pyx_ptype_5numpy_ndarray, 1, "q_m_betaBDF", 0))) __PYX_ERR(0, 405, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_dV), __pyx_ptype_5numpy_ndarray, 1, "q_dV", 0))) __PYX_ERR(0, 406, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_dV_last), __pyx_ptype_5numpy_ndarray, 1, "q_dV_last", 0))) __PYX_ERR(0, 407, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cfl), __pyx_ptype_5numpy_ndarray, 1, "cfl", 0))) __PYX_ERR(0, 408, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_edge_based_cfl), __pyx_ptype_5numpy_ndarray, 1, "edge_based_cfl", 0))) __PYX_ERR(0, 409, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u", 0))) __PYX_ERR(0, 410, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u_last), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u_last", 0))) __PYX_ERR(0, 411, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_globalResidual), __pyx_ptype_5numpy_ndarray, 1, "globalResidual", 0))) __PYX_ERR(0, 413, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exteriorElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "exteriorElementBoundariesArray", 0))) __PYX_ERR(0, 415, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryElementsArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryElementsArray", 0))) __PYX_ERR(0, 416, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryLocalElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryLocalElementBoundariesArray", 0))) __PYX_ERR(0, 417, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_velocity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_velocity_ext", 0))) __PYX_ERR(0, 418, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_porosity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_porosity_ext", 0))) __PYX_ERR(0, 420, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isDOFBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isDOFBoundary_u", 0))) __PYX_ERR(0, 422, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_u_ext", 0))) __PYX_ERR(0, 423, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isFluxBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isFluxBoundary_u", 0))) __PYX_ERR(0, 424, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_flux_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_flux_u_ext", 0))) __PYX_ERR(0, 425, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_phi), __pyx_ptype_5numpy_ndarray, 1, "ebqe_phi", 0))) __PYX_ERR(0, 426, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_u), __pyx_ptype_5numpy_ndarray, 1, "ebqe_u", 0))) __PYX_ERR(0, 427, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_flux), __pyx_ptype_5numpy_ndarray, 1, "ebqe_flux", 0))) __PYX_ERR(0, 428, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_DofLoops", 0))) __PYX_ERR(0, 435, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_DofLoops", 0))) __PYX_ERR(0, 436, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_CellLoops", 0))) __PYX_ERR(0, 437, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_CellLoops", 0))) __PYX_ERR(0, 438, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_eb_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_eb_CellLoops", 0))) __PYX_ERR(0, 439, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cx), __pyx_ptype_5numpy_ndarray, 1, "Cx", 0))) __PYX_ERR(0, 440, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cy), __pyx_ptype_5numpy_ndarray, 1, "Cy", 0))) __PYX_ERR(0, 441, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cz), __pyx_ptype_5numpy_ndarray, 1, "Cz", 0))) __PYX_ERR(0, 442, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTx), __pyx_ptype_5numpy_ndarray, 1, "CTx", 0))) __PYX_ERR(0, 443, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTy), __pyx_ptype_5numpy_ndarray, 1, "CTy", 0))) __PYX_ERR(0, 444, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTz), __pyx_ptype_5numpy_ndarray, 1, "CTz", 0))) __PYX_ERR(0, 445, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ML), __pyx_ptype_5numpy_ndarray, 1, "ML", 0))) __PYX_ERR(0, 446, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_low_order_solution), __pyx_ptype_5numpy_ndarray, 1, "low_order_solution", 0))) __PYX_ERR(0, 450, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dt_times_dH_minus_dL), __pyx_ptype_5numpy_ndarray, 1, "dt_times_dH_minus_dL", 0))) __PYX_ERR(0, 451, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_min_u_bc), __pyx_ptype_5numpy_ndarray, 1, "min_u_bc", 0))) __PYX_ERR(0, 452, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_max_u_bc), __pyx_ptype_5numpy_ndarray, 1, "max_u_bc", 0))) __PYX_ERR(0, 453, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_quantDOFs), __pyx_ptype_5numpy_ndarray, 1, "quantDOFs", 0))) __PYX_ERR(0, 454, __pyx_L1_error)
+  __pyx_r = __pyx_pf_6mprans_4cTIM_9cTIM_base_6calculateResidual(((struct __pyx_obj_6mprans_4cTIM_cTIM_base *)__pyx_v_self), __pyx_v_dt, __pyx_v_mesh_trial_ref, __pyx_v_mesh_grad_trial_ref, __pyx_v_mesh_dof, __pyx_v_mesh_velocity_dof, __pyx_v_MOVING_DOMAIN, __pyx_v_mesh_l2g, __pyx_v_dV_ref, __pyx_v_u_trial_ref, __pyx_v_u_grad_trial_ref, __pyx_v_u_test_ref, __pyx_v_u_grad_test_ref, __pyx_v_mesh_trial_trace_ref, __pyx_v_mesh_grad_trial_trace_ref, __pyx_v_dS_ref, __pyx_v_u_trial_trace_ref, __pyx_v_u_grad_trial_trace_ref, __pyx_v_u_test_trace_ref, __pyx_v_u_grad_test_trace_ref, __pyx_v_normal_ref, __pyx_v_boundaryJac_ref, __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, __pyx_v_sc_uref, __pyx_v_sc_alpha, __pyx_v_q_porosity, __pyx_v_porosity_dof, __pyx_v_u_l2g, __pyx_v_elementDiameter, __pyx_v_degree_polynomial, __pyx_v_u_dof, __pyx_v_u_dof_old, __pyx_v_velocity, __pyx_v_q_m, __pyx_v_q_u, __pyx_v_q_m_betaBDF, __pyx_v_q_dV, __pyx_v_q_dV_last, __pyx_v_cfl, __pyx_v_edge_based_cfl, __pyx_v_q_numDiff_u, __pyx_v_q_numDiff_u_last, __pyx_v_offset_u, __pyx_v_stride_u, __pyx_v_globalResidual, __pyx_v_nExteriorElementBoundaries_global, __pyx_v_exteriorElementBoundariesArray, __pyx_v_elementBoundaryElementsArray, __pyx_v_elementBoundaryLocalElementBoundariesArray, __pyx_v_ebqe_velocity_ext, __pyx_v_ebqe_porosity_ext, __pyx_v_isDOFBoundary_u, __pyx_v_ebqe_bc_u_ext, __pyx_v_isFluxBoundary_u, __pyx_v_ebqe_bc_flux_u_ext, __pyx_v_ebqe_phi, __pyx_v_epsFact, __pyx_v_ebqe_u, __pyx_v_ebqe_flux, __pyx_v_cE, __pyx_v_cK, __pyx_v_uL, __pyx_v_uR, __pyx_v_numDOFs, __pyx_v_NNZ, __pyx_v_csrRowIndeces_DofLoops, __pyx_v_csrColumnOffsets_DofLoops, __pyx_v_csrRowIndeces_CellLoops, __pyx_v_csrColumnOffsets_CellLoops, __pyx_v_csrColumnOffsets_eb_CellLoops, __pyx_v_Cx, __pyx_v_Cy, __pyx_v_Cz, __pyx_v_CTx, __pyx_v_CTy, __pyx_v_CTz, __pyx_v_ML, __pyx_v_LUMPED_MASS_MATRIX, __pyx_v_STABILIZATION_TYPE, __pyx_v_ENTROPY_TYPE, __pyx_v_low_order_solution, __pyx_v_dt_times_dH_minus_dL, __pyx_v_min_u_bc, __pyx_v_max_u_bc, __pyx_v_quantDOFs);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2973,21 +2950,21 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_7calculateResidual(PyObject *
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_6calculateResidual(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, double __pyx_v_dt, PyArrayObject *__pyx_v_mesh_trial_ref, PyArrayObject *__pyx_v_mesh_grad_trial_ref, PyArrayObject *__pyx_v_mesh_dof, PyArrayObject *__pyx_v_mesh_velocity_dof, double __pyx_v_MOVING_DOMAIN, PyArrayObject *__pyx_v_mesh_l2g, PyArrayObject *__pyx_v_dV_ref, PyArrayObject *__pyx_v_u_trial_ref, PyArrayObject *__pyx_v_u_grad_trial_ref, PyArrayObject *__pyx_v_u_test_ref, PyArrayObject *__pyx_v_u_grad_test_ref, PyArrayObject *__pyx_v_mesh_trial_trace_ref, PyArrayObject *__pyx_v_mesh_grad_trial_trace_ref, PyArrayObject *__pyx_v_dS_ref, PyArrayObject *__pyx_v_u_trial_trace_ref, PyArrayObject *__pyx_v_u_grad_trial_trace_ref, PyArrayObject *__pyx_v_u_test_trace_ref, PyArrayObject *__pyx_v_u_grad_test_trace_ref, PyArrayObject *__pyx_v_normal_ref, PyArrayObject *__pyx_v_boundaryJac_ref, int __pyx_v_nElements_global, double __pyx_v_useMetrics, double __pyx_v_alphaBDF, int __pyx_v_lag_shockCapturing, double __pyx_v_shockCapturingDiffusion, double __pyx_v_sc_uref, double __pyx_v_sc_alpha, PyArrayObject *__pyx_v_q_porosity, PyArrayObject *__pyx_v_porosity_dof, PyArrayObject *__pyx_v_u_l2g, PyArrayObject *__pyx_v_elementDiameter, int __pyx_v_degree_polynomial, PyArrayObject *__pyx_v_u_dof, PyArrayObject *__pyx_v_u_dof_old, PyArrayObject *__pyx_v_velocity, PyArrayObject *__pyx_v_q_m, PyArrayObject *__pyx_v_q_u, PyArrayObject *__pyx_v_q_m_betaBDF, PyArrayObject *__pyx_v_q_dV, PyArrayObject *__pyx_v_q_dV_last, PyArrayObject *__pyx_v_cfl, PyArrayObject *__pyx_v_edge_based_cfl, PyArrayObject *__pyx_v_q_numDiff_u, PyArrayObject *__pyx_v_q_numDiff_u_last, int __pyx_v_offset_u, int __pyx_v_stride_u, PyArrayObject *__pyx_v_globalResidual, int __pyx_v_nExteriorElementBoundaries_global, PyArrayObject *__pyx_v_exteriorElementBoundariesArray, PyArrayObject *__pyx_v_elementBoundaryElementsArray, PyArrayObject *__pyx_v_elementBoundaryLocalElementBoundariesArray, PyArrayObject *__pyx_v_ebqe_velocity_ext, PyArrayObject *__pyx_v_ebqe_porosity_ext, PyArrayObject *__pyx_v_isDOFBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_u_ext, PyArrayObject *__pyx_v_isFluxBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_flux_u_ext, PyArrayObject *__pyx_v_ebqe_phi, double __pyx_v_epsFact, PyArrayObject *__pyx_v_ebqe_u, PyArrayObject *__pyx_v_ebqe_flux, double __pyx_v_cE, double __pyx_v_cK, double __pyx_v_uL, double __pyx_v_uR, int __pyx_v_numDOFs, int __pyx_v_NNZ, PyArrayObject *__pyx_v_csrRowIndeces_DofLoops, PyArrayObject *__pyx_v_csrColumnOffsets_DofLoops, PyArrayObject *__pyx_v_csrRowIndeces_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_eb_CellLoops, PyArrayObject *__pyx_v_Cx, PyArrayObject *__pyx_v_Cy, PyArrayObject *__pyx_v_Cz, PyArrayObject *__pyx_v_CTx, PyArrayObject *__pyx_v_CTy, PyArrayObject *__pyx_v_CTz, PyArrayObject *__pyx_v_ML, int __pyx_v_LUMPED_MASS_MATRIX, int __pyx_v_STABILIZATION_TYPE, int __pyx_v_ENTROPY_TYPE, PyArrayObject *__pyx_v_low_order_solution, PyArrayObject *__pyx_v_dt_times_dH_minus_dL, PyArrayObject *__pyx_v_min_u_bc, PyArrayObject *__pyx_v_max_u_bc, PyArrayObject *__pyx_v_quantDOFs, double __pyx_v_poro, PyArrayObject *__pyx_v_p_dof) {
+static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_6calculateResidual(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, double __pyx_v_dt, PyArrayObject *__pyx_v_mesh_trial_ref, PyArrayObject *__pyx_v_mesh_grad_trial_ref, PyArrayObject *__pyx_v_mesh_dof, PyArrayObject *__pyx_v_mesh_velocity_dof, double __pyx_v_MOVING_DOMAIN, PyArrayObject *__pyx_v_mesh_l2g, PyArrayObject *__pyx_v_dV_ref, PyArrayObject *__pyx_v_u_trial_ref, PyArrayObject *__pyx_v_u_grad_trial_ref, PyArrayObject *__pyx_v_u_test_ref, PyArrayObject *__pyx_v_u_grad_test_ref, PyArrayObject *__pyx_v_mesh_trial_trace_ref, PyArrayObject *__pyx_v_mesh_grad_trial_trace_ref, PyArrayObject *__pyx_v_dS_ref, PyArrayObject *__pyx_v_u_trial_trace_ref, PyArrayObject *__pyx_v_u_grad_trial_trace_ref, PyArrayObject *__pyx_v_u_test_trace_ref, PyArrayObject *__pyx_v_u_grad_test_trace_ref, PyArrayObject *__pyx_v_normal_ref, PyArrayObject *__pyx_v_boundaryJac_ref, int __pyx_v_nElements_global, double __pyx_v_useMetrics, double __pyx_v_alphaBDF, int __pyx_v_lag_shockCapturing, double __pyx_v_shockCapturingDiffusion, double __pyx_v_sc_uref, double __pyx_v_sc_alpha, PyArrayObject *__pyx_v_q_porosity, PyArrayObject *__pyx_v_porosity_dof, PyArrayObject *__pyx_v_u_l2g, PyArrayObject *__pyx_v_elementDiameter, int __pyx_v_degree_polynomial, PyArrayObject *__pyx_v_u_dof, PyArrayObject *__pyx_v_u_dof_old, PyArrayObject *__pyx_v_velocity, PyArrayObject *__pyx_v_q_m, PyArrayObject *__pyx_v_q_u, PyArrayObject *__pyx_v_q_m_betaBDF, PyArrayObject *__pyx_v_q_dV, PyArrayObject *__pyx_v_q_dV_last, PyArrayObject *__pyx_v_cfl, PyArrayObject *__pyx_v_edge_based_cfl, PyArrayObject *__pyx_v_q_numDiff_u, PyArrayObject *__pyx_v_q_numDiff_u_last, int __pyx_v_offset_u, int __pyx_v_stride_u, PyArrayObject *__pyx_v_globalResidual, int __pyx_v_nExteriorElementBoundaries_global, PyArrayObject *__pyx_v_exteriorElementBoundariesArray, PyArrayObject *__pyx_v_elementBoundaryElementsArray, PyArrayObject *__pyx_v_elementBoundaryLocalElementBoundariesArray, PyArrayObject *__pyx_v_ebqe_velocity_ext, PyArrayObject *__pyx_v_ebqe_porosity_ext, PyArrayObject *__pyx_v_isDOFBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_u_ext, PyArrayObject *__pyx_v_isFluxBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_flux_u_ext, PyArrayObject *__pyx_v_ebqe_phi, double __pyx_v_epsFact, PyArrayObject *__pyx_v_ebqe_u, PyArrayObject *__pyx_v_ebqe_flux, double __pyx_v_cE, double __pyx_v_cK, double __pyx_v_uL, double __pyx_v_uR, int __pyx_v_numDOFs, int __pyx_v_NNZ, PyArrayObject *__pyx_v_csrRowIndeces_DofLoops, PyArrayObject *__pyx_v_csrColumnOffsets_DofLoops, PyArrayObject *__pyx_v_csrRowIndeces_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_eb_CellLoops, PyArrayObject *__pyx_v_Cx, PyArrayObject *__pyx_v_Cy, PyArrayObject *__pyx_v_Cz, PyArrayObject *__pyx_v_CTx, PyArrayObject *__pyx_v_CTy, PyArrayObject *__pyx_v_CTz, PyArrayObject *__pyx_v_ML, int __pyx_v_LUMPED_MASS_MATRIX, int __pyx_v_STABILIZATION_TYPE, int __pyx_v_ENTROPY_TYPE, PyArrayObject *__pyx_v_low_order_solution, PyArrayObject *__pyx_v_dt_times_dH_minus_dL, PyArrayObject *__pyx_v_min_u_bc, PyArrayObject *__pyx_v_max_u_bc, PyArrayObject *__pyx_v_quantDOFs) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("calculateResidual", 0);
 
-  /* "mprans/cTIM.pyx":464
- *                          double poro,
- *                          numpy.ndarray p_dof):
+  /* "mprans/cTIM.pyx":455
+ *                          numpy.ndarray max_u_bc,
+ *                          numpy.ndarray quantDOFs):
  *        self.thisptr.calculateResidual(dt,             # <<<<<<<<<<<<<<
  *                                        <double*> mesh_trial_ref.data,
  *                                        <double*> mesh_grad_trial_ref.data,
  */
-  __pyx_v_self->thisptr->calculateResidual(__pyx_v_dt, ((double *)__pyx_v_mesh_trial_ref->data), ((double *)__pyx_v_mesh_grad_trial_ref->data), ((double *)__pyx_v_mesh_dof->data), ((double *)__pyx_v_mesh_velocity_dof->data), __pyx_v_MOVING_DOMAIN, ((int *)__pyx_v_mesh_l2g->data), ((double *)__pyx_v_dV_ref->data), ((double *)__pyx_v_u_trial_ref->data), ((double *)__pyx_v_u_grad_trial_ref->data), ((double *)__pyx_v_u_test_ref->data), ((double *)__pyx_v_u_grad_test_ref->data), ((double *)__pyx_v_mesh_trial_trace_ref->data), ((double *)__pyx_v_mesh_grad_trial_trace_ref->data), ((double *)__pyx_v_dS_ref->data), ((double *)__pyx_v_u_trial_trace_ref->data), ((double *)__pyx_v_u_grad_trial_trace_ref->data), ((double *)__pyx_v_u_test_trace_ref->data), ((double *)__pyx_v_u_grad_test_trace_ref->data), ((double *)__pyx_v_normal_ref->data), ((double *)__pyx_v_boundaryJac_ref->data), __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, __pyx_v_sc_uref, __pyx_v_sc_alpha, ((double *)__pyx_v_q_porosity->data), ((double *)__pyx_v_porosity_dof->data), ((int *)__pyx_v_u_l2g->data), ((double *)__pyx_v_elementDiameter->data), __pyx_v_degree_polynomial, ((double *)__pyx_v_u_dof->data), ((double *)__pyx_v_u_dof_old->data), ((double *)__pyx_v_velocity->data), ((double *)__pyx_v_q_m->data), ((double *)__pyx_v_q_u->data), ((double *)__pyx_v_q_m_betaBDF->data), ((double *)__pyx_v_q_dV->data), ((double *)__pyx_v_q_dV_last->data), ((double *)__pyx_v_cfl->data), ((double *)__pyx_v_edge_based_cfl->data), ((double *)__pyx_v_q_numDiff_u->data), ((double *)__pyx_v_q_numDiff_u_last->data), __pyx_v_offset_u, __pyx_v_stride_u, ((double *)__pyx_v_globalResidual->data), __pyx_v_nExteriorElementBoundaries_global, ((int *)__pyx_v_exteriorElementBoundariesArray->data), ((int *)__pyx_v_elementBoundaryElementsArray->data), ((int *)__pyx_v_elementBoundaryLocalElementBoundariesArray->data), ((double *)__pyx_v_ebqe_velocity_ext->data), ((double *)__pyx_v_ebqe_porosity_ext->data), ((int *)__pyx_v_isDOFBoundary_u->data), ((double *)__pyx_v_ebqe_bc_u_ext->data), ((int *)__pyx_v_isFluxBoundary_u->data), ((double *)__pyx_v_ebqe_bc_flux_u_ext->data), ((double *)__pyx_v_ebqe_phi->data), __pyx_v_epsFact, ((double *)__pyx_v_ebqe_u->data), ((double *)__pyx_v_ebqe_flux->data), __pyx_v_cE, __pyx_v_cK, __pyx_v_uL, __pyx_v_uR, __pyx_v_numDOFs, __pyx_v_NNZ, ((int *)__pyx_v_csrRowIndeces_DofLoops->data), ((int *)__pyx_v_csrColumnOffsets_DofLoops->data), ((int *)__pyx_v_csrRowIndeces_CellLoops->data), ((int *)__pyx_v_csrColumnOffsets_CellLoops->data), ((int *)__pyx_v_csrColumnOffsets_eb_CellLoops->data), ((double *)__pyx_v_Cx->data), ((double *)__pyx_v_Cy->data), ((double *)__pyx_v_Cz->data), ((double *)__pyx_v_CTx->data), ((double *)__pyx_v_CTy->data), ((double *)__pyx_v_CTz->data), ((double *)__pyx_v_ML->data), __pyx_v_LUMPED_MASS_MATRIX, __pyx_v_STABILIZATION_TYPE, __pyx_v_ENTROPY_TYPE, ((double *)__pyx_v_low_order_solution->data), ((double *)__pyx_v_dt_times_dH_minus_dL->data), ((double *)__pyx_v_min_u_bc->data), ((double *)__pyx_v_max_u_bc->data), ((double *)__pyx_v_quantDOFs->data), __pyx_v_poro, ((double *)__pyx_v_p_dof->data));
+  __pyx_v_self->thisptr->calculateResidual(__pyx_v_dt, ((double *)__pyx_v_mesh_trial_ref->data), ((double *)__pyx_v_mesh_grad_trial_ref->data), ((double *)__pyx_v_mesh_dof->data), ((double *)__pyx_v_mesh_velocity_dof->data), __pyx_v_MOVING_DOMAIN, ((int *)__pyx_v_mesh_l2g->data), ((double *)__pyx_v_dV_ref->data), ((double *)__pyx_v_u_trial_ref->data), ((double *)__pyx_v_u_grad_trial_ref->data), ((double *)__pyx_v_u_test_ref->data), ((double *)__pyx_v_u_grad_test_ref->data), ((double *)__pyx_v_mesh_trial_trace_ref->data), ((double *)__pyx_v_mesh_grad_trial_trace_ref->data), ((double *)__pyx_v_dS_ref->data), ((double *)__pyx_v_u_trial_trace_ref->data), ((double *)__pyx_v_u_grad_trial_trace_ref->data), ((double *)__pyx_v_u_test_trace_ref->data), ((double *)__pyx_v_u_grad_test_trace_ref->data), ((double *)__pyx_v_normal_ref->data), ((double *)__pyx_v_boundaryJac_ref->data), __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, __pyx_v_sc_uref, __pyx_v_sc_alpha, ((double *)__pyx_v_q_porosity->data), ((double *)__pyx_v_porosity_dof->data), ((int *)__pyx_v_u_l2g->data), ((double *)__pyx_v_elementDiameter->data), __pyx_v_degree_polynomial, ((double *)__pyx_v_u_dof->data), ((double *)__pyx_v_u_dof_old->data), ((double *)__pyx_v_velocity->data), ((double *)__pyx_v_q_m->data), ((double *)__pyx_v_q_u->data), ((double *)__pyx_v_q_m_betaBDF->data), ((double *)__pyx_v_q_dV->data), ((double *)__pyx_v_q_dV_last->data), ((double *)__pyx_v_cfl->data), ((double *)__pyx_v_edge_based_cfl->data), ((double *)__pyx_v_q_numDiff_u->data), ((double *)__pyx_v_q_numDiff_u_last->data), __pyx_v_offset_u, __pyx_v_stride_u, ((double *)__pyx_v_globalResidual->data), __pyx_v_nExteriorElementBoundaries_global, ((int *)__pyx_v_exteriorElementBoundariesArray->data), ((int *)__pyx_v_elementBoundaryElementsArray->data), ((int *)__pyx_v_elementBoundaryLocalElementBoundariesArray->data), ((double *)__pyx_v_ebqe_velocity_ext->data), ((double *)__pyx_v_ebqe_porosity_ext->data), ((int *)__pyx_v_isDOFBoundary_u->data), ((double *)__pyx_v_ebqe_bc_u_ext->data), ((int *)__pyx_v_isFluxBoundary_u->data), ((double *)__pyx_v_ebqe_bc_flux_u_ext->data), ((double *)__pyx_v_ebqe_phi->data), __pyx_v_epsFact, ((double *)__pyx_v_ebqe_u->data), ((double *)__pyx_v_ebqe_flux->data), __pyx_v_cE, __pyx_v_cK, __pyx_v_uL, __pyx_v_uR, __pyx_v_numDOFs, __pyx_v_NNZ, ((int *)__pyx_v_csrRowIndeces_DofLoops->data), ((int *)__pyx_v_csrColumnOffsets_DofLoops->data), ((int *)__pyx_v_csrRowIndeces_CellLoops->data), ((int *)__pyx_v_csrColumnOffsets_CellLoops->data), ((int *)__pyx_v_csrColumnOffsets_eb_CellLoops->data), ((double *)__pyx_v_Cx->data), ((double *)__pyx_v_Cy->data), ((double *)__pyx_v_Cz->data), ((double *)__pyx_v_CTx->data), ((double *)__pyx_v_CTy->data), ((double *)__pyx_v_CTz->data), ((double *)__pyx_v_ML->data), __pyx_v_LUMPED_MASS_MATRIX, __pyx_v_STABILIZATION_TYPE, __pyx_v_ENTROPY_TYPE, ((double *)__pyx_v_low_order_solution->data), ((double *)__pyx_v_dt_times_dH_minus_dL->data), ((double *)__pyx_v_min_u_bc->data), ((double *)__pyx_v_max_u_bc->data), ((double *)__pyx_v_quantDOFs->data));
 
-  /* "mprans/cTIM.pyx":371
+  /* "mprans/cTIM.pyx":365
  *                             <double*> max_u_bc.data,
  *                             LUMPED_MASS_MATRIX)
  *    def calculateResidual(self,             # <<<<<<<<<<<<<<
@@ -3002,9 +2979,9 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_6calculateResidual(struct __p
   return __pyx_r;
 }
 
-/* "mprans/cTIM.pyx":557
- *                                         poro,
- *                                         <double*> p_dof.data)
+/* "mprans/cTIM.pyx":545
+ *                                        <double*> max_u_bc.data,
+ *                                        <double*> quantDOFs.data)
  *    def calculateResidual_entropy_viscosity(self,             # <<<<<<<<<<<<<<
  *                          double dt,
  *                          numpy.ndarray mesh_trial_ref,
@@ -3101,20 +3078,16 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_9calculateResidual_entropy_vi
   PyArrayObject *__pyx_v_min_u_bc = 0;
   PyArrayObject *__pyx_v_max_u_bc = 0;
   PyArrayObject *__pyx_v_quantDOFs = 0;
-  double __pyx_v_poro;
-  PyArrayObject *__pyx_v_p_dof = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("calculateResidual_entropy_viscosity (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dt,&__pyx_n_s_mesh_trial_ref,&__pyx_n_s_mesh_grad_trial_ref,&__pyx_n_s_mesh_dof,&__pyx_n_s_mesh_velocity_dof,&__pyx_n_s_MOVING_DOMAIN,&__pyx_n_s_mesh_l2g,&__pyx_n_s_dV_ref,&__pyx_n_s_u_trial_ref,&__pyx_n_s_u_grad_trial_ref,&__pyx_n_s_u_test_ref,&__pyx_n_s_u_grad_test_ref,&__pyx_n_s_mesh_trial_trace_ref,&__pyx_n_s_mesh_grad_trial_trace_ref,&__pyx_n_s_dS_ref,&__pyx_n_s_u_trial_trace_ref,&__pyx_n_s_u_grad_trial_trace_ref,&__pyx_n_s_u_test_trace_ref,&__pyx_n_s_u_grad_test_trace_ref,&__pyx_n_s_normal_ref,&__pyx_n_s_boundaryJac_ref,&__pyx_n_s_nElements_global,&__pyx_n_s_useMetrics,&__pyx_n_s_alphaBDF,&__pyx_n_s_lag_shockCapturing,&__pyx_n_s_shockCapturingDiffusion,&__pyx_n_s_sc_uref,&__pyx_n_s_sc_alpha,&__pyx_n_s_q_porosity,&__pyx_n_s_porosity_dof,&__pyx_n_s_u_l2g,&__pyx_n_s_elementDiameter,&__pyx_n_s_degree_polynomial,&__pyx_n_s_u_dof,&__pyx_n_s_u_dof_old,&__pyx_n_s_velocity,&__pyx_n_s_q_m,&__pyx_n_s_q_u,&__pyx_n_s_q_m_betaBDF,&__pyx_n_s_q_dV,&__pyx_n_s_q_dV_last,&__pyx_n_s_cfl,&__pyx_n_s_edge_based_cfl,&__pyx_n_s_q_numDiff_u,&__pyx_n_s_q_numDiff_u_last,&__pyx_n_s_offset_u,&__pyx_n_s_stride_u,&__pyx_n_s_globalResidual,&__pyx_n_s_nExteriorElementBoundaries_globa,&__pyx_n_s_exteriorElementBoundariesArray,&__pyx_n_s_elementBoundaryElementsArray,&__pyx_n_s_elementBoundaryLocalElementBound,&__pyx_n_s_ebqe_velocity_ext,&__pyx_n_s_ebqe_porosity_ext,&__pyx_n_s_isDOFBoundary_u,&__pyx_n_s_ebqe_bc_u_ext,&__pyx_n_s_isFluxBoundary_u,&__pyx_n_s_ebqe_bc_flux_u_ext,&__pyx_n_s_ebqe_phi,&__pyx_n_s_epsFact,&__pyx_n_s_ebqe_u,&__pyx_n_s_ebqe_flux,&__pyx_n_s_cE,&__pyx_n_s_cK,&__pyx_n_s_uL,&__pyx_n_s_uR,&__pyx_n_s_numDOFs,&__pyx_n_s_NNZ,&__pyx_n_s_csrRowIndeces_DofLoops,&__pyx_n_s_csrColumnOffsets_DofLoops,&__pyx_n_s_csrRowIndeces_CellLoops,&__pyx_n_s_csrColumnOffsets_CellLoops,&__pyx_n_s_csrColumnOffsets_eb_CellLoops,&__pyx_n_s_Cx,&__pyx_n_s_Cy,&__pyx_n_s_Cz,&__pyx_n_s_CTx,&__pyx_n_s_CTy,&__pyx_n_s_CTz,&__pyx_n_s_ML,&__pyx_n_s_LUMPED_MASS_MATRIX,&__pyx_n_s_STABILIZATION_TYPE,&__pyx_n_s_ENTROPY_TYPE,&__pyx_n_s_low_order_solution,&__pyx_n_s_dt_times_dH_minus_dL,&__pyx_n_s_min_u_bc,&__pyx_n_s_max_u_bc,&__pyx_n_s_quantDOFs,&__pyx_n_s_poro,&__pyx_n_s_p_dof,0};
-    PyObject* values[90] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dt,&__pyx_n_s_mesh_trial_ref,&__pyx_n_s_mesh_grad_trial_ref,&__pyx_n_s_mesh_dof,&__pyx_n_s_mesh_velocity_dof,&__pyx_n_s_MOVING_DOMAIN,&__pyx_n_s_mesh_l2g,&__pyx_n_s_dV_ref,&__pyx_n_s_u_trial_ref,&__pyx_n_s_u_grad_trial_ref,&__pyx_n_s_u_test_ref,&__pyx_n_s_u_grad_test_ref,&__pyx_n_s_mesh_trial_trace_ref,&__pyx_n_s_mesh_grad_trial_trace_ref,&__pyx_n_s_dS_ref,&__pyx_n_s_u_trial_trace_ref,&__pyx_n_s_u_grad_trial_trace_ref,&__pyx_n_s_u_test_trace_ref,&__pyx_n_s_u_grad_test_trace_ref,&__pyx_n_s_normal_ref,&__pyx_n_s_boundaryJac_ref,&__pyx_n_s_nElements_global,&__pyx_n_s_useMetrics,&__pyx_n_s_alphaBDF,&__pyx_n_s_lag_shockCapturing,&__pyx_n_s_shockCapturingDiffusion,&__pyx_n_s_sc_uref,&__pyx_n_s_sc_alpha,&__pyx_n_s_q_porosity,&__pyx_n_s_porosity_dof,&__pyx_n_s_u_l2g,&__pyx_n_s_elementDiameter,&__pyx_n_s_degree_polynomial,&__pyx_n_s_u_dof,&__pyx_n_s_u_dof_old,&__pyx_n_s_velocity,&__pyx_n_s_q_m,&__pyx_n_s_q_u,&__pyx_n_s_q_m_betaBDF,&__pyx_n_s_q_dV,&__pyx_n_s_q_dV_last,&__pyx_n_s_cfl,&__pyx_n_s_edge_based_cfl,&__pyx_n_s_q_numDiff_u,&__pyx_n_s_q_numDiff_u_last,&__pyx_n_s_offset_u,&__pyx_n_s_stride_u,&__pyx_n_s_globalResidual,&__pyx_n_s_nExteriorElementBoundaries_globa,&__pyx_n_s_exteriorElementBoundariesArray,&__pyx_n_s_elementBoundaryElementsArray,&__pyx_n_s_elementBoundaryLocalElementBound,&__pyx_n_s_ebqe_velocity_ext,&__pyx_n_s_ebqe_porosity_ext,&__pyx_n_s_isDOFBoundary_u,&__pyx_n_s_ebqe_bc_u_ext,&__pyx_n_s_isFluxBoundary_u,&__pyx_n_s_ebqe_bc_flux_u_ext,&__pyx_n_s_ebqe_phi,&__pyx_n_s_epsFact,&__pyx_n_s_ebqe_u,&__pyx_n_s_ebqe_flux,&__pyx_n_s_cE,&__pyx_n_s_cK,&__pyx_n_s_uL,&__pyx_n_s_uR,&__pyx_n_s_numDOFs,&__pyx_n_s_NNZ,&__pyx_n_s_csrRowIndeces_DofLoops,&__pyx_n_s_csrColumnOffsets_DofLoops,&__pyx_n_s_csrRowIndeces_CellLoops,&__pyx_n_s_csrColumnOffsets_CellLoops,&__pyx_n_s_csrColumnOffsets_eb_CellLoops,&__pyx_n_s_Cx,&__pyx_n_s_Cy,&__pyx_n_s_Cz,&__pyx_n_s_CTx,&__pyx_n_s_CTy,&__pyx_n_s_CTz,&__pyx_n_s_ML,&__pyx_n_s_LUMPED_MASS_MATRIX,&__pyx_n_s_STABILIZATION_TYPE,&__pyx_n_s_ENTROPY_TYPE,&__pyx_n_s_low_order_solution,&__pyx_n_s_dt_times_dH_minus_dL,&__pyx_n_s_min_u_bc,&__pyx_n_s_max_u_bc,&__pyx_n_s_quantDOFs,0};
+    PyObject* values[88] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
-        case 90: values[89] = PyTuple_GET_ITEM(__pyx_args, 89);
-        case 89: values[88] = PyTuple_GET_ITEM(__pyx_args, 88);
         case 88: values[87] = PyTuple_GET_ITEM(__pyx_args, 87);
         case 87: values[86] = PyTuple_GET_ITEM(__pyx_args, 86);
         case 86: values[85] = PyTuple_GET_ITEM(__pyx_args, 85);
@@ -3214,453 +3187,443 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_9calculateResidual_entropy_vi
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 1); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 1); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_grad_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 2); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 2); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 3); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 3); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_velocity_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 4); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 4); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_MOVING_DOMAIN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 5); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 5); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_l2g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 6); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 6); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case  7:
         if (likely((values[7] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dV_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 7); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 7); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case  8:
         if (likely((values[8] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 8); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 8); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case  9:
         if (likely((values[9] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 9); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 9); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 10:
         if (likely((values[10] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_test_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 10); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 10); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 11:
         if (likely((values[11] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_test_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 11); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 11); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 12:
         if (likely((values[12] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 12); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 12); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 13:
         if (likely((values[13] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_grad_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 13); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 13); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 14:
         if (likely((values[14] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dS_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 14); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 14); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 15:
         if (likely((values[15] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 15); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 15); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 16:
         if (likely((values[16] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 16); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 16); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 17:
         if (likely((values[17] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_test_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 17); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 17); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 18:
         if (likely((values[18] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_test_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 18); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 18); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 19:
         if (likely((values[19] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_normal_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 19); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 19); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 20:
         if (likely((values[20] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_boundaryJac_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 20); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 20); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 21:
         if (likely((values[21] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nElements_global)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 21); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 21); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 22:
         if (likely((values[22] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_useMetrics)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 22); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 22); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 23:
         if (likely((values[23] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_alphaBDF)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 23); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 23); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 24:
         if (likely((values[24] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lag_shockCapturing)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 24); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 24); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 25:
         if (likely((values[25] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_shockCapturingDiffusion)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 25); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 25); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 26:
         if (likely((values[26] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sc_uref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 26); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 26); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 27:
         if (likely((values[27] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sc_alpha)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 27); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 27); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 28:
         if (likely((values[28] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_porosity)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 28); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 28); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 29:
         if (likely((values[29] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_porosity_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 29); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 29); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 30:
         if (likely((values[30] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_l2g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 30); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 30); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 31:
         if (likely((values[31] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementDiameter)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 31); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 31); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 32:
         if (likely((values[32] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_degree_polynomial)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 32); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 32); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 33:
         if (likely((values[33] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 33); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 33); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 34:
         if (likely((values[34] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_dof_old)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 34); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 34); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 35:
         if (likely((values[35] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_velocity)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 35); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 35); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 36:
         if (likely((values[36] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_m)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 36); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 36); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 37:
         if (likely((values[37] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 37); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 37); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 38:
         if (likely((values[38] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_m_betaBDF)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 38); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 38); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 39:
         if (likely((values[39] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_dV)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 39); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 39); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 40:
         if (likely((values[40] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_dV_last)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 40); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 40); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 41:
         if (likely((values[41] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_cfl)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 41); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 41); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 42:
         if (likely((values[42] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_edge_based_cfl)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 42); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 42); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 43:
         if (likely((values[43] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_numDiff_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 43); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 43); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 44:
         if (likely((values[44] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_numDiff_u_last)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 44); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 44); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 45:
         if (likely((values[45] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_offset_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 45); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 45); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 46:
         if (likely((values[46] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_stride_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 46); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 46); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 47:
         if (likely((values[47] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_globalResidual)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 47); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 47); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 48:
         if (likely((values[48] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nExteriorElementBoundaries_globa)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 48); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 48); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 49:
         if (likely((values[49] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exteriorElementBoundariesArray)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 49); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 49); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 50:
         if (likely((values[50] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementBoundaryElementsArray)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 50); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 50); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 51:
         if (likely((values[51] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementBoundaryLocalElementBound)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 51); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 51); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 52:
         if (likely((values[52] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_velocity_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 52); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 52); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 53:
         if (likely((values[53] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_porosity_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 53); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 53); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 54:
         if (likely((values[54] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_isDOFBoundary_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 54); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 54); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 55:
         if (likely((values[55] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_bc_u_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 55); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 55); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 56:
         if (likely((values[56] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_isFluxBoundary_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 56); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 56); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 57:
         if (likely((values[57] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_bc_flux_u_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 57); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 57); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 58:
         if (likely((values[58] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_phi)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 58); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 58); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 59:
         if (likely((values[59] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_epsFact)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 59); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 59); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 60:
         if (likely((values[60] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 60); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 60); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 61:
         if (likely((values[61] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_flux)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 61); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 61); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 62:
         if (likely((values[62] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_cE)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 62); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 62); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 63:
         if (likely((values[63] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_cK)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 63); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 63); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 64:
         if (likely((values[64] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_uL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 64); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 64); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 65:
         if (likely((values[65] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_uR)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 65); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 65); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 66:
         if (likely((values[66] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_numDOFs)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 66); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 66); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 67:
         if (likely((values[67] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_NNZ)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 67); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 67); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 68:
         if (likely((values[68] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrRowIndeces_DofLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 68); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 68); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 69:
         if (likely((values[69] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_DofLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 69); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 69); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 70:
         if (likely((values[70] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrRowIndeces_CellLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 70); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 70); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 71:
         if (likely((values[71] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_CellLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 71); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 71); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 72:
         if (likely((values[72] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_eb_CellLoops)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 72); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 72); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 73:
         if (likely((values[73] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Cx)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 73); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 73); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 74:
         if (likely((values[74] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Cy)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 74); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 74); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 75:
         if (likely((values[75] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Cz)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 75); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 75); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 76:
         if (likely((values[76] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_CTx)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 76); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 76); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 77:
         if (likely((values[77] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_CTy)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 77); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 77); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 78:
         if (likely((values[78] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_CTz)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 78); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 78); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 79:
         if (likely((values[79] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ML)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 79); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 79); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 80:
         if (likely((values[80] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_LUMPED_MASS_MATRIX)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 80); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 80); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 81:
         if (likely((values[81] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_STABILIZATION_TYPE)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 81); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 81); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 82:
         if (likely((values[82] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ENTROPY_TYPE)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 82); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 82); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 83:
         if (likely((values[83] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_low_order_solution)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 83); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 83); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 84:
         if (likely((values[84] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dt_times_dH_minus_dL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 84); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 84); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 85:
         if (likely((values[85] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_min_u_bc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 85); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 85); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 86:
         if (likely((values[86] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_max_u_bc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 86); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 86); __PYX_ERR(0, 545, __pyx_L3_error)
         }
         case 87:
         if (likely((values[87] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_quantDOFs)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 87); __PYX_ERR(0, 557, __pyx_L3_error)
-        }
-        case 88:
-        if (likely((values[88] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_poro)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 88); __PYX_ERR(0, 557, __pyx_L3_error)
-        }
-        case 89:
-        if (likely((values[89] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_p_dof)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, 89); __PYX_ERR(0, 557, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, 87); __PYX_ERR(0, 545, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calculateResidual_entropy_viscosity") < 0)) __PYX_ERR(0, 557, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calculateResidual_entropy_viscosity") < 0)) __PYX_ERR(0, 545, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 90) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 88) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
@@ -3751,15 +3714,13 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_9calculateResidual_entropy_vi
       values[85] = PyTuple_GET_ITEM(__pyx_args, 85);
       values[86] = PyTuple_GET_ITEM(__pyx_args, 86);
       values[87] = PyTuple_GET_ITEM(__pyx_args, 87);
-      values[88] = PyTuple_GET_ITEM(__pyx_args, 88);
-      values[89] = PyTuple_GET_ITEM(__pyx_args, 89);
     }
-    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 558, __pyx_L3_error)
+    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 546, __pyx_L3_error)
     __pyx_v_mesh_trial_ref = ((PyArrayObject *)values[1]);
     __pyx_v_mesh_grad_trial_ref = ((PyArrayObject *)values[2]);
     __pyx_v_mesh_dof = ((PyArrayObject *)values[3]);
     __pyx_v_mesh_velocity_dof = ((PyArrayObject *)values[4]);
-    __pyx_v_MOVING_DOMAIN = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_MOVING_DOMAIN == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 563, __pyx_L3_error)
+    __pyx_v_MOVING_DOMAIN = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_MOVING_DOMAIN == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 551, __pyx_L3_error)
     __pyx_v_mesh_l2g = ((PyArrayObject *)values[6]);
     __pyx_v_dV_ref = ((PyArrayObject *)values[7]);
     __pyx_v_u_trial_ref = ((PyArrayObject *)values[8]);
@@ -3775,18 +3736,18 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_9calculateResidual_entropy_vi
     __pyx_v_u_grad_test_trace_ref = ((PyArrayObject *)values[18]);
     __pyx_v_normal_ref = ((PyArrayObject *)values[19]);
     __pyx_v_boundaryJac_ref = ((PyArrayObject *)values[20]);
-    __pyx_v_nElements_global = __Pyx_PyInt_As_int(values[21]); if (unlikely((__pyx_v_nElements_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L3_error)
-    __pyx_v_useMetrics = __pyx_PyFloat_AsDouble(values[22]); if (unlikely((__pyx_v_useMetrics == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 580, __pyx_L3_error)
-    __pyx_v_alphaBDF = __pyx_PyFloat_AsDouble(values[23]); if (unlikely((__pyx_v_alphaBDF == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 581, __pyx_L3_error)
-    __pyx_v_lag_shockCapturing = __Pyx_PyInt_As_int(values[24]); if (unlikely((__pyx_v_lag_shockCapturing == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 582, __pyx_L3_error)
-    __pyx_v_shockCapturingDiffusion = __pyx_PyFloat_AsDouble(values[25]); if (unlikely((__pyx_v_shockCapturingDiffusion == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 583, __pyx_L3_error)
-    __pyx_v_sc_uref = __pyx_PyFloat_AsDouble(values[26]); if (unlikely((__pyx_v_sc_uref == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 584, __pyx_L3_error)
-    __pyx_v_sc_alpha = __pyx_PyFloat_AsDouble(values[27]); if (unlikely((__pyx_v_sc_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 584, __pyx_L3_error)
+    __pyx_v_nElements_global = __Pyx_PyInt_As_int(values[21]); if (unlikely((__pyx_v_nElements_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 567, __pyx_L3_error)
+    __pyx_v_useMetrics = __pyx_PyFloat_AsDouble(values[22]); if (unlikely((__pyx_v_useMetrics == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 568, __pyx_L3_error)
+    __pyx_v_alphaBDF = __pyx_PyFloat_AsDouble(values[23]); if (unlikely((__pyx_v_alphaBDF == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 569, __pyx_L3_error)
+    __pyx_v_lag_shockCapturing = __Pyx_PyInt_As_int(values[24]); if (unlikely((__pyx_v_lag_shockCapturing == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 570, __pyx_L3_error)
+    __pyx_v_shockCapturingDiffusion = __pyx_PyFloat_AsDouble(values[25]); if (unlikely((__pyx_v_shockCapturingDiffusion == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 571, __pyx_L3_error)
+    __pyx_v_sc_uref = __pyx_PyFloat_AsDouble(values[26]); if (unlikely((__pyx_v_sc_uref == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 572, __pyx_L3_error)
+    __pyx_v_sc_alpha = __pyx_PyFloat_AsDouble(values[27]); if (unlikely((__pyx_v_sc_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 572, __pyx_L3_error)
     __pyx_v_q_porosity = ((PyArrayObject *)values[28]);
     __pyx_v_porosity_dof = ((PyArrayObject *)values[29]);
     __pyx_v_u_l2g = ((PyArrayObject *)values[30]);
     __pyx_v_elementDiameter = ((PyArrayObject *)values[31]);
-    __pyx_v_degree_polynomial = __Pyx_PyInt_As_int(values[32]); if (unlikely((__pyx_v_degree_polynomial == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 591, __pyx_L3_error)
+    __pyx_v_degree_polynomial = __Pyx_PyInt_As_int(values[32]); if (unlikely((__pyx_v_degree_polynomial == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L3_error)
     __pyx_v_u_dof = ((PyArrayObject *)values[33]);
     __pyx_v_u_dof_old = ((PyArrayObject *)values[34]);
     __pyx_v_velocity = ((PyArrayObject *)values[35]);
@@ -3799,10 +3760,10 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_9calculateResidual_entropy_vi
     __pyx_v_edge_based_cfl = ((PyArrayObject *)values[42]);
     __pyx_v_q_numDiff_u = ((PyArrayObject *)values[43]);
     __pyx_v_q_numDiff_u_last = ((PyArrayObject *)values[44]);
-    __pyx_v_offset_u = __Pyx_PyInt_As_int(values[45]); if (unlikely((__pyx_v_offset_u == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 604, __pyx_L3_error)
-    __pyx_v_stride_u = __Pyx_PyInt_As_int(values[46]); if (unlikely((__pyx_v_stride_u == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 604, __pyx_L3_error)
+    __pyx_v_offset_u = __Pyx_PyInt_As_int(values[45]); if (unlikely((__pyx_v_offset_u == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 592, __pyx_L3_error)
+    __pyx_v_stride_u = __Pyx_PyInt_As_int(values[46]); if (unlikely((__pyx_v_stride_u == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 592, __pyx_L3_error)
     __pyx_v_globalResidual = ((PyArrayObject *)values[47]);
-    __pyx_v_nExteriorElementBoundaries_global = __Pyx_PyInt_As_int(values[48]); if (unlikely((__pyx_v_nExteriorElementBoundaries_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 606, __pyx_L3_error)
+    __pyx_v_nExteriorElementBoundaries_global = __Pyx_PyInt_As_int(values[48]); if (unlikely((__pyx_v_nExteriorElementBoundaries_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 594, __pyx_L3_error)
     __pyx_v_exteriorElementBoundariesArray = ((PyArrayObject *)values[49]);
     __pyx_v_elementBoundaryElementsArray = ((PyArrayObject *)values[50]);
     __pyx_v_elementBoundaryLocalElementBoundariesArray = ((PyArrayObject *)values[51]);
@@ -3813,15 +3774,15 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_9calculateResidual_entropy_vi
     __pyx_v_isFluxBoundary_u = ((PyArrayObject *)values[56]);
     __pyx_v_ebqe_bc_flux_u_ext = ((PyArrayObject *)values[57]);
     __pyx_v_ebqe_phi = ((PyArrayObject *)values[58]);
-    __pyx_v_epsFact = __pyx_PyFloat_AsDouble(values[59]); if (unlikely((__pyx_v_epsFact == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 618, __pyx_L3_error)
+    __pyx_v_epsFact = __pyx_PyFloat_AsDouble(values[59]); if (unlikely((__pyx_v_epsFact == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 606, __pyx_L3_error)
     __pyx_v_ebqe_u = ((PyArrayObject *)values[60]);
     __pyx_v_ebqe_flux = ((PyArrayObject *)values[61]);
-    __pyx_v_cE = __pyx_PyFloat_AsDouble(values[62]); if (unlikely((__pyx_v_cE == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 621, __pyx_L3_error)
-    __pyx_v_cK = __pyx_PyFloat_AsDouble(values[63]); if (unlikely((__pyx_v_cK == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 622, __pyx_L3_error)
-    __pyx_v_uL = __pyx_PyFloat_AsDouble(values[64]); if (unlikely((__pyx_v_uL == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 623, __pyx_L3_error)
-    __pyx_v_uR = __pyx_PyFloat_AsDouble(values[65]); if (unlikely((__pyx_v_uR == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 624, __pyx_L3_error)
-    __pyx_v_numDOFs = __Pyx_PyInt_As_int(values[66]); if (unlikely((__pyx_v_numDOFs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 625, __pyx_L3_error)
-    __pyx_v_NNZ = __Pyx_PyInt_As_int(values[67]); if (unlikely((__pyx_v_NNZ == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 626, __pyx_L3_error)
+    __pyx_v_cE = __pyx_PyFloat_AsDouble(values[62]); if (unlikely((__pyx_v_cE == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 609, __pyx_L3_error)
+    __pyx_v_cK = __pyx_PyFloat_AsDouble(values[63]); if (unlikely((__pyx_v_cK == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 610, __pyx_L3_error)
+    __pyx_v_uL = __pyx_PyFloat_AsDouble(values[64]); if (unlikely((__pyx_v_uL == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 611, __pyx_L3_error)
+    __pyx_v_uR = __pyx_PyFloat_AsDouble(values[65]); if (unlikely((__pyx_v_uR == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 612, __pyx_L3_error)
+    __pyx_v_numDOFs = __Pyx_PyInt_As_int(values[66]); if (unlikely((__pyx_v_numDOFs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 613, __pyx_L3_error)
+    __pyx_v_NNZ = __Pyx_PyInt_As_int(values[67]); if (unlikely((__pyx_v_NNZ == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 614, __pyx_L3_error)
     __pyx_v_csrRowIndeces_DofLoops = ((PyArrayObject *)values[68]);
     __pyx_v_csrColumnOffsets_DofLoops = ((PyArrayObject *)values[69]);
     __pyx_v_csrRowIndeces_CellLoops = ((PyArrayObject *)values[70]);
@@ -3834,92 +3795,89 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_9calculateResidual_entropy_vi
     __pyx_v_CTy = ((PyArrayObject *)values[77]);
     __pyx_v_CTz = ((PyArrayObject *)values[78]);
     __pyx_v_ML = ((PyArrayObject *)values[79]);
-    __pyx_v_LUMPED_MASS_MATRIX = __Pyx_PyInt_As_int(values[80]); if (unlikely((__pyx_v_LUMPED_MASS_MATRIX == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 639, __pyx_L3_error)
-    __pyx_v_STABILIZATION_TYPE = __Pyx_PyInt_As_int(values[81]); if (unlikely((__pyx_v_STABILIZATION_TYPE == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 640, __pyx_L3_error)
-    __pyx_v_ENTROPY_TYPE = __Pyx_PyInt_As_int(values[82]); if (unlikely((__pyx_v_ENTROPY_TYPE == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 641, __pyx_L3_error)
+    __pyx_v_LUMPED_MASS_MATRIX = __Pyx_PyInt_As_int(values[80]); if (unlikely((__pyx_v_LUMPED_MASS_MATRIX == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 627, __pyx_L3_error)
+    __pyx_v_STABILIZATION_TYPE = __Pyx_PyInt_As_int(values[81]); if (unlikely((__pyx_v_STABILIZATION_TYPE == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 628, __pyx_L3_error)
+    __pyx_v_ENTROPY_TYPE = __Pyx_PyInt_As_int(values[82]); if (unlikely((__pyx_v_ENTROPY_TYPE == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 629, __pyx_L3_error)
     __pyx_v_low_order_solution = ((PyArrayObject *)values[83]);
     __pyx_v_dt_times_dH_minus_dL = ((PyArrayObject *)values[84]);
     __pyx_v_min_u_bc = ((PyArrayObject *)values[85]);
     __pyx_v_max_u_bc = ((PyArrayObject *)values[86]);
     __pyx_v_quantDOFs = ((PyArrayObject *)values[87]);
-    __pyx_v_poro = __pyx_PyFloat_AsDouble(values[88]); if (unlikely((__pyx_v_poro == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 648, __pyx_L3_error)
-    __pyx_v_p_dof = ((PyArrayObject *)values[89]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 90, 90, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 557, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("calculateResidual_entropy_viscosity", 1, 88, 88, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 545, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.cTIM.cTIM_base.calculateResidual_entropy_viscosity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_ref", 0))) __PYX_ERR(0, 559, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_ref", 0))) __PYX_ERR(0, 560, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_dof", 0))) __PYX_ERR(0, 561, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_velocity_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_velocity_dof", 0))) __PYX_ERR(0, 562, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_l2g), __pyx_ptype_5numpy_ndarray, 1, "mesh_l2g", 0))) __PYX_ERR(0, 564, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dV_ref), __pyx_ptype_5numpy_ndarray, 1, "dV_ref", 0))) __PYX_ERR(0, 565, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_ref", 0))) __PYX_ERR(0, 566, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_ref", 0))) __PYX_ERR(0, 567, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_ref", 0))) __PYX_ERR(0, 568, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_ref", 0))) __PYX_ERR(0, 569, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_trace_ref", 0))) __PYX_ERR(0, 570, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_trace_ref", 0))) __PYX_ERR(0, 571, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dS_ref), __pyx_ptype_5numpy_ndarray, 1, "dS_ref", 0))) __PYX_ERR(0, 572, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_trace_ref", 0))) __PYX_ERR(0, 573, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_trace_ref", 0))) __PYX_ERR(0, 574, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_trace_ref", 0))) __PYX_ERR(0, 575, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_trace_ref", 0))) __PYX_ERR(0, 576, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_normal_ref), __pyx_ptype_5numpy_ndarray, 1, "normal_ref", 0))) __PYX_ERR(0, 577, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_boundaryJac_ref), __pyx_ptype_5numpy_ndarray, 1, "boundaryJac_ref", 0))) __PYX_ERR(0, 578, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_porosity), __pyx_ptype_5numpy_ndarray, 1, "q_porosity", 0))) __PYX_ERR(0, 586, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_porosity_dof), __pyx_ptype_5numpy_ndarray, 1, "porosity_dof", 0))) __PYX_ERR(0, 587, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_l2g), __pyx_ptype_5numpy_ndarray, 1, "u_l2g", 0))) __PYX_ERR(0, 589, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementDiameter), __pyx_ptype_5numpy_ndarray, 1, "elementDiameter", 0))) __PYX_ERR(0, 590, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof), __pyx_ptype_5numpy_ndarray, 1, "u_dof", 0))) __PYX_ERR(0, 592, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof_old), __pyx_ptype_5numpy_ndarray, 1, "u_dof_old", 0))) __PYX_ERR(0, 593, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_velocity), __pyx_ptype_5numpy_ndarray, 1, "velocity", 0))) __PYX_ERR(0, 594, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m), __pyx_ptype_5numpy_ndarray, 1, "q_m", 0))) __PYX_ERR(0, 595, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_u), __pyx_ptype_5numpy_ndarray, 1, "q_u", 0))) __PYX_ERR(0, 596, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m_betaBDF), __pyx_ptype_5numpy_ndarray, 1, "q_m_betaBDF", 0))) __PYX_ERR(0, 597, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_dV), __pyx_ptype_5numpy_ndarray, 1, "q_dV", 0))) __PYX_ERR(0, 598, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_dV_last), __pyx_ptype_5numpy_ndarray, 1, "q_dV_last", 0))) __PYX_ERR(0, 599, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cfl), __pyx_ptype_5numpy_ndarray, 1, "cfl", 0))) __PYX_ERR(0, 600, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_edge_based_cfl), __pyx_ptype_5numpy_ndarray, 1, "edge_based_cfl", 0))) __PYX_ERR(0, 601, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u", 0))) __PYX_ERR(0, 602, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u_last), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u_last", 0))) __PYX_ERR(0, 603, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_globalResidual), __pyx_ptype_5numpy_ndarray, 1, "globalResidual", 0))) __PYX_ERR(0, 605, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exteriorElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "exteriorElementBoundariesArray", 0))) __PYX_ERR(0, 607, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryElementsArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryElementsArray", 0))) __PYX_ERR(0, 608, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryLocalElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryLocalElementBoundariesArray", 0))) __PYX_ERR(0, 609, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_velocity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_velocity_ext", 0))) __PYX_ERR(0, 610, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_porosity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_porosity_ext", 0))) __PYX_ERR(0, 612, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isDOFBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isDOFBoundary_u", 0))) __PYX_ERR(0, 614, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_u_ext", 0))) __PYX_ERR(0, 615, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isFluxBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isFluxBoundary_u", 0))) __PYX_ERR(0, 616, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_flux_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_flux_u_ext", 0))) __PYX_ERR(0, 617, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_phi), __pyx_ptype_5numpy_ndarray, 1, "ebqe_phi", 0))) __PYX_ERR(0, 618, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_u), __pyx_ptype_5numpy_ndarray, 1, "ebqe_u", 0))) __PYX_ERR(0, 619, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_flux), __pyx_ptype_5numpy_ndarray, 1, "ebqe_flux", 0))) __PYX_ERR(0, 620, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_DofLoops", 0))) __PYX_ERR(0, 627, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_DofLoops", 0))) __PYX_ERR(0, 628, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_CellLoops", 0))) __PYX_ERR(0, 629, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_CellLoops", 0))) __PYX_ERR(0, 630, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_eb_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_eb_CellLoops", 0))) __PYX_ERR(0, 631, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cx), __pyx_ptype_5numpy_ndarray, 1, "Cx", 0))) __PYX_ERR(0, 632, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cy), __pyx_ptype_5numpy_ndarray, 1, "Cy", 0))) __PYX_ERR(0, 633, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cz), __pyx_ptype_5numpy_ndarray, 1, "Cz", 0))) __PYX_ERR(0, 634, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTx), __pyx_ptype_5numpy_ndarray, 1, "CTx", 0))) __PYX_ERR(0, 635, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTy), __pyx_ptype_5numpy_ndarray, 1, "CTy", 0))) __PYX_ERR(0, 636, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTz), __pyx_ptype_5numpy_ndarray, 1, "CTz", 0))) __PYX_ERR(0, 637, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ML), __pyx_ptype_5numpy_ndarray, 1, "ML", 0))) __PYX_ERR(0, 638, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_low_order_solution), __pyx_ptype_5numpy_ndarray, 1, "low_order_solution", 0))) __PYX_ERR(0, 642, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dt_times_dH_minus_dL), __pyx_ptype_5numpy_ndarray, 1, "dt_times_dH_minus_dL", 0))) __PYX_ERR(0, 643, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_min_u_bc), __pyx_ptype_5numpy_ndarray, 1, "min_u_bc", 0))) __PYX_ERR(0, 644, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_max_u_bc), __pyx_ptype_5numpy_ndarray, 1, "max_u_bc", 0))) __PYX_ERR(0, 645, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_quantDOFs), __pyx_ptype_5numpy_ndarray, 1, "quantDOFs", 0))) __PYX_ERR(0, 646, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p_dof), __pyx_ptype_5numpy_ndarray, 1, "p_dof", 0))) __PYX_ERR(0, 649, __pyx_L1_error)
-  __pyx_r = __pyx_pf_6mprans_4cTIM_9cTIM_base_8calculateResidual_entropy_viscosity(((struct __pyx_obj_6mprans_4cTIM_cTIM_base *)__pyx_v_self), __pyx_v_dt, __pyx_v_mesh_trial_ref, __pyx_v_mesh_grad_trial_ref, __pyx_v_mesh_dof, __pyx_v_mesh_velocity_dof, __pyx_v_MOVING_DOMAIN, __pyx_v_mesh_l2g, __pyx_v_dV_ref, __pyx_v_u_trial_ref, __pyx_v_u_grad_trial_ref, __pyx_v_u_test_ref, __pyx_v_u_grad_test_ref, __pyx_v_mesh_trial_trace_ref, __pyx_v_mesh_grad_trial_trace_ref, __pyx_v_dS_ref, __pyx_v_u_trial_trace_ref, __pyx_v_u_grad_trial_trace_ref, __pyx_v_u_test_trace_ref, __pyx_v_u_grad_test_trace_ref, __pyx_v_normal_ref, __pyx_v_boundaryJac_ref, __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, __pyx_v_sc_uref, __pyx_v_sc_alpha, __pyx_v_q_porosity, __pyx_v_porosity_dof, __pyx_v_u_l2g, __pyx_v_elementDiameter, __pyx_v_degree_polynomial, __pyx_v_u_dof, __pyx_v_u_dof_old, __pyx_v_velocity, __pyx_v_q_m, __pyx_v_q_u, __pyx_v_q_m_betaBDF, __pyx_v_q_dV, __pyx_v_q_dV_last, __pyx_v_cfl, __pyx_v_edge_based_cfl, __pyx_v_q_numDiff_u, __pyx_v_q_numDiff_u_last, __pyx_v_offset_u, __pyx_v_stride_u, __pyx_v_globalResidual, __pyx_v_nExteriorElementBoundaries_global, __pyx_v_exteriorElementBoundariesArray, __pyx_v_elementBoundaryElementsArray, __pyx_v_elementBoundaryLocalElementBoundariesArray, __pyx_v_ebqe_velocity_ext, __pyx_v_ebqe_porosity_ext, __pyx_v_isDOFBoundary_u, __pyx_v_ebqe_bc_u_ext, __pyx_v_isFluxBoundary_u, __pyx_v_ebqe_bc_flux_u_ext, __pyx_v_ebqe_phi, __pyx_v_epsFact, __pyx_v_ebqe_u, __pyx_v_ebqe_flux, __pyx_v_cE, __pyx_v_cK, __pyx_v_uL, __pyx_v_uR, __pyx_v_numDOFs, __pyx_v_NNZ, __pyx_v_csrRowIndeces_DofLoops, __pyx_v_csrColumnOffsets_DofLoops, __pyx_v_csrRowIndeces_CellLoops, __pyx_v_csrColumnOffsets_CellLoops, __pyx_v_csrColumnOffsets_eb_CellLoops, __pyx_v_Cx, __pyx_v_Cy, __pyx_v_Cz, __pyx_v_CTx, __pyx_v_CTy, __pyx_v_CTz, __pyx_v_ML, __pyx_v_LUMPED_MASS_MATRIX, __pyx_v_STABILIZATION_TYPE, __pyx_v_ENTROPY_TYPE, __pyx_v_low_order_solution, __pyx_v_dt_times_dH_minus_dL, __pyx_v_min_u_bc, __pyx_v_max_u_bc, __pyx_v_quantDOFs, __pyx_v_poro, __pyx_v_p_dof);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_ref", 0))) __PYX_ERR(0, 547, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_ref", 0))) __PYX_ERR(0, 548, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_dof", 0))) __PYX_ERR(0, 549, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_velocity_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_velocity_dof", 0))) __PYX_ERR(0, 550, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_l2g), __pyx_ptype_5numpy_ndarray, 1, "mesh_l2g", 0))) __PYX_ERR(0, 552, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dV_ref), __pyx_ptype_5numpy_ndarray, 1, "dV_ref", 0))) __PYX_ERR(0, 553, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_ref", 0))) __PYX_ERR(0, 554, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_ref", 0))) __PYX_ERR(0, 555, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_ref", 0))) __PYX_ERR(0, 556, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_ref", 0))) __PYX_ERR(0, 557, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_trace_ref", 0))) __PYX_ERR(0, 558, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_trace_ref", 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dS_ref), __pyx_ptype_5numpy_ndarray, 1, "dS_ref", 0))) __PYX_ERR(0, 560, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_trace_ref", 0))) __PYX_ERR(0, 561, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_trace_ref", 0))) __PYX_ERR(0, 562, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_trace_ref", 0))) __PYX_ERR(0, 563, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_trace_ref", 0))) __PYX_ERR(0, 564, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_normal_ref), __pyx_ptype_5numpy_ndarray, 1, "normal_ref", 0))) __PYX_ERR(0, 565, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_boundaryJac_ref), __pyx_ptype_5numpy_ndarray, 1, "boundaryJac_ref", 0))) __PYX_ERR(0, 566, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_porosity), __pyx_ptype_5numpy_ndarray, 1, "q_porosity", 0))) __PYX_ERR(0, 574, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_porosity_dof), __pyx_ptype_5numpy_ndarray, 1, "porosity_dof", 0))) __PYX_ERR(0, 575, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_l2g), __pyx_ptype_5numpy_ndarray, 1, "u_l2g", 0))) __PYX_ERR(0, 577, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementDiameter), __pyx_ptype_5numpy_ndarray, 1, "elementDiameter", 0))) __PYX_ERR(0, 578, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof), __pyx_ptype_5numpy_ndarray, 1, "u_dof", 0))) __PYX_ERR(0, 580, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof_old), __pyx_ptype_5numpy_ndarray, 1, "u_dof_old", 0))) __PYX_ERR(0, 581, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_velocity), __pyx_ptype_5numpy_ndarray, 1, "velocity", 0))) __PYX_ERR(0, 582, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m), __pyx_ptype_5numpy_ndarray, 1, "q_m", 0))) __PYX_ERR(0, 583, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_u), __pyx_ptype_5numpy_ndarray, 1, "q_u", 0))) __PYX_ERR(0, 584, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m_betaBDF), __pyx_ptype_5numpy_ndarray, 1, "q_m_betaBDF", 0))) __PYX_ERR(0, 585, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_dV), __pyx_ptype_5numpy_ndarray, 1, "q_dV", 0))) __PYX_ERR(0, 586, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_dV_last), __pyx_ptype_5numpy_ndarray, 1, "q_dV_last", 0))) __PYX_ERR(0, 587, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cfl), __pyx_ptype_5numpy_ndarray, 1, "cfl", 0))) __PYX_ERR(0, 588, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_edge_based_cfl), __pyx_ptype_5numpy_ndarray, 1, "edge_based_cfl", 0))) __PYX_ERR(0, 589, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u", 0))) __PYX_ERR(0, 590, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u_last), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u_last", 0))) __PYX_ERR(0, 591, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_globalResidual), __pyx_ptype_5numpy_ndarray, 1, "globalResidual", 0))) __PYX_ERR(0, 593, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exteriorElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "exteriorElementBoundariesArray", 0))) __PYX_ERR(0, 595, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryElementsArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryElementsArray", 0))) __PYX_ERR(0, 596, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryLocalElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryLocalElementBoundariesArray", 0))) __PYX_ERR(0, 597, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_velocity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_velocity_ext", 0))) __PYX_ERR(0, 598, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_porosity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_porosity_ext", 0))) __PYX_ERR(0, 600, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isDOFBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isDOFBoundary_u", 0))) __PYX_ERR(0, 602, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_u_ext", 0))) __PYX_ERR(0, 603, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isFluxBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isFluxBoundary_u", 0))) __PYX_ERR(0, 604, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_flux_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_flux_u_ext", 0))) __PYX_ERR(0, 605, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_phi), __pyx_ptype_5numpy_ndarray, 1, "ebqe_phi", 0))) __PYX_ERR(0, 606, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_u), __pyx_ptype_5numpy_ndarray, 1, "ebqe_u", 0))) __PYX_ERR(0, 607, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_flux), __pyx_ptype_5numpy_ndarray, 1, "ebqe_flux", 0))) __PYX_ERR(0, 608, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_DofLoops", 0))) __PYX_ERR(0, 615, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_DofLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_DofLoops", 0))) __PYX_ERR(0, 616, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_CellLoops", 0))) __PYX_ERR(0, 617, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_CellLoops", 0))) __PYX_ERR(0, 618, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_eb_CellLoops), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_eb_CellLoops", 0))) __PYX_ERR(0, 619, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cx), __pyx_ptype_5numpy_ndarray, 1, "Cx", 0))) __PYX_ERR(0, 620, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cy), __pyx_ptype_5numpy_ndarray, 1, "Cy", 0))) __PYX_ERR(0, 621, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Cz), __pyx_ptype_5numpy_ndarray, 1, "Cz", 0))) __PYX_ERR(0, 622, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTx), __pyx_ptype_5numpy_ndarray, 1, "CTx", 0))) __PYX_ERR(0, 623, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTy), __pyx_ptype_5numpy_ndarray, 1, "CTy", 0))) __PYX_ERR(0, 624, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_CTz), __pyx_ptype_5numpy_ndarray, 1, "CTz", 0))) __PYX_ERR(0, 625, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ML), __pyx_ptype_5numpy_ndarray, 1, "ML", 0))) __PYX_ERR(0, 626, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_low_order_solution), __pyx_ptype_5numpy_ndarray, 1, "low_order_solution", 0))) __PYX_ERR(0, 630, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dt_times_dH_minus_dL), __pyx_ptype_5numpy_ndarray, 1, "dt_times_dH_minus_dL", 0))) __PYX_ERR(0, 631, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_min_u_bc), __pyx_ptype_5numpy_ndarray, 1, "min_u_bc", 0))) __PYX_ERR(0, 632, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_max_u_bc), __pyx_ptype_5numpy_ndarray, 1, "max_u_bc", 0))) __PYX_ERR(0, 633, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_quantDOFs), __pyx_ptype_5numpy_ndarray, 1, "quantDOFs", 0))) __PYX_ERR(0, 634, __pyx_L1_error)
+  __pyx_r = __pyx_pf_6mprans_4cTIM_9cTIM_base_8calculateResidual_entropy_viscosity(((struct __pyx_obj_6mprans_4cTIM_cTIM_base *)__pyx_v_self), __pyx_v_dt, __pyx_v_mesh_trial_ref, __pyx_v_mesh_grad_trial_ref, __pyx_v_mesh_dof, __pyx_v_mesh_velocity_dof, __pyx_v_MOVING_DOMAIN, __pyx_v_mesh_l2g, __pyx_v_dV_ref, __pyx_v_u_trial_ref, __pyx_v_u_grad_trial_ref, __pyx_v_u_test_ref, __pyx_v_u_grad_test_ref, __pyx_v_mesh_trial_trace_ref, __pyx_v_mesh_grad_trial_trace_ref, __pyx_v_dS_ref, __pyx_v_u_trial_trace_ref, __pyx_v_u_grad_trial_trace_ref, __pyx_v_u_test_trace_ref, __pyx_v_u_grad_test_trace_ref, __pyx_v_normal_ref, __pyx_v_boundaryJac_ref, __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, __pyx_v_sc_uref, __pyx_v_sc_alpha, __pyx_v_q_porosity, __pyx_v_porosity_dof, __pyx_v_u_l2g, __pyx_v_elementDiameter, __pyx_v_degree_polynomial, __pyx_v_u_dof, __pyx_v_u_dof_old, __pyx_v_velocity, __pyx_v_q_m, __pyx_v_q_u, __pyx_v_q_m_betaBDF, __pyx_v_q_dV, __pyx_v_q_dV_last, __pyx_v_cfl, __pyx_v_edge_based_cfl, __pyx_v_q_numDiff_u, __pyx_v_q_numDiff_u_last, __pyx_v_offset_u, __pyx_v_stride_u, __pyx_v_globalResidual, __pyx_v_nExteriorElementBoundaries_global, __pyx_v_exteriorElementBoundariesArray, __pyx_v_elementBoundaryElementsArray, __pyx_v_elementBoundaryLocalElementBoundariesArray, __pyx_v_ebqe_velocity_ext, __pyx_v_ebqe_porosity_ext, __pyx_v_isDOFBoundary_u, __pyx_v_ebqe_bc_u_ext, __pyx_v_isFluxBoundary_u, __pyx_v_ebqe_bc_flux_u_ext, __pyx_v_ebqe_phi, __pyx_v_epsFact, __pyx_v_ebqe_u, __pyx_v_ebqe_flux, __pyx_v_cE, __pyx_v_cK, __pyx_v_uL, __pyx_v_uR, __pyx_v_numDOFs, __pyx_v_NNZ, __pyx_v_csrRowIndeces_DofLoops, __pyx_v_csrColumnOffsets_DofLoops, __pyx_v_csrRowIndeces_CellLoops, __pyx_v_csrColumnOffsets_CellLoops, __pyx_v_csrColumnOffsets_eb_CellLoops, __pyx_v_Cx, __pyx_v_Cy, __pyx_v_Cz, __pyx_v_CTx, __pyx_v_CTy, __pyx_v_CTz, __pyx_v_ML, __pyx_v_LUMPED_MASS_MATRIX, __pyx_v_STABILIZATION_TYPE, __pyx_v_ENTROPY_TYPE, __pyx_v_low_order_solution, __pyx_v_dt_times_dH_minus_dL, __pyx_v_min_u_bc, __pyx_v_max_u_bc, __pyx_v_quantDOFs);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3930,23 +3888,23 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_9calculateResidual_entropy_vi
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_8calculateResidual_entropy_viscosity(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, double __pyx_v_dt, PyArrayObject *__pyx_v_mesh_trial_ref, PyArrayObject *__pyx_v_mesh_grad_trial_ref, PyArrayObject *__pyx_v_mesh_dof, PyArrayObject *__pyx_v_mesh_velocity_dof, double __pyx_v_MOVING_DOMAIN, PyArrayObject *__pyx_v_mesh_l2g, PyArrayObject *__pyx_v_dV_ref, PyArrayObject *__pyx_v_u_trial_ref, PyArrayObject *__pyx_v_u_grad_trial_ref, PyArrayObject *__pyx_v_u_test_ref, PyArrayObject *__pyx_v_u_grad_test_ref, PyArrayObject *__pyx_v_mesh_trial_trace_ref, PyArrayObject *__pyx_v_mesh_grad_trial_trace_ref, PyArrayObject *__pyx_v_dS_ref, PyArrayObject *__pyx_v_u_trial_trace_ref, PyArrayObject *__pyx_v_u_grad_trial_trace_ref, PyArrayObject *__pyx_v_u_test_trace_ref, PyArrayObject *__pyx_v_u_grad_test_trace_ref, PyArrayObject *__pyx_v_normal_ref, PyArrayObject *__pyx_v_boundaryJac_ref, int __pyx_v_nElements_global, double __pyx_v_useMetrics, double __pyx_v_alphaBDF, int __pyx_v_lag_shockCapturing, double __pyx_v_shockCapturingDiffusion, double __pyx_v_sc_uref, double __pyx_v_sc_alpha, PyArrayObject *__pyx_v_q_porosity, PyArrayObject *__pyx_v_porosity_dof, PyArrayObject *__pyx_v_u_l2g, PyArrayObject *__pyx_v_elementDiameter, int __pyx_v_degree_polynomial, PyArrayObject *__pyx_v_u_dof, PyArrayObject *__pyx_v_u_dof_old, PyArrayObject *__pyx_v_velocity, PyArrayObject *__pyx_v_q_m, PyArrayObject *__pyx_v_q_u, PyArrayObject *__pyx_v_q_m_betaBDF, PyArrayObject *__pyx_v_q_dV, PyArrayObject *__pyx_v_q_dV_last, PyArrayObject *__pyx_v_cfl, PyArrayObject *__pyx_v_edge_based_cfl, PyArrayObject *__pyx_v_q_numDiff_u, PyArrayObject *__pyx_v_q_numDiff_u_last, int __pyx_v_offset_u, int __pyx_v_stride_u, PyArrayObject *__pyx_v_globalResidual, int __pyx_v_nExteriorElementBoundaries_global, PyArrayObject *__pyx_v_exteriorElementBoundariesArray, PyArrayObject *__pyx_v_elementBoundaryElementsArray, PyArrayObject *__pyx_v_elementBoundaryLocalElementBoundariesArray, PyArrayObject *__pyx_v_ebqe_velocity_ext, PyArrayObject *__pyx_v_ebqe_porosity_ext, PyArrayObject *__pyx_v_isDOFBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_u_ext, PyArrayObject *__pyx_v_isFluxBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_flux_u_ext, PyArrayObject *__pyx_v_ebqe_phi, double __pyx_v_epsFact, PyArrayObject *__pyx_v_ebqe_u, PyArrayObject *__pyx_v_ebqe_flux, double __pyx_v_cE, double __pyx_v_cK, double __pyx_v_uL, double __pyx_v_uR, int __pyx_v_numDOFs, int __pyx_v_NNZ, PyArrayObject *__pyx_v_csrRowIndeces_DofLoops, PyArrayObject *__pyx_v_csrColumnOffsets_DofLoops, PyArrayObject *__pyx_v_csrRowIndeces_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_eb_CellLoops, PyArrayObject *__pyx_v_Cx, PyArrayObject *__pyx_v_Cy, PyArrayObject *__pyx_v_Cz, PyArrayObject *__pyx_v_CTx, PyArrayObject *__pyx_v_CTy, PyArrayObject *__pyx_v_CTz, PyArrayObject *__pyx_v_ML, int __pyx_v_LUMPED_MASS_MATRIX, int __pyx_v_STABILIZATION_TYPE, int __pyx_v_ENTROPY_TYPE, PyArrayObject *__pyx_v_low_order_solution, PyArrayObject *__pyx_v_dt_times_dH_minus_dL, PyArrayObject *__pyx_v_min_u_bc, PyArrayObject *__pyx_v_max_u_bc, PyArrayObject *__pyx_v_quantDOFs, double __pyx_v_poro, PyArrayObject *__pyx_v_p_dof) {
+static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_8calculateResidual_entropy_viscosity(struct __pyx_obj_6mprans_4cTIM_cTIM_base *__pyx_v_self, double __pyx_v_dt, PyArrayObject *__pyx_v_mesh_trial_ref, PyArrayObject *__pyx_v_mesh_grad_trial_ref, PyArrayObject *__pyx_v_mesh_dof, PyArrayObject *__pyx_v_mesh_velocity_dof, double __pyx_v_MOVING_DOMAIN, PyArrayObject *__pyx_v_mesh_l2g, PyArrayObject *__pyx_v_dV_ref, PyArrayObject *__pyx_v_u_trial_ref, PyArrayObject *__pyx_v_u_grad_trial_ref, PyArrayObject *__pyx_v_u_test_ref, PyArrayObject *__pyx_v_u_grad_test_ref, PyArrayObject *__pyx_v_mesh_trial_trace_ref, PyArrayObject *__pyx_v_mesh_grad_trial_trace_ref, PyArrayObject *__pyx_v_dS_ref, PyArrayObject *__pyx_v_u_trial_trace_ref, PyArrayObject *__pyx_v_u_grad_trial_trace_ref, PyArrayObject *__pyx_v_u_test_trace_ref, PyArrayObject *__pyx_v_u_grad_test_trace_ref, PyArrayObject *__pyx_v_normal_ref, PyArrayObject *__pyx_v_boundaryJac_ref, int __pyx_v_nElements_global, double __pyx_v_useMetrics, double __pyx_v_alphaBDF, int __pyx_v_lag_shockCapturing, double __pyx_v_shockCapturingDiffusion, double __pyx_v_sc_uref, double __pyx_v_sc_alpha, PyArrayObject *__pyx_v_q_porosity, PyArrayObject *__pyx_v_porosity_dof, PyArrayObject *__pyx_v_u_l2g, PyArrayObject *__pyx_v_elementDiameter, int __pyx_v_degree_polynomial, PyArrayObject *__pyx_v_u_dof, PyArrayObject *__pyx_v_u_dof_old, PyArrayObject *__pyx_v_velocity, PyArrayObject *__pyx_v_q_m, PyArrayObject *__pyx_v_q_u, PyArrayObject *__pyx_v_q_m_betaBDF, PyArrayObject *__pyx_v_q_dV, PyArrayObject *__pyx_v_q_dV_last, PyArrayObject *__pyx_v_cfl, PyArrayObject *__pyx_v_edge_based_cfl, PyArrayObject *__pyx_v_q_numDiff_u, PyArrayObject *__pyx_v_q_numDiff_u_last, int __pyx_v_offset_u, int __pyx_v_stride_u, PyArrayObject *__pyx_v_globalResidual, int __pyx_v_nExteriorElementBoundaries_global, PyArrayObject *__pyx_v_exteriorElementBoundariesArray, PyArrayObject *__pyx_v_elementBoundaryElementsArray, PyArrayObject *__pyx_v_elementBoundaryLocalElementBoundariesArray, PyArrayObject *__pyx_v_ebqe_velocity_ext, PyArrayObject *__pyx_v_ebqe_porosity_ext, PyArrayObject *__pyx_v_isDOFBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_u_ext, PyArrayObject *__pyx_v_isFluxBoundary_u, PyArrayObject *__pyx_v_ebqe_bc_flux_u_ext, PyArrayObject *__pyx_v_ebqe_phi, double __pyx_v_epsFact, PyArrayObject *__pyx_v_ebqe_u, PyArrayObject *__pyx_v_ebqe_flux, double __pyx_v_cE, double __pyx_v_cK, double __pyx_v_uL, double __pyx_v_uR, int __pyx_v_numDOFs, int __pyx_v_NNZ, PyArrayObject *__pyx_v_csrRowIndeces_DofLoops, PyArrayObject *__pyx_v_csrColumnOffsets_DofLoops, PyArrayObject *__pyx_v_csrRowIndeces_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_CellLoops, PyArrayObject *__pyx_v_csrColumnOffsets_eb_CellLoops, PyArrayObject *__pyx_v_Cx, PyArrayObject *__pyx_v_Cy, PyArrayObject *__pyx_v_Cz, PyArrayObject *__pyx_v_CTx, PyArrayObject *__pyx_v_CTy, PyArrayObject *__pyx_v_CTz, PyArrayObject *__pyx_v_ML, int __pyx_v_LUMPED_MASS_MATRIX, int __pyx_v_STABILIZATION_TYPE, int __pyx_v_ENTROPY_TYPE, PyArrayObject *__pyx_v_low_order_solution, PyArrayObject *__pyx_v_dt_times_dH_minus_dL, PyArrayObject *__pyx_v_min_u_bc, PyArrayObject *__pyx_v_max_u_bc, PyArrayObject *__pyx_v_quantDOFs) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("calculateResidual_entropy_viscosity", 0);
 
-  /* "mprans/cTIM.pyx":650
- *                          double poro,
- *                          numpy.ndarray p_dof):
+  /* "mprans/cTIM.pyx":635
+ *                          numpy.ndarray max_u_bc,
+ *                          numpy.ndarray quantDOFs):
  *        self.thisptr.calculateResidual_entropy_viscosity(dt,             # <<<<<<<<<<<<<<
  *                                        <double*> mesh_trial_ref.data,
  *                                        <double*> mesh_grad_trial_ref.data,
  */
-  __pyx_v_self->thisptr->calculateResidual_entropy_viscosity(__pyx_v_dt, ((double *)__pyx_v_mesh_trial_ref->data), ((double *)__pyx_v_mesh_grad_trial_ref->data), ((double *)__pyx_v_mesh_dof->data), ((double *)__pyx_v_mesh_velocity_dof->data), __pyx_v_MOVING_DOMAIN, ((int *)__pyx_v_mesh_l2g->data), ((double *)__pyx_v_dV_ref->data), ((double *)__pyx_v_u_trial_ref->data), ((double *)__pyx_v_u_grad_trial_ref->data), ((double *)__pyx_v_u_test_ref->data), ((double *)__pyx_v_u_grad_test_ref->data), ((double *)__pyx_v_mesh_trial_trace_ref->data), ((double *)__pyx_v_mesh_grad_trial_trace_ref->data), ((double *)__pyx_v_dS_ref->data), ((double *)__pyx_v_u_trial_trace_ref->data), ((double *)__pyx_v_u_grad_trial_trace_ref->data), ((double *)__pyx_v_u_test_trace_ref->data), ((double *)__pyx_v_u_grad_test_trace_ref->data), ((double *)__pyx_v_normal_ref->data), ((double *)__pyx_v_boundaryJac_ref->data), __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, __pyx_v_sc_uref, __pyx_v_sc_alpha, ((double *)__pyx_v_q_porosity->data), ((double *)__pyx_v_porosity_dof->data), ((int *)__pyx_v_u_l2g->data), ((double *)__pyx_v_elementDiameter->data), __pyx_v_degree_polynomial, ((double *)__pyx_v_u_dof->data), ((double *)__pyx_v_u_dof_old->data), ((double *)__pyx_v_velocity->data), ((double *)__pyx_v_q_m->data), ((double *)__pyx_v_q_u->data), ((double *)__pyx_v_q_m_betaBDF->data), ((double *)__pyx_v_q_dV->data), ((double *)__pyx_v_q_dV_last->data), ((double *)__pyx_v_cfl->data), ((double *)__pyx_v_edge_based_cfl->data), ((double *)__pyx_v_q_numDiff_u->data), ((double *)__pyx_v_q_numDiff_u_last->data), __pyx_v_offset_u, __pyx_v_stride_u, ((double *)__pyx_v_globalResidual->data), __pyx_v_nExteriorElementBoundaries_global, ((int *)__pyx_v_exteriorElementBoundariesArray->data), ((int *)__pyx_v_elementBoundaryElementsArray->data), ((int *)__pyx_v_elementBoundaryLocalElementBoundariesArray->data), ((double *)__pyx_v_ebqe_velocity_ext->data), ((double *)__pyx_v_ebqe_porosity_ext->data), ((int *)__pyx_v_isDOFBoundary_u->data), ((double *)__pyx_v_ebqe_bc_u_ext->data), ((int *)__pyx_v_isFluxBoundary_u->data), ((double *)__pyx_v_ebqe_bc_flux_u_ext->data), ((double *)__pyx_v_ebqe_phi->data), __pyx_v_epsFact, ((double *)__pyx_v_ebqe_u->data), ((double *)__pyx_v_ebqe_flux->data), __pyx_v_cE, __pyx_v_cK, __pyx_v_uL, __pyx_v_uR, __pyx_v_numDOFs, __pyx_v_NNZ, ((int *)__pyx_v_csrRowIndeces_DofLoops->data), ((int *)__pyx_v_csrColumnOffsets_DofLoops->data), ((int *)__pyx_v_csrRowIndeces_CellLoops->data), ((int *)__pyx_v_csrColumnOffsets_CellLoops->data), ((int *)__pyx_v_csrColumnOffsets_eb_CellLoops->data), ((double *)__pyx_v_Cx->data), ((double *)__pyx_v_Cy->data), ((double *)__pyx_v_Cz->data), ((double *)__pyx_v_CTx->data), ((double *)__pyx_v_CTy->data), ((double *)__pyx_v_CTz->data), ((double *)__pyx_v_ML->data), __pyx_v_LUMPED_MASS_MATRIX, __pyx_v_STABILIZATION_TYPE, __pyx_v_ENTROPY_TYPE, ((double *)__pyx_v_low_order_solution->data), ((double *)__pyx_v_dt_times_dH_minus_dL->data), ((double *)__pyx_v_min_u_bc->data), ((double *)__pyx_v_max_u_bc->data), ((double *)__pyx_v_quantDOFs->data), __pyx_v_poro, ((double *)__pyx_v_p_dof->data));
+  __pyx_v_self->thisptr->calculateResidual_entropy_viscosity(__pyx_v_dt, ((double *)__pyx_v_mesh_trial_ref->data), ((double *)__pyx_v_mesh_grad_trial_ref->data), ((double *)__pyx_v_mesh_dof->data), ((double *)__pyx_v_mesh_velocity_dof->data), __pyx_v_MOVING_DOMAIN, ((int *)__pyx_v_mesh_l2g->data), ((double *)__pyx_v_dV_ref->data), ((double *)__pyx_v_u_trial_ref->data), ((double *)__pyx_v_u_grad_trial_ref->data), ((double *)__pyx_v_u_test_ref->data), ((double *)__pyx_v_u_grad_test_ref->data), ((double *)__pyx_v_mesh_trial_trace_ref->data), ((double *)__pyx_v_mesh_grad_trial_trace_ref->data), ((double *)__pyx_v_dS_ref->data), ((double *)__pyx_v_u_trial_trace_ref->data), ((double *)__pyx_v_u_grad_trial_trace_ref->data), ((double *)__pyx_v_u_test_trace_ref->data), ((double *)__pyx_v_u_grad_test_trace_ref->data), ((double *)__pyx_v_normal_ref->data), ((double *)__pyx_v_boundaryJac_ref->data), __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, __pyx_v_sc_uref, __pyx_v_sc_alpha, ((double *)__pyx_v_q_porosity->data), ((double *)__pyx_v_porosity_dof->data), ((int *)__pyx_v_u_l2g->data), ((double *)__pyx_v_elementDiameter->data), __pyx_v_degree_polynomial, ((double *)__pyx_v_u_dof->data), ((double *)__pyx_v_u_dof_old->data), ((double *)__pyx_v_velocity->data), ((double *)__pyx_v_q_m->data), ((double *)__pyx_v_q_u->data), ((double *)__pyx_v_q_m_betaBDF->data), ((double *)__pyx_v_q_dV->data), ((double *)__pyx_v_q_dV_last->data), ((double *)__pyx_v_cfl->data), ((double *)__pyx_v_edge_based_cfl->data), ((double *)__pyx_v_q_numDiff_u->data), ((double *)__pyx_v_q_numDiff_u_last->data), __pyx_v_offset_u, __pyx_v_stride_u, ((double *)__pyx_v_globalResidual->data), __pyx_v_nExteriorElementBoundaries_global, ((int *)__pyx_v_exteriorElementBoundariesArray->data), ((int *)__pyx_v_elementBoundaryElementsArray->data), ((int *)__pyx_v_elementBoundaryLocalElementBoundariesArray->data), ((double *)__pyx_v_ebqe_velocity_ext->data), ((double *)__pyx_v_ebqe_porosity_ext->data), ((int *)__pyx_v_isDOFBoundary_u->data), ((double *)__pyx_v_ebqe_bc_u_ext->data), ((int *)__pyx_v_isFluxBoundary_u->data), ((double *)__pyx_v_ebqe_bc_flux_u_ext->data), ((double *)__pyx_v_ebqe_phi->data), __pyx_v_epsFact, ((double *)__pyx_v_ebqe_u->data), ((double *)__pyx_v_ebqe_flux->data), __pyx_v_cE, __pyx_v_cK, __pyx_v_uL, __pyx_v_uR, __pyx_v_numDOFs, __pyx_v_NNZ, ((int *)__pyx_v_csrRowIndeces_DofLoops->data), ((int *)__pyx_v_csrColumnOffsets_DofLoops->data), ((int *)__pyx_v_csrRowIndeces_CellLoops->data), ((int *)__pyx_v_csrColumnOffsets_CellLoops->data), ((int *)__pyx_v_csrColumnOffsets_eb_CellLoops->data), ((double *)__pyx_v_Cx->data), ((double *)__pyx_v_Cy->data), ((double *)__pyx_v_Cz->data), ((double *)__pyx_v_CTx->data), ((double *)__pyx_v_CTy->data), ((double *)__pyx_v_CTz->data), ((double *)__pyx_v_ML->data), __pyx_v_LUMPED_MASS_MATRIX, __pyx_v_STABILIZATION_TYPE, __pyx_v_ENTROPY_TYPE, ((double *)__pyx_v_low_order_solution->data), ((double *)__pyx_v_dt_times_dH_minus_dL->data), ((double *)__pyx_v_min_u_bc->data), ((double *)__pyx_v_max_u_bc->data), ((double *)__pyx_v_quantDOFs->data));
 
-  /* "mprans/cTIM.pyx":557
- *                                         poro,
- *                                         <double*> p_dof.data)
+  /* "mprans/cTIM.pyx":545
+ *                                        <double*> max_u_bc.data,
+ *                                        <double*> quantDOFs.data)
  *    def calculateResidual_entropy_viscosity(self,             # <<<<<<<<<<<<<<
  *                          double dt,
  *                          numpy.ndarray mesh_trial_ref,
@@ -3959,9 +3917,9 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_8calculateResidual_entropy_vi
   return __pyx_r;
 }
 
-/* "mprans/cTIM.pyx":743
- *                                         poro,
- *                                         <double*> p_dof.data)
+/* "mprans/cTIM.pyx":725
+ *                                        <double*> max_u_bc.data,
+ *                                        <double*> quantDOFs.data)
  *    def calculateJacobian(self,             # <<<<<<<<<<<<<<
  *                          double dt,
  *                          numpy.ndarray mesh_trial_ref,
@@ -4091,251 +4049,251 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_11calculateJacobian(PyObject 
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 1); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 1); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_grad_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 2); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 2); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 3); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 3); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_velocity_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 4); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 4); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_MOVING_DOMAIN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 5); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 5); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_l2g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 6); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 6); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case  7:
         if (likely((values[7] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dV_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 7); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 7); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case  8:
         if (likely((values[8] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 8); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 8); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case  9:
         if (likely((values[9] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 9); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 9); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 10:
         if (likely((values[10] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_test_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 10); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 10); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 11:
         if (likely((values[11] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_test_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 11); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 11); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 12:
         if (likely((values[12] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 12); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 12); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 13:
         if (likely((values[13] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_grad_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 13); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 13); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 14:
         if (likely((values[14] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dS_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 14); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 14); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 15:
         if (likely((values[15] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 15); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 15); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 16:
         if (likely((values[16] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 16); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 16); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 17:
         if (likely((values[17] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_test_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 17); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 17); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 18:
         if (likely((values[18] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_test_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 18); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 18); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 19:
         if (likely((values[19] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_normal_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 19); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 19); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 20:
         if (likely((values[20] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_boundaryJac_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 20); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 20); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 21:
         if (likely((values[21] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nElements_global)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 21); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 21); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 22:
         if (likely((values[22] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_useMetrics)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 22); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 22); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 23:
         if (likely((values[23] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_alphaBDF)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 23); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 23); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 24:
         if (likely((values[24] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lag_shockCapturing)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 24); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 24); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 25:
         if (likely((values[25] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_shockCapturingDiffusion)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 25); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 25); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 26:
         if (likely((values[26] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_porosity)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 26); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 26); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 27:
         if (likely((values[27] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_l2g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 27); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 27); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 28:
         if (likely((values[28] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementDiameter)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 28); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 28); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 29:
         if (likely((values[29] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_degree_polynomial)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 29); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 29); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 30:
         if (likely((values[30] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 30); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 30); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 31:
         if (likely((values[31] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_velocity)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 31); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 31); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 32:
         if (likely((values[32] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_m_betaBDF)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 32); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 32); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 33:
         if (likely((values[33] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_cfl)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 33); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 33); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 34:
         if (likely((values[34] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_numDiff_u_last)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 34); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 34); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 35:
         if (likely((values[35] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrRowIndeces_u_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 35); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 35); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 36:
         if (likely((values[36] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_u_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 36); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 36); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 37:
         if (likely((values[37] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_globalJacobian)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 37); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 37); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 38:
         if (likely((values[38] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nExteriorElementBoundaries_globa)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 38); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 38); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 39:
         if (likely((values[39] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exteriorElementBoundariesArray)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 39); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 39); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 40:
         if (likely((values[40] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementBoundaryElementsArray)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 40); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 40); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 41:
         if (likely((values[41] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementBoundaryLocalElementBound)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 41); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 41); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 42:
         if (likely((values[42] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_velocity_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 42); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 42); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 43:
         if (likely((values[43] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_porosity_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 43); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 43); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 44:
         if (likely((values[44] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_isDOFBoundary_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 44); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 44); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 45:
         if (likely((values[45] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_bc_u_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 45); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 45); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 46:
         if (likely((values[46] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_isFluxBoundary_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 46); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 46); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 47:
         if (likely((values[47] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_bc_flux_u_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 47); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 47); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 48:
         if (likely((values[48] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_eb_u_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 48); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 48); __PYX_ERR(0, 725, __pyx_L3_error)
         }
         case 49:
         if (likely((values[49] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_LUMPED_MASS_MATRIX)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 49); __PYX_ERR(0, 743, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, 49); __PYX_ERR(0, 725, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calculateJacobian") < 0)) __PYX_ERR(0, 743, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calculateJacobian") < 0)) __PYX_ERR(0, 725, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 50) {
       goto __pyx_L5_argtuple_error;
@@ -4391,12 +4349,12 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_11calculateJacobian(PyObject 
       values[48] = PyTuple_GET_ITEM(__pyx_args, 48);
       values[49] = PyTuple_GET_ITEM(__pyx_args, 49);
     }
-    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 744, __pyx_L3_error)
+    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 726, __pyx_L3_error)
     __pyx_v_mesh_trial_ref = ((PyArrayObject *)values[1]);
     __pyx_v_mesh_grad_trial_ref = ((PyArrayObject *)values[2]);
     __pyx_v_mesh_dof = ((PyArrayObject *)values[3]);
     __pyx_v_mesh_velocity_dof = ((PyArrayObject *)values[4]);
-    __pyx_v_MOVING_DOMAIN = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_MOVING_DOMAIN == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 749, __pyx_L3_error)
+    __pyx_v_MOVING_DOMAIN = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_MOVING_DOMAIN == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 731, __pyx_L3_error)
     __pyx_v_mesh_l2g = ((PyArrayObject *)values[6]);
     __pyx_v_dV_ref = ((PyArrayObject *)values[7]);
     __pyx_v_u_trial_ref = ((PyArrayObject *)values[8]);
@@ -4412,15 +4370,15 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_11calculateJacobian(PyObject 
     __pyx_v_u_grad_test_trace_ref = ((PyArrayObject *)values[18]);
     __pyx_v_normal_ref = ((PyArrayObject *)values[19]);
     __pyx_v_boundaryJac_ref = ((PyArrayObject *)values[20]);
-    __pyx_v_nElements_global = __Pyx_PyInt_As_int(values[21]); if (unlikely((__pyx_v_nElements_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 765, __pyx_L3_error)
-    __pyx_v_useMetrics = __pyx_PyFloat_AsDouble(values[22]); if (unlikely((__pyx_v_useMetrics == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 766, __pyx_L3_error)
-    __pyx_v_alphaBDF = __pyx_PyFloat_AsDouble(values[23]); if (unlikely((__pyx_v_alphaBDF == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 767, __pyx_L3_error)
-    __pyx_v_lag_shockCapturing = __Pyx_PyInt_As_int(values[24]); if (unlikely((__pyx_v_lag_shockCapturing == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 768, __pyx_L3_error)
-    __pyx_v_shockCapturingDiffusion = __pyx_PyFloat_AsDouble(values[25]); if (unlikely((__pyx_v_shockCapturingDiffusion == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 769, __pyx_L3_error)
+    __pyx_v_nElements_global = __Pyx_PyInt_As_int(values[21]); if (unlikely((__pyx_v_nElements_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L3_error)
+    __pyx_v_useMetrics = __pyx_PyFloat_AsDouble(values[22]); if (unlikely((__pyx_v_useMetrics == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 748, __pyx_L3_error)
+    __pyx_v_alphaBDF = __pyx_PyFloat_AsDouble(values[23]); if (unlikely((__pyx_v_alphaBDF == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 749, __pyx_L3_error)
+    __pyx_v_lag_shockCapturing = __Pyx_PyInt_As_int(values[24]); if (unlikely((__pyx_v_lag_shockCapturing == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 750, __pyx_L3_error)
+    __pyx_v_shockCapturingDiffusion = __pyx_PyFloat_AsDouble(values[25]); if (unlikely((__pyx_v_shockCapturingDiffusion == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 751, __pyx_L3_error)
     __pyx_v_q_porosity = ((PyArrayObject *)values[26]);
     __pyx_v_u_l2g = ((PyArrayObject *)values[27]);
     __pyx_v_elementDiameter = ((PyArrayObject *)values[28]);
-    __pyx_v_degree_polynomial = __Pyx_PyInt_As_int(values[29]); if (unlikely((__pyx_v_degree_polynomial == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 775, __pyx_L3_error)
+    __pyx_v_degree_polynomial = __Pyx_PyInt_As_int(values[29]); if (unlikely((__pyx_v_degree_polynomial == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 757, __pyx_L3_error)
     __pyx_v_u_dof = ((PyArrayObject *)values[30]);
     __pyx_v_velocity = ((PyArrayObject *)values[31]);
     __pyx_v_q_m_betaBDF = ((PyArrayObject *)values[32]);
@@ -4429,7 +4387,7 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_11calculateJacobian(PyObject 
     __pyx_v_csrRowIndeces_u_u = ((PyArrayObject *)values[35]);
     __pyx_v_csrColumnOffsets_u_u = ((PyArrayObject *)values[36]);
     __pyx_v_globalJacobian = values[37];
-    __pyx_v_nExteriorElementBoundaries_global = __Pyx_PyInt_As_int(values[38]); if (unlikely((__pyx_v_nExteriorElementBoundaries_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 783, __pyx_L3_error)
+    __pyx_v_nExteriorElementBoundaries_global = __Pyx_PyInt_As_int(values[38]); if (unlikely((__pyx_v_nExteriorElementBoundaries_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 765, __pyx_L3_error)
     __pyx_v_exteriorElementBoundariesArray = ((PyArrayObject *)values[39]);
     __pyx_v_elementBoundaryElementsArray = ((PyArrayObject *)values[40]);
     __pyx_v_elementBoundaryLocalElementBoundariesArray = ((PyArrayObject *)values[41]);
@@ -4440,55 +4398,55 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_11calculateJacobian(PyObject 
     __pyx_v_isFluxBoundary_u = ((PyArrayObject *)values[46]);
     __pyx_v_ebqe_bc_flux_u_ext = ((PyArrayObject *)values[47]);
     __pyx_v_csrColumnOffsets_eb_u_u = ((PyArrayObject *)values[48]);
-    __pyx_v_LUMPED_MASS_MATRIX = __Pyx_PyInt_As_int(values[49]); if (unlikely((__pyx_v_LUMPED_MASS_MATRIX == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 796, __pyx_L3_error)
+    __pyx_v_LUMPED_MASS_MATRIX = __Pyx_PyInt_As_int(values[49]); if (unlikely((__pyx_v_LUMPED_MASS_MATRIX == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 778, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 743, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("calculateJacobian", 1, 50, 50, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 725, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.cTIM.cTIM_base.calculateJacobian", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_ref", 0))) __PYX_ERR(0, 745, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_ref", 0))) __PYX_ERR(0, 746, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_dof", 0))) __PYX_ERR(0, 747, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_velocity_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_velocity_dof", 0))) __PYX_ERR(0, 748, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_l2g), __pyx_ptype_5numpy_ndarray, 1, "mesh_l2g", 0))) __PYX_ERR(0, 750, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dV_ref), __pyx_ptype_5numpy_ndarray, 1, "dV_ref", 0))) __PYX_ERR(0, 751, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_ref", 0))) __PYX_ERR(0, 752, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_ref", 0))) __PYX_ERR(0, 753, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_ref", 0))) __PYX_ERR(0, 754, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_ref", 0))) __PYX_ERR(0, 755, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_trace_ref", 0))) __PYX_ERR(0, 756, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_trace_ref", 0))) __PYX_ERR(0, 757, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dS_ref), __pyx_ptype_5numpy_ndarray, 1, "dS_ref", 0))) __PYX_ERR(0, 758, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_trace_ref", 0))) __PYX_ERR(0, 759, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_trace_ref", 0))) __PYX_ERR(0, 760, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_trace_ref", 0))) __PYX_ERR(0, 761, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_trace_ref", 0))) __PYX_ERR(0, 762, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_normal_ref), __pyx_ptype_5numpy_ndarray, 1, "normal_ref", 0))) __PYX_ERR(0, 763, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_boundaryJac_ref), __pyx_ptype_5numpy_ndarray, 1, "boundaryJac_ref", 0))) __PYX_ERR(0, 764, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_porosity), __pyx_ptype_5numpy_ndarray, 1, "q_porosity", 0))) __PYX_ERR(0, 771, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_l2g), __pyx_ptype_5numpy_ndarray, 1, "u_l2g", 0))) __PYX_ERR(0, 773, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementDiameter), __pyx_ptype_5numpy_ndarray, 1, "elementDiameter", 0))) __PYX_ERR(0, 774, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof), __pyx_ptype_5numpy_ndarray, 1, "u_dof", 0))) __PYX_ERR(0, 776, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_velocity), __pyx_ptype_5numpy_ndarray, 1, "velocity", 0))) __PYX_ERR(0, 777, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m_betaBDF), __pyx_ptype_5numpy_ndarray, 1, "q_m_betaBDF", 0))) __PYX_ERR(0, 778, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cfl), __pyx_ptype_5numpy_ndarray, 1, "cfl", 0))) __PYX_ERR(0, 779, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u_last), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u_last", 0))) __PYX_ERR(0, 780, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_u_u", 0))) __PYX_ERR(0, 781, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_u_u", 0))) __PYX_ERR(0, 781, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exteriorElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "exteriorElementBoundariesArray", 0))) __PYX_ERR(0, 784, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryElementsArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryElementsArray", 0))) __PYX_ERR(0, 785, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryLocalElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryLocalElementBoundariesArray", 0))) __PYX_ERR(0, 786, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_velocity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_velocity_ext", 0))) __PYX_ERR(0, 787, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_porosity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_porosity_ext", 0))) __PYX_ERR(0, 789, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isDOFBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isDOFBoundary_u", 0))) __PYX_ERR(0, 791, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_u_ext", 0))) __PYX_ERR(0, 792, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isFluxBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isFluxBoundary_u", 0))) __PYX_ERR(0, 793, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_flux_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_flux_u_ext", 0))) __PYX_ERR(0, 794, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_eb_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_eb_u_u", 0))) __PYX_ERR(0, 795, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_ref", 0))) __PYX_ERR(0, 727, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_ref", 0))) __PYX_ERR(0, 728, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_dof", 0))) __PYX_ERR(0, 729, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_velocity_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_velocity_dof", 0))) __PYX_ERR(0, 730, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_l2g), __pyx_ptype_5numpy_ndarray, 1, "mesh_l2g", 0))) __PYX_ERR(0, 732, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dV_ref), __pyx_ptype_5numpy_ndarray, 1, "dV_ref", 0))) __PYX_ERR(0, 733, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_ref", 0))) __PYX_ERR(0, 734, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_ref", 0))) __PYX_ERR(0, 735, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_ref", 0))) __PYX_ERR(0, 736, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_ref", 0))) __PYX_ERR(0, 737, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_trace_ref", 0))) __PYX_ERR(0, 738, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_trace_ref", 0))) __PYX_ERR(0, 739, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dS_ref), __pyx_ptype_5numpy_ndarray, 1, "dS_ref", 0))) __PYX_ERR(0, 740, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_trace_ref", 0))) __PYX_ERR(0, 741, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_trace_ref", 0))) __PYX_ERR(0, 742, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_trace_ref", 0))) __PYX_ERR(0, 743, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_trace_ref", 0))) __PYX_ERR(0, 744, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_normal_ref), __pyx_ptype_5numpy_ndarray, 1, "normal_ref", 0))) __PYX_ERR(0, 745, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_boundaryJac_ref), __pyx_ptype_5numpy_ndarray, 1, "boundaryJac_ref", 0))) __PYX_ERR(0, 746, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_porosity), __pyx_ptype_5numpy_ndarray, 1, "q_porosity", 0))) __PYX_ERR(0, 753, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_l2g), __pyx_ptype_5numpy_ndarray, 1, "u_l2g", 0))) __PYX_ERR(0, 755, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementDiameter), __pyx_ptype_5numpy_ndarray, 1, "elementDiameter", 0))) __PYX_ERR(0, 756, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof), __pyx_ptype_5numpy_ndarray, 1, "u_dof", 0))) __PYX_ERR(0, 758, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_velocity), __pyx_ptype_5numpy_ndarray, 1, "velocity", 0))) __PYX_ERR(0, 759, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m_betaBDF), __pyx_ptype_5numpy_ndarray, 1, "q_m_betaBDF", 0))) __PYX_ERR(0, 760, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cfl), __pyx_ptype_5numpy_ndarray, 1, "cfl", 0))) __PYX_ERR(0, 761, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u_last), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u_last", 0))) __PYX_ERR(0, 762, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_u_u", 0))) __PYX_ERR(0, 763, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_u_u", 0))) __PYX_ERR(0, 763, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exteriorElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "exteriorElementBoundariesArray", 0))) __PYX_ERR(0, 766, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryElementsArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryElementsArray", 0))) __PYX_ERR(0, 767, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryLocalElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryLocalElementBoundariesArray", 0))) __PYX_ERR(0, 768, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_velocity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_velocity_ext", 0))) __PYX_ERR(0, 769, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_porosity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_porosity_ext", 0))) __PYX_ERR(0, 771, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isDOFBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isDOFBoundary_u", 0))) __PYX_ERR(0, 773, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_u_ext", 0))) __PYX_ERR(0, 774, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isFluxBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isFluxBoundary_u", 0))) __PYX_ERR(0, 775, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_flux_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_flux_u_ext", 0))) __PYX_ERR(0, 776, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_eb_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_eb_u_u", 0))) __PYX_ERR(0, 777, __pyx_L1_error)
   __pyx_r = __pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(((struct __pyx_obj_6mprans_4cTIM_cTIM_base *)__pyx_v_self), __pyx_v_dt, __pyx_v_mesh_trial_ref, __pyx_v_mesh_grad_trial_ref, __pyx_v_mesh_dof, __pyx_v_mesh_velocity_dof, __pyx_v_MOVING_DOMAIN, __pyx_v_mesh_l2g, __pyx_v_dV_ref, __pyx_v_u_trial_ref, __pyx_v_u_grad_trial_ref, __pyx_v_u_test_ref, __pyx_v_u_grad_test_ref, __pyx_v_mesh_trial_trace_ref, __pyx_v_mesh_grad_trial_trace_ref, __pyx_v_dS_ref, __pyx_v_u_trial_trace_ref, __pyx_v_u_grad_trial_trace_ref, __pyx_v_u_test_trace_ref, __pyx_v_u_grad_test_trace_ref, __pyx_v_normal_ref, __pyx_v_boundaryJac_ref, __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, __pyx_v_q_porosity, __pyx_v_u_l2g, __pyx_v_elementDiameter, __pyx_v_degree_polynomial, __pyx_v_u_dof, __pyx_v_velocity, __pyx_v_q_m_betaBDF, __pyx_v_cfl, __pyx_v_q_numDiff_u_last, __pyx_v_csrRowIndeces_u_u, __pyx_v_csrColumnOffsets_u_u, __pyx_v_globalJacobian, __pyx_v_nExteriorElementBoundaries_global, __pyx_v_exteriorElementBoundariesArray, __pyx_v_elementBoundaryElementsArray, __pyx_v_elementBoundaryLocalElementBoundariesArray, __pyx_v_ebqe_velocity_ext, __pyx_v_ebqe_porosity_ext, __pyx_v_isDOFBoundary_u, __pyx_v_ebqe_bc_u_ext, __pyx_v_isFluxBoundary_u, __pyx_v_ebqe_bc_flux_u_ext, __pyx_v_csrColumnOffsets_eb_u_u, __pyx_v_LUMPED_MASS_MATRIX);
 
   /* function exit code */
@@ -4514,14 +4472,14 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(struct __
   PyObject *(*__pyx_t_6)(PyObject *);
   __Pyx_RefNannySetupContext("calculateJacobian", 0);
 
-  /* "mprans/cTIM.pyx":798
+  /* "mprans/cTIM.pyx":780
  *                          int LUMPED_MASS_MATRIX):
  *        cdef numpy.ndarray rowptr,colind,globalJacobian_a
  *        (rowptr,colind,globalJacobian_a) = globalJacobian.getCSRrepresentation()             # <<<<<<<<<<<<<<
  *        self.thisptr.calculateJacobian(dt,
  *                                        <double*> mesh_trial_ref.data,
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_globalJacobian, __pyx_n_s_getCSRrepresentation); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 798, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_globalJacobian, __pyx_n_s_getCSRrepresentation); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 780, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4534,10 +4492,10 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(struct __
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 798, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 780, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 798, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 780, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -4551,7 +4509,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(struct __
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 798, __pyx_L1_error)
+      __PYX_ERR(0, 780, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -4567,17 +4525,17 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(struct __
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_4);
     #else
-    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 798, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 780, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 798, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 780, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 798, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 780, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     #endif
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 798, __pyx_L1_error)
+    __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 780, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = Py_TYPE(__pyx_t_5)->tp_iternext;
@@ -4587,7 +4545,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(struct __
     __Pyx_GOTREF(__pyx_t_3);
     index = 2; __pyx_t_4 = __pyx_t_6(__pyx_t_5); if (unlikely(!__pyx_t_4)) goto __pyx_L3_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_5), 3) < 0) __PYX_ERR(0, 798, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_5), 3) < 0) __PYX_ERR(0, 780, __pyx_L1_error)
     __pyx_t_6 = NULL;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     goto __pyx_L4_unpacking_done;
@@ -4595,12 +4553,12 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(struct __
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 798, __pyx_L1_error)
+    __PYX_ERR(0, 780, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 798, __pyx_L1_error)
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 798, __pyx_L1_error)
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 798, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 780, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 780, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 780, __pyx_L1_error)
   __pyx_v_rowptr = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
   __pyx_v_colind = ((PyArrayObject *)__pyx_t_3);
@@ -4608,7 +4566,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(struct __
   __pyx_v_globalJacobian_a = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "mprans/cTIM.pyx":799
+  /* "mprans/cTIM.pyx":781
  *        cdef numpy.ndarray rowptr,colind,globalJacobian_a
  *        (rowptr,colind,globalJacobian_a) = globalJacobian.getCSRrepresentation()
  *        self.thisptr.calculateJacobian(dt,             # <<<<<<<<<<<<<<
@@ -4617,9 +4575,9 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(struct __
  */
   __pyx_v_self->thisptr->calculateJacobian(__pyx_v_dt, ((double *)__pyx_v_mesh_trial_ref->data), ((double *)__pyx_v_mesh_grad_trial_ref->data), ((double *)__pyx_v_mesh_dof->data), ((double *)__pyx_v_mesh_velocity_dof->data), __pyx_v_MOVING_DOMAIN, ((int *)__pyx_v_mesh_l2g->data), ((double *)__pyx_v_dV_ref->data), ((double *)__pyx_v_u_trial_ref->data), ((double *)__pyx_v_u_grad_trial_ref->data), ((double *)__pyx_v_u_test_ref->data), ((double *)__pyx_v_u_grad_test_ref->data), ((double *)__pyx_v_mesh_trial_trace_ref->data), ((double *)__pyx_v_mesh_grad_trial_trace_ref->data), ((double *)__pyx_v_dS_ref->data), ((double *)__pyx_v_u_trial_trace_ref->data), ((double *)__pyx_v_u_grad_trial_trace_ref->data), ((double *)__pyx_v_u_test_trace_ref->data), ((double *)__pyx_v_u_grad_test_trace_ref->data), ((double *)__pyx_v_normal_ref->data), ((double *)__pyx_v_boundaryJac_ref->data), __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, ((double *)__pyx_v_q_porosity->data), ((int *)__pyx_v_u_l2g->data), ((double *)__pyx_v_elementDiameter->data), __pyx_v_degree_polynomial, ((double *)__pyx_v_u_dof->data), ((double *)__pyx_v_velocity->data), ((double *)__pyx_v_q_m_betaBDF->data), ((double *)__pyx_v_cfl->data), ((double *)__pyx_v_q_numDiff_u_last->data), ((int *)__pyx_v_csrRowIndeces_u_u->data), ((int *)__pyx_v_csrColumnOffsets_u_u->data), ((double *)__pyx_v_globalJacobian_a->data), __pyx_v_nExteriorElementBoundaries_global, ((int *)__pyx_v_exteriorElementBoundariesArray->data), ((int *)__pyx_v_elementBoundaryElementsArray->data), ((int *)__pyx_v_elementBoundaryLocalElementBoundariesArray->data), ((double *)__pyx_v_ebqe_velocity_ext->data), ((double *)__pyx_v_ebqe_porosity_ext->data), ((int *)__pyx_v_isDOFBoundary_u->data), ((double *)__pyx_v_ebqe_bc_u_ext->data), ((int *)__pyx_v_isFluxBoundary_u->data), ((double *)__pyx_v_ebqe_bc_flux_u_ext->data), ((int *)__pyx_v_csrColumnOffsets_eb_u_u->data), __pyx_v_LUMPED_MASS_MATRIX);
 
-  /* "mprans/cTIM.pyx":743
- *                                         poro,
- *                                         <double*> p_dof.data)
+  /* "mprans/cTIM.pyx":725
+ *                                        <double*> max_u_bc.data,
+ *                                        <double*> quantDOFs.data)
  *    def calculateJacobian(self,             # <<<<<<<<<<<<<<
  *                          double dt,
  *                          numpy.ndarray mesh_trial_ref,
@@ -4645,7 +4603,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_10calculateJacobian(struct __
   return __pyx_r;
 }
 
-/* "mprans/cTIM.pyx":852
+/* "mprans/cTIM.pyx":834
  *                                        <int*> csrColumnOffsets_eb_u_u.data,
  *                                        LUMPED_MASS_MATRIX)
  *    def calculateMassMatrix(self,             # <<<<<<<<<<<<<<
@@ -4777,251 +4735,251 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_13calculateMassMatrix(PyObjec
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 1); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 1); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_grad_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 2); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 2); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 3); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 3); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_velocity_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 4); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 4); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_MOVING_DOMAIN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 5); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 5); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_l2g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 6); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 6); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case  7:
         if (likely((values[7] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dV_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 7); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 7); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case  8:
         if (likely((values[8] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 8); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 8); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case  9:
         if (likely((values[9] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_trial_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 9); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 9); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 10:
         if (likely((values[10] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_test_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 10); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 10); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 11:
         if (likely((values[11] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_test_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 11); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 11); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 12:
         if (likely((values[12] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 12); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 12); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 13:
         if (likely((values[13] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mesh_grad_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 13); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 13); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 14:
         if (likely((values[14] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dS_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 14); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 14); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 15:
         if (likely((values[15] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 15); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 15); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 16:
         if (likely((values[16] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_trial_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 16); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 16); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 17:
         if (likely((values[17] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_test_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 17); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 17); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 18:
         if (likely((values[18] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_grad_test_trace_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 18); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 18); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 19:
         if (likely((values[19] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_normal_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 19); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 19); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 20:
         if (likely((values[20] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_boundaryJac_ref)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 20); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 20); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 21:
         if (likely((values[21] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nElements_global)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 21); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 21); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 22:
         if (likely((values[22] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_useMetrics)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 22); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 22); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 23:
         if (likely((values[23] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_alphaBDF)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 23); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 23); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 24:
         if (likely((values[24] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lag_shockCapturing)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 24); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 24); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 25:
         if (likely((values[25] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_shockCapturingDiffusion)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 25); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 25); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 26:
         if (likely((values[26] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_porosity)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 26); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 26); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 27:
         if (likely((values[27] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_l2g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 27); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 27); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 28:
         if (likely((values[28] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementDiameter)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 28); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 28); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 29:
         if (likely((values[29] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_degree_polynomial)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 29); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 29); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 30:
         if (likely((values[30] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_u_dof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 30); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 30); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 31:
         if (likely((values[31] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_velocity)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 31); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 31); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 32:
         if (likely((values[32] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_m_betaBDF)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 32); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 32); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 33:
         if (likely((values[33] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_cfl)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 33); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 33); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 34:
         if (likely((values[34] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_q_numDiff_u_last)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 34); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 34); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 35:
         if (likely((values[35] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrRowIndeces_u_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 35); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 35); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 36:
         if (likely((values[36] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_u_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 36); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 36); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 37:
         if (likely((values[37] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_globalJacobian)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 37); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 37); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 38:
         if (likely((values[38] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nExteriorElementBoundaries_globa)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 38); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 38); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 39:
         if (likely((values[39] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exteriorElementBoundariesArray)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 39); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 39); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 40:
         if (likely((values[40] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementBoundaryElementsArray)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 40); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 40); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 41:
         if (likely((values[41] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_elementBoundaryLocalElementBound)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 41); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 41); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 42:
         if (likely((values[42] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_velocity_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 42); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 42); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 43:
         if (likely((values[43] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_porosity_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 43); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 43); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 44:
         if (likely((values[44] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_isDOFBoundary_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 44); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 44); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 45:
         if (likely((values[45] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_bc_u_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 45); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 45); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 46:
         if (likely((values[46] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_isFluxBoundary_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 46); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 46); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 47:
         if (likely((values[47] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ebqe_bc_flux_u_ext)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 47); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 47); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 48:
         if (likely((values[48] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_csrColumnOffsets_eb_u_u)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 48); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 48); __PYX_ERR(0, 834, __pyx_L3_error)
         }
         case 49:
         if (likely((values[49] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_LUMPED_MASS_MATRIX)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 49); __PYX_ERR(0, 852, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, 49); __PYX_ERR(0, 834, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calculateMassMatrix") < 0)) __PYX_ERR(0, 852, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "calculateMassMatrix") < 0)) __PYX_ERR(0, 834, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 50) {
       goto __pyx_L5_argtuple_error;
@@ -5077,12 +5035,12 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_13calculateMassMatrix(PyObjec
       values[48] = PyTuple_GET_ITEM(__pyx_args, 48);
       values[49] = PyTuple_GET_ITEM(__pyx_args, 49);
     }
-    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 853, __pyx_L3_error)
+    __pyx_v_dt = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_dt == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 835, __pyx_L3_error)
     __pyx_v_mesh_trial_ref = ((PyArrayObject *)values[1]);
     __pyx_v_mesh_grad_trial_ref = ((PyArrayObject *)values[2]);
     __pyx_v_mesh_dof = ((PyArrayObject *)values[3]);
     __pyx_v_mesh_velocity_dof = ((PyArrayObject *)values[4]);
-    __pyx_v_MOVING_DOMAIN = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_MOVING_DOMAIN == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 858, __pyx_L3_error)
+    __pyx_v_MOVING_DOMAIN = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_MOVING_DOMAIN == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 840, __pyx_L3_error)
     __pyx_v_mesh_l2g = ((PyArrayObject *)values[6]);
     __pyx_v_dV_ref = ((PyArrayObject *)values[7]);
     __pyx_v_u_trial_ref = ((PyArrayObject *)values[8]);
@@ -5098,15 +5056,15 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_13calculateMassMatrix(PyObjec
     __pyx_v_u_grad_test_trace_ref = ((PyArrayObject *)values[18]);
     __pyx_v_normal_ref = ((PyArrayObject *)values[19]);
     __pyx_v_boundaryJac_ref = ((PyArrayObject *)values[20]);
-    __pyx_v_nElements_global = __Pyx_PyInt_As_int(values[21]); if (unlikely((__pyx_v_nElements_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 874, __pyx_L3_error)
-    __pyx_v_useMetrics = __pyx_PyFloat_AsDouble(values[22]); if (unlikely((__pyx_v_useMetrics == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 875, __pyx_L3_error)
-    __pyx_v_alphaBDF = __pyx_PyFloat_AsDouble(values[23]); if (unlikely((__pyx_v_alphaBDF == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 876, __pyx_L3_error)
-    __pyx_v_lag_shockCapturing = __Pyx_PyInt_As_int(values[24]); if (unlikely((__pyx_v_lag_shockCapturing == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 877, __pyx_L3_error)
-    __pyx_v_shockCapturingDiffusion = __pyx_PyFloat_AsDouble(values[25]); if (unlikely((__pyx_v_shockCapturingDiffusion == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 878, __pyx_L3_error)
+    __pyx_v_nElements_global = __Pyx_PyInt_As_int(values[21]); if (unlikely((__pyx_v_nElements_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 856, __pyx_L3_error)
+    __pyx_v_useMetrics = __pyx_PyFloat_AsDouble(values[22]); if (unlikely((__pyx_v_useMetrics == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 857, __pyx_L3_error)
+    __pyx_v_alphaBDF = __pyx_PyFloat_AsDouble(values[23]); if (unlikely((__pyx_v_alphaBDF == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 858, __pyx_L3_error)
+    __pyx_v_lag_shockCapturing = __Pyx_PyInt_As_int(values[24]); if (unlikely((__pyx_v_lag_shockCapturing == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 859, __pyx_L3_error)
+    __pyx_v_shockCapturingDiffusion = __pyx_PyFloat_AsDouble(values[25]); if (unlikely((__pyx_v_shockCapturingDiffusion == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 860, __pyx_L3_error)
     __pyx_v_q_porosity = ((PyArrayObject *)values[26]);
     __pyx_v_u_l2g = ((PyArrayObject *)values[27]);
     __pyx_v_elementDiameter = ((PyArrayObject *)values[28]);
-    __pyx_v_degree_polynomial = __Pyx_PyInt_As_int(values[29]); if (unlikely((__pyx_v_degree_polynomial == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 884, __pyx_L3_error)
+    __pyx_v_degree_polynomial = __Pyx_PyInt_As_int(values[29]); if (unlikely((__pyx_v_degree_polynomial == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 866, __pyx_L3_error)
     __pyx_v_u_dof = ((PyArrayObject *)values[30]);
     __pyx_v_velocity = ((PyArrayObject *)values[31]);
     __pyx_v_q_m_betaBDF = ((PyArrayObject *)values[32]);
@@ -5115,7 +5073,7 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_13calculateMassMatrix(PyObjec
     __pyx_v_csrRowIndeces_u_u = ((PyArrayObject *)values[35]);
     __pyx_v_csrColumnOffsets_u_u = ((PyArrayObject *)values[36]);
     __pyx_v_globalJacobian = values[37];
-    __pyx_v_nExteriorElementBoundaries_global = __Pyx_PyInt_As_int(values[38]); if (unlikely((__pyx_v_nExteriorElementBoundaries_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 892, __pyx_L3_error)
+    __pyx_v_nExteriorElementBoundaries_global = __Pyx_PyInt_As_int(values[38]); if (unlikely((__pyx_v_nExteriorElementBoundaries_global == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 874, __pyx_L3_error)
     __pyx_v_exteriorElementBoundariesArray = ((PyArrayObject *)values[39]);
     __pyx_v_elementBoundaryElementsArray = ((PyArrayObject *)values[40]);
     __pyx_v_elementBoundaryLocalElementBoundariesArray = ((PyArrayObject *)values[41]);
@@ -5126,55 +5084,55 @@ static PyObject *__pyx_pw_6mprans_4cTIM_9cTIM_base_13calculateMassMatrix(PyObjec
     __pyx_v_isFluxBoundary_u = ((PyArrayObject *)values[46]);
     __pyx_v_ebqe_bc_flux_u_ext = ((PyArrayObject *)values[47]);
     __pyx_v_csrColumnOffsets_eb_u_u = ((PyArrayObject *)values[48]);
-    __pyx_v_LUMPED_MASS_MATRIX = __Pyx_PyInt_As_int(values[49]); if (unlikely((__pyx_v_LUMPED_MASS_MATRIX == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 905, __pyx_L3_error)
+    __pyx_v_LUMPED_MASS_MATRIX = __Pyx_PyInt_As_int(values[49]); if (unlikely((__pyx_v_LUMPED_MASS_MATRIX == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 887, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 852, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("calculateMassMatrix", 1, 50, 50, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 834, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.cTIM.cTIM_base.calculateMassMatrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_ref", 0))) __PYX_ERR(0, 854, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_ref", 0))) __PYX_ERR(0, 855, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_dof", 0))) __PYX_ERR(0, 856, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_velocity_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_velocity_dof", 0))) __PYX_ERR(0, 857, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_l2g), __pyx_ptype_5numpy_ndarray, 1, "mesh_l2g", 0))) __PYX_ERR(0, 859, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dV_ref), __pyx_ptype_5numpy_ndarray, 1, "dV_ref", 0))) __PYX_ERR(0, 860, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_ref", 0))) __PYX_ERR(0, 861, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_ref", 0))) __PYX_ERR(0, 862, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_ref", 0))) __PYX_ERR(0, 863, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_ref", 0))) __PYX_ERR(0, 864, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_trace_ref", 0))) __PYX_ERR(0, 865, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_trace_ref", 0))) __PYX_ERR(0, 866, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dS_ref), __pyx_ptype_5numpy_ndarray, 1, "dS_ref", 0))) __PYX_ERR(0, 867, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_trace_ref", 0))) __PYX_ERR(0, 868, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_trace_ref", 0))) __PYX_ERR(0, 869, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_trace_ref", 0))) __PYX_ERR(0, 870, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_trace_ref", 0))) __PYX_ERR(0, 871, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_normal_ref), __pyx_ptype_5numpy_ndarray, 1, "normal_ref", 0))) __PYX_ERR(0, 872, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_boundaryJac_ref), __pyx_ptype_5numpy_ndarray, 1, "boundaryJac_ref", 0))) __PYX_ERR(0, 873, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_porosity), __pyx_ptype_5numpy_ndarray, 1, "q_porosity", 0))) __PYX_ERR(0, 880, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_l2g), __pyx_ptype_5numpy_ndarray, 1, "u_l2g", 0))) __PYX_ERR(0, 882, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementDiameter), __pyx_ptype_5numpy_ndarray, 1, "elementDiameter", 0))) __PYX_ERR(0, 883, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof), __pyx_ptype_5numpy_ndarray, 1, "u_dof", 0))) __PYX_ERR(0, 885, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_velocity), __pyx_ptype_5numpy_ndarray, 1, "velocity", 0))) __PYX_ERR(0, 886, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m_betaBDF), __pyx_ptype_5numpy_ndarray, 1, "q_m_betaBDF", 0))) __PYX_ERR(0, 887, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cfl), __pyx_ptype_5numpy_ndarray, 1, "cfl", 0))) __PYX_ERR(0, 888, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u_last), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u_last", 0))) __PYX_ERR(0, 889, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_u_u", 0))) __PYX_ERR(0, 890, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_u_u", 0))) __PYX_ERR(0, 890, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exteriorElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "exteriorElementBoundariesArray", 0))) __PYX_ERR(0, 893, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryElementsArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryElementsArray", 0))) __PYX_ERR(0, 894, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryLocalElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryLocalElementBoundariesArray", 0))) __PYX_ERR(0, 895, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_velocity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_velocity_ext", 0))) __PYX_ERR(0, 896, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_porosity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_porosity_ext", 0))) __PYX_ERR(0, 898, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isDOFBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isDOFBoundary_u", 0))) __PYX_ERR(0, 900, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_u_ext", 0))) __PYX_ERR(0, 901, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isFluxBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isFluxBoundary_u", 0))) __PYX_ERR(0, 902, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_flux_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_flux_u_ext", 0))) __PYX_ERR(0, 903, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_eb_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_eb_u_u", 0))) __PYX_ERR(0, 904, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_ref", 0))) __PYX_ERR(0, 836, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_ref", 0))) __PYX_ERR(0, 837, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_dof", 0))) __PYX_ERR(0, 838, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_velocity_dof), __pyx_ptype_5numpy_ndarray, 1, "mesh_velocity_dof", 0))) __PYX_ERR(0, 839, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_l2g), __pyx_ptype_5numpy_ndarray, 1, "mesh_l2g", 0))) __PYX_ERR(0, 841, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dV_ref), __pyx_ptype_5numpy_ndarray, 1, "dV_ref", 0))) __PYX_ERR(0, 842, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_ref", 0))) __PYX_ERR(0, 843, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_ref", 0))) __PYX_ERR(0, 844, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_ref", 0))) __PYX_ERR(0, 845, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_ref", 0))) __PYX_ERR(0, 846, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_trial_trace_ref", 0))) __PYX_ERR(0, 847, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mesh_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "mesh_grad_trial_trace_ref", 0))) __PYX_ERR(0, 848, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dS_ref), __pyx_ptype_5numpy_ndarray, 1, "dS_ref", 0))) __PYX_ERR(0, 849, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_trial_trace_ref", 0))) __PYX_ERR(0, 850, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_trial_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_trial_trace_ref", 0))) __PYX_ERR(0, 851, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_test_trace_ref", 0))) __PYX_ERR(0, 852, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_grad_test_trace_ref), __pyx_ptype_5numpy_ndarray, 1, "u_grad_test_trace_ref", 0))) __PYX_ERR(0, 853, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_normal_ref), __pyx_ptype_5numpy_ndarray, 1, "normal_ref", 0))) __PYX_ERR(0, 854, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_boundaryJac_ref), __pyx_ptype_5numpy_ndarray, 1, "boundaryJac_ref", 0))) __PYX_ERR(0, 855, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_porosity), __pyx_ptype_5numpy_ndarray, 1, "q_porosity", 0))) __PYX_ERR(0, 862, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_l2g), __pyx_ptype_5numpy_ndarray, 1, "u_l2g", 0))) __PYX_ERR(0, 864, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementDiameter), __pyx_ptype_5numpy_ndarray, 1, "elementDiameter", 0))) __PYX_ERR(0, 865, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u_dof), __pyx_ptype_5numpy_ndarray, 1, "u_dof", 0))) __PYX_ERR(0, 867, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_velocity), __pyx_ptype_5numpy_ndarray, 1, "velocity", 0))) __PYX_ERR(0, 868, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_m_betaBDF), __pyx_ptype_5numpy_ndarray, 1, "q_m_betaBDF", 0))) __PYX_ERR(0, 869, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cfl), __pyx_ptype_5numpy_ndarray, 1, "cfl", 0))) __PYX_ERR(0, 870, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q_numDiff_u_last), __pyx_ptype_5numpy_ndarray, 1, "q_numDiff_u_last", 0))) __PYX_ERR(0, 871, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrRowIndeces_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrRowIndeces_u_u", 0))) __PYX_ERR(0, 872, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_u_u", 0))) __PYX_ERR(0, 872, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exteriorElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "exteriorElementBoundariesArray", 0))) __PYX_ERR(0, 875, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryElementsArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryElementsArray", 0))) __PYX_ERR(0, 876, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_elementBoundaryLocalElementBoundariesArray), __pyx_ptype_5numpy_ndarray, 1, "elementBoundaryLocalElementBoundariesArray", 0))) __PYX_ERR(0, 877, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_velocity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_velocity_ext", 0))) __PYX_ERR(0, 878, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_porosity_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_porosity_ext", 0))) __PYX_ERR(0, 880, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isDOFBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isDOFBoundary_u", 0))) __PYX_ERR(0, 882, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_u_ext", 0))) __PYX_ERR(0, 883, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_isFluxBoundary_u), __pyx_ptype_5numpy_ndarray, 1, "isFluxBoundary_u", 0))) __PYX_ERR(0, 884, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ebqe_bc_flux_u_ext), __pyx_ptype_5numpy_ndarray, 1, "ebqe_bc_flux_u_ext", 0))) __PYX_ERR(0, 885, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_csrColumnOffsets_eb_u_u), __pyx_ptype_5numpy_ndarray, 1, "csrColumnOffsets_eb_u_u", 0))) __PYX_ERR(0, 886, __pyx_L1_error)
   __pyx_r = __pyx_pf_6mprans_4cTIM_9cTIM_base_12calculateMassMatrix(((struct __pyx_obj_6mprans_4cTIM_cTIM_base *)__pyx_v_self), __pyx_v_dt, __pyx_v_mesh_trial_ref, __pyx_v_mesh_grad_trial_ref, __pyx_v_mesh_dof, __pyx_v_mesh_velocity_dof, __pyx_v_MOVING_DOMAIN, __pyx_v_mesh_l2g, __pyx_v_dV_ref, __pyx_v_u_trial_ref, __pyx_v_u_grad_trial_ref, __pyx_v_u_test_ref, __pyx_v_u_grad_test_ref, __pyx_v_mesh_trial_trace_ref, __pyx_v_mesh_grad_trial_trace_ref, __pyx_v_dS_ref, __pyx_v_u_trial_trace_ref, __pyx_v_u_grad_trial_trace_ref, __pyx_v_u_test_trace_ref, __pyx_v_u_grad_test_trace_ref, __pyx_v_normal_ref, __pyx_v_boundaryJac_ref, __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, __pyx_v_q_porosity, __pyx_v_u_l2g, __pyx_v_elementDiameter, __pyx_v_degree_polynomial, __pyx_v_u_dof, __pyx_v_velocity, __pyx_v_q_m_betaBDF, __pyx_v_cfl, __pyx_v_q_numDiff_u_last, __pyx_v_csrRowIndeces_u_u, __pyx_v_csrColumnOffsets_u_u, __pyx_v_globalJacobian, __pyx_v_nExteriorElementBoundaries_global, __pyx_v_exteriorElementBoundariesArray, __pyx_v_elementBoundaryElementsArray, __pyx_v_elementBoundaryLocalElementBoundariesArray, __pyx_v_ebqe_velocity_ext, __pyx_v_ebqe_porosity_ext, __pyx_v_isDOFBoundary_u, __pyx_v_ebqe_bc_u_ext, __pyx_v_isFluxBoundary_u, __pyx_v_ebqe_bc_flux_u_ext, __pyx_v_csrColumnOffsets_eb_u_u, __pyx_v_LUMPED_MASS_MATRIX);
 
   /* function exit code */
@@ -5200,14 +5158,14 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_12calculateMassMatrix(struct 
   PyObject *(*__pyx_t_6)(PyObject *);
   __Pyx_RefNannySetupContext("calculateMassMatrix", 0);
 
-  /* "mprans/cTIM.pyx":907
+  /* "mprans/cTIM.pyx":889
  *                          int LUMPED_MASS_MATRIX):
  *        cdef numpy.ndarray rowptr,colind,globalJacobian_a
  *        (rowptr,colind,globalJacobian_a) = globalJacobian.getCSRrepresentation()             # <<<<<<<<<<<<<<
  *        self.thisptr.calculateMassMatrix(dt,
  *                                        <double*> mesh_trial_ref.data,
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_globalJacobian, __pyx_n_s_getCSRrepresentation); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 907, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_globalJacobian, __pyx_n_s_getCSRrepresentation); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 889, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -5220,10 +5178,10 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_12calculateMassMatrix(struct 
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 907, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 889, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 907, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 889, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5237,7 +5195,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_12calculateMassMatrix(struct 
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 907, __pyx_L1_error)
+      __PYX_ERR(0, 889, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -5253,17 +5211,17 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_12calculateMassMatrix(struct 
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_4);
     #else
-    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 907, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 889, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 907, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 889, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 907, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 889, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     #endif
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 907, __pyx_L1_error)
+    __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 889, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = Py_TYPE(__pyx_t_5)->tp_iternext;
@@ -5273,7 +5231,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_12calculateMassMatrix(struct 
     __Pyx_GOTREF(__pyx_t_3);
     index = 2; __pyx_t_4 = __pyx_t_6(__pyx_t_5); if (unlikely(!__pyx_t_4)) goto __pyx_L3_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_5), 3) < 0) __PYX_ERR(0, 907, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_5), 3) < 0) __PYX_ERR(0, 889, __pyx_L1_error)
     __pyx_t_6 = NULL;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     goto __pyx_L4_unpacking_done;
@@ -5281,12 +5239,12 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_12calculateMassMatrix(struct 
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 907, __pyx_L1_error)
+    __PYX_ERR(0, 889, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 907, __pyx_L1_error)
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 907, __pyx_L1_error)
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 907, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 889, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 889, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 889, __pyx_L1_error)
   __pyx_v_rowptr = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
   __pyx_v_colind = ((PyArrayObject *)__pyx_t_3);
@@ -5294,7 +5252,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_12calculateMassMatrix(struct 
   __pyx_v_globalJacobian_a = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "mprans/cTIM.pyx":908
+  /* "mprans/cTIM.pyx":890
  *        cdef numpy.ndarray rowptr,colind,globalJacobian_a
  *        (rowptr,colind,globalJacobian_a) = globalJacobian.getCSRrepresentation()
  *        self.thisptr.calculateMassMatrix(dt,             # <<<<<<<<<<<<<<
@@ -5303,7 +5261,7 @@ static PyObject *__pyx_pf_6mprans_4cTIM_9cTIM_base_12calculateMassMatrix(struct 
  */
   __pyx_v_self->thisptr->calculateMassMatrix(__pyx_v_dt, ((double *)__pyx_v_mesh_trial_ref->data), ((double *)__pyx_v_mesh_grad_trial_ref->data), ((double *)__pyx_v_mesh_dof->data), ((double *)__pyx_v_mesh_velocity_dof->data), __pyx_v_MOVING_DOMAIN, ((int *)__pyx_v_mesh_l2g->data), ((double *)__pyx_v_dV_ref->data), ((double *)__pyx_v_u_trial_ref->data), ((double *)__pyx_v_u_grad_trial_ref->data), ((double *)__pyx_v_u_test_ref->data), ((double *)__pyx_v_u_grad_test_ref->data), ((double *)__pyx_v_mesh_trial_trace_ref->data), ((double *)__pyx_v_mesh_grad_trial_trace_ref->data), ((double *)__pyx_v_dS_ref->data), ((double *)__pyx_v_u_trial_trace_ref->data), ((double *)__pyx_v_u_grad_trial_trace_ref->data), ((double *)__pyx_v_u_test_trace_ref->data), ((double *)__pyx_v_u_grad_test_trace_ref->data), ((double *)__pyx_v_normal_ref->data), ((double *)__pyx_v_boundaryJac_ref->data), __pyx_v_nElements_global, __pyx_v_useMetrics, __pyx_v_alphaBDF, __pyx_v_lag_shockCapturing, __pyx_v_shockCapturingDiffusion, ((double *)__pyx_v_q_porosity->data), ((int *)__pyx_v_u_l2g->data), ((double *)__pyx_v_elementDiameter->data), __pyx_v_degree_polynomial, ((double *)__pyx_v_u_dof->data), ((double *)__pyx_v_velocity->data), ((double *)__pyx_v_q_m_betaBDF->data), ((double *)__pyx_v_cfl->data), ((double *)__pyx_v_q_numDiff_u_last->data), ((int *)__pyx_v_csrRowIndeces_u_u->data), ((int *)__pyx_v_csrColumnOffsets_u_u->data), ((double *)__pyx_v_globalJacobian_a->data), __pyx_v_nExteriorElementBoundaries_global, ((int *)__pyx_v_exteriorElementBoundariesArray->data), ((int *)__pyx_v_elementBoundaryElementsArray->data), ((int *)__pyx_v_elementBoundaryLocalElementBoundariesArray->data), ((double *)__pyx_v_ebqe_velocity_ext->data), ((double *)__pyx_v_ebqe_porosity_ext->data), ((int *)__pyx_v_isDOFBoundary_u->data), ((double *)__pyx_v_ebqe_bc_u_ext->data), ((int *)__pyx_v_isFluxBoundary_u->data), ((double *)__pyx_v_ebqe_bc_flux_u_ext->data), ((int *)__pyx_v_csrColumnOffsets_eb_u_u->data), __pyx_v_LUMPED_MASS_MATRIX);
 
-  /* "mprans/cTIM.pyx":852
+  /* "mprans/cTIM.pyx":834
  *                                        <int*> csrColumnOffsets_eb_u_u.data,
  *                                        LUMPED_MASS_MATRIX)
  *    def calculateMassMatrix(self,             # <<<<<<<<<<<<<<
@@ -8313,8 +8271,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_numpy_core_multiarray_failed_to, __pyx_k_numpy_core_multiarray_failed_to, sizeof(__pyx_k_numpy_core_multiarray_failed_to), 0, 0, 1, 0},
   {&__pyx_kp_s_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 0, 1, 0},
   {&__pyx_n_s_offset_u, __pyx_k_offset_u, sizeof(__pyx_k_offset_u), 0, 0, 1, 1},
-  {&__pyx_n_s_p_dof, __pyx_k_p_dof, sizeof(__pyx_k_p_dof), 0, 0, 1, 1},
-  {&__pyx_n_s_poro, __pyx_k_poro, sizeof(__pyx_k_poro), 0, 0, 1, 1},
   {&__pyx_n_s_porosity_dof, __pyx_k_porosity_dof, sizeof(__pyx_k_porosity_dof), 0, 0, 1, 1},
   {&__pyx_n_s_proteus, __pyx_k_proteus, sizeof(__pyx_k_proteus), 0, 0, 1, 1},
   {&__pyx_n_s_proteus_Transport, __pyx_k_proteus_Transport, sizeof(__pyx_k_proteus_Transport), 0, 0, 1, 1},
@@ -8562,9 +8518,9 @@ PyMODINIT_FUNC PyInit_cTIM(void)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_6mprans_4cTIM_cTIM_base) < 0) __PYX_ERR(0, 323, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_4cTIM_cTIM_base) < 0) __PYX_ERR(0, 317, __pyx_L1_error)
   __pyx_type_6mprans_4cTIM_cTIM_base.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "cTIM_base", (PyObject *)&__pyx_type_6mprans_4cTIM_cTIM_base) < 0) __PYX_ERR(0, 323, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "cTIM_base", (PyObject *)&__pyx_type_6mprans_4cTIM_cTIM_base) < 0) __PYX_ERR(0, 317, __pyx_L1_error)
   __pyx_ptype_6mprans_4cTIM_cTIM_base = &__pyx_type_6mprans_4cTIM_cTIM_base;
   /*--- Type import code ---*/
   __pyx_ptype_7cpython_4type_type = __Pyx_ImportType(__Pyx_BUILTIN_MODULE_NAME, "type", 
