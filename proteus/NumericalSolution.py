@@ -1186,14 +1186,14 @@ class NS_base(object):  # (HasTraits):
             #    p0.domain.PUMIMesh.writeMesh("REDOVelocity_after")
             #    self.PUMI_recomputeStructures(modelListOld)
 
-            logEvent("Redoing that velocity",4)
+            #logEvent("Redoing that velocity",4)
 
-            self.PUMI_transferFields()
-            p0.domain.PUMIMesh.writeMesh("REDOVelocity_before")
-            self.PUMI_redoVelocity(modelListOld)
-            self.PUMI_transferFields()
-            p0.domain.PUMIMesh.writeMesh("REDOVelocity_after")
-            self.PUMI_recomputeStructures(modelListOld)
+            #self.PUMI_transferFields()
+            #p0.domain.PUMIMesh.writeMesh("REDOVelocity_before")
+            #self.PUMI_redoVelocity(modelListOld)
+            #self.PUMI_transferFields()
+            #p0.domain.PUMIMesh.writeMesh("REDOVelocity_after")
+            #self.PUMI_recomputeStructures(modelListOld)
 
 
 
@@ -1464,6 +1464,8 @@ class NS_base(object):  # (HasTraits):
                 logEvent("Need to Adapt")
               if(self.nSolveSteps <= 5):
                 adaptMeshNow=False
+              #if(self.systemStepController.t_system<2.5):
+              #  adaptMeshNow=False
               #hack for single edge swap quickly and that's it for that
               #if(p0.domain.PUMIMesh.nAdapt()==4):
               #  adaptMeshNow=True
@@ -1978,18 +1980,18 @@ class NS_base(object):  # (HasTraits):
         # The initial adapt is based on interface, but will eventually be generalized to any sort of initialization
         # Needs to be placed here at this time because of the post-adapt routine requirements
 
-        if (hasattr(self.pList[0].domain, 'PUMIMesh') and
-            self.pList[0].domain.PUMIMesh.adaptMesh() and
-            (self.pList[0].domain.PUMIMesh.size_field_config() == "combined" or self.pList[0].domain.PUMIMesh.size_field_config() == "pseudo" or self.pList[0].domain.PUMIMesh.size_field_config() == "isotropic") and
-            self.so.useOneMesh and not self.opts.hotStart):
+ #       if (hasattr(self.pList[0].domain, 'PUMIMesh') and
+ #           self.pList[0].domain.PUMIMesh.adaptMesh() and
+ #           (self.pList[0].domain.PUMIMesh.size_field_config() == "combined" or self.pList[0].domain.PUMIMesh.size_field_config() == "pseudo" or self.pList[0].domain.PUMIMesh.size_field_config() == "isotropic") and
+ #           self.so.useOneMesh and not self.opts.hotStart):
 
-            self.PUMI_transferFields()
-            logEvent("Initial Adapt before Solve")
-            self.PUMI_adaptMesh("interface")
- 
-            self.PUMI_transferFields()
-            logEvent("Initial Adapt 2 before Solve")
-            self.PUMI_adaptMesh("interface")
+ #           self.PUMI_transferFields()
+ #           logEvent("Initial Adapt before Solve")
+ #           self.PUMI_adaptMesh("interface")
+# 
+ #           self.PUMI_transferFields()
+ #           logEvent("Initial Adapt 2 before Solve")
+ #           self.PUMI_adaptMesh("interface")
 
         #NS_base has a fairly complicated time stepping loop structure
         #to accommodate fairly general split operator approaches. The
@@ -2279,6 +2281,17 @@ class NS_base(object):  # (HasTraits):
 
                   
             #end system step iterations
+            self.modelList[0].levelModelList[0].mesh.elementSizeRatio = numpy.zeros((self.modelList[0].levelModelList[0].mesh.nElements_owned),'d') 
+            self.modelList[0].levelModelList[0].mesh.errorTriggered = numpy.zeros((self.modelList[0].levelModelList[0].mesh.nElements_owned),'d') 
+            self.modelList[0].levelModelList[0].mesh.errorRate = numpy.zeros((self.modelList[0].levelModelList[0].mesh.nElements_owned),'d') 
+            self.modelList[0].levelModelList[0].mesh.elementError = numpy.zeros((self.modelList[0].levelModelList[0].mesh.nElements_owned),'d') 
+            self.modelList[0].levelModelList[0].mesh.elementMaterial = numpy.zeros((self.modelList[0].levelModelList[0].mesh.nElements_owned),'d') 
+            #for idx in range(3):
+            self.modelList[0].levelModelList[0].mesh.strongResidual = numpy.zeros((3,self.modelList[0].levelModelList[0].mesh.nElements_owned),'d') 
+            self.modelList[0].levelModelList[0].mesh.nu_err = numpy.zeros((self.modelList[0].levelModelList[0].mesh.nElements_owned),'d') 
+            self.modelList[0].levelModelList[0].mesh.errRef = numpy.zeros((self.modelList[0].levelModelList[0].mesh.nElements_owned),'d') 
+            self.modelList[0].levelModelList[0].mesh.error_noTime = numpy.zeros((self.modelList[0].levelModelList[0].mesh.nElements_owned),'d') 
+
             if self.archiveFlag == ArchiveFlags.EVERY_USER_STEP and self.nSequenceSteps > nSequenceStepsLast:
                 nSequenceStepsLast = self.nSequenceSteps
                 self.tCount+=1
