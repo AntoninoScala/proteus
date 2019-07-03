@@ -450,7 +450,7 @@ void getBCW_recirculation(apf::Mesh* m,double T_current)
 
         //
         rootRank = 0;
-        if(pt_buffer_1[0] == pt_highest[0])
+        if(pt_buffer_1[1] == pt_highest[1])
         {
             rootRank = PCU_Comm_Self();
         }
