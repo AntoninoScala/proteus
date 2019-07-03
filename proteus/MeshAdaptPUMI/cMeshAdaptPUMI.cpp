@@ -409,10 +409,6 @@ void getBCW_recirculation(apf::Mesh* m,double T_current)
         else if(vel_vect_A[0]*vel_vect_B[0]<0)
         {
             
-            std::cout<<"A "<<pt_A<<std::endl;
-            std::cout<<"B "<<pt_B<<std::endl;
-            
-
             //get slope
             double slope = (vel_vect_B[0]-vel_vect_A[0])/apf::measure(m,ent);
             double l = -vel_vect_A[0]/slope;
@@ -422,14 +418,8 @@ void getBCW_recirculation(apf::Mesh* m,double T_current)
             double delta_y_new = l*delta_y/apf::measure(m,ent);
             double delta_x_new = l*delta_x/apf::measure(m,ent);//delta_y_new*delta_x/delta_y;
             
-            std::cout<<"u "<<vel_vect_A[0]<<" "<<vel_vect_B[0]<<std::endl;
-            std::cout<<"slope "<<slope<<std::endl;
-            std::cout<<"delta_y_new "<< delta_y_new<<" x_new "<<delta_x_new<<std::endl;
-
             pt[0] = pt_A[0]+delta_x_new;
             pt[1] = pt_A[1]+delta_y_new;
-            std::cout<<"point final "<<pt<<std::endl;
-            //std::exit(1);
         }
         if(pt[0]> pt_furthest[0])
             pt_furthest = pt;
@@ -439,14 +429,44 @@ void getBCW_recirculation(apf::Mesh* m,double T_current)
     }
         //need to handle parallel scenario
     
+        apf::Vector3 pt_buffer_0 = pt_furthest;
+        apf::Vector3 pt_buffer_1 = pt_highest;
+
         PCU_Max_Doubles(&pt_furthest[0],1);
         PCU_Max_Doubles(&pt_highest[1],1);
+
+        int rootRank = 0;
+        if(pt_buffer_0[0] == pt_furthest[0])
+        {
+            rootRank = PCU_Comm_Self();
+        }
+    
+        PCU_Max_Ints(&rootRank,1);
+    
+        double buffer[3];
+        buffer[0] = pt_buffer_0[0]; buffer[1] = pt_buffer_0[1]; buffer[2]=pt_buffer_0[2];
+        MPI_Bcast(&buffer[0],3,MPI_DOUBLE,rootRank,PCU_Get_Comm());
+        pt_furthest[0] = buffer[0]; pt_furthest[1] = buffer[1]; pt_furthest[2] = buffer[2];
+
+        //
+        rootRank = 0;
+        if(pt_buffer_1[0] == pt_highest[0])
+        {
+            rootRank = PCU_Comm_Self();
+        }
+    
+        PCU_Max_Ints(&rootRank,1);
+    
+        buffer[0] = pt_buffer_1[0]; buffer[1] = pt_buffer_1[1]; buffer[2]=pt_buffer_1[2];
+        MPI_Bcast(&buffer[0],3,MPI_DOUBLE,rootRank,PCU_Get_Comm());
+        pt_highest[0] = buffer[0]; pt_highest[1] = buffer[1]; pt_highest[2] = buffer[2];
+
 
         if(PCU_Comm_Self()==0)
         {
         std::ofstream myfile;
         myfile.open("weir_recirculation.txt", std::ios::app );
-        myfile <<T_current<<","<<pt_furthest[0]<<","<<pt_highest[1]<<std::endl;
+        myfile <<T_current<<","<<pt_furthest[0]<<","<<pt_furthest[1]<<","<<pt_highest[0]<<","<<pt_highest[1]<<std::endl;
         myfile.close();
         }
     
