@@ -308,6 +308,150 @@ static int countTotal(apf::Mesh* m, int dim)
   return total;
 }
 
+void getReattachmentPoint(apf::Mesh* m, double T_current)
+{
+   //loop through all edges
+   //identify edges that have boundary tag 6 
+   //get adjacent vertices
+   //get pressure from vertices
+   //get max pressure across all parts
+   //write out
+
+    apf::MeshIterator* it=m->begin(1);
+    apf::MeshEntity* ent;
+
+    double maxPressure = 0.0;
+    apf::Vector3 pt_attach;
+    while( (ent = m->iterate(it) ) )
+    {
+        apf::Vector3 pt = apf::getLinearCentroid(m,ent);
+        //if( m->getModelTag(m->toModel(ent)) ==6)
+        if(pt[0]>1.5 and pt[0] < 2.5)
+        {
+            apf::Adjacent vertAdj;
+            m->getAdjacent(ent,0,vertAdj);
+            for(int i=0; i<vertAdj.getSize();i++)
+            {
+                double pressure = apf::getScalar(m->findField("p"),vertAdj[i],0);
+                if(pressure > maxPressure && m->isOwned(vertAdj[i]))
+                {
+                    maxPressure = pressure;
+                    m->getPoint(vertAdj[i],0,pt_attach); 
+                }
+            }
+        }
+    }
+    double localMaxPressure = maxPressure;
+    PCU_Max_Doubles(&maxPressure,1);
+
+    //PCU_Comm_Begin();
+    int rootRank = 0;
+    if(maxPressure == localMaxPressure)
+    {
+        rootRank = PCU_Comm_Self();
+    }
+    
+    PCU_Max_Ints(&rootRank,1);
+    
+    double buffer[3];
+    buffer[0] = pt_attach[0]; buffer[1] = pt_attach[1]; buffer[2]=pt_attach[2];
+    MPI_Bcast(&buffer[0],3,MPI_DOUBLE,rootRank,PCU_Get_Comm());
+
+    pt_attach[0] = buffer[0]; pt_attach[1] = buffer[1]; pt_attach[2] = buffer[2];
+
+    if(PCU_Comm_Self()==0)
+    {
+        std::ofstream myfile;
+        myfile.open("reattachment_point.txt", std::ios::app );
+        myfile <<T_current<<","<<maxPressure<<","<<pt_attach[0]<<","<<pt_attach[1]<<std::endl;
+        myfile.close();
+    }
+}
+
+void getBCW_recirculation(apf::Mesh* m,double T_current)
+{
+    //this function loops over the edges and identifies edges of interest for the recirculation region calculation
+    //if above weir and inside water region, find the u=0 contour
+    //print out the point with largest x-coordinate and point with largest y-coordinate
+    //print out time
+
+    apf::MeshIterator* it=m->begin(1);
+    apf::MeshEntity* ent;
+
+    apf::Vector3 pt_furthest(0.0,0.0,0.0);
+    apf::Vector3 pt_highest(0.0,0.0,0.0);
+    while( (ent = m->iterate(it) ) )
+    {
+        apf::Adjacent vertAdj;
+        m->getAdjacent(ent,0,vertAdj);
+        apf::Vector3 vel_vect_A;
+        apf::Vector3 vel_vect_B;
+        apf::getVector(m->findField("velocity"),vertAdj[0],0,vel_vect_A);
+        apf::getVector(m->findField("velocity"),vertAdj[1],0,vel_vect_B);
+        apf::Vector3 pt;
+       
+        apf::Vector3 pt_A;
+        apf::Vector3 pt_B;
+
+        //get linear interpolation of points
+        m->getPoint(vertAdj[0],0,pt_A);
+        m->getPoint(vertAdj[1],0,pt_B);
+
+        //obstacle start at 1 and end at 1.5
+        if(pt_A[0] > 1.0 && pt_B[0] >1.0 && pt_A[0]<1.5 && pt_B[0] <1.5 && apf::getScalar(m->findField("phi"),vertAdj[0],0)<0.0 && apf::getScalar(m->findField("phi"),vertAdj[1],0)<0.0 )
+        {
+            
+
+        if(vel_vect_A[0] == 0)
+            m->getPoint(vertAdj[0],0,pt);
+        else if(vel_vect_B[0] == 0)
+            m->getPoint(vertAdj[1],0,pt);
+        else if(vel_vect_A[0]*vel_vect_B[0]<0)
+        {
+            
+            std::cout<<"A "<<pt_A<<std::endl;
+            std::cout<<"B "<<pt_B<<std::endl;
+            
+
+            //get slope
+            double slope = (vel_vect_B[0]-vel_vect_A[0])/apf::measure(m,ent);
+            double l = -vel_vect_A[0]/slope;
+            double delta_y = pt_B[1]-pt_A[1];
+            double delta_x = pt_B[0]-pt_A[0];
+            
+            double delta_y_new = l*delta_y/apf::measure(m,ent);
+            double delta_x_new = l*delta_x/apf::measure(m,ent);//delta_y_new*delta_x/delta_y;
+            
+            std::cout<<"u "<<vel_vect_A[0]<<" "<<vel_vect_B[0]<<std::endl;
+            std::cout<<"slope "<<slope<<std::endl;
+            std::cout<<"delta_y_new "<< delta_y_new<<" x_new "<<delta_x_new<<std::endl;
+
+            pt[0] = pt_A[0]+delta_x_new;
+            pt[1] = pt_A[1]+delta_y_new;
+            std::cout<<"point final "<<pt<<std::endl;
+            //std::exit(1);
+        }
+        if(pt[0]> pt_furthest[0])
+            pt_furthest = pt;
+        if(pt[1]> pt_highest[1])
+            pt_highest = pt;
+        }
+    }
+        //need to handle parallel scenario
+    
+        PCU_Max_Doubles(&pt_furthest[0],1);
+        PCU_Max_Doubles(&pt_highest[1],1);
+
+        if(PCU_Comm_Self()==0)
+        {
+        std::ofstream myfile;
+        myfile.open("weir_recirculation.txt", std::ios::app );
+        myfile <<T_current<<","<<pt_furthest[0]<<","<<pt_highest[1]<<std::endl;
+        myfile.close();
+        }
+    
+}
+
 #include "PyEmbeddedFunctions.h"
 int MeshAdaptPUMIDrvr::willErrorAdapt() 
 /**
@@ -562,6 +706,9 @@ int MeshAdaptPUMIDrvr::willErrorAdapt_reference()
   
   T_reference = T_current;
 
+  getBCW_recirculation(m,T_current);
+  getReattachmentPoint(m,T_current);
+
   return assertFlag;
 }
 
@@ -656,7 +803,6 @@ int MeshAdaptPUMIDrvr::willInterfaceAdapt()
 
   return assertFlag;
 }
-
 
 
 int MeshAdaptPUMIDrvr::adaptPUMIMesh(const char* inputString)
