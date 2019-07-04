@@ -308,6 +308,7 @@ static int countTotal(apf::Mesh* m, int dim)
   return total;
 }
 
+#include <iomanip>
 void getReattachmentPoint(apf::Mesh* m, double T_current)
 {
    //loop through all edges
@@ -363,7 +364,7 @@ void getReattachmentPoint(apf::Mesh* m, double T_current)
     {
         std::ofstream myfile;
         myfile.open("reattachment_point.txt", std::ios::app );
-        myfile <<T_current<<","<<maxPressure<<","<<pt_attach[0]<<","<<pt_attach[1]<<std::endl;
+        myfile <<std::setprecision(15)<<T_current<<","<<maxPressure<<","<<pt_attach[0]<<","<<pt_attach[1]<<std::endl;
         myfile.close();
     }
 }
@@ -466,7 +467,7 @@ void getBCW_recirculation(apf::Mesh* m,double T_current)
         {
         std::ofstream myfile;
         myfile.open("weir_recirculation.txt", std::ios::app );
-        myfile <<T_current<<","<<pt_furthest[0]<<","<<pt_furthest[1]<<","<<pt_highest[0]<<","<<pt_highest[1]<<std::endl;
+        myfile <<std::setprecision(5)<<T_current<<","<<pt_furthest[0]<<","<<pt_furthest[1]<<","<<pt_highest[0]<<","<<pt_highest[1]<<std::endl;
         myfile.close();
         }
     
