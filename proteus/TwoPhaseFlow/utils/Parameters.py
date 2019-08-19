@@ -8,6 +8,13 @@ from proteus.MeshTools import MeshOptions
 from proteus.defaults import (Physics_base,
                               Numerics_base,
                               System_base)
+from proteus import Comm
+comm=Comm.get()
+if comm.size() > 1:
+    parallel=True
+else:
+    parallel=False
+
 # models
 from proteus.mprans import (RANS2P,
                             RANS3PF,
@@ -259,7 +266,7 @@ class ParametersModelBase(FreezableClass):
         self.n.elementQuadrature = FESpace['elementQuadrature']
         self.n.elementBoundaryQuadrature = FESpace['elementBoundaryQuadrature']
         # SUPERLU
-        if self._Problem.useSuperlu:
+        if self._Problem.useSuperlu and not parallel:
             self.n.multilevelLinearSolver = LinearSolvers.LU
             self.n.levelLinearSolver = LinearSolvers.LU
         # AUXILIARY VARIABLES
@@ -307,9 +314,9 @@ class ParametersModelRANS2P(ParametersModelBase):
         copts.epsFact_viscosity = epsFact
         copts.epsFact_density = epsFact
         copts.forceStrongDirichlet = False
-        copts.weak_bc_penalty_constant = 1e6
+        copts.weak_bc_penalty_constant = 100.
         copts.useRBLES = 0
-        copts.useVF = 1
+        copts.useVF = 0.
         copts.timeOrder = 2
         copts.stokes = False
         copts.eb_adjoint_sigma = 1.
@@ -506,7 +513,11 @@ class ParametersModelRANS2P(ParametersModelBase):
 
     def _initializePETScOptions(self):
         prefix = self.n.linear_solver_options_prefix
-        if self.n.linearSmoother == LinearSolvers.SimpleNavierStokes3D:
+        if self._Problem.useSuperlu:
+            self.OptDB.setValue(prefix+'ksp_type', 'preonly')
+            self.OptDB.setValue(prefix+'pc_type', 'lu')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+        elif self.n.linearSmoother == LinearSolvers.SimpleNavierStokes3D:
             self.OptDB.setValue(prefix+'ksp_type', 'gmres')
             self.OptDB.setValue(prefix+'pc_type', 'asm')
             self.OptDB.setValue(prefix+'pc_asm_type', 'basic')
@@ -577,9 +588,9 @@ class ParametersModelRANS3PF(ParametersModelBase):
         copts.epsFact_density = epsFact
         copts.forceStrongDirichlet = False
         copts.ns_sed_forceStrongDirichlet = False
-        copts.weak_bc_penalty_constant = 1e6
+        copts.weak_bc_penalty_constant = 100.
         copts.useRBLES = 0
-        copts.useVF = 1
+        copts.useVF = 0.
         copts.PSTAB = 0
         copts.ARTIFICIAL_VISCOSITY = 3
         copts.INT_BY_PARTS_PRESSURE = 1
@@ -1469,13 +1480,18 @@ class ParametersModelVOF(ParametersModelBase):
 
     def _initializePETScOptions(self):
         prefix = self.n.linear_solver_options_prefix
-        self.OptDB.setValue(prefix+'ksp_type', 'gmres')
-        self.OptDB.setValue(prefix+'pc_type', 'hypre')
-        self.OptDB.setValue(prefix+'pc_pc_hypre_type', 'boomeramg')
-        self.OptDB.setValue(prefix+'ksp_gmres_restart', 300)
-        self.OptDB.setValue(prefix+'ksp_knoll', 1)
-        self.OptDB.setValue(prefix+'ksp_max_it', 2000)
-
+        if self._Problem.useSuperlu:
+            self.OptDB.setValue(prefix+'ksp_type', 'preonly')
+            self.OptDB.setValue(prefix+'pc_type', 'lu')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+        else:
+            self.OptDB.setValue(prefix+'ksp_type', 'gmres')
+            self.OptDB.setValue(prefix+'pc_type', 'hypre')
+            self.OptDB.setValue(prefix+'pc_pc_hypre_type', 'boomeramg')
+            self.OptDB.setValue(prefix+'ksp_gmres_restart', 300)
+            self.OptDB.setValue(prefix+'ksp_knoll', 1)
+            self.OptDB.setValue(prefix+'ksp_max_it', 2000)
+            
 
 class ParametersModelNCLS(ParametersModelBase):
     """
@@ -1572,12 +1588,17 @@ class ParametersModelNCLS(ParametersModelBase):
 
     def _initializePETScOptions(self):
         prefix = self.n.linear_solver_options_prefix
-        self.OptDB.setValue(prefix+'ksp_type', 'gmres')
-        self.OptDB.setValue(prefix+'pc_type', 'hypre')
-        self.OptDB.setValue(prefix+'pc_pc_hypre_type', 'boomeramg')
-        self.OptDB.setValue(prefix+'ksp_gmres_restart', 300)
-        self.OptDB.setValue(prefix+'ksp_knoll', 1)
-        self.OptDB.setValue(prefix+'ksp_max_it', 2000)
+        if self._Problem.useSuperlu:
+            self.OptDB.setValue(prefix+'ksp_type', 'preonly')
+            self.OptDB.setValue(prefix+'pc_type', 'lu')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+        else:
+            self.OptDB.setValue(prefix+'ksp_type', 'gmres')
+            self.OptDB.setValue(prefix+'pc_type', 'hypre')
+            self.OptDB.setValue(prefix+'pc_pc_hypre_type', 'boomeramg')
+            self.OptDB.setValue(prefix+'ksp_gmres_restart', 300)
+            self.OptDB.setValue(prefix+'ksp_knoll', 1)
+            self.OptDB.setValue(prefix+'ksp_max_it', 2000)
 
 class ParametersModelRDLS(ParametersModelBase):
     """
@@ -1589,7 +1610,7 @@ class ParametersModelRDLS(ParametersModelBase):
         copts.useMetrics = True
         copts.applyRedistancing = True
         copts.backgroundDiffusionFactor = 0.01
-        copts.epsFact = 0.33
+        copts.epsFact = 0.75
         copts.ELLIPTIC_REDISTANCING = 0
         copts._freeze()
         scopts = self.n.ShockCapturingOptions
@@ -1667,16 +1688,21 @@ class ParametersModelRDLS(ParametersModelBase):
 
     def _initializePETScOptions(self):
         prefix = self.n.linear_solver_options_prefix
-        self.OptDB.setValue(prefix+'ksp_type', 'gmres')
-        self.OptDB.setValue(prefix+'pc_type', 'asm')
-        self.OptDB.setValue(prefix+'pc_pc_asm_type', 'basic')
-        self.OptDB.setValue(prefix+'ksp_gmres_modifiedgramschmidt', 1)
-        self.OptDB.setValue(prefix+'ksp_gmres_restart', 300)
-        self.OptDB.setValue(prefix+'ksp_knoll', 1)
-        self.OptDB.setValue(prefix+'sub_ksp_type', 'preonly')
-        self.OptDB.setValue(prefix+'sub_pc_factor_mat_solver_type', 'superlu')
-        self.OptDB.setValue(prefix+'sub_pc_type', 'lu')
-        self.OptDB.setValue(prefix+'max_it', 2000)
+        if self._Problem.useSuperlu:
+            self.OptDB.setValue(prefix+'ksp_type', 'preonly')
+            self.OptDB.setValue(prefix+'pc_type', 'lu')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+        else:
+            self.OptDB.setValue(prefix+'ksp_type', 'gmres')
+            self.OptDB.setValue(prefix+'pc_type', 'asm')
+            self.OptDB.setValue(prefix+'pc_pc_asm_type', 'basic')
+            self.OptDB.setValue(prefix+'ksp_gmres_modifiedgramschmidt', 1)
+            self.OptDB.setValue(prefix+'ksp_gmres_restart', 300)
+            self.OptDB.setValue(prefix+'ksp_knoll', 1)
+            self.OptDB.setValue(prefix+'sub_ksp_type', 'preonly')
+            self.OptDB.setValue(prefix+'sub_pc_factor_mat_solver_type', 'superlu')
+            self.OptDB.setValue(prefix+'sub_pc_type', 'lu')
+            self.OptDB.setValue(prefix+'max_it', 2000)
 
 class ParametersModelMCorr(ParametersModelBase):
     """
@@ -1771,10 +1797,15 @@ class ParametersModelMCorr(ParametersModelBase):
 
     def _initializePETScOptions(self):
         prefix = self.n.linear_solver_options_prefix
-        self.OptDB.setValue(prefix+'ksp_type', 'cg')
-        self.OptDB.setValue(prefix+'pc_type', 'hypre')
-        self.OptDB.setValue(prefix+'pc_pc_hypre_type', 'boomeramg')
-        self.OptDB.setValue(prefix+'ksp_max_it', 2000)
+        if self._Problem.useSuperlu:
+            self.OptDB.setValue(prefix+'ksp_type', 'preonly')
+            self.OptDB.setValue(prefix+'pc_type', 'lu')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+        else:
+            self.OptDB.setValue(prefix+'ksp_type', 'cg')
+            self.OptDB.setValue(prefix+'pc_type', 'hypre')
+            self.OptDB.setValue(prefix+'pc_pc_hypre_type', 'boomeramg')
+            self.OptDB.setValue(prefix+'ksp_max_it', 2000)
 
 class ParametersModelAddedMass(ParametersModelBase):
     """
@@ -1858,10 +1889,15 @@ class ParametersModelAddedMass(ParametersModelBase):
 
     def _initializePETScOptions(self):
         prefix = self.n.linear_solver_options_prefix
-        self.OptDB.setValue(prefix+'ksp_type', 'cg')
-        self.OptDB.setValue(prefix+'pc_type', 'hypre')
-        self.OptDB.setValue(prefix+'pc_hypre_type', 'boomeramg')
-        self.OptDB.setValue(prefix+'ksp_max_it', 2000)
+        if self._Problem.useSuperlu:
+            self.OptDB.setValue(prefix+'ksp_type', 'preonly')
+            self.OptDB.setValue(prefix+'pc_type', 'lu')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+        else:
+            self.OptDB.setValue(prefix+'ksp_type', 'cg')
+            self.OptDB.setValue(prefix+'pc_type', 'hypre')
+            self.OptDB.setValue(prefix+'pc_hypre_type', 'boomeramg')
+            self.OptDB.setValue(prefix+'ksp_max_it', 2000)
 
 class ParametersModelMoveMeshMonitor(ParametersModelBase):
     """
@@ -1962,9 +1998,14 @@ class ParametersModelMoveMeshMonitor(ParametersModelBase):
 
     def _initializePETScOptions(self):
         prefix = self.n.linear_solver_options_prefix
-        self.OptDB.setValue(prefix+'ksp_type', 'cg')
-        self.OptDB.setValue(prefix+'pc_type', 'hypre')
-        self.OptDB.setValue(prefix+'pc_hypre_type', 'boomeramg')
+        if self._Problem.useSuperlu:
+            self.OptDB.setValue(prefix+'ksp_type', 'preonly')
+            self.OptDB.setValue(prefix+'pc_type', 'lu')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+        else:
+            self.OptDB.setValue(prefix+'ksp_type', 'cg')
+            self.OptDB.setValue(prefix+'pc_type', 'hypre')
+            self.OptDB.setValue(prefix+'pc_hypre_type', 'boomeramg')
         # self.OptDB.setValue(prefix+'ksp_constant_null_space', 1)
         # self.OptDB.setValue(prefix+'pc_factor_shift_type', 'NONZERO')
         # self.OptDB.setValue(prefix+'pc_factor_shift_amount', 1e-10)
@@ -2077,14 +2118,19 @@ class ParametersModelMoveMeshElastic(ParametersModelBase):
 
     def _initializePETScOptions(self):
         prefix = self.n.linear_solver_options_prefix
-        self.OptDB.setValue(prefix+'ksp_type', 'cg')
-        self.OptDB.setValue(prefix+'pc_type', 'asm')
-        self.OptDB.setValue(prefix+'pc_asm_type', 'basic')
-        self.OptDB.setValue(prefix+'ksp_max_it', 2000)
-        self.OptDB.setValue(prefix+'sub_ksp_type', 'preonly')
-        self.OptDB.setValue(prefix+'sub_pc_factor_mat_solver_type', 'superlu')
-        self.OptDB.setValue(prefix+'ksp_knoll', 1)
-        self.OptDB.setValue(prefix+'sub_pc_type', 'lu')
+        if self._Problem.useSuperlu:
+            self.OptDB.setValue(prefix+'ksp_type', 'preonly')
+            self.OptDB.setValue(prefix+'pc_type', 'lu')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+        else:
+            self.OptDB.setValue(prefix+'ksp_type', 'cg')
+            self.OptDB.setValue(prefix+'pc_type', 'asm')
+            self.OptDB.setValue(prefix+'pc_asm_type', 'basic')
+            self.OptDB.setValue(prefix+'ksp_max_it', 2000)
+            self.OptDB.setValue(prefix+'sub_ksp_type', 'preonly')
+            self.OptDB.setValue(prefix+'sub_pc_factor_mat_solver_type', 'superlu')
+            self.OptDB.setValue(prefix+'ksp_knoll', 1)
+            self.OptDB.setValue(prefix+'sub_pc_type', 'lu')
 
 
 class ParametersPhysical(FreezableClass):
