@@ -310,14 +310,15 @@ class ParametersModelRANS2P(ParametersModelBase):
                                                     Problem=Problem)
         self.timeDiscretization = 'be'
         copts = self.p.CoefficientsOptions
+        copts.NONCONSERVATIVE_FORM = 1.
         copts.useMetrics = 1.
         copts.epsFact_viscosity = epsFact
         copts.epsFact_density = epsFact
         copts.forceStrongDirichlet = False
-        copts.weak_bc_penalty_constant = 100.
+        copts.weak_bc_penalty_constant = 100.0
         copts.useRBLES = 0
-        copts.useVF = 0.
-        copts.timeOrder = 2
+        copts.useVF = 0.0
+        copts.timeOrder = 1
         copts.stokes = False
         copts.eb_adjoint_sigma = 1.
         copts.Closure_0_model = None
@@ -391,6 +392,7 @@ class ParametersModelRANS2P(ParametersModelBase):
         # COEFFICIENTS
         copts = self.p.CoefficientsOptions
         self.p.coefficients = RANS2P.Coefficients(
+            NONCONSERVATIVE_FORM=copts.NONCONSERVATIVE_FORM,
             epsFact=copts.epsFact_viscosity,
             sigma=pparams.surf_tension_coeff,
             rho_0=pparams.densityA,
@@ -516,7 +518,7 @@ class ParametersModelRANS2P(ParametersModelBase):
         if self._Problem.useSuperlu:
             self.OptDB.setValue(prefix+'ksp_type', 'preonly')
             self.OptDB.setValue(prefix+'pc_type', 'lu')
-            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_type', 'superlu_dist')
         elif self.n.linearSmoother == LinearSolvers.SimpleNavierStokes3D:
             self.OptDB.setValue(prefix+'ksp_type', 'gmres')
             self.OptDB.setValue(prefix+'pc_type', 'asm')
@@ -588,9 +590,9 @@ class ParametersModelRANS3PF(ParametersModelBase):
         copts.epsFact_density = epsFact
         copts.forceStrongDirichlet = False
         copts.ns_sed_forceStrongDirichlet = False
-        copts.weak_bc_penalty_constant = 100.
+        copts.weak_bc_penalty_constant = 100.0
         copts.useRBLES = 0
-        copts.useVF = 0.
+        copts.useVF = 0
         copts.PSTAB = 0
         copts.ARTIFICIAL_VISCOSITY = 3
         copts.INT_BY_PARTS_PRESSURE = 1
@@ -1025,7 +1027,7 @@ class ParametersModelKappa(ParametersModelBase):
         self.p.LevelModelType = Kappa.LevelModel
         # NUMERICAL FLUX
         self.n.numericalFluxType = Kappa.NumericalFlux
-        self.n.conservativeFlux = None
+        self.n.conservativeFlux = {0:'pwl-bdm-opt'}
        # LINEAR ALGEBRA
         self.n.multilevelLinearSolver = LinearSolvers.KSP_petsc4py
         self.n.levelLinearSolver = LinearSolvers.KSP_petsc4py
@@ -1483,7 +1485,7 @@ class ParametersModelVOF(ParametersModelBase):
         if self._Problem.useSuperlu:
             self.OptDB.setValue(prefix+'ksp_type', 'preonly')
             self.OptDB.setValue(prefix+'pc_type', 'lu')
-            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_type', 'superlu_dist')
         else:
             self.OptDB.setValue(prefix+'ksp_type', 'gmres')
             self.OptDB.setValue(prefix+'pc_type', 'hypre')
@@ -1533,6 +1535,7 @@ class ParametersModelNCLS(ParametersModelBase):
         self._freeze()
 
     def _initializePhysics(self):
+        domain = self._Problem.domain
         # MODEL INDEXING
         mparams = self._Problem.Parameters.Models
         ME_model = mparams.ncls.index
@@ -1558,9 +1561,16 @@ class ParametersModelNCLS(ParametersModelBase):
         IC = self._Problem.initialConditions
         self.p.initialConditions = {0: IC['ncls']}
         # BOUNDARY CONDITIONS
-        self.p.dirichletConditions = {0: lambda x, flag: None}
-        self.p.advectiveFluxBoundaryConditions = {}
-        self.p.diffusiveFluxBoundaryConditions = {0: {}}
+        BC = self._Problem.boundaryConditions
+        if self.p.dirichletConditions is None or len(self.p.dirichletConditions) is 0:
+            if domain.useSpatialTools is False or self._Problem.useBoundaryConditionsModule is False:
+                if 'ncls_DBC' in BC:
+                    self.p.dirichletConditions = {0: BC['ncls_DBC']}
+                else:
+                    self.p.dirichletCondtions = {0: lambda x,t: None}
+            else:
+                self.p.dirichletConditions = {0: lambda x, flag: domain.BCbyFlag[flag].phi_dirichlet.uOfXT}
+            self.p.diffusiveFluxBoundaryConditions = {0: {}}
 
     def _initializeNumerics(self):
         domain = self._Problem.domain
@@ -1591,7 +1601,7 @@ class ParametersModelNCLS(ParametersModelBase):
         if self._Problem.useSuperlu:
             self.OptDB.setValue(prefix+'ksp_type', 'preonly')
             self.OptDB.setValue(prefix+'pc_type', 'lu')
-            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_type', 'superlu_dist')
         else:
             self.OptDB.setValue(prefix+'ksp_type', 'gmres')
             self.OptDB.setValue(prefix+'pc_type', 'hypre')
@@ -1691,7 +1701,7 @@ class ParametersModelRDLS(ParametersModelBase):
         if self._Problem.useSuperlu:
             self.OptDB.setValue(prefix+'ksp_type', 'preonly')
             self.OptDB.setValue(prefix+'pc_type', 'lu')
-            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_type', 'superlu_dist')
         else:
             self.OptDB.setValue(prefix+'ksp_type', 'gmres')
             self.OptDB.setValue(prefix+'pc_type', 'asm')
@@ -1800,7 +1810,7 @@ class ParametersModelMCorr(ParametersModelBase):
         if self._Problem.useSuperlu:
             self.OptDB.setValue(prefix+'ksp_type', 'preonly')
             self.OptDB.setValue(prefix+'pc_type', 'lu')
-            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_type', 'superlu_dist')
         else:
             self.OptDB.setValue(prefix+'ksp_type', 'cg')
             self.OptDB.setValue(prefix+'pc_type', 'hypre')
@@ -1892,7 +1902,7 @@ class ParametersModelAddedMass(ParametersModelBase):
         if self._Problem.useSuperlu:
             self.OptDB.setValue(prefix+'ksp_type', 'preonly')
             self.OptDB.setValue(prefix+'pc_type', 'lu')
-            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_type', 'superlu_dist')
         else:
             self.OptDB.setValue(prefix+'ksp_type', 'cg')
             self.OptDB.setValue(prefix+'pc_type', 'hypre')
@@ -2001,7 +2011,7 @@ class ParametersModelMoveMeshMonitor(ParametersModelBase):
         if self._Problem.useSuperlu:
             self.OptDB.setValue(prefix+'ksp_type', 'preonly')
             self.OptDB.setValue(prefix+'pc_type', 'lu')
-            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_type', 'superlu_dist')
         else:
             self.OptDB.setValue(prefix+'ksp_type', 'cg')
             self.OptDB.setValue(prefix+'pc_type', 'hypre')
@@ -2121,7 +2131,7 @@ class ParametersModelMoveMeshElastic(ParametersModelBase):
         if self._Problem.useSuperlu:
             self.OptDB.setValue(prefix+'ksp_type', 'preonly')
             self.OptDB.setValue(prefix+'pc_type', 'lu')
-            self.OptDB.setValue(prefix+'pc_factor_mat_solver_package', 'superlu_dist')
+            self.OptDB.setValue(prefix+'pc_factor_mat_solver_type', 'superlu_dist')
         else:
             self.OptDB.setValue(prefix+'ksp_type', 'cg')
             self.OptDB.setValue(prefix+'pc_type', 'asm')
